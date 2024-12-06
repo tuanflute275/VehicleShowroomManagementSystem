@@ -1,0 +1,95 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Admin - CodeLean eShop</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description"
+        content="This is an example dashboard (CodeLean) created using build-in elements and components.">
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link href="~/assets/css/main.css" rel="stylesheet">
+    <link href="~/assets/css/my_style.css" rel="stylesheet">
+    <style>
+        .page-item {
+            width: 42px;
+            text-align: center;
+        }
+
+        .app-main__inner{
+            padding: 10px 30px 0 !important;
+        }
+    </style>
+    @RenderSection("Styles", required: false)
+</head>
+
+<body>
+    <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
+        @Html.Partial("_Header")
+       @*  @Html.Partial("_Setting") *@
+        <div class="app-main">
+            <div class="app-sidebar sidebar-shadow">
+                <div class="app-header__logo">
+                    <div class="logo-src"></div>
+                    <div class="header__pane ml-auto">
+                        <div>
+                            <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
+                                data-class="closed-sidebar">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-header__mobile-menu">
+                    <div>
+                        <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="app-header__menu">
+                    <span>
+                        <button type="button"
+                            class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                            <span class="btn-icon-wrapper">
+                                <i class="fa fa-ellipsis-v fa-w-6"></i>
+                            </span>
+                        </button>
+                    </span>
+                </div>
+                @Html.Partial("_Sidebar")
+            </div>
+
+            <div class="app-main__outer">
+              @RenderBody()
+            </div>
+        </div>
+    </div>
+    <script src="~/assets/scripts/jquery-3.2.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/assets/scripts/main.js"></script>
+    <script type="text/javascript" src="~/assets/scripts/common.js"></script>
+    <script type="text/javascript" src="~/assets/scripts/my_script.js"></script>
+    <script type="text/javascript" src="~/assets/scripts/html2pdf.bundle.min.js"></script>
+    <script type="text/javascript" src="~/assets/scripts/html2canvas.min.js"></script>
+    <script type="text/javascript" src="~/assets/scripts/bootbox.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+  @*   @await Component.InvokeAsync("NToastNotify")
+    @await Component.InvokeAsync("Notyf") *@
+</body>
+
+</html>

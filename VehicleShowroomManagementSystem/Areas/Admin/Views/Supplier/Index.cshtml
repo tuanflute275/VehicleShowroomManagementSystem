@@ -1,0 +1,7 @@
+﻿@{
+    var totalPage = ViewBag.TotalPages;
+    var sn = ViewBag.Data != null && ViewBag.Data.Count > 0 ? ViewBag.Data[0].SupplierName : "No Data";
+}
+
+<h2>Helloo, Total Pages: @totalPage</h2>
+<p>First Supplier Name: @sn</p>

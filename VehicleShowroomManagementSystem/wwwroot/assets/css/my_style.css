@@ -1,0 +1,65 @@
+/* image */
+img {
+    display: inline;
+}
+
+/* modal */
+.modal-dialog {
+    box-shadow: none;
+}
+
+ul {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* form */
+.display_data p {
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+.display_data .form-group:last-child {
+    margin-bottom: 0;
+}
+
+/* button delete */
+.tabs-animated .delete .nav-link::before {
+    background-color: #d92550; /*--danger*/
+}
+
+/* pagination */
+nav[aria-label="Pagination Navigation"] span[aria-current=page] > span {
+    background-color: #3f6ad8f0 !important;
+    border: 1px solid #3f6ad8 !important;
+    /*opacity: 0.9;*/
+    color: #fff;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
+nav[aria-label="Pagination Navigation"] a {
+    text-decoration: none;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
+nav[aria-label="Pagination Navigation"] a:first-child {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
+
+nav[aria-label="Pagination Navigation"] a:last-child {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
+
+nav[aria-label="Pagination Navigation"] a:hover {
+    background-color: #e9ecef !important;
+    color: #0056b3;
+}
+
+/* icon setting */
+.ui-theme-settings .btn-open-options {
+    bottom: 48px;
+}

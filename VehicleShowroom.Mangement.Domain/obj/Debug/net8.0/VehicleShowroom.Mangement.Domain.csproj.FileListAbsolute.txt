@@ -1,0 +1,12 @@
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.Domain\bin\Debug\net8.0\VehicleShowroom.Mangement.Domain.deps.json
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.Domain\bin\Debug\net8.0\VehicleShowroom.Mangement.Domain.dll
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.Domain\bin\Debug\net8.0\VehicleShowroom.Mangement.Domain.pdb
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.Domain\obj\Debug\net8.0\VehicleShowroom.Mangement.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.Domain\obj\Debug\net8.0\VehicleShowroom.Mangement.Domain.AssemblyInfoInputs.cache
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.Domain\obj\Debug\net8.0\VehicleShowroom.Mangement.Domain.AssemblyInfo.cs
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.Domain\obj\Debug\net8.0\VehicleShowroom.Mangement.Domain.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.Domain\obj\Debug\net8.0\VehicleShowroom.Mangement.Domain.dll
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.Domain\obj\Debug\net8.0\refint\VehicleShowroom.Mangement.Domain.dll
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.Domain\obj\Debug\net8.0\VehicleShowroom.Mangement.Domain.pdb
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.Domain\obj\Debug\net8.0\ref\VehicleShowroom.Mangement.Domain.dll
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.Domain\obj\Debug\net8.0\VehicleShowroom.Mangement.Domain.csproj.AssemblyReference.cache

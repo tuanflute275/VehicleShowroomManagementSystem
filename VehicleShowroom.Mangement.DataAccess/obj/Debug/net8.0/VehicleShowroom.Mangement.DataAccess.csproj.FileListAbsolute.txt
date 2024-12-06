@@ -1,0 +1,17 @@
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.DataAccess\bin\Debug\net8.0\VehicleShowroom.Mangement.DataAccess.deps.json
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.DataAccess\bin\Debug\net8.0\VehicleShowroom.Mangement.DataAccess.dll
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.DataAccess\bin\Debug\net8.0\VehicleShowroom.Mangement.DataAccess.pdb
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.DataAccess\bin\Debug\net8.0\VehicleShowroom.Mangement.Domain.dll
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.DataAccess\bin\Debug\net8.0\VehicleShowroom.Mangement.Domain.pdb
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.DataAccess\obj\Debug\net8.0\VehicleShowroom.Mangement.DataAccess.csproj.AssemblyReference.cache
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.DataAccess\obj\Debug\net8.0\VehicleShowroom.Mangement.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.DataAccess\obj\Debug\net8.0\VehicleShowroom.Mangement.DataAccess.AssemblyInfoInputs.cache
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.DataAccess\obj\Debug\net8.0\VehicleShowroom.Mangement.DataAccess.AssemblyInfo.cs
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.DataAccess\obj\Debug\net8.0\VehicleShowroom.Mangement.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.DataAccess\obj\Debug\net8.0\VehicleS.267957BD.Up2Date
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.DataAccess\obj\Debug\net8.0\VehicleShowroom.Mangement.DataAccess.dll
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.DataAccess\obj\Debug\net8.0\refint\VehicleShowroom.Mangement.DataAccess.dll
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.DataAccess\obj\Debug\net8.0\VehicleShowroom.Mangement.DataAccess.pdb
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.DataAccess\obj\Debug\net8.0\ref\VehicleShowroom.Mangement.DataAccess.dll
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.DataAccess\bin\Debug\net8.0\VehicleShowroom.Mangement.DataAccess.runtimeconfig.json
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.DataAccess\obj\Debug\net8.0\VehicleShowroom.Mangement.DataAccess.genruntimeconfig.cache
