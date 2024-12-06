@@ -318,3 +318,4 @@ C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.
 C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.Infrastructure\bin\Debug\net8.0\refs\System.Xml.XPath.dll
 C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.Infrastructure\bin\Debug\net8.0\refs\System.Xml.XPath.XDocument.dll
 C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.Infrastructure\bin\Debug\net8.0\refs\WindowsBase.dll
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.Infrastructure\obj\Debug\net8.0\VehicleShowroom.Mangement.Infrastructure.sourcelink.json

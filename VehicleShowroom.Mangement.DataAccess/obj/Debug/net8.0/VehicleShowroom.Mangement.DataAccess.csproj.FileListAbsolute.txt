@@ -15,3 +15,4 @@ C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.
 C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.DataAccess\obj\Debug\net8.0\ref\VehicleShowroom.Mangement.DataAccess.dll
 C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.DataAccess\bin\Debug\net8.0\VehicleShowroom.Mangement.DataAccess.runtimeconfig.json
 C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.DataAccess\obj\Debug\net8.0\VehicleShowroom.Mangement.DataAccess.genruntimeconfig.cache
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.DataAccess\obj\Debug\net8.0\VehicleShowroom.Mangement.DataAccess.sourcelink.json

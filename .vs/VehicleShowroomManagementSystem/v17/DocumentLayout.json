@@ -58,8 +58,7 @@
               "RelativeToolTip": "VehicleShowroomManagementSystem\\LogFiles\\log20241206.txt",
               "ViewState": "AQIAAKQCAAAAAAAAAAAAALwCAABiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-12-06T10:54:27.132Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-06T10:54:27.132Z"
             },
             {
               "$type": "Document",
@@ -71,8 +70,7 @@
               "RelativeToolTip": "VehicleShowroomManagementSystem\\Models\\ResponseDatatable.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T10:38:55.576Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-06T10:38:55.576Z"
             },
             {
               "$type": "Document",
@@ -84,8 +82,7 @@
               "RelativeToolTip": "VehicleShowroom.Mangement.DataAccess\\Repository\\SupplierRepository.cs",
               "ViewState": "AQIAADMAAAAAAAAAAAAowD4AAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T10:34:31.858Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-06T10:34:31.858Z"
             },
             {
               "$type": "Document",
@@ -95,7 +92,7 @@
               "RelativeDocumentMoniker": "VehicleShowroomManagementSystem\\Areas\\Admin\\Views\\Supplier\\Index.cshtml",
               "ToolTip": "C:\\Users\\DELL\\Desktop\\VehicleShowroomManagementSystem\\VehicleShowroomManagementSystem\\Areas\\Admin\\Views\\Supplier\\Index.cshtml",
               "RelativeToolTip": "VehicleShowroomManagementSystem\\Areas\\Admin\\Views\\Supplier\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAABnAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-12-06T10:29:41.587Z",
               "EditorCaption": ""
@@ -110,8 +107,7 @@
               "RelativeToolTip": "VehicleShowroomManagementSystem\\Areas\\Admin\\Views\\_ViewImports.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-06T10:24:50.152Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-06T10:24:50.152Z"
             },
             {
               "$type": "Document",
@@ -123,8 +119,7 @@
               "RelativeToolTip": "VehicleShowroomManagementSystem\\Areas\\Admin\\Controllers\\SupplierController.cs",
               "ViewState": "AQIAAAoAAAAAAAAAAIA6wBUAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T10:21:44.145Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-06T10:21:44.145Z"
             },
             {
               "$type": "Document",
@@ -136,8 +131,7 @@
               "RelativeToolTip": "VehicleShowroom.Mangement.Application\\Services\\SupplierService.cs",
               "ViewState": "AQIAAFIAAAAAAAAAAAAkwFwAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T10:34:09.456Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-06T10:34:09.456Z"
             },
             {
               "$type": "Document",

@@ -580,3 +580,4 @@ C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroomManagementS
 C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroomManagementSystem\bin\Debug\net8.0\AspNetCoreHero.ToastNotification.dll
 C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroomManagementSystem\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll
 C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroomManagementSystem\bin\Debug\net8.0\NToastNotify.dll
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroomManagementSystem\obj\Debug\net8.0\VehicleShowroomManagementSystem.sourcelink.json

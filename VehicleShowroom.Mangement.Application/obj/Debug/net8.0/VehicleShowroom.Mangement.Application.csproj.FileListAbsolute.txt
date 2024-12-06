@@ -13,3 +13,4 @@ C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.
 C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.Application\obj\Debug\net8.0\refint\VehicleShowroom.Mangement.Application.dll
 C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.Application\obj\Debug\net8.0\VehicleShowroom.Mangement.Application.pdb
 C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.Application\obj\Debug\net8.0\ref\VehicleShowroom.Mangement.Application.dll
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroom.Mangement.Application\obj\Debug\net8.0\VehicleShowroom.Mangement.Application.sourcelink.json
