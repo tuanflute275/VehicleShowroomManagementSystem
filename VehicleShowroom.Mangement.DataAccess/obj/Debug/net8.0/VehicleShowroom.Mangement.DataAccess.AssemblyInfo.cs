@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VehicleShowroom.Mangement.DataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d81cc6322a0ef177b9149073191a621c195c5a7f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb2e951c75511290b2b97b1da05d4345935e4c56")]
 [assembly: System.Reflection.AssemblyProductAttribute("VehicleShowroom.Mangement.DataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VehicleShowroom.Mangement.DataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

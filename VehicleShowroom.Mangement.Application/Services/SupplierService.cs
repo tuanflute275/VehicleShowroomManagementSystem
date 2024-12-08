@@ -1,13 +1,10 @@
 ﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
 using VehicleShowroom.Mangement.Application.Abstracts;
-using VehicleShowroom.Mangement.Application.Models.DTOs;
 using VehicleShowroom.Mangement.Application.Models.DTOs.Supplier;
 using VehicleShowroom.Mangement.Application.Models.ViewModels;
 using VehicleShowroom.Mangement.Domain.Abstract;
 using VehicleShowroom.Mangement.Domain.Entities;
-using VehicleShowroom.Mangement.Domain.Enums;
-using static System.Reflection.Metadata.BlobBuilder;
+using X.PagedList;
 
 namespace VehicleShowroom.Mangement.Application.Services
 {
@@ -22,65 +19,71 @@ namespace VehicleShowroom.Mangement.Application.Services
         }
         public async Task<bool> DeleteAsync(int id)
         {
+            try
+            {
+                var supplier = await _unitOfWork.SupplierRepository.GetSupplierByIdAsync(id);
+                if (supplier == null)
+                {
+                    return false;
+                }
 
-            var supplier = await _unitOfWork.SupplierRepository.GetSupplierByIdAsync(id);
-            if (supplier != null) 
+                await _unitOfWork.SupplierRepository.DeleteAsync(supplier);
+                await _unitOfWork.SaveChangeAsync();
+                return true;
+            }
+            catch (Exception ex) 
             { 
                 return false;
             }
-
-            await _unitOfWork.SupplierRepository.DeleteAsync(supplier);
-            await _unitOfWork.SaveChangeAsync();
-            return true;
         }
 
-        public async Task<SupplierViewModel> GetSupplierByIdAsync(int id)
+        public async Task<Supplier> GetSupplierByIdAsync(int id)
         {
             var supplier = await _unitOfWork.SupplierRepository.GetSupplierByIdAsync(id);
-            return _mapper.Map<SupplierViewModel>(supplier);
+            return _mapper.Map<Supplier>(supplier);
         }
 
-        public async Task<ResponseModel> SaveAsync(SupplierViewModel supplierModel)
+        public async Task<bool> SaveOrUpdateAsync(SupplierViewModel supplierModel)
         {
-            var supplier = new Supplier();
-            if(supplierModel.SupplierId == 0)
+            try
             {
-                supplier = _mapper.Map<Supplier>(supplierModel);
-                supplier.CreateBy = "Admin";
-                supplier.CreateDate = DateTime.Now;
+                var supplier = new Supplier();
+                if (supplierModel.SupplierId == 0)
+                {
+                    supplier = _mapper.Map<Supplier>(supplierModel);
+                    supplier.CreateBy = "Admin";
+                    supplier.CreateDate = DateTime.Now;
+                    supplier.ContractDate = DateTime.Now;
+                }
+                else
+                {
+                    supplier = await _unitOfWork.SupplierRepository.GetSupplierByIdAsync(supplierModel.SupplierId);
+                    supplier.SupplierName = supplierModel.SupplierName;
+                    supplier.ContactPerson = supplierModel.ContactPerson;
+                    supplier.PhoneNumber = supplierModel.PhoneNumber;
+                    supplier.Email = supplierModel.Email;
+                    supplier.Website = supplierModel.Website;
+                    supplier.TaxCode = supplierModel.TaxCode;
+                    supplier.Address = supplierModel.Address;
+                    supplier.BankAccount = supplierModel.BankAccount;
+                    supplier.BankName = supplierModel.BankName;
+                    supplier.ContractNumber = supplierModel.ContractNumber;
+                    supplier.Status = supplierModel.Status;
+                    supplier.Notes = supplierModel.Notes;
+                    supplier.UpdateBy = "Admin";
+                    supplier.UpdateDate = DateTime.Now;
+                }
+                bool result = await _unitOfWork.SupplierRepository.SaveOrUpdateAsync(supplier);
+                await _unitOfWork.SaveChangeAsync();
+                return true;
             }
-            else
+            catch(Exception e)
             {
-                supplier = await _unitOfWork.SupplierRepository.GetSupplierByIdAsync(supplierModel.SupplierId);
-                supplier.SupplierName = supplierModel.SupplierName;
-                supplier.ContactPerson = supplierModel.ContactPerson;
-                supplier.PhoneNumber = supplierModel.PhoneNumber;
-                supplier.Email = supplierModel.Email;
-                supplier.Website = supplierModel.Website;
-                supplier.TaxCode = supplierModel.TaxCode;
-                supplier.Address = supplierModel.Address;
-                supplier.BankAccount = supplierModel.BankAccount;
-                supplier.BankName = supplierModel.BankName;
-                supplier.ContractNumber = supplierModel.ContractNumber;
-                supplier.ContractDate = supplierModel.ContractDate;
-                supplier.Status = supplierModel.Status;
-                supplier.Notes = supplierModel.Notes;
+                return false;
             }
-            bool result = await _unitOfWork.SupplierRepository.SaveOrUpdateAsync(supplier);
-            await _unitOfWork.SaveChangeAsync();
-           
-            var actionType = supplierModel.SupplierId == 0 ? ActionType.Insert : ActionType.Update;
-            var successMessage = $"{(supplierModel.SupplierId == 0 ? "Insert" : "Update")} successful.";
-            var failureMessage = $"{(supplierModel.SupplierId == 0 ? "Insert" : "Update")} failed.";
-            return new ResponseModel
-            {
-                Action = actionType,
-                Message = result ? successMessage : failureMessage,
-                Status = result,
-            };
         }
 
-        public async Task<ResponseDatatable<SupplierDTO>> GetSupplierByPaginationAsync(RequestDatatable request)
+        public async Task<IPagedList<SupplierDTO>> GetPagedSuppliersAsync(string keyword, int page, int pageSize = 8)
         {
             /* return await base.GetAllAsync(
                  expression: s => s.Status == "Active",
@@ -90,26 +93,19 @@ namespace VehicleShowroom.Mangement.Application.Services
                  .ThenInclude(o => o.OrderDetails)  // Include OrderDetails for each Order
              );*/
             // 1. Lấy dữ liệu với phân trang và sắp xếp từ request
-            var supplierQuery = await _unitOfWork.SupplierRepository.GetAllAsync(
-                expression: s => string.IsNullOrEmpty(request.Keyword) || s.SupplierName.Contains(request.Keyword)
-            );
-
-            var totalRecords = supplierQuery.Count();  // Tổng số bản ghi không phân trang
-            var filteredQuery = supplierQuery
-                .Skip(request.SkipItems)  // Bắt đầu từ chỉ số 'Start'
-                .Take(request.PageSize); // Lấy số lượng bản ghi 'Length'
+            var supplierQuery = _unitOfWork.SupplierRepository.GetAllAsync(
+                 expression: s => string.IsNullOrEmpty(keyword) || s.SupplierName.Contains(keyword)
+             );
 
             // 2. Chuyển đổi dữ liệu từ Supplier sang SupplierDTO
-            var suppliers = filteredQuery.ToList();
-            var data = _mapper.Map<List<SupplierDTO>>(suppliers);
+            var suppliers = await supplierQuery;  // Execute the query to get the suppliers
+            var supplierList = suppliers.ToList();  // Convert to list for paging
 
-            // 3. Trả về ResponseDatatable với các giá trị phân trang
-            return new ResponseDatatable<SupplierDTO>
-            {
-                RecordsTotal = totalRecords,  // Tổng số bản ghi
-                RecordsFiltered = totalRecords,  // Tổng số bản ghi đã lọc (có thể thay đổi nếu có điều kiện lọc)
-                Data = data  // Dữ liệu đã ánh xạ sang SupplierDTO
-            };
+            // 4. Chuyển đổi dữ liệu từ Supplier sang SupplierDTO
+            var data = _mapper.Map<List<SupplierDTO>>(supplierList);
+
+            // 5. Trả về ResponseDatatable với các giá trị phân trang
+            return data.ToPagedList(page, pageSize);  // Ensure data is paged
         }
     }
 }

@@ -443,6 +443,17 @@
           "lib/netstandard2.0/Azure.Identity.dll": {}
         }
       },
+      "BCrypt.Net/0.1.0": {
+        "runtime": {
+          "lib/net35/BCrypt.Net.dll": {
+            "assemblyVersion": "0.1.4141.31969",
+            "fileVersion": "0.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/net35/BCrypt.Net.dll": {}
+        }
+      },
       "DinkToPdf/1.0.8": {
         "dependencies": {
           "NETStandard.Library": "1.6.1",
@@ -2323,11 +2334,39 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
+      "X.PagedList/10.2.1": {
+        "runtime": {
+          "lib/net8.0/X.PagedList.dll": {
+            "assemblyVersion": "10.2.1.0",
+            "fileVersion": "10.2.1.0"
+          }
+        },
+        "compile": {
+          "lib/net8.0/X.PagedList.dll": {}
+        }
+      },
+      "X.PagedList.Mvc.Core/10.2.1": {
+        "dependencies": {
+          "X.PagedList": "10.2.1"
+        },
+        "runtime": {
+          "lib/net8.0/X.PagedList.Mvc.Core.dll": {
+            "assemblyVersion": "10.2.1.0",
+            "fileVersion": "10.2.1.0"
+          }
+        },
+        "compile": {
+          "lib/net8.0/X.PagedList.Mvc.Core.dll": {}
+        }
+      },
       "VehicleShowroom.Mangement.Application/1.0.0": {
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.1.0",
+          "BCrypt.Net": "0.1.0",
           "Microsoft.AspNetCore.Mvc": "2.2.0",
-          "VehicleShowroom.Mangement.Domain": "1.0.0"
+          "VehicleShowroom.Mangement.Domain": "1.0.0",
+          "X.PagedList": "10.2.1",
+          "X.PagedList.Mvc.Core": "10.2.1"
         },
         "runtime": {
           "VehicleShowroom.Mangement.Application.dll": {}
@@ -4209,6 +4248,13 @@
       "path": "azure.identity/1.10.3",
       "hashPath": "azure.identity.1.10.3.nupkg.sha512"
     },
+    "BCrypt.Net/0.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sST2w361Dxt9GGMfpOTiK50wXGV64Ybb1hiX3xjEWnhVYZNF43NuySGwADJa7X1R+bA53NsFR+tuDxcYiJeIOA==",
+      "path": "bcrypt.net/0.1.0",
+      "hashPath": "bcrypt.net.0.1.0.nupkg.sha512"
+    },
     "DinkToPdf/1.0.8": {
       "type": "package",
       "serviceable": true,
@@ -5601,6 +5647,20 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
+    },
+    "X.PagedList/10.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SS2rDErBq4fj6WW7sRb5QHipDjjVjDY3TZEJyx8MjXTEJZ4jrJ1Iks/QVOegkQ2f3JxeXIrkGdsOIKbVEtQnXQ==",
+      "path": "x.pagedlist/10.2.1",
+      "hashPath": "x.pagedlist.10.2.1.nupkg.sha512"
+    },
+    "X.PagedList.Mvc.Core/10.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-X8lUQH19qnFPEvNcrHK3GT120p3KhZfIA1y6cKWjzzMZ5/jm5KEoaf4cWDnwAw1QlTVf53JGeBn4Kgogk/zOdA==",
+      "path": "x.pagedlist.mvc.core/10.2.1",
+      "hashPath": "x.pagedlist.mvc.core.10.2.1.nupkg.sha512"
     },
     "VehicleShowroom.Mangement.Application/1.0.0": {
       "type": "project",

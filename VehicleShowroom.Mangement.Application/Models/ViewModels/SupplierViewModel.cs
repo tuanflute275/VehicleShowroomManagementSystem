@@ -8,8 +8,10 @@ namespace VehicleShowroom.Mangement.Application.Models.ViewModels
         [Required(ErrorMessage = "Supplier name is required.")]
         public string SupplierName { get; set; }
 
+        [Required(ErrorMessage = "ContactPerson is required.")]
         public string? ContactPerson { get; set; }
 
+        [Required(ErrorMessage = "PhoneNumber is required.")]
         [Phone(ErrorMessage = "Invalid phone number format.")]
         public string? PhoneNumber { get; set; }
 
@@ -35,11 +37,8 @@ namespace VehicleShowroom.Mangement.Application.Models.ViewModels
         [StringLength(50, ErrorMessage = "Contract number cannot be longer than 50 characters.")]
         public string? ContractNumber { get; set; }
 
-        public DateTime? ContractDate { get; set; } = DateTime.Now;
-
         [StringLength(20, ErrorMessage = "Status cannot be longer than 20 characters.")]
         public string? Status { get; set; }
-
         public string? Notes { get; set; }
     }
 }

@@ -1,0 +1,320 @@
+﻿@{
+    Layout = null;
+}
+@model VehicleShowroom.Mangement.Application.Models.ViewModels.RegisterViewModel;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+
+    <!-- CSS -->
+    <link rel="icon" type="image/x-icon" href="~/icon/favicon.ico" />
+    <!-- Boxicons CSS -->
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf/notyf.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/notyf/notyf.min.js"></script>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #7093a766;
+            column-gap: 30px;
+        }
+
+        .form {
+            position: absolute;
+            max-width: 430px;
+            width: 100%;
+            padding: 30px;
+            border-radius: 6px;
+            background: #FFF;
+        }
+
+        .forms.show-signup .form.signup {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .forms.show-signup .form.login {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        header {
+            font-size: 28px;
+            font-weight: 600;
+            color: #232836;
+            text-align: center;
+        }
+
+        form {
+            margin-top: 30px;
+        }
+
+        .form .field {
+            position: relative;
+            height: 50px;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 6px;
+        }
+
+        .field input,
+        .field button {
+            height: 100%;
+            width: 100%;
+            border: none;
+            font-size: 16px;
+            font-weight: 400;
+            border-radius: 6px;
+        }
+
+        .field input {
+            outline: none;
+            padding: 0 15px;
+            border: 1px solid#CACACA;
+        }
+
+            .field input:focus {
+                border-bottom-width: 2px;
+            }
+
+        .eye-icon {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #8b8b8b;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .field button {
+            color: #fff;
+            background-color: #0171d3;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+            .field button:hover {
+                background-color: #016dcb;
+            }
+
+        .form-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+            .form-link span,
+            .form-link a {
+                font-size: 14px;
+                font-weight: 400;
+                color: #232836;
+            }
+
+        .form a {
+            color: #0171d3;
+            text-decoration: none;
+        }
+
+        .form-content a:hover {
+            text-decoration: underline;
+        }
+
+        .line {
+            position: relative;
+            height: 1px;
+            width: 100%;
+            margin: 36px 0;
+            background-color: #d4d4d4;
+        }
+
+            .line::before {
+                content: 'Or';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: #FFF;
+                color: #8b8b8b;
+                padding: 0 15px;
+            }
+
+        .media-options a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        a.facebook {
+            color: #fff;
+            background-color: #4267b2;
+        }
+
+            a.facebook .facebook-icon {
+                height: 28px;
+                width: 28px;
+                color: #0171d3;
+                font-size: 20px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #fff;
+            }
+
+        .facebook-icon,
+        img.google-img {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+        }
+
+        img.google-img {
+            height: 20px;
+            width: 20px;
+            object-fit: cover;
+        }
+
+        a.google {
+            border: 1px solid #CACACA;
+        }
+
+            a.google span {
+                font-weight: 500;
+                opacity: 0.6;
+                color: #232836;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <section class="container forms">
+        <!-- Signup Form -->
+        <div class="form signup">
+            <div class="form-content">
+                <header>Register</header>
+                <form method="post" action="/register" id="formRegister">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="field input-field">
+                        <input asp-for="UserName" type="text" name="UserName" placeholder="Username" class="input"/>
+                        <span asp-validation-for="UserName" class="text-danger" style="color:red; margin: 10px;"></span>
+                    </div>
+                    <div class="field input-field" style="margin-top: 27px;">
+                        <input asp-for="FullName" type="text" name="FullName" placeholder="Full Name" class="input" />
+                        <span asp-validation-for="FullName" class="text-danger" style="color:red; margin: 10px;"></span>
+                    </div>
+                    <div class="field input-field" style="margin-top: 27px;">
+                        <input asp-for="Email" type="text" name="Email" placeholder="Email" class="input" />
+                        <span asp-validation-for="Email" class="text-danger" style="color:red; margin: 10px;"></span>
+                    </div>
+                    <div class="field input-field" style="margin-top: 27px;">
+                        <input asp-for="Password" type="password" name="Password" placeholder="Password" class="password" />
+                        <span asp-validation-for="Password" class="text-danger" style="color:red; margin: 10px;"></span>
+                        <i class="bx bx-hide eye-icon"></i>
+                    </div>
+
+                    <div class="field button-field" style="margin-top: 27px;">
+                        <button type="submit">Submit</button>
+                    </div>
+                    <div style="display: flex; justify-content: center; margin-top: 10px;">
+                        <div class="g-recaptcha" data-sitekey="6Lcqb1YqAAAAAIeBk0_LXSLgcuZLFXYmW1ipPjPH" id="recaptcha"></div>
+                    </div>
+                </form>
+
+                <div class="form-link">
+                    <span>
+                        You already have an account?
+                        <a href="/login" class="link login-link">Sign in</a>
+                    </span>
+                </div>
+            </div>
+
+            @* <div class="line"></div>
+
+            <div class="media-options">
+            <a href="/signin-facebook" class="field facebook">
+            <i class="bx bxl-facebook facebook-icon"></i>
+            <span>Login with Facebook</span>
+            </a>
+            </div> *@
+
+            @* <div class="media-options">
+            <a href="#" class="field google">
+            <img src="~/icon/google.png" alt="Google" class="google-img" />
+            <span>Đăng nhập với Google</span>
+            </a>
+            </div> *@
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        var notyf = new Notyf();
+        var message = '@TempData["message"]';
+        var error = '@TempData["error"]';
+        if (message) {
+            notyf.success(message);
+        }
+        if (error) {
+            notyf.error(error);
+        }
+        document.getElementById('formRegister').addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const gRecaptchaResponse = grecaptcha.getResponse();
+            if (!gRecaptchaResponse) {
+                notyf.error("Vui lòng hoàn thành CAPTCHA !");
+                return;
+            } else {
+                console.log(gRecaptchaResponse);
+                document.getElementById('formRegister').submit();
+            }
+        });
+    </script>
+    <script>
+        const forms = document.querySelector(".forms"),
+            pwShowHide = document.querySelectorAll(".eye-icon"),
+            links = document.querySelectorAll(".link");
+
+        // Add click event listener to each eye icon for toggling password visibility
+        pwShowHide.forEach(eyeIcon => {
+            eyeIcon.addEventListener("click", () => {
+                let pwFields = eyeIcon.parentElement.parentElement.querySelectorAll(".password");
+
+                pwFields.forEach(password => {
+                    if (password.type === "password") { // If password is hidden
+                        password.type = "text"; // Show password
+                        eyeIcon.classList.replace("bx-hide", "bx-show"); // Change icon to show state
+                        return;
+                    }
+                    password.type = "password"; // Hide password
+                    eyeIcon.classList.replace("bx-show", "bx-hide"); // Change icon to hide state
+                });
+
+            });
+        });
+    </script>
+</body>
+</html>

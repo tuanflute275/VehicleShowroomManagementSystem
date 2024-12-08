@@ -67,6 +67,7 @@ namespace VehicleShowroom.Mangement.Infrastructure.Configuration
         {
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<ISupplierService, SupplierService>();
+            services.AddTransient<IUserService, UserService>();
         }
 
         public static void AddAutoMapper(this IServiceCollection services)

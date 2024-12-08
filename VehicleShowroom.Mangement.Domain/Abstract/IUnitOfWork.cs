@@ -5,8 +5,8 @@ namespace VehicleShowroom.Mangement.Domain.Abstract
     public interface IUnitOfWork
     {
         ISupplierRepository SupplierRepository { get; }
+        IUserRepository UserRepository { get; }
         // other repository
-
 
         Task BeginTransaction();
         Task SaveChangeAsync();

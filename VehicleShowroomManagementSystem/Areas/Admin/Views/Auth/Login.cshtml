@@ -1,0 +1,342 @@
+﻿@{
+    Layout = null;
+}
+@model VehicleShowroom.Mangement.Application.Models.ViewModels.LoginViewModel;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập</title>
+
+    <!-- CSS -->
+    <link rel="icon" type="image/x-icon" href="~/icon/favicon.ico" />
+    <!-- Boxicons CSS -->
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf/notyf.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/notyf/notyf.min.js"></script>
+    @* <script type="text/javascript" src="https://res.cloudinary.com/veseylab/raw/upload/v1684982764/magicmouse-2.0.0.cdn.min.js"></script> *@
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #7093a766;
+            column-gap: 30px;
+        }
+
+        .form {
+            position: absolute;
+            max-width: 430px;
+            width: 100%;
+            padding: 30px;
+            border-radius: 6px;
+            background: #FFF;
+        }
+
+            .form.signup {
+                opacity: 0;
+                pointer-events: none;
+            }
+
+        .forms.show-signup .form.signup {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .forms.show-signup .form.login {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        header {
+            font-size: 28px;
+            font-weight: 600;
+            color: #232836;
+            text-align: center;
+        }
+
+        form {
+            margin-top: 30px;
+        }
+
+        .form .field {
+            position: relative;
+            height: 50px;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 6px;
+        }
+
+        .field input,
+        .field button {
+            height: 100%;
+            width: 100%;
+            border: none;
+            font-size: 16px;
+            font-weight: 400;
+            border-radius: 6px;
+        }
+
+        .field input {
+            outline: none;
+            padding: 0 15px;
+            border: 1px solid#CACACA;
+        }
+
+            .field input:focus {
+                border-bottom-width: 2px;
+            }
+
+        .eye-icon {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #8b8b8b;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .field button {
+            color: #fff;
+            background-color: #0171d3;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+            .field button:hover {
+                background-color: #016dcb;
+            }
+
+        .form-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+            .form-link span,
+            .form-link a {
+                font-size: 14px;
+                font-weight: 400;
+                color: #232836;
+            }
+
+        .form a {
+            color: #0171d3;
+            text-decoration: none;
+        }
+
+        .form-content a:hover {
+            text-decoration: underline;
+        }
+
+        .line {
+            position: relative;
+            height: 1px;
+            width: 100%;
+            margin: 36px 0;
+            background-color: #d4d4d4;
+        }
+
+            .line::before {
+                content: 'Or';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: #FFF;
+                color: #8b8b8b;
+                padding: 0 15px;
+            }
+
+        .media-options a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        a.facebook {
+            color: #fff;
+            background-color: #4267b2;
+        }
+
+            a.facebook .facebook-icon {
+                height: 28px;
+                width: 28px;
+                color: #0171d3;
+                font-size: 20px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #fff;
+            }
+
+        .facebook-icon,
+        img.google-img {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+        }
+
+        img.google-img {
+            height: 20px;
+            width: 20px;
+            object-fit: cover;
+        }
+
+        a.google {
+            border: 1px solid #CACACA;
+        }
+
+            a.google span {
+                font-weight: 500;
+                opacity: 0.6;
+                color: #232836;
+            }
+    </style>
+    <style>
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="container forms">
+        <div class="form login">
+            <div class="form-content">
+                <header>Login</header>
+                <form method="post" action="/login" id="formLogin">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input name="returnUrl" value="@ViewBag.returnUrl" type="hidden" />
+                    <div class="field input-field">
+                        <input asp-for="UsernameOrEmail" type="text" tabindex="1" name="UsernameOrEmail" placeholder="Username or Email" 
+                        class="input magic-hover magic-hover__square" style="margin-bottom: 5px" />
+                        <span asp-validation-for="UsernameOrEmail" class="text-danger" style="color:red; margin: 10px;"></span>
+                    </div>
+                    <div class="field input-field" style="margin-top: 30px;">
+                        <input asp-for="Password" type="password" tabindex="2" name="Password" 
+                        placeholder="Password" class="password magic-hover magic-hover__square" 
+                        style="margin-bottom:8px;"/>
+                        <span asp-validation-for="Password" class="text-danger" style="color:red; margin: 10px;"></span>
+                        <i class="bx bx-hide eye-icon"></i>
+                    </div>
+                    <div class="form-link" style="margin: 30px;">
+                        <a href="/forgot-password" class="forgot-pass no-cursor">Forgot password?</a>
+                    </div>
+
+                    <div class="field button-field">
+                        <button type="submit" tabindex="3" class="magic-hover magic-hover__square">Submit</button>
+                    </div>
+                    <div style="display: flex; justify-content: center; margin-top: 10px;">
+                        <div class="g-recaptcha" data-sitekey="6Lcqb1YqAAAAAIeBk0_LXSLgcuZLFXYmW1ipPjPH" id="recaptcha"></div>
+                    </div>
+                </form>
+
+                <div class="form-link">
+                    <span>
+                        Don't have an account?
+                        <a href="/register" class="link signup-link">Sign up</a>
+                    </span>
+                </div>
+            </div>
+
+            @*  <div class="line"></div>
+
+            <div class="media-options">
+            <a href="/signin-facebook" class="field facebook magic-hover magic-hover__square">
+            <i class="bx bxl-facebook facebook-icon"></i>
+            <span>Login with Facebook</span>
+            </a>
+            </div> *@
+
+            @* <div class="media-options">
+            <a href="#" class="field google magic-hover magic-hover__square">
+            <img src="~/icon/google.png" alt="" class="google-img" />
+            <span>Login with Google</span>
+            </a>
+            </div> *@
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        var notyf = new Notyf();
+        var message = '@TempData["message"]';
+        var error = '@TempData["error"]';
+        if (message) {
+            notyf.success(message);
+        }
+        if (error) {
+            notyf.error(error);
+        }
+
+        document.getElementById('formLogin').addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const gRecaptchaResponse = grecaptcha.getResponse();
+            if (!gRecaptchaResponse) {
+                notyf.error("Vui lòng hoàn thành CAPTCHA !");
+                return;
+            } else {
+                console.log(gRecaptchaResponse);
+                document.getElementById('formLogin').submit();
+            }
+        });
+    </script>
+    <script>
+        const forms = document.querySelector(".forms"),
+            pwShowHide = document.querySelectorAll(".eye-icon"),
+            links = document.querySelectorAll(".link");
+
+        // Add click event listener to each eye icon for toggling password visibility
+        pwShowHide.forEach(eyeIcon => {
+            eyeIcon.addEventListener("click", () => {
+                let pwFields = eyeIcon.parentElement.parentElement.querySelectorAll(".password");
+
+                pwFields.forEach(password => {
+                    if (password.type === "password") { // If password is hidden
+                        password.type = "text"; // Show password
+                        eyeIcon.classList.replace("bx-hide", "bx-show"); // Change icon to show state
+                        return;
+                    }
+                    password.type = "password"; // Hide password
+                    eyeIcon.classList.replace("bx-show", "bx-hide"); // Change icon to hide state
+                });
+
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        options = {
+            "cursorOuter": "circle",
+            "hoverEffect": "circle-move",
+            "hoverItemMove": false,
+            "defaultCursor": false,
+            "outerWidth": 30,
+            "outerHeight": 30
+        };
+        magicMouse(options);
+    </script>
+</body>
+</html>
+

@@ -581,3 +581,6 @@ C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroomManagementS
 C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroomManagementSystem\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll
 C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroomManagementSystem\bin\Debug\net8.0\NToastNotify.dll
 C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroomManagementSystem\obj\Debug\net8.0\VehicleShowroomManagementSystem.sourcelink.json
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroomManagementSystem\bin\Debug\net8.0\X.PagedList.dll
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroomManagementSystem\bin\Debug\net8.0\X.PagedList.Mvc.Core.dll
+C:\Users\DELL\Desktop\VehicleShowroomManagementSystem\VehicleShowroomManagementSystem\bin\Debug\net8.0\BCrypt.Net.dll

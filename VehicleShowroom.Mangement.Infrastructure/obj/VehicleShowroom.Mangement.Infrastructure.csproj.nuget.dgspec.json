@@ -54,9 +54,21 @@
               "target": "Package",
               "version": "[8.1.0, )"
             },
+            "BCrypt.Net": {
+              "target": "Package",
+              "version": "[0.1.0, )"
+            },
             "Microsoft.AspNetCore.Mvc": {
               "target": "Package",
               "version": "[2.2.0, )"
+            },
+            "X.PagedList": {
+              "target": "Package",
+              "version": "[10.2.1, )"
+            },
+            "X.PagedList.Mvc.Core": {
+              "target": "Package",
+              "version": "[10.2.1, )"
             }
           },
           "imports": [
