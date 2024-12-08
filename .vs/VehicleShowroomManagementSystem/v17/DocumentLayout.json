@@ -3,28 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\DELL\\Desktop\\VehicleShowroomManagementSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{565732F9-6B76-4DF2-A05A-B556F2A79C53}|VehicleShowroomManagementSystem\\VehicleShowroomManagementSystem.csproj|c:\\users\\dell\\desktop\\vehicleshowroommanagementsystem\\vehicleshowroommanagementsystem\\areas\\admin\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{565732F9-6B76-4DF2-A05A-B556F2A79C53}|VehicleShowroomManagementSystem\\VehicleShowroomManagementSystem.csproj|solutionrelative:vehicleshowroommanagementsystem\\areas\\admin\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{565732F9-6B76-4DF2-A05A-B556F2A79C53}|VehicleShowroom.Management.UI\\VehicleShowroom.Management.UI.csproj|c:\\users\\dell\\desktop\\vehicleshowroommanagementsystem\\vehicleshowroom.management.ui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{565732F9-6B76-4DF2-A05A-B556F2A79C53}|VehicleShowroom.Management.UI\\VehicleShowroom.Management.UI.csproj|solutionrelative:vehicleshowroom.management.ui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{53801003-DF33-46D4-98C3-3DB986EC51C9}|VehicleShowroom.Mangement.Domain\\VehicleShowroom.Mangement.Domain.csproj|c:\\users\\dell\\desktop\\vehicleshowroommanagementsystem\\vehicleshowroom.mangement.domain\\abstract\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53801003-DF33-46D4-98C3-3DB986EC51C9}|VehicleShowroom.Mangement.Domain\\VehicleShowroom.Mangement.Domain.csproj|solutionrelative:vehicleshowroom.mangement.domain\\abstract\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC5DA002-A5C0-4687-B793-0C34D70BC117}|VehicleShowroom.Mangement.Application\\VehicleShowroom.Mangement.Application.csproj|c:\\users\\dell\\desktop\\vehicleshowroommanagementsystem\\vehicleshowroom.mangement.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC5DA002-A5C0-4687-B793-0C34D70BC117}|VehicleShowroom.Mangement.Application\\VehicleShowroom.Mangement.Application.csproj|solutionrelative:vehicleshowroom.mangement.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8497F0C5-CA43-4CF3-99BA-5F6FE353A783}|VehicleShowroom.Mangement.DataAccess\\VehicleShowroom.Mangement.DataAccess.csproj|c:\\users\\dell\\desktop\\vehicleshowroommanagementsystem\\vehicleshowroom.mangement.dataaccess\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8497F0C5-CA43-4CF3-99BA-5F6FE353A783}|VehicleShowroom.Mangement.DataAccess\\VehicleShowroom.Mangement.DataAccess.csproj|solutionrelative:vehicleshowroom.mangement.dataaccess\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{499A3C10-185B-4FB3-AFDE-72C987FC4766}|VehicleShowroom.Mangement.Infrastructure\\VehicleShowroom.Mangement.Infrastructure.csproj|c:\\users\\dell\\desktop\\vehicleshowroommanagementsystem\\vehicleshowroom.mangement.infrastructure\\configuration\\configurationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{499A3C10-185B-4FB3-AFDE-72C987FC4766}|VehicleShowroom.Mangement.Infrastructure\\VehicleShowroom.Mangement.Infrastructure.csproj|solutionrelative:vehicleshowroom.mangement.infrastructure\\configuration\\configurationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC5DA002-A5C0-4687-B793-0C34D70BC117}|VehicleShowroom.Mangement.Application\\VehicleShowroom.Mangement.Application.csproj|c:\\users\\dell\\desktop\\vehicleshowroommanagementsystem\\vehicleshowroom.mangement.application\\abstracts\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AC5DA002-A5C0-4687-B793-0C34D70BC117}|VehicleShowroom.Mangement.Application\\VehicleShowroom.Mangement.Application.csproj|solutionrelative:vehicleshowroom.mangement.application\\abstracts\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{565732F9-6B76-4DF2-A05A-B556F2A79C53}|VehicleShowroom.Management.UI\\VehicleShowroom.Management.UI.csproj|c:\\users\\dell\\desktop\\vehicleshowroommanagementsystem\\vehicleshowroom.management.ui\\areas\\admin\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{565732F9-6B76-4DF2-A05A-B556F2A79C53}|VehicleShowroom.Management.UI\\VehicleShowroom.Management.UI.csproj|solutionrelative:vehicleshowroom.management.ui\\areas\\admin\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,80 +26,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ConfigurationService.cs",
-              "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Infrastructure\\Configuration\\ConfigurationService.cs",
-              "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Infrastructure\\Configuration\\ConfigurationService.cs",
-              "ToolTip": "C:\\Users\\DELL\\Desktop\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Infrastructure\\Configuration\\ConfigurationService.cs",
-              "RelativeToolTip": "VehicleShowroom.Mangement.Infrastructure\\Configuration\\ConfigurationService.cs",
-              "ViewState": "AQIAADcAAAAAAAAAAAAQwEUAAAA/AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-08T13:20:56.225Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\VehicleShowroomManagementSystem\\VehicleShowroomManagementSystem\\Areas\\Admin\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "VehicleShowroomManagementSystem\\Areas\\Admin\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\DELL\\Desktop\\VehicleShowroomManagementSystem\\VehicleShowroomManagementSystem\\Areas\\Admin\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "VehicleShowroomManagementSystem\\Areas\\Admin\\Controllers\\AuthController.cs",
-              "ViewState": "AQIAACEAAAAAAAAAAAA4wC0AAAAQAAAA",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\VehicleShowroomManagementSystem\\VehicleShowroom.Management.UI\\Program.cs",
+              "RelativeDocumentMoniker": "VehicleShowroom.Management.UI\\Program.cs",
+              "ToolTip": "C:\\Users\\DELL\\Desktop\\VehicleShowroomManagementSystem\\VehicleShowroom.Management.UI\\Program.cs",
+              "RelativeToolTip": "VehicleShowroom.Management.UI\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-08T13:06:16.997Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Application\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Application\\Services\\UserService.cs",
-              "ToolTip": "C:\\Users\\DELL\\Desktop\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Application\\Services\\UserService.cs",
-              "RelativeToolTip": "VehicleShowroom.Mangement.Application\\Services\\UserService.cs",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAUwDIAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-08T12:55:25.215Z",
+              "WhenOpened": "2024-12-08T13:30:13.9Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Domain\\Abstract\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Domain\\Abstract\\IUserRepository.cs",
-              "ToolTip": "C:\\Users\\DELL\\Desktop\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Domain\\Abstract\\IUserRepository.cs",
-              "RelativeToolTip": "VehicleShowroom.Mangement.Domain\\Abstract\\IUserRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAsAAAAUAAAA",
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\VehicleShowroomManagementSystem\\VehicleShowroom.Management.UI\\Areas\\Admin\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "VehicleShowroom.Management.UI\\Areas\\Admin\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\DELL\\Desktop\\VehicleShowroomManagementSystem\\VehicleShowroom.Management.UI\\Areas\\Admin\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "VehicleShowroom.Management.UI\\Areas\\Admin\\Controllers\\AuthController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-08T12:37:07.169Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.DataAccess\\Repository\\UserRepository.cs",
-              "RelativeDocumentMoniker": "VehicleShowroom.Mangement.DataAccess\\Repository\\UserRepository.cs",
-              "ToolTip": "C:\\Users\\DELL\\Desktop\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.DataAccess\\Repository\\UserRepository.cs",
-              "RelativeToolTip": "VehicleShowroom.Mangement.DataAccess\\Repository\\UserRepository.cs",
-              "ViewState": "AQIAACEAAAAAAAAAAAAowDYAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-08T12:37:58.205Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IUserService.cs",
-              "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Application\\Abstracts\\IUserService.cs",
-              "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Application\\Abstracts\\IUserService.cs",
-              "ToolTip": "C:\\Users\\DELL\\Desktop\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Application\\Abstracts\\IUserService.cs",
-              "RelativeToolTip": "VehicleShowroom.Mangement.Application\\Abstracts\\IUserService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-08T12:53:37.212Z",
+              "WhenOpened": "2024-12-08T13:30:04.311Z",
               "EditorCaption": ""
             }
           ]
