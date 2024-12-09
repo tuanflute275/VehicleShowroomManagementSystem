@@ -12,6 +12,6 @@ namespace VehicleShowroom.Mangement.Application.Abstracts
         Task<IPagedList<UserDTO>> GetPagedUsersAsync(string keyword, int page, int pageSize = 8);
         Task<bool> DeleteAsync(int id);
         Task<UserDTO> GetUserByIdAsync(int id);
-        Task<(bool Success, string ErrorMessage)> SaveOrUpdateAsync(UserViewModel model, IFormFile fileUpload, string? oldImage = null);
+        Task<(bool Success, string ErrorMessage)> SaveOrUpdateAsync(UserViewModel model, IFormFile? fileUpload, string? oldImage = null);
     }
 }

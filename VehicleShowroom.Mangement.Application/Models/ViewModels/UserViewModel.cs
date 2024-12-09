@@ -14,9 +14,7 @@ namespace VehicleShowroom.Mangement.Application.Models.ViewModels
         [Required(ErrorMessage = "Full name is required.")]
         [StringLength(100, ErrorMessage = "Full name cannot exceed 100 characters.")]
         public string FullName { get; set; }
-        public string Avatar { get; set; }
-
-        [Display(Name = "Password")]
+        public string? Avatar { get; set; }
         public string? Password { get; set; }
         [Required(ErrorMessage = "Email is required.")]
         [EmailAddress(ErrorMessage = "Invalid email format.")]

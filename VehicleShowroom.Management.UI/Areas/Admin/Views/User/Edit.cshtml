@@ -26,7 +26,8 @@
         <div class="col-md-12">
             <div class="main-card mb-3 card">
                 <div class="card-body">
-                    <form method="post" asp-area="Admin" asp-controller="User" asp-action="Update" asp-antiforgery="true" enctype="multipart/form-data">
+                    <form method="post" asp-area="Admin" asp-controller="User" asp-action="Update" asp-antiforgery="true" 
+                    enctype="multipart/form-data">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <input type="hidden" asp-for="UserId" />
                         <div class="position-relative row form-group">

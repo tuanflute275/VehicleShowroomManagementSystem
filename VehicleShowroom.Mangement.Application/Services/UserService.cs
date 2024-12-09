@@ -100,14 +100,14 @@ namespace VehicleShowroom.Mangement.Application.Services
             return _mapper.Map<UserDTO>(user);
         }
 
-        public async Task<(bool Success, string ErrorMessage)> SaveOrUpdateAsync(UserViewModel model, IFormFile fileUpload, string? oldImage = null)
+        public async Task<(bool Success, string ErrorMessage)> SaveOrUpdateAsync(UserViewModel model, IFormFile? fileUpload, string? oldImage = null)
         {
             try
             {
                 var user = new User();
-                string passwordHash = BCrypt.Net.BCrypt.HashPassword(model.Password, 12);
                 if (model.UserId == 0)
                 {
+                    string passwordHash = BCrypt.Net.BCrypt.HashPassword(model.Password, 12);
                     user = _mapper.Map<User>(model);
                     user.Password = passwordHash;
                     user.CreateBy = "Admin";

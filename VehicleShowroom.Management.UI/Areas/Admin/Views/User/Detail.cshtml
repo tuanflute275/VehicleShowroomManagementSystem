@@ -33,19 +33,20 @@
             <div class="main-card mb-3 card" id="divInfomation">
                 <div class="card-body">
                     <div class="position-relative row form-group">
+                        <label for="SupplierName" class="col-md-3 text-md-right col-form-label">Avatar</label>
+                        <div class="col-md-9 col-xl-8">
+                            <img src="@(Url.Content("~/Uploads/users/" + Model.Avatar))"
+                                 alt="Avatar" class="card-img"
+                                 style="width: 100px;" />
+                        </div>
+                    </div>
+                    <div class="position-relative row form-group">
                         <label for="SupplierName" class="col-md-3 text-md-right col-form-label">#No</label>
                         <div class="col-md-9 col-xl-8">
                             <input type="text" class="form-control" asp-for="UserId" readonly>
                         </div>
                     </div>
-                    <div class="position-relative row form-group">
-                        <label for="SupplierName" class="col-md-3 text-md-right col-form-label">Avatar</label>
-                        <div class="col-md-9 col-xl-8">
-                            <img src="@(Url.Content("~/Uploads/users/" + Model.Avatar)))"
-                                 alt="Avatar" class="card-img"
-                                 style="width: 100px;" />
-                        </div>
-                    </div>
+                  
                     <div class="position-relative row form-group">
                         <label for="SupplierName" class="col-md-3 text-md-right col-form-label">User Name</label>
                         <div class="col-md-9 col-xl-8">

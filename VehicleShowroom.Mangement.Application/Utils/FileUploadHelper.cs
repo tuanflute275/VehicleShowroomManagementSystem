@@ -23,7 +23,7 @@ namespace VehicleShowroom.Mangement.Application.Utils
             }
 
             // Mặc định các định dạng tệp được chấp nhận nếu không truyền vào
-            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
+            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png",".webp",".jfif" };
             var fileExtension = Path.GetExtension(fileUpload.FileName).ToLower();
 
             if (!allowedExtensions.Contains(fileExtension))

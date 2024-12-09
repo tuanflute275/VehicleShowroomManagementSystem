@@ -77,7 +77,7 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(IFormFile fileUpload, string? oldImage,UserViewModel model)
+        public async Task<IActionResult> Update(IFormFile? fileUpload, string? oldImage,UserViewModel model)
         {
             if (ModelState.IsValid)
             {
