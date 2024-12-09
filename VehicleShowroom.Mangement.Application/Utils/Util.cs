@@ -1,4 +1,8 @@
-﻿namespace VehicleShowroom.Mangement.Application.Utils
+﻿using System.Net.Mail;
+using System.Net;
+using VehicleShowroom.Mangement.Application.Models.ViewModels;
+
+namespace VehicleShowroom.Mangement.Application.Utils
 {
     public static class Util
     {
@@ -18,7 +22,7 @@
         public static string BodyResetPasswordMail(string pass)
         {
             string body = string.Empty;
-            using (StreamReader reader = new StreamReader(Path.Combine(Directory.GetCurrentDirectory(), "Areas\\Admin\\Views\\Shared\\Mail", "ForgotPasswordMail.cshtml")))
+            using (StreamReader reader = new StreamReader(Path.Combine(Directory.GetCurrentDirectory(), "Utils\\Template\\ForgotPasswordMail.cshtml", "ForgotPasswordMail.cshtml")))
             {
                 body = reader.ReadToEnd();
             }
@@ -29,12 +33,15 @@
         public static string BodyRegisterMail(string fullName)
         {
             string body = string.Empty;
-            using (StreamReader reader = new StreamReader(Path.Combine(Directory.GetCurrentDirectory(), "Areas\\Admin\\Views\\Shared\\Mail", "RegisterSuccessMail.cshtml")))
+            string templatePath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "VehicleShowroom.Mangement.Application", "Utils", "Template", "RegisterSuccessMail.cshtml");
+            using (StreamReader reader = new StreamReader(templatePath))
             {
                 body = reader.ReadToEnd();
             }
             body = body.Replace("{{fullName}}", fullName);
             return body;
         }
+
+        
     }
 }

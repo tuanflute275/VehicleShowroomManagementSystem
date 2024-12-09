@@ -27,7 +27,7 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteBy = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeleteFlag = table.Column<string>(type: "nvarchar(1)", maxLength: 1, nullable: true)
+                    DeleteFlag = table.Column<bool>(type: "bit", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -59,7 +59,7 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteBy = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeleteFlag = table.Column<string>(type: "nvarchar(1)", maxLength: 1, nullable: true)
+                    DeleteFlag = table.Column<bool>(type: "bit", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -73,7 +73,8 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     UserId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Username = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FullName = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     Avatar = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: true),
@@ -94,7 +95,7 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteBy = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeleteFlag = table.Column<string>(type: "nvarchar(1)", maxLength: 1, nullable: true)
+                    DeleteFlag = table.Column<bool>(type: "bit", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -116,7 +117,7 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteBy = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeleteFlag = table.Column<string>(type: "nvarchar(1)", maxLength: 1, nullable: true)
+                    DeleteFlag = table.Column<bool>(type: "bit", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -149,7 +150,7 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteBy = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeleteFlag = table.Column<string>(type: "nvarchar(1)", maxLength: 1, nullable: true)
+                    DeleteFlag = table.Column<bool>(type: "bit", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -184,7 +185,7 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteBy = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeleteFlag = table.Column<string>(type: "nvarchar(1)", maxLength: 1, nullable: true)
+                    DeleteFlag = table.Column<bool>(type: "bit", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -213,7 +214,7 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteBy = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeleteFlag = table.Column<string>(type: "nvarchar(1)", maxLength: 1, nullable: true)
+                    DeleteFlag = table.Column<bool>(type: "bit", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -278,7 +279,7 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteBy = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeleteFlag = table.Column<string>(type: "nvarchar(1)", maxLength: 1, nullable: true)
+                    DeleteFlag = table.Column<bool>(type: "bit", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -307,7 +308,7 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteBy = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeleteFlag = table.Column<string>(type: "nvarchar(1)", maxLength: 1, nullable: true)
+                    DeleteFlag = table.Column<bool>(type: "bit", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -340,7 +341,7 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteBy = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeleteFlag = table.Column<string>(type: "nvarchar(1)", maxLength: 1, nullable: true)
+                    DeleteFlag = table.Column<bool>(type: "bit", nullable: true)
                 },
                 constraints: table =>
                 {

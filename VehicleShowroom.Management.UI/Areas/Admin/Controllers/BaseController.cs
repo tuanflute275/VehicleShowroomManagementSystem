@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace VehicleShowroomManagementSystem.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    //[Authorize]
+    [Authorize]
     public class BaseController : Controller
     {
        

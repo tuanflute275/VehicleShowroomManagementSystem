@@ -1,7 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
 using NToastNotify.Helpers;
+using System.Security.Claims;
 using VehicleShowroom.Mangement.Application.Abstracts;
 using VehicleShowroom.Mangement.Application.Models.ViewModels;
+using VehicleShowroom.Mangement.Application.Models.DTOs;
 
 namespace VehicleShowroomManagementSystem.Areas.Admin.Controllers
 {
@@ -26,7 +30,58 @@ namespace VehicleShowroomManagementSystem.Areas.Admin.Controllers
         public async Task<IActionResult> Login(LoginViewModel model, string? returnUrl)
         {
 
-            return View("Login");
+            try
+            {
+                // Gọi service để thực hiện đăng nhập
+                var (success, errorMessage, user) = await _userService.Login(model);
+
+                // Xử lý kết quả đăng nhập từ Service
+                if (!success)
+                {
+                    TempData["error"] = errorMessage;
+                    return View(model);
+                }
+
+                // Lưu thông tin đăng nhập vào cookie và chuyển hướng người dùng
+                await SignInUser(user);
+
+                //_toastNotification.Success("Login successfully!");
+
+                // Redirect về URL nếu có, hoặc về trang chủ
+                return Url.IsLocalUrl(returnUrl) ? Redirect(returnUrl) : RedirectToAction("Index", "Home");
+            }
+            catch (Exception e)
+            {
+                // Log lỗi và hiển thị lỗi cho người dùng
+                Console.WriteLine(e.Message);
+                TempData["error"] = "An error occurred during login!";
+                return View(model);
+            }
+        }
+
+        private async Task SignInUser(UserDTO user)
+        {
+            string roleClaim = user.Role switch
+            {
+                0 => "User",
+                1 => "Admin",
+                2 => "Employee",
+                _ => "User"
+            };
+
+            var claims = new List<Claim>
+        {
+            new Claim("userId", user.UserId.ToString() ?? string.Empty),
+            new Claim(ClaimTypes.Name, user.Username ?? string.Empty),
+            new Claim("userFullName", user.FullName ?? string.Empty),
+            new Claim(ClaimTypes.Email, user.Email ?? string.Empty),
+            new Claim("avatar", user.Avatar ?? "default.png"),
+            new Claim("Role", roleClaim ?? "User")
+        };
+
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var principal = new ClaimsPrincipal(identity);
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
         }
 
         [HttpGet]
@@ -63,6 +118,17 @@ namespace VehicleShowroomManagementSystem.Areas.Admin.Controllers
                 Console.WriteLine(e.Message);
                 return View(model);
             }
+        }
+
+        [HttpGet]
+        [Route("logout")]
+        public async Task<IActionResult> Logout()
+        {
+            //_toastNotification.Success("Logout successfully!", 3);
+
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            return Redirect("/login");
         }
     }
 }

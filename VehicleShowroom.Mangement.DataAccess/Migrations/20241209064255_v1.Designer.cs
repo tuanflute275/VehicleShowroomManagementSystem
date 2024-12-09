@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VehicleShowroom.Mangement.DataAccess.DataAccess;
 
@@ -11,9 +12,11 @@ using VehicleShowroom.Mangement.DataAccess.DataAccess;
 namespace VehicleShowroom.Mangement.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class VehicleShowroomDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241209064255_v1")]
+    partial class v1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,9 +52,8 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DeleteFlag")
-                        .HasMaxLength(1)
-                        .HasColumnType("nvarchar(1)");
+                    b.Property<bool?>("DeleteFlag")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Email")
                         .HasMaxLength(100)
@@ -100,9 +102,8 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DeleteFlag")
-                        .HasMaxLength(1)
-                        .HasColumnType("nvarchar(1)");
+                    b.Property<bool?>("DeleteFlag")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime?>("OrderDate")
                         .HasColumnType("datetime2");
@@ -149,9 +150,8 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DeleteFlag")
-                        .HasMaxLength(1)
-                        .HasColumnType("nvarchar(1)");
+                    b.Property<bool?>("DeleteFlag")
+                        .HasColumnType("bit");
 
                     b.Property<int>("PurchaseOrderId")
                         .HasColumnType("int");
@@ -203,9 +203,8 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DeleteFlag")
-                        .HasMaxLength(1)
-                        .HasColumnType("nvarchar(1)");
+                    b.Property<bool?>("DeleteFlag")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime?>("OrderDate")
                         .HasColumnType("datetime2");
@@ -257,9 +256,8 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DeleteFlag")
-                        .HasMaxLength(1)
-                        .HasColumnType("nvarchar(1)");
+                    b.Property<bool?>("DeleteFlag")
+                        .HasColumnType("bit");
 
                     b.Property<int?>("Quantity")
                         .HasColumnType("int");
@@ -364,9 +362,8 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DeleteFlag")
-                        .HasMaxLength(1)
-                        .HasColumnType("nvarchar(1)");
+                    b.Property<bool?>("DeleteFlag")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Email")
                         .HasMaxLength(100)
@@ -441,9 +438,8 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DeleteFlag")
-                        .HasMaxLength(1)
-                        .HasColumnType("nvarchar(1)");
+                    b.Property<bool?>("DeleteFlag")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Department")
                         .HasMaxLength(100)
@@ -455,6 +451,11 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("EmergencyContact")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
@@ -474,7 +475,8 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("PhoneNumber")
                         .HasMaxLength(15)
@@ -534,9 +536,8 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DeleteFlag")
-                        .HasMaxLength(1)
-                        .HasColumnType("nvarchar(1)");
+                    b.Property<bool?>("DeleteFlag")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -615,9 +616,8 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DeleteFlag")
-                        .HasMaxLength(1)
-                        .HasColumnType("nvarchar(1)");
+                    b.Property<bool?>("DeleteFlag")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Dimensions")
                         .HasMaxLength(50)
@@ -687,9 +687,8 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DeleteFlag")
-                        .HasMaxLength(1)
-                        .HasColumnType("nvarchar(1)");
+                    b.Property<bool?>("DeleteFlag")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Path")
                         .IsRequired()

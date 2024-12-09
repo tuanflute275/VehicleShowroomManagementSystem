@@ -5,7 +5,7 @@ namespace VehicleShowroom.Mangement.Domain.Entities
     public class BaseEntity
     {
         [MaxLength(100)]
-        public string? CreateBy { get; set; } // Người tạo bản ghi
+        public string? CreateBy { get; set; } = "Admin"; // Người tạo bản ghi
 
         public DateTime? CreateDate { get; set; } = DateTime.Now; // Thời gian tạo
 
@@ -19,7 +19,6 @@ namespace VehicleShowroom.Mangement.Domain.Entities
 
         public DateTime? DeleteDate { get; set; } // Thời gian xóa
 
-        [MaxLength(1)]
-        public string? DeleteFlag { get; set; } // Cờ xóa (Y: đã xóa, N: chưa xóa)
+        public bool? DeleteFlag { get; set; } = false; // Cờ xóa (true: đã xóa, false: chưa xóa)
     }
 }

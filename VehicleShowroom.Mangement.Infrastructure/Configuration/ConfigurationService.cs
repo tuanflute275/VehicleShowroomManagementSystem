@@ -10,6 +10,7 @@ using NToastNotify;
 using Serilog;
 using VehicleShowroom.Mangement.Application.Abstracts;
 using VehicleShowroom.Mangement.Application.Services;
+using VehicleShowroom.Mangement.Application.Utils;
 using VehicleShowroom.Mangement.DataAccess.DataAccess;
 using VehicleShowroom.Mangement.DataAccess.Repository;
 using VehicleShowroom.Mangement.Domain.Abstract;
@@ -68,6 +69,7 @@ namespace VehicleShowroom.Mangement.Infrastructure.Configuration
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<ISupplierService, SupplierService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<FileUploadHelper>();
         }
 
         public static void AddAutoMapper(this IServiceCollection services)

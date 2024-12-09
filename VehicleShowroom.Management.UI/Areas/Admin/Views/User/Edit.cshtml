@@ -1,0 +1,226 @@
+﻿@model VehicleShowroom.Mangement.Application.Models.ViewModels.UserViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="app-main__inner">
+
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="fa-solid fa-truck-field-un"></i>
+                </div>
+                <div>
+                    User
+                    <div class="page-title-subheading">
+                        View, create, update, delete and manage.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <form method="post" asp-area="Admin" asp-controller="User" asp-action="Update" asp-antiforgery="true" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="UserId" />
+                        <div class="position-relative row form-group">
+                            <label for="image" class="col-md-3 text-md-right col-form-label">Image</label>
+                            <div class="col-md-9 col-xl-8">
+                                <img style="height: 200px;width:200px;cursor: pointer;object-fit: contain;" class="thumbnail"
+                                     data-toggle="tooltip" title="Click to change the image" data-placement="bottom"
+                                     src="@(Url.Content("~/Uploads/users/" + Model.Avatar))" alt="Avatar">
+                                <input name="fileUpload" type="file" onchange="changeImg(this)"
+                                       class="image form-control-file" style="display: none;">
+                                <input type="hidden" name="oldImage" value="@Model.Avatar" />
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group">
+                            <label for="SupplierName" class="col-md-3 text-md-right col-form-label">UserName</label>
+                            <div class="col-md-9 col-xl-8">
+                                <input asp-for="Username" placeholder="Enter your user name" type="text"
+                                       class="form-control">
+                                <span asp-validation-for="Username" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group">
+                            <label for="ContactPerson" class="col-md-3 text-md-right col-form-label">FullName</label>
+                            <div class="col-md-9 col-xl-8">
+                                <input asp-for="FullName" placeholder="Enter your full name" type="text"
+                                       class="form-control">
+                                <span asp-validation-for="FullName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group">
+                            <label for="ContactPerson" class="col-md-3 text-md-right col-form-label">Password</label>
+                            <div class="col-md-9 col-xl-8">
+                                <input asp-for="Password" placeholder="Enter your password" type="password"
+                                       class="form-control">
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group">
+                            <label for="Email" class="col-md-3 text-md-right col-form-label">Email</label>
+                            <div class="col-md-9 col-xl-8">
+                                <input asp-for="Email" placeholder="Enter your Email" type="text"
+                                       class="form-control">
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group">
+                            <label for="PhoneNumber" class="col-md-3 text-md-right col-form-label">Phone number</label>
+                            <div class="col-md-9 col-xl-8">
+                                <input asp-for="PhoneNumber" placeholder="Enter your PhoneNumber" type="text"
+                                       class="form-control">
+                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group">
+                            <label for="Address" class="col-md-3 text-md-right col-form-label">Address</label>
+                            <div class="col-md-9 col-xl-8">
+                                <input asp-for="Address" placeholder="Enter your Address" type="text"
+                                       class="form-control">
+                                <span asp-validation-for="Address" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group">
+                            <label for="Department" class="col-md-3 text-md-right col-form-label">
+                                Department
+                            </label>
+                            <div class="col-md-9 col-xl-8">
+                                <input asp-for="Department" placeholder="Enter your Department" type="text"
+                                       class="form-control">
+                                <span asp-validation-for="Department" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group">
+                            <label for="JobTitle" class="col-md-3 text-md-right col-form-label">JobTitle</label>
+                            <div class="col-md-9 col-xl-8">
+                                <input asp-for="JobTitle" placeholder="Enter your JobTitle" type="text"
+                                       class="form-control">
+                                <span asp-validation-for="JobTitle" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group">
+                            <label for="HireDate" class="col-md-3 text-md-right col-form-label">HireDate</label>
+                            <div class="col-md-9 col-xl-8">
+                                <input asp-for="HireDate" placeholder="Enter your HireDate" type="date"
+                                       class="form-control">
+                                <span asp-validation-for="HireDate" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group">
+                            <label for="Salary" class="col-md-3 text-md-right col-form-label">Salary</label>
+                            <div class="col-md-9 col-xl-8">
+                                <input asp-for="Salary" placeholder="Enter your Salary" type="number"
+                                       class="form-control">
+                                <span asp-validation-for="HireDate" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group">
+                            <label for="DateOfBirth" class="col-md-3 text-md-right col-form-label">DateOfBirth</label>
+                            <div class="col-md-9 col-xl-8">
+                                <input asp-for="DateOfBirth" placeholder="Enter your DateOfBirth" type="date"
+                                       class="form-control">
+                                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group">
+                            <label for="Nationality" class="col-md-3 text-md-right col-form-label">Nationality</label>
+                            <div class="col-md-9 col-xl-8">
+                                <input asp-for="Nationality" placeholder="Enter your Nationality" type="text"
+                                       class="form-control">
+                                <span asp-validation-for="Nationality" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group">
+                            <label for="EmergencyContact" class="col-md-3 text-md-right col-form-label">EmergencyContact</label>
+                            <div class="col-md-9 col-xl-8">
+                                <input asp-for="EmergencyContact" placeholder="Enter your EmergencyContact" type="text"
+                                       class="form-control">
+                                <span asp-validation-for="EmergencyContact" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group">
+                            <label for="Gender" class="col-md-3 text-md-right col-form-label">Gender</label>
+                            <div class="form-check form-check-inline ml-3">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" asp-for="Gender" value="1" checked> Male
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" asp-for="Gender" value="2"> Female
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" asp-for="Gender" value="3"> Prefer not to say
+                                </label>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group">
+                            <label for="Gender" class="col-md-3 text-md-right col-form-label">Role</label>
+                            <div class="form-check form-check-inline ml-3">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" asp-for="Role" value="0" checked> User
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" asp-for="Role" value="1"> Admin
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" asp-for="Role" value="2"> Employee
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" asp-for="Role" value="3"> Invoice
+                                </label>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group">
+                            <label for="ContractDate" class="col-md-3 text-md-right col-form-label">Status</label>
+                            <div class="form-check form-check-inline ml-3">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" asp-for="Status" value="1" checked> Currently working
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" asp-for="Status" value="0"> Resigned
+                                </label>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group mb-1">
+                            <div class="col-md-9 col-xl-8 offset-md-2">
+                                <a asp-area="Admin" asp-controller="User" asp-action="Index" class="border-0 btn btn-outline-danger mr-1">
+                                    <span class="btn-icon-wrapper pr-1 opacity-8">
+                                        <i class="fa fa-times fa-w-20"></i>
+                                    </span>
+                                    <span>Cancel</span>
+                                </a>
+
+                                <button type="submit"
+                                        class="btn-shadow btn-hover-shine btn btn-primary">
+                                    <span class="btn-icon-wrapper pr-2 opacity-8">
+                                        <i class="fa fa-download fa-w-20"></i>
+                                    </span>
+                                    <span>Save</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

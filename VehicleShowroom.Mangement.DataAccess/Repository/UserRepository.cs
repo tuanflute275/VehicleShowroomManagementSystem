@@ -28,6 +28,11 @@ namespace VehicleShowroom.Mangement.DataAccess.Repository
             return await base.GetSingleAsync(x => x.Email == email);
         }
 
+        public async Task<User?> GetByUsernameOrEmailAsync(string usernameOrEmail)
+        {
+            return await base.GetSingleAsync(x => x.Username == usernameOrEmail || x.Email == usernameOrEmail);
+        }
+
         public async Task<User?> GetByIdAsync(int id)
         {
             return await base.GetSingleAsync(x => x.UserId == id);
