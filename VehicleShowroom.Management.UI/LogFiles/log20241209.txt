@@ -19751,3 +19751,92 @@ System.MethodAccessException: Attempt by method 'AspNetCoreGeneratedDocument.Are
 2024-12-09 23:20:47.723 +07:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\DELL\Desktop\Eproject\Group2_C2208G_eProject_Sem3\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\favicon.ico'
 2024-12-09 23:20:47.725 +07:00 [INF] HTTP GET /favicon.ico responded 200 in 8.4260 ms
 2024-12-09 23:20:47.727 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/favicon.ico - 200 5430 image/x-icon 12.6858ms
+2024-12-09 23:41:36.507 +07:00 [INF] User profile is available. Using 'C:\Users\Ha Van Vu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-09 23:41:36.715 +07:00 [INF] Now listening on: http://localhost:5119
+2024-12-09 23:41:36.719 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-09 23:41:36.721 +07:00 [INF] Hosting environment: Development
+2024-12-09 23:41:36.721 +07:00 [INF] Content root path: D:\Project_Sem_3\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI
+2024-12-09 23:41:39.654 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/ - null null
+2024-12-09 23:41:39.836 +07:00 [WRN] Failed to determine the https port for redirect.
+2024-12-09 23:41:39.892 +07:00 [INF] Executing endpoint 'VehicleShowroomManagementSystem.Controllers.HomeController.Index (VehicleShowroom.Management.UI)'
+2024-12-09 23:41:39.944 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller VehicleShowroomManagementSystem.Controllers.HomeController (VehicleShowroom.Management.UI).
+2024-12-09 23:41:39.960 +07:00 [INF] Executing ViewResult, running view Index.
+2024-12-09 23:41:40.117 +07:00 [INF] Executed ViewResult - view Index executed in 160.6381ms.
+2024-12-09 23:41:40.125 +07:00 [INF] Executed action VehicleShowroomManagementSystem.Controllers.HomeController.Index (VehicleShowroom.Management.UI) in 176.3294ms
+2024-12-09 23:41:40.126 +07:00 [INF] Executed endpoint 'VehicleShowroomManagementSystem.Controllers.HomeController.Index (VehicleShowroom.Management.UI)'
+2024-12-09 23:41:40.129 +07:00 [INF] HTTP GET / responded 200 in 293.5973 ms
+2024-12-09 23:41:40.135 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/ - 200 null text/html; charset=utf-8 485.1622ms
+2024-12-09 23:41:40.141 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2024-12-09 23:41:40.142 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - null null
+2024-12-09 23:41:40.146 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/lib/jquery/dist/jquery.min.js - null null
+2024-12-09 23:41:40.146 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/VehicleShowroomManagementSystem.styles.css - null null
+2024-12-09 23:41:40.147 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2024-12-09 23:41:40.147 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null
+2024-12-09 23:41:40.161 +07:00 [INF] HTTP GET /VehicleShowroomManagementSystem.styles.css responded 404 in 9.3158 ms
+2024-12-09 23:41:40.164 +07:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'D:\Project_Sem_3\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\js\site.js'
+2024-12-09 23:41:40.164 +07:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'D:\Project_Sem_3\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\css\site.css'
+2024-12-09 23:41:40.164 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/VehicleShowroomManagementSystem.styles.css - 404 0 null 17.3162ms
+2024-12-09 23:41:40.166 +07:00 [INF] HTTP GET /js/site.js responded 200 in 6.8368 ms
+2024-12-09 23:41:40.168 +07:00 [INF] HTTP GET /css/site.css responded 200 in 22.0794 ms
+2024-12-09 23:41:40.172 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/VehicleShowroomManagementSystem.styles.css, Response status code: 404
+2024-12-09 23:41:40.172 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 200 231 text/javascript 24.8299ms
+2024-12-09 23:41:40.174 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - 200 362 text/css 31.953ms
+2024-12-09 23:41:40.179 +07:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'D:\Project_Sem_3\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2024-12-09 23:41:40.179 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/_vs/browserLink - null null
+2024-12-09 23:41:40.183 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 23:41:40.184 +07:00 [INF] HTTP GET /lib/bootstrap/dist/css/bootstrap.min.css responded 200 in 40.1265 ms
+2024-12-09 23:41:40.190 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/lib/bootstrap/dist/css/bootstrap.min.css - 200 162726 text/css 48.6868ms
+2024-12-09 23:41:40.190 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/_framework/aspnetcore-browser-refresh.js - 200 13794 application/javascript; charset=utf-8 7.4421ms
+2024-12-09 23:41:40.201 +07:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'D:\Project_Sem_3\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2024-12-09 23:41:40.203 +07:00 [INF] HTTP GET /lib/bootstrap/dist/js/bootstrap.bundle.min.js responded 200 in 48.2020 ms
+2024-12-09 23:41:40.206 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 200 78474 text/javascript 58.8869ms
+2024-12-09 23:41:40.247 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/_vs/browserLink - 200 null text/javascript; charset=UTF-8 67.6964ms
+2024-12-09 23:41:40.252 +07:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'D:\Project_Sem_3\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\lib\jquery\dist\jquery.min.js'
+2024-12-09 23:41:40.254 +07:00 [INF] HTTP GET /lib/jquery/dist/jquery.min.js responded 200 in 104.5478 ms
+2024-12-09 23:41:40.256 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/lib/jquery/dist/jquery.min.js - 200 89503 text/javascript 109.553ms
+2024-12-09 23:41:40.338 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/favicon.ico - null null
+2024-12-09 23:41:40.365 +07:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'D:\Project_Sem_3\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\favicon.ico'
+2024-12-09 23:41:40.368 +07:00 [INF] HTTP GET /favicon.ico responded 200 in 21.1061 ms
+2024-12-09 23:41:40.372 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/favicon.ico - 200 5430 image/x-icon 34.4511ms
+2024-12-09 23:44:46.963 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/admin - null null
+2024-12-09 23:44:47.215 +07:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-12-09 23:44:47.227 +07:00 [INF] AuthenticationScheme: Cookies was challenged.
+2024-12-09 23:44:47.229 +07:00 [INF] HTTP GET /admin responded 302 in 75.3535 ms
+2024-12-09 23:44:47.232 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/admin - 302 0 null 272.6927ms
+2024-12-09 23:44:47.236 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/login?returnUrl=%2Fadmin - null null
+2024-12-09 23:44:47.245 +07:00 [INF] Executing endpoint 'VehicleShowroomManagementSystem.Areas.Admin.Controllers.AuthController.Index (VehicleShowroom.Management.UI)'
+2024-12-09 23:44:47.290 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller VehicleShowroomManagementSystem.Areas.Admin.Controllers.AuthController (VehicleShowroom.Management.UI).
+2024-12-09 23:44:48.109 +07:00 [INF] Executing ViewResult, running view Login.
+2024-12-09 23:44:48.233 +07:00 [INF] Executed ViewResult - view Login executed in 134.1312ms.
+2024-12-09 23:44:48.235 +07:00 [INF] Executed action VehicleShowroomManagementSystem.Areas.Admin.Controllers.AuthController.Index (VehicleShowroom.Management.UI) in 941.8278ms
+2024-12-09 23:44:48.237 +07:00 [INF] Executed endpoint 'VehicleShowroomManagementSystem.Areas.Admin.Controllers.AuthController.Index (VehicleShowroom.Management.UI)'
+2024-12-09 23:44:48.238 +07:00 [INF] HTTP GET /login responded 200 in 997.5071 ms
+2024-12-09 23:44:48.242 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/login?returnUrl=%2Fadmin - 200 null text/html; charset=utf-8 1006.4385ms
+2024-12-09 23:44:48.268 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 23:44:48.272 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/_framework/aspnetcore-browser-refresh.js - 200 13794 application/javascript; charset=utf-8 3.7758ms
+2024-12-09 23:44:48.530 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/_vs/browserLink - null null
+2024-12-09 23:44:48.541 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.9321ms
+2024-12-09 23:44:49.748 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/icon/favicon.ico - null null
+2024-12-09 23:44:49.760 +07:00 [INF] HTTP GET /icon/favicon.ico responded 404 in 9.4312 ms
+2024-12-09 23:44:49.764 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/icon/favicon.ico - 404 0 null 15.6516ms
+2024-12-09 23:44:49.768 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/icon/favicon.ico, Response status code: 404
+2024-12-09 23:51:53.508 +07:00 [INF] User profile is available. Using 'C:\Users\Ha Van Vu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-09 23:51:53.719 +07:00 [INF] Now listening on: http://localhost:5119
+2024-12-09 23:51:53.722 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-09 23:51:53.723 +07:00 [INF] Hosting environment: Development
+2024-12-09 23:51:53.724 +07:00 [INF] Content root path: D:\Project_Sem_3\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI
+2024-12-09 23:51:53.917 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/login?returnUrl=%2Fadmin - null null
+2024-12-09 23:51:53.998 +07:00 [WRN] Failed to determine the https port for redirect.
+2024-12-09 23:51:54.037 +07:00 [INF] Executing endpoint 'VehicleShowroomManagementSystem.Areas.Admin.Controllers.AuthController.Index (VehicleShowroom.Management.UI)'
+2024-12-09 23:51:54.058 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller VehicleShowroomManagementSystem.Areas.Admin.Controllers.AuthController (VehicleShowroom.Management.UI).
+2024-12-09 23:51:54.289 +07:00 [INF] Executing ViewResult, running view Login.
+2024-12-09 23:51:54.380 +07:00 [INF] Executed ViewResult - view Login executed in 91.8899ms.
+2024-12-09 23:51:54.386 +07:00 [INF] Executed action VehicleShowroomManagementSystem.Areas.Admin.Controllers.AuthController.Index (VehicleShowroom.Management.UI) in 325.114ms
+2024-12-09 23:51:54.388 +07:00 [INF] Executed endpoint 'VehicleShowroomManagementSystem.Areas.Admin.Controllers.AuthController.Index (VehicleShowroom.Management.UI)'
+2024-12-09 23:51:54.392 +07:00 [INF] HTTP GET /login responded 200 in 393.2247 ms
+2024-12-09 23:51:54.399 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/login?returnUrl=%2Fadmin - 200 null text/html; charset=utf-8 484.1655ms
+2024-12-09 23:51:54.425 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 23:51:54.430 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/_framework/aspnetcore-browser-refresh.js - 200 13794 application/javascript; charset=utf-8 5.1106ms
+2024-12-09 23:51:54.444 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/_vs/browserLink - null null
+2024-12-09 23:51:54.492 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/_vs/browserLink - 200 null text/javascript; charset=UTF-8 48.117ms

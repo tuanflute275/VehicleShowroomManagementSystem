@@ -22,7 +22,7 @@ namespace VehicleShowroom.Mangement.Application.Services
         {
             // 1. Lấy dữ liệu với phân trang và sắp xếp từ request
             var supplierQuery = _unitOfWork.SupplierRepository.GetAllAsync(
-                 expression: s => string.IsNullOrEmpty(keyword) || s.SupplierName.Contains(keyword)
+                 expression: s => string.IsNullOrEmpty(keyword) || s.SupplierName.Contains(keyword) 
              );
 
             // 2. Chuyển đổi dữ liệu từ Supplier sang SupplierDTO
