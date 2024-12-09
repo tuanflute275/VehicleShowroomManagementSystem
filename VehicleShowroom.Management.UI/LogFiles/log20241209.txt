@@ -1,0 +1,186 @@
+2024-12-09 09:13:47.213 +07:00 [INF] User profile is available. Using 'C:\Users\CAO TOAN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-09 09:13:47.456 +07:00 [INF] Now listening on: http://localhost:5119
+2024-12-09 09:13:47.462 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-09 09:13:47.463 +07:00 [INF] Hosting environment: Development
+2024-12-09 09:13:47.465 +07:00 [INF] Content root path: C:\Users\CAO TOAN\OneDrive\Máy tính\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI
+2024-12-09 09:13:50.539 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/ - null null
+2024-12-09 09:13:50.790 +07:00 [WRN] Failed to determine the https port for redirect.
+2024-12-09 09:13:50.865 +07:00 [INF] Executing endpoint 'VehicleShowroomManagementSystem.Controllers.HomeController.Index (VehicleShowroom.Management.UI)'
+2024-12-09 09:13:50.908 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller VehicleShowroomManagementSystem.Controllers.HomeController (VehicleShowroom.Management.UI).
+2024-12-09 09:13:50.920 +07:00 [INF] Executing ViewResult, running view Index.
+2024-12-09 09:13:51.130 +07:00 [INF] Executed ViewResult - view Index executed in 206.5491ms.
+2024-12-09 09:13:51.141 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2024-12-09 09:13:51.142 +07:00 [INF] Executed action VehicleShowroomManagementSystem.Controllers.HomeController.Index (VehicleShowroom.Management.UI) in 228.8688ms
+2024-12-09 09:13:51.145 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - null null
+2024-12-09 09:13:51.145 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/VehicleShowroomManagementSystem.styles.css - null null
+2024-12-09 09:13:51.146 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/lib/jquery/dist/jquery.min.js - null null
+2024-12-09 09:13:51.146 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2024-12-09 09:13:51.152 +07:00 [INF] Executed endpoint 'VehicleShowroomManagementSystem.Controllers.HomeController.Index (VehicleShowroom.Management.UI)'
+2024-12-09 09:13:51.169 +07:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\CAO TOAN\OneDrive\Máy tính\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\css\site.css'
+2024-12-09 09:13:51.187 +07:00 [INF] HTTP GET /css/site.css responded 200 in 26.9213 ms
+2024-12-09 09:13:51.187 +07:00 [INF] HTTP GET / responded 200 in 396.9268 ms
+2024-12-09 09:13:51.190 +07:00 [INF] HTTP GET /VehicleShowroomManagementSystem.styles.css responded 404 in 22.4685 ms
+2024-12-09 09:13:51.191 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - 200 362 text/css 45.8831ms
+2024-12-09 09:13:51.200 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/ - 200 null text/html; charset=utf-8 664.6316ms
+2024-12-09 09:13:51.201 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/VehicleShowroomManagementSystem.styles.css - 404 0 null 55.955ms
+2024-12-09 09:13:51.207 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null
+2024-12-09 09:13:51.214 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 09:13:51.217 +07:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\Users\CAO TOAN\OneDrive\Máy tính\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2024-12-09 09:13:51.219 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/VehicleShowroomManagementSystem.styles.css, Response status code: 404
+2024-12-09 09:13:51.226 +07:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\CAO TOAN\OneDrive\Máy tính\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\js\site.js'
+2024-12-09 09:13:51.234 +07:00 [INF] HTTP GET /lib/bootstrap/dist/css/bootstrap.min.css responded 200 in 85.4495 ms
+2024-12-09 09:13:51.234 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/_framework/aspnetcore-browser-refresh.js - 200 13794 application/javascript; charset=utf-8 20.4384ms
+2024-12-09 09:13:51.236 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/_vs/browserLink - null null
+2024-12-09 09:13:51.238 +07:00 [INF] HTTP GET /js/site.js responded 200 in 14.7997 ms
+2024-12-09 09:13:51.247 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/lib/bootstrap/dist/css/bootstrap.min.css - 200 162726 text/css 105.9581ms
+2024-12-09 09:13:51.265 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 200 231 text/javascript 57.6369ms
+2024-12-09 09:13:51.269 +07:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Users\CAO TOAN\OneDrive\Máy tính\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2024-12-09 09:13:51.279 +07:00 [INF] HTTP GET /lib/bootstrap/dist/js/bootstrap.bundle.min.js responded 200 in 98.4416 ms
+2024-12-09 09:13:51.285 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 200 78474 text/javascript 138.1692ms
+2024-12-09 09:13:51.404 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/_vs/browserLink - 200 null text/javascript; charset=UTF-8 168.2121ms
+2024-12-09 09:13:51.448 +07:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Users\CAO TOAN\OneDrive\Máy tính\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\lib\jquery\dist\jquery.min.js'
+2024-12-09 09:13:51.453 +07:00 [INF] HTTP GET /lib/jquery/dist/jquery.min.js responded 200 in 282.9816 ms
+2024-12-09 09:13:51.459 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/lib/jquery/dist/jquery.min.js - 200 89503 text/javascript 312.5374ms
+2024-12-09 09:13:51.533 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/favicon.ico - null null
+2024-12-09 09:13:51.574 +07:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\CAO TOAN\OneDrive\Máy tính\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\favicon.ico'
+2024-12-09 09:13:51.578 +07:00 [INF] HTTP GET /favicon.ico responded 200 in 32.4287 ms
+2024-12-09 09:13:51.581 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/favicon.ico - 200 5430 image/x-icon 48.4602ms
+2024-12-09 09:15:05.815 +07:00 [INF] User profile is available. Using 'C:\Users\CAO TOAN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-09 09:15:05.995 +07:00 [INF] Now listening on: http://localhost:5119
+2024-12-09 09:15:06.000 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-09 09:15:06.003 +07:00 [INF] Hosting environment: Development
+2024-12-09 09:15:06.004 +07:00 [INF] Content root path: C:\Users\CAO TOAN\OneDrive\Máy tính\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI
+2024-12-09 09:17:36.925 +07:00 [INF] User profile is available. Using 'C:\Users\CAO TOAN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-09 09:17:37.092 +07:00 [INF] Now listening on: http://localhost:5119
+2024-12-09 09:17:37.096 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-09 09:17:37.099 +07:00 [INF] Hosting environment: Development
+2024-12-09 09:17:37.102 +07:00 [INF] Content root path: C:\Users\CAO TOAN\OneDrive\Máy tính\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI
+2024-12-09 09:20:05.788 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/ - null null
+2024-12-09 09:20:06.017 +07:00 [WRN] Failed to determine the https port for redirect.
+2024-12-09 09:20:06.124 +07:00 [INF] Executing endpoint 'VehicleShowroomManagementSystem.Controllers.HomeController.Index (VehicleShowroom.Management.UI)'
+2024-12-09 09:20:06.196 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller VehicleShowroomManagementSystem.Controllers.HomeController (VehicleShowroom.Management.UI).
+2024-12-09 09:20:06.221 +07:00 [INF] Executing ViewResult, running view Index.
+2024-12-09 09:20:06.424 +07:00 [INF] Executed ViewResult - view Index executed in 209.1994ms.
+2024-12-09 09:20:06.439 +07:00 [INF] Executed action VehicleShowroomManagementSystem.Controllers.HomeController.Index (VehicleShowroom.Management.UI) in 236.8651ms
+2024-12-09 09:20:06.442 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2024-12-09 09:20:06.443 +07:00 [INF] Executed endpoint 'VehicleShowroomManagementSystem.Controllers.HomeController.Index (VehicleShowroom.Management.UI)'
+2024-12-09 09:20:06.448 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - null null
+2024-12-09 09:20:06.449 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/VehicleShowroomManagementSystem.styles.css - null null
+2024-12-09 09:20:06.452 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/lib/jquery/dist/jquery.min.js - null null
+2024-12-09 09:20:06.452 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2024-12-09 09:20:06.460 +07:00 [INF] HTTP GET / responded 200 in 444.0909 ms
+2024-12-09 09:20:06.460 +07:00 [INF] The file /lib/bootstrap/dist/css/bootstrap.min.css was not modified
+2024-12-09 09:20:06.462 +07:00 [INF] The file /css/site.css was not modified
+2024-12-09 09:20:06.480 +07:00 [INF] HTTP GET /VehicleShowroomManagementSystem.styles.css responded 404 in 12.7126 ms
+2024-12-09 09:20:06.481 +07:00 [INF] The file /lib/jquery/dist/jquery.min.js was not modified
+2024-12-09 09:20:06.482 +07:00 [INF] The file /lib/bootstrap/dist/js/bootstrap.bundle.min.js was not modified
+2024-12-09 09:20:06.489 +07:00 [INF] HTTP GET /lib/bootstrap/dist/css/bootstrap.min.css responded 304 in 35.9982 ms
+2024-12-09 09:20:06.491 +07:00 [INF] HTTP GET /css/site.css responded 304 in 29.2103 ms
+2024-12-09 09:20:06.497 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/VehicleShowroomManagementSystem.styles.css - 404 0 null 46.9156ms
+2024-12-09 09:20:06.498 +07:00 [INF] HTTP GET /lib/jquery/dist/jquery.min.js responded 304 in 20.9686 ms
+2024-12-09 09:20:06.500 +07:00 [INF] HTTP GET /lib/bootstrap/dist/js/bootstrap.bundle.min.js responded 304 in 18.2510 ms
+2024-12-09 09:20:06.504 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/ - 200 null text/html; charset=utf-8 727.1804ms
+2024-12-09 09:20:06.506 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/lib/bootstrap/dist/css/bootstrap.min.css - 304 null text/css 63.9531ms
+2024-12-09 09:20:06.512 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - 304 null text/css 63.5503ms
+2024-12-09 09:20:06.525 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/VehicleShowroomManagementSystem.styles.css, Response status code: 404
+2024-12-09 09:20:06.525 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/lib/jquery/dist/jquery.min.js - 304 null text/javascript 72.9495ms
+2024-12-09 09:20:06.529 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 304 null text/javascript 76.7335ms
+2024-12-09 09:20:06.535 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null
+2024-12-09 09:20:06.539 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/_vs/browserLink - null null
+2024-12-09 09:20:06.547 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 09:20:06.561 +07:00 [INF] The file /js/site.js was not modified
+2024-12-09 09:20:06.573 +07:00 [INF] HTTP GET /js/site.js responded 304 in 12.0059 ms
+2024-12-09 09:20:06.574 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/_framework/aspnetcore-browser-refresh.js - 200 13794 application/javascript; charset=utf-8 26.2668ms
+2024-12-09 09:20:06.576 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 304 null text/javascript 40.4527ms
+2024-12-09 09:20:06.645 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/_vs/browserLink - 200 null text/javascript; charset=UTF-8 105.9071ms
+2024-12-09 09:20:17.823 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/admin - null null
+2024-12-09 09:20:17.865 +07:00 [INF] Executing endpoint 'VehicleShowroomManagementSystem.Areas.Admin.Controllers.HomeController.Index (VehicleShowroom.Management.UI)'
+2024-12-09 09:20:17.874 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller VehicleShowroomManagementSystem.Areas.Admin.Controllers.HomeController (VehicleShowroom.Management.UI).
+2024-12-09 09:20:17.888 +07:00 [INF] Executing ViewResult, running view Index.
+2024-12-09 09:20:17.973 +07:00 [INF] Executed ViewResult - view Index executed in 87.384ms.
+2024-12-09 09:20:17.980 +07:00 [INF] Executed action VehicleShowroomManagementSystem.Areas.Admin.Controllers.HomeController.Index (VehicleShowroom.Management.UI) in 97.3022ms
+2024-12-09 09:20:18.016 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/assets/css/main.css - null null
+2024-12-09 09:20:18.018 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/assets/css/my_style.css - null null
+2024-12-09 09:20:18.019 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/images/defaultUser.png - null null
+2024-12-09 09:20:18.021 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/assets/scripts/jquery-3.2.1.min.js - null null
+2024-12-09 09:20:18.025 +07:00 [INF] Executed endpoint 'VehicleShowroomManagementSystem.Areas.Admin.Controllers.HomeController.Index (VehicleShowroom.Management.UI)'
+2024-12-09 09:20:18.085 +07:00 [INF] HTTP GET /admin responded 200 in 240.8077 ms
+2024-12-09 09:20:18.070 +07:00 [INF] HTTP GET /images/defaultUser.png responded 404 in 1.2269 ms
+2024-12-09 09:20:18.115 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/images/defaultUser.png - 404 0 null 95.7446ms
+2024-12-09 09:20:18.120 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/images/defaultUser.png, Response status code: 404
+2024-12-09 09:20:18.050 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/assets/scripts/main.js - null null
+2024-12-09 09:20:18.109 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/admin - 200 null text/html; charset=utf-8 286.4078ms
+2024-12-09 09:20:18.124 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/assets/scripts/my_script.js - null null
+2024-12-09 09:20:18.133 +07:00 [INF] Sending file. Request path: '/assets/css/my_style.css'. Physical path: 'C:\Users\CAO TOAN\OneDrive\Máy tính\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\assets\css\my_style.css'
+2024-12-09 09:20:18.137 +07:00 [INF] Sending file. Request path: '/assets/css/main.css'. Physical path: 'C:\Users\CAO TOAN\OneDrive\Máy tính\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\assets\css\main.css'
+2024-12-09 09:20:18.140 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/assets/scripts/common.js - null null
+2024-12-09 09:20:18.146 +07:00 [INF] HTTP GET /assets/css/my_style.css responded 200 in 86.8762 ms
+2024-12-09 09:20:18.147 +07:00 [INF] HTTP GET /assets/css/main.css responded 200 in 98.9373 ms
+2024-12-09 09:20:18.153 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/assets/css/my_style.css - 200 1362 text/css 135.7302ms
+2024-12-09 09:20:18.155 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/assets/css/main.css - 200 900673 text/css 139.4688ms
+2024-12-09 09:20:18.161 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/assets/scripts/html2pdf.bundle.min.js - null null
+2024-12-09 09:20:18.165 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/assets/scripts/html2canvas.min.js - null null
+2024-12-09 09:20:18.180 +07:00 [INF] Sending file. Request path: '/assets/scripts/my_script.js'. Physical path: 'C:\Users\CAO TOAN\OneDrive\Máy tính\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\assets\scripts\my_script.js'
+2024-12-09 09:20:18.182 +07:00 [INF] HTTP GET /assets/scripts/my_script.js responded 200 in 38.8700 ms
+2024-12-09 09:20:18.185 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/assets/scripts/my_script.js - 200 775 text/javascript 60.3451ms
+2024-12-09 09:20:18.188 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/assets/scripts/bootbox.min.js - null null
+2024-12-09 09:20:18.211 +07:00 [INF] Sending file. Request path: '/assets/scripts/common.js'. Physical path: 'C:\Users\CAO TOAN\OneDrive\Máy tính\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\assets\scripts\common.js'
+2024-12-09 09:20:18.217 +07:00 [INF] HTTP GET /assets/scripts/common.js responded 200 in 66.4460 ms
+2024-12-09 09:20:18.219 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/assets/scripts/common.js - 200 1088 text/javascript 79.5403ms
+2024-12-09 09:20:18.223 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 09:20:18.232 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/_framework/aspnetcore-browser-refresh.js - 200 13794 application/javascript; charset=utf-8 8.1162ms
+2024-12-09 09:20:18.237 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/_vs/browserLink - null null
+2024-12-09 09:20:18.263 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/_vs/browserLink - 200 null text/javascript; charset=UTF-8 25.5722ms
+2024-12-09 09:20:18.294 +07:00 [INF] Sending file. Request path: '/assets/scripts/bootbox.min.js'. Physical path: 'C:\Users\CAO TOAN\OneDrive\Máy tính\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\assets\scripts\bootbox.min.js'
+2024-12-09 09:20:18.297 +07:00 [INF] HTTP GET /assets/scripts/bootbox.min.js responded 200 in 100.3833 ms
+2024-12-09 09:20:18.300 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/assets/scripts/bootbox.min.js - 200 15625 text/javascript 111.6686ms
+2024-12-09 09:20:18.331 +07:00 [INF] Sending file. Request path: '/assets/scripts/jquery-3.2.1.min.js'. Physical path: 'C:\Users\CAO TOAN\OneDrive\Máy tính\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\assets\scripts\jquery-3.2.1.min.js'
+2024-12-09 09:20:18.334 +07:00 [INF] HTTP GET /assets/scripts/jquery-3.2.1.min.js responded 200 in 257.3763 ms
+2024-12-09 09:20:18.337 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/assets/scripts/jquery-3.2.1.min.js - 200 86663 text/javascript 318.1652ms
+2024-12-09 09:20:18.364 +07:00 [INF] Sending file. Request path: '/assets/scripts/html2canvas.min.js'. Physical path: 'C:\Users\CAO TOAN\OneDrive\Máy tính\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\assets\scripts\html2canvas.min.js'
+2024-12-09 09:20:18.366 +07:00 [INF] HTTP GET /assets/scripts/html2canvas.min.js responded 200 in 194.6113 ms
+2024-12-09 09:20:18.369 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/assets/scripts/html2canvas.min.js - 200 198708 text/javascript 203.6283ms
+2024-12-09 09:20:18.376 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/assets/css/assets/images/logo-inverse.png - null null
+2024-12-09 09:20:18.384 +07:00 [INF] HTTP GET /assets/css/assets/images/logo-inverse.png responded 404 in 2.7488 ms
+2024-12-09 09:20:18.398 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/assets/css/assets/images/logo-inverse.png - 404 0 null 22.1599ms
+2024-12-09 09:20:18.406 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/assets/css/assets/images/logo-inverse.png, Response status code: 404
+2024-12-09 09:20:18.540 +07:00 [INF] Sending file. Request path: '/assets/scripts/html2pdf.bundle.min.js'. Physical path: 'C:\Users\CAO TOAN\OneDrive\Máy tính\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\assets\scripts\html2pdf.bundle.min.js'
+2024-12-09 09:20:18.547 +07:00 [INF] HTTP GET /assets/scripts/html2pdf.bundle.min.js responded 200 in 379.1147 ms
+2024-12-09 09:20:18.551 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/assets/scripts/html2pdf.bundle.min.js - 200 480608 text/javascript 390.0959ms
+2024-12-09 09:20:19.986 +07:00 [INF] Sending file. Request path: '/assets/scripts/main.js'. Physical path: 'C:\Users\CAO TOAN\OneDrive\Máy tính\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\assets\scripts\main.js'
+2024-12-09 09:20:19.990 +07:00 [INF] HTTP GET /assets/scripts/main.js responded 200 in 1856.4521 ms
+2024-12-09 09:20:19.996 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/assets/scripts/main.js - 200 3038583 text/javascript 1945.7579ms
+2024-12-09 09:20:21.142 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/Admin/Supplier - null null
+2024-12-09 09:20:21.162 +07:00 [INF] Executing endpoint 'VehicleShowroomManagementSystem.Areas.Admin.Controllers.SupplierController.Index (VehicleShowroom.Management.UI)'
+2024-12-09 09:20:21.216 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, System.Nullable`1[System.Int32]) on controller VehicleShowroomManagementSystem.Areas.Admin.Controllers.SupplierController (VehicleShowroom.Management.UI).
+2024-12-09 09:20:23.117 +07:00 [WRN] No store type was specified for the decimal property 'Salary' on entity type 'User'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-12-09 09:20:24.488 +07:00 [INF] Executed DbCommand (69ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[SupplierId], [s].[Address], [s].[BankAccount], [s].[BankName], [s].[ContactPerson], [s].[ContractDate], [s].[ContractNumber], [s].[CreateBy], [s].[CreateDate], [s].[DeleteBy], [s].[DeleteDate], [s].[DeleteFlag], [s].[Email], [s].[Notes], [s].[PhoneNumber], [s].[Status], [s].[SupplierName], [s].[TaxCode], [s].[UpdateBy], [s].[UpdateDate], [s].[Website]
+FROM [Suppliers] AS [s]
+ORDER BY [s].[CreateDate] DESC
+2024-12-09 09:20:24.607 +07:00 [INF] Executing ViewResult, running view Index.
+2024-12-09 09:20:24.695 +07:00 [INF] Executed ViewResult - view Index executed in 88.7925ms.
+2024-12-09 09:20:24.701 +07:00 [INF] Executed action VehicleShowroomManagementSystem.Areas.Admin.Controllers.SupplierController.Index (VehicleShowroom.Management.UI) in 3475.7209ms
+2024-12-09 09:20:24.705 +07:00 [INF] Executed endpoint 'VehicleShowroomManagementSystem.Areas.Admin.Controllers.SupplierController.Index (VehicleShowroom.Management.UI)'
+2024-12-09 09:20:24.713 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/images/defaultUser.png - null null
+2024-12-09 09:20:24.714 +07:00 [INF] HTTP GET /Admin/Supplier responded 200 in 3553.3249 ms
+2024-12-09 09:20:24.715 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-09 09:20:24.721 +07:00 [INF] HTTP GET /images/defaultUser.png responded 404 in 0.5984 ms
+2024-12-09 09:20:24.732 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/_framework/aspnetcore-browser-refresh.js - 200 13794 application/javascript; charset=utf-8 16.935ms
+2024-12-09 09:20:24.736 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/images/defaultUser.png - 404 0 null 22.0508ms
+2024-12-09 09:20:24.740 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/Admin/Supplier - 200 null text/html; charset=utf-8 3598.2714ms
+2024-12-09 09:20:24.750 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/images/defaultUser.png, Response status code: 404
+2024-12-09 09:20:24.756 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/_vs/browserLink - null null
+2024-12-09 09:20:24.766 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.1484ms
+2024-12-09 09:20:24.922 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/assets/css/assets/fonts/fa-solid-900.woff2 - null null
+2024-12-09 09:20:24.929 +07:00 [INF] HTTP GET /assets/css/assets/fonts/fa-solid-900.woff2 responded 404 in 0.9394 ms
+2024-12-09 09:20:24.962 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/assets/css/assets/fonts/fa-solid-900.woff2 - 404 0 null 39.4708ms
+2024-12-09 09:20:24.967 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/assets/css/assets/fonts/fa-solid-900.woff2, Response status code: 404
+2024-12-09 09:20:25.105 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/assets/css/assets/fonts/fa-solid-900.woff - null null
+2024-12-09 09:20:25.122 +07:00 [INF] HTTP GET /assets/css/assets/fonts/fa-solid-900.woff responded 404 in 0.4744 ms
+2024-12-09 09:20:25.130 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/assets/css/assets/fonts/fa-solid-900.woff - 404 0 null 25.8026ms
+2024-12-09 09:20:25.137 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/assets/css/assets/fonts/fa-solid-900.woff, Response status code: 404
+2024-12-09 09:20:25.147 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/assets/css/assets/fonts/fa-solid-900.ttf - null null
+2024-12-09 09:20:25.152 +07:00 [INF] HTTP GET /assets/css/assets/fonts/fa-solid-900.ttf responded 404 in 0.5561 ms
+2024-12-09 09:20:25.163 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/assets/css/assets/fonts/fa-solid-900.ttf - 404 0 null 15.824ms
+2024-12-09 09:20:25.169 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/assets/css/assets/fonts/fa-solid-900.ttf, Response status code: 404
