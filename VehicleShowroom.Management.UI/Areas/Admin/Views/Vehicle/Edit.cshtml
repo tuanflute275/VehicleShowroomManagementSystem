@@ -1,0 +1,126 @@
+﻿@model VehicleShowroom.Mangement.Application.Models.ViewModels.VehicleViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="app-main__inner">
+
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="fa-solid fa-car"></i>
+                </div>
+                <div>
+                    Vehicle
+                    <div class="page-title-subheading">
+                        View, create, update, delete and manage.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <form method="post" asp-area="Admin" asp-controller="Vehicle" asp-action="Update" asp-antiforgery="true"
+                          enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="VehicleId" />
+                        <div class="position-relative row form-group">
+                            <label for="image" class="col-md-3 text-md-right col-form-label">Image</label>
+                            <div class="col-md-9 col-xl-8">
+                                <img style="height: 200px;width:200px;cursor: pointer;object-fit: contain;" class="thumbnail"
+                                     data-toggle="tooltip" title="Click to change the image" data-placement="bottom"
+                                     src="@(Url.Content("~/Uploads/vehicles/" + Model.Image))" alt="Avatar">
+                                <input name="fileUpload" type="file" onchange="changeImg(this)"
+                                       class="image form-control-file" style="display: none;">
+                                <input type="hidden" name="oldImage" value="@Model.Image" />
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group">
+                            <label for="ModelNumber" class="col-md-3 text-md-right col-form-label">Model Number</label>
+                            <div class="col-md-9 col-xl-8">
+                                <input asp-for="ModelNumber" placeholder="Enter your user name" type="text"
+                                       class="form-control">
+                                <span asp-validation-for="ModelNumber" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group">
+                            <label for="Name" class="col-md-3 text-md-right col-form-label">Name</label>
+                            <div class="col-md-9 col-xl-8">
+                                <input asp-for="Name" placeholder="Enter your name" type="text"
+                                       class="form-control">
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="position-relative row form-group">
+                            <label for="SupplierId" class="col-md-3 text-md-right col-form-label">Supplier</label>
+                            <div class="col-md-9 col-xl-8">
+                                <select asp-for="SupplierId" asp-items="@(new SelectList(ViewBag.Suppliers, "SupplierId", "SupplierName"))" class="form-control"></select>
+                                <span asp-validation-for="SupplierId" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group">
+                            <label for="CompanyId" class="col-md-3 text-md-right col-form-label">Company</label>
+                            <div class="col-md-9 col-xl-8">
+                                <select asp-for="CompanyId" asp-items="@(new SelectList(ViewBag.Companies, "CompanyId", "CompanyName"))" class="form-control"></select>
+                                <span asp-validation-for="CompanyId" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="position-relative row form-group">
+                            <label for="Description" class="col-md-3 text-md-right col-form-label">Description</label>
+                            <div class="col-md-9 col-xl-8">
+                                <textarea asp-for="Description" placeholder="Enter your description"
+                                          class="form-control" rows="5"></textarea>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="position-relative row form-group">
+                            <label for="ContractDate" class="col-md-3 text-md-right col-form-label">Status</label>
+                            <div class="form-check form-check-inline ml-3">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" asp-for="Status" value="Available" checked>Available
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" asp-for="Status" value="InService"> In Service
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" asp-for="Status" value="Sold"> Sold
+                                </label>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group mb-1">
+                            <div class="col-md-9 col-xl-8 offset-md-2">
+                                <a asp-area="Admin" asp-controller="Vehicle" asp-action="Index" class="border-0 btn btn-outline-danger mr-1">
+                                    <span class="btn-icon-wrapper pr-1 opacity-8">
+                                        <i class="fa fa-times fa-w-20"></i>
+                                    </span>
+                                    <span>Cancel</span>
+                                </a>
+
+                                <button type="submit"
+                                        class="btn-shadow btn-hover-shine btn btn-primary">
+                                    <span class="btn-icon-wrapper pr-2 opacity-8">
+                                        <i class="fa fa-download fa-w-20"></i>
+                                    </span>
+                                    <span>Save</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

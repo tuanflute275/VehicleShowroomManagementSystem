@@ -42,7 +42,7 @@
                                 <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                    class="p-0 btn">
                                     <img width="42" class="rounded-circle" src="@(Context.User.FindFirst("avatar")?.Value != null
-                                    ? Url.Content("~/Uploads/Account/" + Context.User.FindFirst("avatar")?.Value)
+                                    ? Url.Content("~/Uploads/users/" + Context.User.FindFirst("avatar")?.Value)
                                     : Url.Content("~/images/defaultUser.png"))"
                                          alt="">
                                 </a>

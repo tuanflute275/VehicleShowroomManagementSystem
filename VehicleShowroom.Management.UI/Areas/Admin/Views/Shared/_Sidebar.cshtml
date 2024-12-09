@@ -26,7 +26,12 @@
                             <i class="metismenu-icon"></i>Supplier
                         </a>
                     </li>
-                   
+                    <li>
+                        <a asp-area="Admin" asp-controller="Vehicle" asp-action="Index"
+                           class="@((ViewContext.RouteData.Values["controller"].ToString() == "Vehicle") ? "mm-active" : "")">
+                            <i class="metismenu-icon"></i>Vehicle
+                        </a>
+                    </li>
                 </ul>
             </li>
         </ul>

@@ -1,4 +1,4 @@
-﻿@model VehicleShowroom.Mangement.Application.Models.DTOs.SupplierDTO
+﻿@model VehicleShowroom.Mangement.Application.Models.DTOs.VehicleDTO
 @{
     ViewData["Title"] = "Detail";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
@@ -16,10 +16,10 @@
         <div class="page-title-wrapper">
             <div class="page-title-heading">
                 <div class="page-title-icon">
-                    <i class="fa-solid fa-truck-field-un"></i>
+                    <i class="fa-solid fa-car"></i>
                 </div>
                 <div>
-                    Supplier
+                    Vehicle
                     <div class="page-title-subheading">
                         View detail
                     </div>
@@ -33,92 +33,60 @@
             <div class="main-card mb-3 card" id="divInfomation">
                 <div class="card-body">
                     <div class="position-relative row form-group">
-                        <label for="SupplierName" class="col-md-3 text-md-right col-form-label">Name</label>
+                        <label for="SupplierName" class="col-md-3 text-md-right col-form-label">Image</label>
                         <div class="col-md-9 col-xl-8">
-                            <input required name="SupplierName" id="SupplierName" placeholder="SupplierName" type="text"
-                                   class="form-control" asp-for="SupplierName" readonly>
+                            <img src="@(Url.Content("~/Uploads/vehicles/" + Model.Image))"
+                                 alt="Image" class="card-img"
+                                 style="width: 100px;" />
                         </div>
                     </div>
                     <div class="position-relative row form-group">
-                        <label for="ContactPerson" class="col-md-3 text-md-right col-form-label">Contact Person</label>
+                        <label for="SupplierName" class="col-md-3 text-md-right col-form-label">#No</label>
                         <div class="col-md-9 col-xl-8">
-                            <input required name="ContactPerson" id="ContactPerson" placeholder="ContactPerson" type="text"
-                                   class="form-control" asp-for="ContactPerson" readonly>
+                            <input type="text" class="form-control" asp-for="VehicleId" readonly>
+                        </div>
+                    </div>
+
+                    <div class="position-relative row form-group">
+                        <label for="SupplierName" class="col-md-3 text-md-right col-form-label">Model Number</label>
+                        <div class="col-md-9 col-xl-8">
+                            <input type="text" class="form-control" asp-for="ModelNumber" readonly>
                         </div>
                     </div>
                     <div class="position-relative row form-group">
-                        <label for="PhoneNumber" class="col-md-3 text-md-right col-form-label">Phone</label>
+                        <label for="ContactPerson" class="col-md-3 text-md-right col-form-label">Name</label>
                         <div class="col-md-9 col-xl-8">
-                            <input required name="PhoneNumber" id="PhoneNumber" placeholder="PhoneNumber" type="text"
-                                   class="form-control" asp-for="PhoneNumber" readonly>
+                            <input type="text" class="form-control" asp-for="Name" readonly>
                         </div>
                     </div>
                     <div class="position-relative row form-group">
-                        <label for="Email" class="col-md-3 text-md-right col-form-label">Email</label>
+                        <label for="Email" class="col-md-3 text-md-right col-form-label">Supplier Name</label>
                         <div class="col-md-9 col-xl-8">
-                            <input required name="Email" id="Email" placeholder="Email" type="text"
-                                   class="form-control" asp-for="Email" readonly>
+                            <input type="text" class="form-control" asp-for="SupplierName" readonly>
                         </div>
                     </div>
                     <div class="position-relative row form-group">
-                        <label for="Website" class="col-md-3 text-md-right col-form-label">Website</label>
+                        <label for="PhoneNumber" class="col-md-3 text-md-right col-form-label">Company Name</label>
                         <div class="col-md-9 col-xl-8">
-                            <input required name="Website" id="Website" placeholder="Website" type="text"
-                                   class="form-control" asp-for="Website" readonly>
+                            <input type="text" class="form-control" asp-for="CompanyName" readonly>
                         </div>
                     </div>
                     <div class="position-relative row form-group">
-                        <label for="TaxCode" class="col-md-3 text-md-right col-form-label">Tax Code</label>
+                        <label for="Address" class="col-md-3 text-md-right col-form-label">Status</label>
                         <div class="col-md-9 col-xl-8">
-                            <input required name="TaxCode" id="TaxCode" placeholder="TaxCode" type="text"
-                                   class="form-control" asp-for="TaxCode" readonly>
+                            <input type="text" class="form-control" asp-for="Status" readonly>
                         </div>
                     </div>
                     <div class="position-relative row form-group">
-                        <label for="Address" class="col-md-3 text-md-right col-form-label">Address</label>
+                        <label for="Address" class="col-md-3 text-md-right col-form-label">DateAdded</label>
                         <div class="col-md-9 col-xl-8">
-                            <input required name="Address" id="Address" placeholder="Address" type="text"
-                                   class="form-control" asp-for="Address" readonly>
+                            <input type="text" class="form-control" asp-for="DateAdded" readonly>
                         </div>
                     </div>
                     <div class="position-relative row form-group">
-                        <label for="BankName" class="col-md-3 text-md-right col-form-label">Bank Name</label>
+                        <label for="Address" class="col-md-3 text-md-right col-form-label">Description</label>
                         <div class="col-md-9 col-xl-8">
-                            <input name="BankName" id="BankName" type="text"
-                                   class="form-control" asp-for="BankName" readonly>
-                        </div>
-                    </div>
-                    <div class="position-relative row form-group">
-                        <label for="BankAccount" class="col-md-3 text-md-right col-form-label">Bank Account</label>
-                        <div class="col-md-9 col-xl-8">
-                            <input name="BankAccount" id="BankAccount" type="text"
-                                   class="form-control" asp-for="BankAccount" readonly>
-                        </div>
-                    </div>
-                    <div class="position-relative row form-group">
-                        <label class="col-md-3 text-md-right col-form-label">Contract Number</label>
-                        <div class="col-md-9 col-xl-8">
-                            <input type="text" class="form-control" asp-for="ContractNumber" readonly>
-                        </div>
-                    </div>
-                    <div class="position-relative row form-group">
-                        <label for="ContractDate" class="col-md-3 text-md-right col-form-label">Contract Date</label>
-                        <div class="col-md-9 col-xl-8">
-                            <input required name="ContractDate" id="ContractDate" placeholder="ContractDate" type="text"
-                                   class="form-control" asp-for="ContractDate" readonly>
-                        </div>
-                    </div>
-                    <div class="position-relative row form-group">
-                        <label for="ContractDate" class="col-md-3 text-md-right col-form-label">Status</label>
-                        <div class="col-md-9 col-xl-8">
-                            <input name="Status" id="Status" placeholder="Status" type="text"
-                                   class="form-control" asp-for="Status" readonly>
-                        </div>
-                    </div>
-                    <div class="position-relative row form-group">
-                        <label class="col-md-3 text-md-right col-form-label">Note</label>
-                        <div class="col-md-9 col-xl-8">
-                            <input type="text" class="form-control" asp-for="Notes" readonly>
+                            <input type="text" class="form-control" asp-for="Description" readonly>
                         </div>
                     </div>
                     <div class="position-relative row form-group">
@@ -147,7 +115,7 @@
                     </div>
                     <div class="position-relative row form-group mb-1">
                         <div class="col-md-9 col-xl-8 offset-md-2">
-                            <a asp-area="Admin" asp-controller="Supplier" asp-action="Index" class="border-0 btn btn-outline-danger mr-1">
+                            <a asp-area="Admin" asp-controller="Vehicle" asp-action="Index" class="border-0 btn btn-outline-danger mr-1">
                                 <span class="btn-icon-wrapper pr-1 opacity-8">
                                     <i class="fa fa-times fa-w-20"></i>
                                 </span>

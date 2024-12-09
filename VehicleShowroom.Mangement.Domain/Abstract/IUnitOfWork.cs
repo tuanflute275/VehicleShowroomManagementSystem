@@ -6,6 +6,8 @@ namespace VehicleShowroom.Mangement.Domain.Abstract
     {
         ISupplierRepository SupplierRepository { get; }
         IUserRepository UserRepository { get; }
+        IVehicleRepository VehicleRepository { get; }
+        ICompanyRepository CompanyRepository { get; }
         // other repository
 
         Task BeginTransaction();

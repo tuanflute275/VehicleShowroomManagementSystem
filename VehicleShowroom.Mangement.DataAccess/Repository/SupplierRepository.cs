@@ -12,6 +12,12 @@ namespace VehicleShowroom.Mangement.DataAccess.Repository
         {
         }
 
+        public async Task<IEnumerable<Supplier>> GetAllAsync(Expression<Func<Supplier, bool>> expression = null,
+          Func<IQueryable<Supplier>, IIncludableQueryable<Supplier, object>>? include = null)
+        {
+            return await base.GetAllAsync(expression, include);
+        }
+
         public async Task<Supplier?> GetSupplierByIdAsync(int id)
         {
             return await base.GetSingleAsync(x => x.SupplierId == id);
@@ -55,12 +61,6 @@ namespace VehicleShowroom.Mangement.DataAccess.Repository
             {
                 return false;
             }
-        }
-
-        public async Task<IEnumerable<Supplier>> GetAllAsync(Expression<Func<Supplier, bool>> expression = null,
-           Func<IQueryable<Supplier>, IIncludableQueryable<Supplier, object>>? include = null)
-        {
-            return await base.GetAllAsync(expression, include);
         }
     }
 }

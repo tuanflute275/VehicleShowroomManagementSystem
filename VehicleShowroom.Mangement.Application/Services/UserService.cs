@@ -62,7 +62,7 @@ namespace VehicleShowroom.Mangement.Application.Services
             }
         }
 
-        public async Task<IPagedList<UserDTO>> GetPagedUsersAsync(string keyword, int page, int pageSize = 8)
+        public async Task<IPagedList<UserDTO>> GetAllPaginationAsync(string keyword, int page, int pageSize = 8)
         {
             var userQuery = _unitOfWork.UserRepository.GetAllAsync(
                 expression: s => string.IsNullOrEmpty(keyword) || s.Username.Contains(keyword) || s.FullName.Contains(keyword)

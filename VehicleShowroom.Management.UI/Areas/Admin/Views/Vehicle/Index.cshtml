@@ -1,4 +1,4 @@
-﻿@model IPagedList<VehicleShowroom.Mangement.Application.Models.DTOs.UserDTO>
+﻿@model IPagedList<VehicleShowroom.Mangement.Application.Models.DTOs.VehicleDTO>
 @using X.PagedList
 @using X.PagedList.Mvc.Core
 @{
@@ -13,10 +13,10 @@
         <div class="page-title-wrapper">
             <div class="page-title-heading">
                 <div class="page-title-icon">
-                    <i class="fa-solid fa-user"></i>
+                    <i class="fa-solid fa-car"></i>
                 </div>
                 <div>
-                    User
+                    Vehicle
                     <div class="page-title-subheading">
                         View, create, update, delete and manage.
                     </div>
@@ -24,7 +24,7 @@
             </div>
 
             <div class="page-title-actions">
-                <a asp-area="Admin" asp-controller="User" asp-action="Create" class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
+                <a asp-area="Admin" asp-controller="Vehicle" asp-action="Create" class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
                     <span class="btn-icon-wrapper pr-2 opacity-7">
                         <i class="fa fa-plus fa-w-20"></i>
                     </span>
@@ -50,7 +50,7 @@
                             </span>
                         </div>
                     </form>
-                    <a asp-area="Admin" asp-controller="User" asp-action="Index" type="button" class="btn btn-warning text-white">
+                    <a asp-area="Admin" asp-controller="Vehicle" asp-action="Index" type="button" class="btn btn-warning text-white">
                         <i class="fa-solid fa-arrows-rotate"></i>&nbsp;
                         Reset
                     </a>
@@ -61,15 +61,13 @@
                         <thead>
                             <tr>
                                 <th class="text-center">#No</th>
-                                <th class="text-center">Avatar</th>
-                                <th class="text-left">User Name</th>
-                                <th class="text-left">Full Name</th>
-                                <th class="text-left">Email</th>
-                                <th class="text-left">Phone Number</th>
-                                <th class="text-left">Address</th>
-                                <th class="text-center">Gender</th>
-                                <th class="text-center">Role</th>
+                                <th class="text-center">Image</th>
+                                <th class="text-center">Name</th>
+                                <th class="text-center">Model Number</th>
+                                <th class="text-center">Supplier Name</th>
+                                <th class="text-center">Company Name</th>
                                 <th class="text-center">Status</th>
+                                <th class="text-center">DateAdded</th> 
                                 <th class="text-center">Actions</th>
                             </tr>
                         </thead>
@@ -82,48 +80,31 @@
                                         <div class="widget-content p-0">
                                             <div class="widget-content-wrapper">
                                                 <div class="widget-content-left flex2">
-                                                    <div class="widget-heading text-center">
-                                                        <img src="@(Url.Content("~/Uploads/users/" + item.Avatar))"
-                                                             alt="Avatar" class="card-img" 
-                                                             style="width: 75px;height: 75px;border-radius: 50%;" />
-                                                    </div>
+                                                    <img src="@(Url.Content("~/Uploads/vehicles/" + item.Image))"
+                                                         alt="Avatar" class="card-img"
+                                                         style="width: 100px;height:100px;object-fit: cover;" />
                                                 </div>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="text-left">@item.Username</td>
-                                    <td class="text-left">@item.FullName</td>
-                                    <td class="text-left">@item.Email</td>
-                                    <td class="text-left">@item.PhoneNumber</td>
-                                    <td class="text-left">@item.Address</td>
+                                    <td class="text-center">@item.Name</td>
+                                    <td class="text-center">@item.ModelNumber</td>
+                                    <td class="text-center">@item.SupplierName</td>
+                                    <td class="text-center">@item.CompanyName</td>
+                                    <td class="text-center">@item.Status</td>
+                                    <td class="text-center">@item.DateAdded</td>
                                     <td class="text-center">
-                                        @(item.Gender == 0 ? "Undetermined" :
-                                            item.Gender == 1 ? "Male" :
-                                            item.Gender == 2 ? "Female" :
-                                            item.Gender == 3 ? "Prefer not to say" : "Unknown")
-                                    </td>
-                                    <td class="text-center">
-                                        @(item.Role == 0 ? "User" :
-                                            item.Role == 1 ? "Admin" :
-                                            item.Role == 2 ? "Employee" :
-                                            item.Role == 3 ? "Invoice" : "Not specified")
-                                    </td>
-                                    <td>
-                                        @(item.Status == 1 ? "Currently working" :
-                                            item.Status == 0 ? "Resigned" : "Not specified")
-                                    </td>
-                                    <td class="text-center">
-                                        <a asp-area="Admin" asp-controller="User" asp-action="Detail" asp-route-id="@item.UserId"
+                                        <a asp-area="Admin" asp-controller="Vehicle" asp-action="Detail" asp-route-id="@item.VehicleId"
                                            class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
                                             Details
                                         </a>
-                                        <a asp-controller="User" asp-action="Edit" asp-route-id="@item.UserId" data-toggle="tooltip"
+                                        <a asp-controller="Vehicle" asp-action="Edit" asp-route-id="@item.VehicleId" data-toggle="tooltip"
                                            data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
                                             <span class="btn-icon-wrapper opacity-8">
                                                 <i class="fa fa-edit fa-w-20"></i>
                                             </span>
                                         </a>
-                                        <a asp-controller="User" asp-action="Delete" asp-route-id="@item.UserId" asp-route-page="@ViewData["CurrentPage"]"
+                                        <a asp-controller="Vehicle" asp-action="Delete" asp-route-id="@item.VehicleId" asp-route-page="@ViewData["CurrentPage"]"
                                            onclick="return confirm('Do you really want to delete this item?')" data-toggle="tooltip"
                                            data-placement="bottom" class="btn btn-outline-danger border-0 btn-sm">
                                             <span class="btn-icon-wrapper opacity-8">

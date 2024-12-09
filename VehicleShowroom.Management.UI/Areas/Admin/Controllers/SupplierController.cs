@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using VehicleShowroom.Mangement.Application.Abstracts;
-using VehicleShowroom.Mangement.Application.Models.DTOs.Supplier;
+using VehicleShowroom.Mangement.Application.Models.DTOs;
 using VehicleShowroom.Mangement.Application.Models.ViewModels;
 
 namespace VehicleShowroomManagementSystem.Areas.Admin.Controllers
@@ -20,7 +20,7 @@ namespace VehicleShowroomManagementSystem.Areas.Admin.Controllers
         {
             ViewBag.keyword = keyword;
             ViewData["CurrentPage"] = page;
-            var pagedSuppliers = await _supplierService.GetPagedSuppliersAsync(keyword, page ?? 1, 8);
+            var pagedSuppliers = await _supplierService.GetAllPaginationAsync(keyword, page ?? 1, 8);
             return View(pagedSuppliers);
         }
 

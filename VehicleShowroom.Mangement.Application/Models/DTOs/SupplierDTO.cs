@@ -1,4 +1,4 @@
-﻿namespace VehicleShowroom.Mangement.Application.Models.DTOs.Supplier
+﻿namespace VehicleShowroom.Mangement.Application.Models.DTOs
 {
     public class SupplierDTO
     {

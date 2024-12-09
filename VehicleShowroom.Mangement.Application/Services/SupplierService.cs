@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using VehicleShowroom.Mangement.Application.Abstracts;
-using VehicleShowroom.Mangement.Application.Models.DTOs.Supplier;
+using VehicleShowroom.Mangement.Application.Models.DTOs;
 using VehicleShowroom.Mangement.Application.Models.ViewModels;
 using VehicleShowroom.Mangement.Domain.Abstract;
 using VehicleShowroom.Mangement.Domain.Entities;
@@ -17,30 +17,28 @@ namespace VehicleShowroom.Mangement.Application.Services
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        public async Task<bool> DeleteAsync(int id)
-        {
-            try
-            {
-                var supplier = await _unitOfWork.SupplierRepository.GetSupplierByIdAsync(id);
-                if (supplier == null)
-                {
-                    return false;
-                }
 
-                await _unitOfWork.SupplierRepository.DeleteAsync(supplier);
-                await _unitOfWork.SaveChangeAsync();
-                return true;
-            }
-            catch (Exception ex) 
-            { 
-                return false;
-            }
+        public async Task<IPagedList<SupplierDTO>> GetAllPaginationAsync(string keyword, int page, int pageSize = 8)
+        {
+            // 1. Lấy dữ liệu với phân trang và sắp xếp từ request
+            var supplierQuery = _unitOfWork.SupplierRepository.GetAllAsync(
+                 expression: s => string.IsNullOrEmpty(keyword) || s.SupplierName.Contains(keyword)
+             );
+
+            // 2. Chuyển đổi dữ liệu từ Supplier sang SupplierDTO
+            var suppliers = await supplierQuery;  // Execute the query to get the suppliers
+            var supplierList = suppliers.ToList();  // Convert to list for paging
+
+            // 4. Chuyển đổi dữ liệu từ Supplier sang SupplierDTO
+            var data = _mapper.Map<List<SupplierDTO>>(supplierList);
+
+            // 5. Trả về ResponseDatatable với các giá trị phân trang
+            return data.ToPagedList(page, pageSize);  // Ensure data is paged
         }
 
         public async Task<Supplier> GetSupplierByIdAsync(int id)
         {
-            var supplier = await _unitOfWork.SupplierRepository.GetSupplierByIdAsync(id);
-            return _mapper.Map<Supplier>(supplier);
+            return await _unitOfWork.SupplierRepository.GetSupplierByIdAsync(id);
         }
 
         public async Task<bool> SaveOrUpdateAsync(SupplierViewModel supplierModel)
@@ -83,29 +81,24 @@ namespace VehicleShowroom.Mangement.Application.Services
             }
         }
 
-        public async Task<IPagedList<SupplierDTO>> GetPagedSuppliersAsync(string keyword, int page, int pageSize = 8)
+        public async Task<bool> DeleteAsync(int id)
         {
-            /* return await base.GetAllAsync(
-                 expression: s => s.Status == "Active",
-             include: query => query
-             .Include(s => s.Products)     // Include Products
-             .Include(s => s.Orders)       // Include Orders
-                 .ThenInclude(o => o.OrderDetails)  // Include OrderDetails for each Order
-             );*/
-            // 1. Lấy dữ liệu với phân trang và sắp xếp từ request
-            var supplierQuery = _unitOfWork.SupplierRepository.GetAllAsync(
-                 expression: s => string.IsNullOrEmpty(keyword) || s.SupplierName.Contains(keyword)
-             );
+            try
+            {
+                var supplier = await _unitOfWork.SupplierRepository.GetSupplierByIdAsync(id);
+                if (supplier == null)
+                {
+                    return false;
+                }
 
-            // 2. Chuyển đổi dữ liệu từ Supplier sang SupplierDTO
-            var suppliers = await supplierQuery;  // Execute the query to get the suppliers
-            var supplierList = suppliers.ToList();  // Convert to list for paging
-
-            // 4. Chuyển đổi dữ liệu từ Supplier sang SupplierDTO
-            var data = _mapper.Map<List<SupplierDTO>>(supplierList);
-
-            // 5. Trả về ResponseDatatable với các giá trị phân trang
-            return data.ToPagedList(page, pageSize);  // Ensure data is paged
+                await _unitOfWork.SupplierRepository.DeleteAsync(supplier);
+                await _unitOfWork.SaveChangeAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }

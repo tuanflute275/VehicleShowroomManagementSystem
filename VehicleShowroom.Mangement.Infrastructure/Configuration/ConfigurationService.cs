@@ -67,9 +67,10 @@ namespace VehicleShowroom.Mangement.Infrastructure.Configuration
         public static void AddDependencyInjection(this IServiceCollection services)
         {
             services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<FileUploadHelper>();
             services.AddTransient<ISupplierService, SupplierService>();
             services.AddTransient<IUserService, UserService>();
-            services.AddTransient<FileUploadHelper>();
+            services.AddTransient<IVehicleService, VehicleService>();
         }
 
         public static void AddAutoMapper(this IServiceCollection services)
