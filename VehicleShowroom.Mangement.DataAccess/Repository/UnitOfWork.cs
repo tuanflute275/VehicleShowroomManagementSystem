@@ -13,6 +13,7 @@ namespace VehicleShowroom.Mangement.DataAccess.Repository
         // DI repository
         ISupplierRepository _supplierRepository;
         IUserRepository _userRepository;
+        ICompanyRepositoty _companyRepositoty;
 
         public UnitOfWork(ApplicationDbContext context)
         {
@@ -23,6 +24,7 @@ namespace VehicleShowroom.Mangement.DataAccess.Repository
         // repository
         public ISupplierRepository SupplierRepository => _supplierRepository ??= new SupplierRepository(_context);
         public IUserRepository UserRepository => _userRepository ??= new UserRepository(_context);
+        public ICompanyRepositoty CompanyRepositoty => _companyRepositoty ??= new CompanyRepositoty(_context);
 
         public async Task BeginTransaction()
         {

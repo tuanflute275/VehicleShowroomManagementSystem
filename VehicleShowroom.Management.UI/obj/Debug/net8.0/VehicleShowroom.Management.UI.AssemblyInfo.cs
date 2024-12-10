@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VehicleShowroom.Management.UI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+15d42dbe3717d8104b52c5f71c289f64c2d18f60")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c9d6f2634863cbc7351f528d709930b34cbc286")]
 [assembly: System.Reflection.AssemblyProductAttribute("VehicleShowroom.Management.UI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VehicleShowroom.Management.UI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
