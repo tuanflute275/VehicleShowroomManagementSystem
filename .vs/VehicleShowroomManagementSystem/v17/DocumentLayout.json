@@ -7,10 +7,6 @@
       "RelativeMoniker": "D:0:0:{53801003-DF33-46D4-98C3-3DB986EC51C9}|VehicleShowroom.Mangement.Domain\\VehicleShowroom.Mangement.Domain.csproj|solutionrelative:vehicleshowroom.mangement.domain\\entities\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.DataAccess\\Migrations\\20241211112249_v1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:VehicleShowroom.Mangement.DataAccess\\Migrations\\20241211112249_v1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AC5DA002-A5C0-4687-B793-0C34D70BC117}|VehicleShowroom.Mangement.Application\\VehicleShowroom.Mangement.Application.csproj|c:\\users\\dell\\desktop\\eproject\\group2_c2208g_eproject_sem3\\vehicleshowroommanagementsystem\\vehicleshowroom.mangement.application\\services\\vehicleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AC5DA002-A5C0-4687-B793-0C34D70BC117}|VehicleShowroom.Mangement.Application\\VehicleShowroom.Mangement.Application.csproj|solutionrelative:vehicleshowroom.mangement.application\\services\\vehicleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -101,6 +97,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{53801003-DF33-46D4-98C3-3DB986EC51C9}|VehicleShowroom.Mangement.Domain\\VehicleShowroom.Mangement.Domain.csproj|c:\\users\\dell\\desktop\\eproject\\group2_c2208g_eproject_sem3\\vehicleshowroommanagementsystem\\vehicleshowroom.mangement.domain\\abstract\\ivehiclerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{53801003-DF33-46D4-98C3-3DB986EC51C9}|VehicleShowroom.Mangement.Domain\\VehicleShowroom.Mangement.Domain.csproj|solutionrelative:vehicleshowroom.mangement.domain\\abstract\\ivehiclerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8497F0C5-CA43-4CF3-99BA-5F6FE353A783}|VehicleShowroom.Mangement.DataAccess\\VehicleShowroom.Mangement.DataAccess.csproj|c:\\users\\dell\\desktop\\eproject\\group2_c2208g_eproject_sem3\\vehicleshowroommanagementsystem\\vehicleshowroom.mangement.dataaccess\\migrations\\20241211112249_v1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8497F0C5-CA43-4CF3-99BA-5F6FE353A783}|VehicleShowroom.Mangement.DataAccess\\VehicleShowroom.Mangement.DataAccess.csproj|solutionrelative:vehicleshowroom.mangement.dataaccess\\migrations\\20241211112249_v1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -118,7 +118,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 24,
               "Title": "20241211112249_v1.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.DataAccess\\Migrations\\20241211112249_v1.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Mangement.DataAccess\\Migrations\\20241211112249_v1.cs",
@@ -126,12 +126,11 @@
               "RelativeToolTip": "VehicleShowroom.Mangement.DataAccess\\Migrations\\20241211112249_v1.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T11:22:49.611Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T11:22:49.611Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.DataAccess\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Mangement.DataAccess\\Data\\ApplicationDbContext.cs",
@@ -139,8 +138,7 @@
               "RelativeToolTip": "VehicleShowroom.Mangement.DataAccess\\Data\\ApplicationDbContext.cs",
               "ViewState": "AQIAAAcAAAAAAAAAAAAzwA8AAABGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T11:21:38.764Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T11:21:38.764Z"
             },
             {
               "$type": "Document",
@@ -150,14 +148,14 @@
               "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Domain\\Entities\\Vehicle.cs",
               "ToolTip": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Domain\\Entities\\Vehicle.cs",
               "RelativeToolTip": "VehicleShowroom.Mangement.Domain\\Entities\\Vehicle.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAA9wCYAAAA0AAAA",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAwwD0AAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-11T11:15:19.077Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "VehicleImage.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Domain\\Entities\\VehicleImage.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Domain\\Entities\\VehicleImage.cs",
@@ -165,12 +163,11 @@
               "RelativeToolTip": "VehicleShowroom.Mangement.Domain\\Entities\\VehicleImage.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T11:14:42.504Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T11:14:42.504Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Management.UI\\Areas\\Admin\\Views\\PurchaseOrder\\Create.cshtml",
               "RelativeDocumentMoniker": "VehicleShowroom.Management.UI\\Areas\\Admin\\Views\\PurchaseOrder\\Create.cshtml",
@@ -178,12 +175,11 @@
               "RelativeToolTip": "VehicleShowroom.Management.UI\\Areas\\Admin\\Views\\PurchaseOrder\\Create.cshtml",
               "ViewState": "AQIAACkAAAAAAAAAAAAmwCUAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-11T10:13:51.555Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T10:13:51.555Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "PurchaseOrderController.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Management.UI\\Areas\\Admin\\Controllers\\PurchaseOrderController.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Management.UI\\Areas\\Admin\\Controllers\\PurchaseOrderController.cs",
@@ -191,12 +187,11 @@
               "RelativeToolTip": "VehicleShowroom.Management.UI\\Areas\\Admin\\Controllers\\PurchaseOrderController.cs",
               "ViewState": "AQIAACUAAAAAAAAAAAAMwCgAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T09:17:40.55Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T09:17:40.55Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "VehicleService.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Application\\Services\\VehicleService.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Application\\Services\\VehicleService.cs",
@@ -204,12 +199,11 @@
               "RelativeToolTip": "VehicleShowroom.Mangement.Application\\Services\\VehicleService.cs",
               "ViewState": "AQIAAEAAAAAAAAAAAAArwEoAAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T14:22:35.469Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-09T14:22:35.469Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "PurchaseOrderViewModel.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Application\\Models\\ViewModels\\PurchaseOrderViewModel.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Application\\Models\\ViewModels\\PurchaseOrderViewModel.cs",
@@ -217,12 +211,11 @@
               "RelativeToolTip": "VehicleShowroom.Mangement.Application\\Models\\ViewModels\\PurchaseOrderViewModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAABSAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T10:08:03.689Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T10:08:03.689Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "PurchaseOrderService.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Application\\Services\\PurchaseOrderService.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Application\\Services\\PurchaseOrderService.cs",
@@ -230,12 +223,11 @@
               "RelativeToolTip": "VehicleShowroom.Mangement.Application\\Services\\PurchaseOrderService.cs",
               "ViewState": "AQIAADoAAAAAAAAAAAAmwEgAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T09:12:31.21Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T09:12:31.21Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "PurchaseOrderDTO.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Application\\Models\\DTOs\\PurchaseOrderDTO.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Application\\Models\\DTOs\\PurchaseOrderDTO.cs",
@@ -243,12 +235,11 @@
               "RelativeToolTip": "VehicleShowroom.Mangement.Application\\Models\\DTOs\\PurchaseOrderDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T09:20:40.352Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T09:20:40.352Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "SalesOrderDetailRepository.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.DataAccess\\Repository\\SalesOrderDetailRepository.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Mangement.DataAccess\\Repository\\SalesOrderDetailRepository.cs",
@@ -256,12 +247,11 @@
               "RelativeToolTip": "VehicleShowroom.Mangement.DataAccess\\Repository\\SalesOrderDetailRepository.cs",
               "ViewState": "AQIAABcAAAAAAAAAAAAkwCoAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T09:02:47.278Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T09:02:47.278Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 12,
               "Title": "SalesOrderRepository.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.DataAccess\\Repository\\SalesOrderRepository.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Mangement.DataAccess\\Repository\\SalesOrderRepository.cs",
@@ -269,12 +259,11 @@
               "RelativeToolTip": "VehicleShowroom.Mangement.DataAccess\\Repository\\SalesOrderRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAADkAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T09:02:33.077Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T09:02:33.077Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 13,
               "Title": "PurchaseOrderRepository.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.DataAccess\\Repository\\PurchaseOrderRepository.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Mangement.DataAccess\\Repository\\PurchaseOrderRepository.cs",
@@ -282,12 +271,11 @@
               "RelativeToolTip": "VehicleShowroom.Mangement.DataAccess\\Repository\\PurchaseOrderRepository.cs",
               "ViewState": "AQIAACEAAAAAAAAAAAAiwDoAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T08:45:29.884Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T08:45:29.884Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "IUnitOfWork.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Domain\\Abstract\\IUnitOfWork.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Domain\\Abstract\\IUnitOfWork.cs",
@@ -295,12 +283,11 @@
               "RelativeToolTip": "VehicleShowroom.Mangement.Domain\\Abstract\\IUnitOfWork.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAABHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T08:52:53.265Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T08:52:53.265Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "UnitOfWork.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.DataAccess\\Repository\\UnitOfWork.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Mangement.DataAccess\\Repository\\UnitOfWork.cs",
@@ -308,12 +295,11 @@
               "RelativeToolTip": "VehicleShowroom.Mangement.DataAccess\\Repository\\UnitOfWork.cs",
               "ViewState": "AQIAAAgAAAAAAAAAAAAAwBEAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T08:53:16.459Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T08:53:16.459Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 14,
               "Title": "ISalesOrderDetailRepository.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Domain\\Abstract\\ISalesOrderDetailRepository.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Domain\\Abstract\\ISalesOrderDetailRepository.cs",
@@ -321,12 +307,11 @@
               "RelativeToolTip": "VehicleShowroom.Mangement.Domain\\Abstract\\ISalesOrderDetailRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T09:01:40.581Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T09:01:40.581Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 15,
               "Title": "ISalesOrderRepository.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Domain\\Abstract\\ISalesOrderRepository.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Domain\\Abstract\\ISalesOrderRepository.cs",
@@ -334,12 +319,11 @@
               "RelativeToolTip": "VehicleShowroom.Mangement.Domain\\Abstract\\ISalesOrderRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T08:59:28.583Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T08:59:28.583Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 17,
               "Title": "StockHistoryRepository.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.DataAccess\\Repository\\StockHistoryRepository.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Mangement.DataAccess\\Repository\\StockHistoryRepository.cs",
@@ -347,12 +331,11 @@
               "RelativeToolTip": "VehicleShowroom.Mangement.DataAccess\\Repository\\StockHistoryRepository.cs",
               "ViewState": "AQIAACoAAAAAAAAAAAAkwDEAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T08:55:36.045Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T08:55:36.045Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 16,
               "Title": "IPurchaseOrderRepository.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Domain\\Abstract\\IPurchaseOrderRepository.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Domain\\Abstract\\IPurchaseOrderRepository.cs",
@@ -360,12 +343,11 @@
               "RelativeToolTip": "VehicleShowroom.Mangement.Domain\\Abstract\\IPurchaseOrderRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwAwAAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T08:43:32.66Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T08:43:32.66Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 18,
               "Title": "IStockHistoryRepository.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Domain\\Abstract\\IStockHistoryRepository.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Domain\\Abstract\\IStockHistoryRepository.cs",
@@ -373,12 +355,11 @@
               "RelativeToolTip": "VehicleShowroom.Mangement.Domain\\Abstract\\IStockHistoryRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T08:54:28.719Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T08:54:28.719Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 19,
               "Title": "PurchaseOrderDetailRepository.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.DataAccess\\Repository\\PurchaseOrderDetailRepository.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Mangement.DataAccess\\Repository\\PurchaseOrderDetailRepository.cs",
@@ -386,12 +367,11 @@
               "RelativeToolTip": "VehicleShowroom.Mangement.DataAccess\\Repository\\PurchaseOrderDetailRepository.cs",
               "ViewState": "AQIAABQAAAAAAAAAAAAUwDAAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T08:50:38.909Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T08:50:38.909Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 20,
               "Title": "IPurchaseOrderDetailRepository.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Domain\\Abstract\\IPurchaseOrderDetailRepository.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Domain\\Abstract\\IPurchaseOrderDetailRepository.cs",
@@ -399,12 +379,11 @@
               "RelativeToolTip": "VehicleShowroom.Mangement.Domain\\Abstract\\IPurchaseOrderDetailRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T08:49:45.164Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T08:49:45.164Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 21,
               "Title": "VehicleRepository.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.DataAccess\\Repository\\VehicleRepository.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Mangement.DataAccess\\Repository\\VehicleRepository.cs",
@@ -416,7 +395,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 23,
               "Title": "IVehicleRepository.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Domain\\Abstract\\IVehicleRepository.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Domain\\Abstract\\IVehicleRepository.cs",
@@ -428,7 +407,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 22,
               "Title": "VehicleViewModel.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Application\\Models\\ViewModels\\VehicleViewModel.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Application\\Models\\ViewModels\\VehicleViewModel.cs",
