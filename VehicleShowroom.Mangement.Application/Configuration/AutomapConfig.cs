@@ -19,6 +19,11 @@ namespace VehicleShowroom.Mangement.Application.Configuration
             CreateMap<Vehicle, VehicleDTO>()
             .ForMember(dest => dest.SupplierName, opt => opt.MapFrom(src => src.Supplier.SupplierName))
             .ForMember(dest => dest.CompanyName, opt => opt.MapFrom(src => src.Company.CompanyName));
+
+            CreateMap<PurchaseOrder, PurchaseOrderDTO>()
+                .ForMember(dest => dest.SupplierName, opt => opt.MapFrom(src => src.Supplier.SupplierName))
+                .ForMember(dest => dest.SupplierPhone, opt => opt.MapFrom(src => src.Supplier.PhoneNumber))
+           .ForMember(dest => dest.SupplierEmail, opt => opt.MapFrom(src => src.Supplier.Email));
         }
     }
 }

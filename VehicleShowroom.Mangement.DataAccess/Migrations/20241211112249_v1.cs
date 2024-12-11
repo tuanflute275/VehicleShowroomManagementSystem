@@ -138,12 +138,20 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ModelNumber = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Image = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Slug = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    Image = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     Status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
-                    DateAdded = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SupplierId = table.Column<int>(type: "int", nullable: false),
                     CompanyId = table.Column<int>(type: "int", nullable: false),
+                    EngineNumber = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    ChassisNumber = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    FuelType = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    TransmissionType = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Color = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(15,2)", nullable: true),
+                    Mileage = table.Column<decimal>(type: "decimal(10,2)", nullable: true),
+                    ManufactureYear = table.Column<int>(type: "int", nullable: true),
                     CreateBy = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdateBy = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
@@ -256,23 +264,13 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "VehicleDetails",
+                name: "VehicleImages",
                 columns: table => new
                 {
-                    VehicleDetailId = table.Column<int>(type: "int", nullable: false)
+                    VehicleImageId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    VehicleId = table.Column<int>(type: "int", nullable: false),
-                    EngineNumber = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    ChassisNumber = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Color = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(15,2)", nullable: false),
-                    FuelType = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
-                    ManufactureYear = table.Column<int>(type: "int", nullable: true),
-                    TransmissionType = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
-                    Mileage = table.Column<int>(type: "int", nullable: true),
-                    Weight = table.Column<decimal>(type: "decimal(10,2)", nullable: true),
-                    Dimensions = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    ColorCode = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: true),
+                    Path = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    VehiclelId = table.Column<int>(type: "int", nullable: false),
                     CreateBy = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdateBy = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
@@ -283,10 +281,10 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_VehicleDetails", x => x.VehicleDetailId);
+                    table.PrimaryKey("PK_VehicleImages", x => x.VehicleImageId);
                     table.ForeignKey(
-                        name: "FK_VehicleDetails_Vehicles_VehicleId",
-                        column: x => x.VehicleId,
+                        name: "FK_VehicleImages_Vehicles_VehiclelId",
+                        column: x => x.VehiclelId,
                         principalTable: "Vehicles",
                         principalColumn: "VehicleId",
                         onDelete: ReferentialAction.Restrict);
@@ -327,33 +325,6 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "VehicleImages",
-                columns: table => new
-                {
-                    VehicleImageId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Path = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    VehicleDetailId = table.Column<int>(type: "int", nullable: false),
-                    CreateBy = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdateBy = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeleteBy = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeleteFlag = table.Column<bool>(type: "bit", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_VehicleImages", x => x.VehicleImageId);
-                    table.ForeignKey(
-                        name: "FK_VehicleImages_VehicleDetails_VehicleDetailId",
-                        column: x => x.VehicleDetailId,
-                        principalTable: "VehicleDetails",
-                        principalColumn: "VehicleDetailId",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_PurchaseOrderDetails_PurchaseOrderId",
                 table: "PurchaseOrderDetails",
@@ -390,14 +361,9 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                 column: "VehicleId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_VehicleDetails_VehicleId",
-                table: "VehicleDetails",
-                column: "VehicleId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_VehicleImages_VehicleDetailId",
+                name: "IX_VehicleImages_VehiclelId",
                 table: "VehicleImages",
-                column: "VehicleDetailId");
+                column: "VehiclelId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Vehicles_CompanyId",
@@ -432,13 +398,10 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                 name: "SalesOrders");
 
             migrationBuilder.DropTable(
-                name: "VehicleDetails");
+                name: "Vehicles");
 
             migrationBuilder.DropTable(
                 name: "Users");
-
-            migrationBuilder.DropTable(
-                name: "Vehicles");
 
             migrationBuilder.DropTable(
                 name: "Companies");

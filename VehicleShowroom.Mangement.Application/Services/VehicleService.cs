@@ -79,7 +79,6 @@ namespace VehicleShowroom.Mangement.Application.Services
                     vehicle.Description = model.Description;
                     vehicle.CreateBy = "Admin";
                     vehicle.CreateDate = DateTime.Now;
-                    vehicle.DateAdded = DateTime.Now;
                     if (fileUpload != null)
                     {
                         var image = await _fileUploadHelper.UploadFileAsync(fileUpload, "vehicles");

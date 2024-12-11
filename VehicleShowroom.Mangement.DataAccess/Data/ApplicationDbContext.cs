@@ -16,7 +16,6 @@ namespace VehicleShowroom.Mangement.DataAccess.DataAccess
         public DbSet<SalesOrderDetail> SalesOrderDetails { get; set; }
         public DbSet<StockHistory> StockHistories { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }
-        public DbSet<VehicleDetail> VehicleDetails { get; set; }
         public DbSet<VehicleImage> VehicleImages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

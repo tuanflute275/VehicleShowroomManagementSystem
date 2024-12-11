@@ -46,13 +46,10 @@
 	('Mitsubishi Motors', '0567789123', 'contact@mitsubishi.com', 'Inactive'),
 	('Volvo Cars', '0678891234', 'contact@volvo.com', 'Active'),
 	('Kia Motors', '0789901234', 'contact@kia.com', 'Active'),
-	('Subaru Corporation', '0891012345', 'contact@subaru.com'),
+	('Subaru Corporation', '0891012345', 'contact@subaru.com', 'Active'),
 	('Daimler AG', '0912123456', 'contact@daimler.com', 'Active');
 	
 # Data Account
-
-	Update Users set Password = '$2a$12$eefyE/f6G0AKFLfVl3B66.T6QfgGNHPIZLlDp.v527EuwVruYlTye';
-	Update Users set Role = 0 WHERE username NOT IN ('admin', 'employee', 'invoice');;
 
 	INSERT INTO Users (Username, FullName, Email, Password, Role, Status) VALUES ('admin', 'admin', 'admin@gmail.com', '', 1,0);
 	INSERT INTO Users (Username, FullName, Email, Password, Role, Status) VALUES ('employee', 'employee', 'employee@gmail.com', '', 2,0);
@@ -99,155 +96,44 @@
 	 '2021-05-25', 80000.00, 1, '1984-03-18', 'Canada', 'Sarah Martin, 4455667788', 0),
 	('','amandawilliams', 'Amanda Williams', '/images/amandawilliams.jpg', 'amanda.williams@example.com', '2233445566', '654 Willow St', 2, 'Admin', 'Secretary', 
 	 '2022-09-12', 47000.00, 1, '1993-07-09', 'USA', 'John Williams, 7766554433', 0);
+	 Update Users set Password = '$2a$12$eefyE/f6G0AKFLfVl3B66.T6QfgGNHPIZLlDp.v527EuwVruYlTye';
 
 # Data Vehicle
 
-	INSERT INTO Vehicles (ModelNumber, Name, Image, Status, DateAdded, Description, SupplierId, CompanyId)
+	INSERT INTO Vehicles (
+    ModelNumber, Name, Slug, Image, Status, Description, 
+    SupplierId, CompanyId, FuelType, TransmissionType, 
+    Color, Price, Mileage, ManufactureYear
+	)
 	VALUES
-	('MDX-2024', 'Honda Civic', '/images/civic.jpg', 'Available', '2024-01-01', 'A comfortable and modern sedan', 1, 1),
-	('CRX-2024', 'Toyota Corolla',  '/images/corolla.jpg', 'Sold', '2024-01-05', 'A popular compact car with great performance', 2, 2),
-	('MDX-2023', 'Ford Ranger',  '/images/ranger.jpg', 'Available', '2023-11-15', 'A powerful and durable pickup truck', 3, 1),
-	('SRX-2023', 'Kia Seltos',  '/images/seltos.jpg', 'Available', '2024-02-10', 'A compact, versatile SUV', 4, 2),
-	('CRV-2022', 'Mazda CX-5',  '/images/cx5.jpg', 'In Service', '2023-06-18', 'A premium SUV', 5, 3),
-	('GLX-2024', 'Hyundai Elantra',  '/images/elantra.jpg', 'Available', '2024-03-20', 'A spacious and luxurious sedan', 6, 1),
-	('RXT-2023', 'Nissan X-Trail',  '/images/xtail.jpg', 'Available', '2023-10-01', 'A powerful SUV for off-road terrain', 7, 4),
-	('ZRX-2024', 'BMW X5', 'bmw-x5', 'Sold', '2024-04-05', 'A premium SUV with powerful performance', 8, 2),
-	('SHX-2024', 'Mercedes-Benz GLC',  '/images/glc.jpg', 'Available', '2024-05-12', 'A luxurious SUV with advanced technology', 9, 5),
-	('HAX-2023', 'Audi Q7', 'audi-q7',  'In Service', '2023-07-22', 'A luxury SUV with power and elegance', 10, 3),
-	('FGX-2023', 'Chevrolet Trailblazer',  '/images/trailblazer.jpg', 'Available', '2023-12-05', 'A compact, flexible SUV', 11, 4),
-	('PKX-2024', 'Mazda 3', '/images/mazda3.jpg', 'Available', '2024-06-18', 'A modern, fuel-efficient compact car', 12, 2),
-	('TXR-2024', 'Toyota Hilux',  '/images/hilux.jpg', 'Sold', '2024-07-25', 'A durable pickup truck with outstanding strength', 13, 1),
-	('LUX-2024', 'Volkswagen Tiguan', '/images/tiguan.jpg', 'Available', '2024-08-12', 'A refined, premium SUV', 14, 5),
-	('VTX-2023', 'Land Rover Defender',  '/images/defender.jpg', 'Available', '2023-09-10', 'A rugged SUV built for tough terrains', 15, 3),
-	('RTX-2024', 'Subaru Outback',  '/images/outback.jpg', 'Available', '2024-02-15', 'An SUV designed for long-distance travels', 16, 4),
-	('BMX-2024', 'Porsche Cayenne',  '/images/cayenne.jpg', 'Sold', '2024-03-08', 'A luxury SUV with high speed', 17, 2),
-	('QXX-2024', 'Ford Mustang',  '/images/mustang.jpg', 'Available', '2024-06-23', 'A sports car with powerful performance', 18, 1),
-	('ALX-2023', 'Lexus RX',  '/images/rx.jpg', 'Sold', '2023-11-02', 'A luxury SUV with standout design', 19, 5),
-	('WZX-2024', 'Kia Sportage',  '/images/sportage.jpg', 'Available', '2024-07-19', 'A modern SUV with high safety features', 20, 4);
+	-- Sedan
+	('SED001', N'Toyota Corolla', N'toyota-corolla', '/images/corolla.jpg', N'Available', N'A popular sedan with a modern design.', 1, 1, N'Gasoline', N'Automatic', N'White', 600000000, 0, 2023),
+	('SED002', N'Honda Civic', N'honda-civic', '/images/civic.jpg', N'Available',  N'A sporty and powerful sedan.', 2, 1, N'Gasoline', N'Automatic', N'Black', 700000000, 0, 2023),
+	('SED003', N'Mazda 3', N'mazda-3', '/images/mazda3.jpg', N'Sold',  N'A stylish sedan with advanced technology.', 3, 1, N'Gasoline', N'Automatic', N'Red', 650000000, 15000, 2022),
+	('SED004', N'Kia K3', N'kia-k3', '/images/k3.jpg', N'Available',  N'A budget-friendly and fuel-efficient sedan.', 4, 1, N'Gasoline', N'Manual', N'Grey', 500000000, 0, 2023),
+	('SED005', N'Hyundai Elantra', N'hyundai-elantra', '/images/elantra.jpg', N'Available',N'A dynamic and modern-designed sedan.', 5, 1, N'Gasoline', N'Automatic', N'Blue', 620000000, 0, 2023),
+	('SED006', N'Volkswagen Passat', N'volkswagen-passat', '/images/passat.jpg', N'Available',  N'A premium sedan with exceptional comfort.', 1, 1, N'Gasoline', N'Automatic', N'Grey', 820000000, 0, 2023),
 
+	-- SUV
+	('SUV001', N'Toyota Fortuner', N'toyota-fortuner', '/images/fortuner.jpg', N'Available',  N'A rugged SUV designed for adventure.', 1, 2, N'Diesel', N'Automatic', N'Black', 950000000, 0, 2023),
+	('SUV002', N'Honda CR-V', N'honda-crv', '/images/crv.jpg', N'Available',  N'A comfortable and reliable family SUV.', 2, 2, N'Gasoline', N'Automatic', N'Silver', 880000000, 0, 2023),
+	('SUV003', N'Mazda CX-5', N'mazda-cx-5', '/images/cx5.jpg', N'Sold', N'A premium SUV with advanced safety features.', 3, 2, N'Gasoline', N'Automatic', N'Red', 920000000, 10000, 2022),
+	('SUV004', N'Hyundai Tucson', N'hyundai-tucson', '/images/tucson.jpg', N'Available',  N'A sleek SUV perfect for urban driving.', 4, 2, N'Gasoline', N'Automatic', N'Blue', 870000000, 0, 2023),
+	('SUV005', N'Ford Everest', N'ford-everest', '/images/everest.jpg', N'Available', N'An off-road capable SUV with a bold design.', 5, 2, N'Diesel', N'Automatic', N'White', 1200000000, 0, 2023),
+	('SUV006', N'Mercedes-Benz GLC', N'mercedes-benz-glc', '/images/glc.jpg', N'Available', N'A luxury SUV with innovative features.', 2, 2, N'Gasoline', N'Automatic', N'Silver', 2100000000, 0, 2023),
 
-	
-# Data Vehicle detail
+	-- Electric Cars
+	('ELE001', N'Tesla Model 3', N'tesla-model-3', '/images/model3.jpg', N'Available',  N'An affordable electric car with exceptional performance.', 1, 3, N'Electric', N'Automatic', N'Red', 1500000000, 0, 2023),
+	('ELE002', N'Tesla Model X', N'tesla-model-x', '/images/modelx.jpg', N'Available',  N'A luxury electric SUV with advanced features.', 2, 3, N'Electric', N'Automatic', N'White', 2500000000, 0, 2023),
+	('ELE003', N'Nissan Leaf', N'nissan-leaf', '/images/leaf.jpg', N'Sold',  N'A compact electric car with excellent efficiency.', 3, 3, N'Electric', N'Automatic', N'Blue', 1200000000, 5000, 2022),
+	('ELE004', N'BMW i3', N'bmw-i3', '/images/i3.jpg', N'Available', N'A unique and stylish electric vehicle.', 4, 3, N'Electric', N'Automatic', N'Grey', 1400000000, 0, 2023),
+	('ELE005', N'Audi e-Tron', N'audi-e-tron', '/images/etron.jpg', N'Available',  N'A luxury electric SUV with cutting-edge technology.', 5, 3, N'Electric', N'Automatic', N'Black', 2800000000, 0, 2023),
+	('ELE006', N'Kia EV6', N'kia-ev6', '/images/ev6.jpg', N'Available', N'A futuristic electric crossover with a bold design.', 3, 3, N'Electric', N'Automatic', N'Blue', 1700000000, 0, 2023),
+	('ELE007', N'Ford Mustang Mach-E', N'ford-mustang-mach-e', '/images/mustang-mache.jpg', N'Available', N'A sporty electric SUV with Mustang DNA.', 4, 3, N'Electric', N'Automatic', N'Red', 1900000000, 0, 2023),
 
-	-- Thêm bản ghi cho xe 1
-	INSERT INTO VehicleDetails (VehicleId, EngineNumber, ChassisNumber, Color, Price, FuelType, ManufactureYear, TransmissionType, Mileage, Weight, Dimensions, ColorCode)
-	VALUES
-	(1, 'ENG123456789', 'CH123456789', 'Red', 25000000.00, 'Petrol', 2024, 'Automatic', 0, 1500, '4500x1800x1600', 'RED001'),
-	(1, 'ENG987654321', 'CH987654321', 'Blue', 26000000.00, 'Diesel', 2023, 'Manual', 5000, 1600, '4500x1800x1600', 'BLU001');
+	-- Hatchback
+	('HAT001', N'Toyota Yaris', N'toyota-yaris', '/images/yaris.jpg', N'Available',  N'A compact hatchback perfect for city driving.', 5, 1, N'Gasoline', N'Automatic', N'White', 550000000, 0, 2023);
 
-	-- Thêm bản ghi cho xe 2
-	INSERT INTO VehicleDetails (VehicleId, EngineNumber, ChassisNumber, Color, Price, FuelType, ManufactureYear, TransmissionType, Mileage, Weight, Dimensions, ColorCode)
-	VALUES
-	(2, 'ENG123456780', 'CH123456780', 'Black', 20000000.00, 'Petrol', 2024, 'Automatic', 0, 1400, '4500x1800x1600', 'BLK001'),
-	(2, 'ENG987654310', 'CH987654310', 'White', 21000000.00, 'Electric', 2023, 'Automatic', 3000, 1500, '4500x1800x1600', 'WHT001');
-
-	-- Thêm bản ghi cho xe 3
-	INSERT INTO VehicleDetails (VehicleId, EngineNumber, ChassisNumber, Color, Price, FuelType, ManufactureYear, TransmissionType, Mileage, Weight, Dimensions, ColorCode)
-	VALUES
-	(3, 'ENG123456781', 'CH123456781', 'Silver', 30000000.00, 'Electric', 2024, 'Automatic', 0, 1700, '4600x1900x1700', 'SIL001'),
-	(3, 'ENG987654311', 'CH987654311', 'Green', 31000000.00, 'Hybrid', 2023, 'Manual', 8000, 1750, '4600x1900x1700', 'GRN001');
-
-	-- Thêm bản ghi cho xe 4
-	INSERT INTO VehicleDetails (VehicleId, EngineNumber, ChassisNumber, Color, Price, FuelType, ManufactureYear, TransmissionType, Mileage, Weight, Dimensions, ColorCode)
-	VALUES
-	(4, 'ENG123456782', 'CH123456782', 'Yellow', 22000000.00, 'Diesel', 2024, 'Automatic', 0, 1550, '4600x1900x1700', 'YEL001'),
-	(4, 'ENG987654312', 'CH987654312', 'Orange', 23000000.00, 'Petrol', 2023, 'Manual', 4000, 1600, '4600x1900x1700', 'ORN001');
-
-	-- Thêm bản ghi cho xe 5
-	INSERT INTO VehicleDetails (VehicleId, EngineNumber, ChassisNumber, Color, Price, FuelType, ManufactureYear, TransmissionType, Mileage, Weight, Dimensions, ColorCode)
-	VALUES
-	(5, 'ENG123456783', 'CH123456783', 'Pink', 27000000.00, 'Petrol', 2024, 'Automatic', 0, 1500, '4600x1900x1700', 'PNK001'),
-	(5, 'ENG987654313', 'CH987654313', 'Purple', 28000000.00, 'Diesel', 2023, 'Manual', 6000, 1600, '4600x1900x1700', 'PRP001');
-
-	-- Thêm bản ghi cho xe 6
-	INSERT INTO VehicleDetails (VehicleId, EngineNumber, ChassisNumber, Color, Price, FuelType, ManufactureYear, TransmissionType, Mileage, Weight, Dimensions, ColorCode)
-	VALUES
-	(6, 'ENG123456784', 'CH123456784', 'Brown', 22000000.00, 'Electric', 2024, 'Automatic', 0, 1450, '4500x1800x1600', 'BRN001'),
-	(6, 'ENG987654314', 'CH987654314', 'Grey', 23000000.00, 'Hybrid', 2023, 'Manual', 7000, 1500, '4500x1800x1600', 'GRY001');
-
-	-- Thêm bản ghi cho xe 7
-	INSERT INTO VehicleDetails (VehicleId, EngineNumber, ChassisNumber, Color, Price, FuelType, ManufactureYear, TransmissionType, Mileage, Weight, Dimensions, ColorCode)
-	VALUES
-	(7, 'ENG123456785', 'CH123456785', 'Beige', 24000000.00, 'Diesel', 2024, 'Automatic', 0, 1550, '4500x1800x1600', 'BEI001'),
-	(7, 'ENG987654315', 'CH987654315', 'Gold', 25000000.00, 'Petrol', 2023, 'Manual', 3500, 1600, '4500x1800x1600', 'GLD001');
-
-	-- Thêm bản ghi cho xe 8
-	INSERT INTO VehicleDetails (VehicleId, EngineNumber, ChassisNumber, Color, Price, FuelType, ManufactureYear, TransmissionType, Mileage, Weight, Dimensions, ColorCode)
-	VALUES
-	(8, 'ENG123456786', 'CH123456786', 'Violet', 22000000.00, 'Electric', 2024, 'Automatic', 0, 1450, '4600x1900x1700', 'VIO001'),
-	(8, 'ENG987654316', 'CH987654316', 'Silver', 23000000.00, 'Hybrid', 2023, 'Manual', 4500, 1500, '4600x1900x1700', 'SIL001');
-
-	-- Thêm bản ghi cho xe 9
-	INSERT INTO VehicleDetails (VehicleId, EngineNumber, ChassisNumber, Color, Price, FuelType, ManufactureYear, TransmissionType, Mileage, Weight, Dimensions, ColorCode)
-	VALUES
-	(9, 'ENG123456787', 'CH123456787', 'White', 25000000.00, 'Petrol', 2024, 'Automatic', 0, 1600, '4600x1900x1700', 'WHT001'),
-	(9, 'ENG987654317', 'CH987654317', 'Red', 26000000.00, 'Diesel', 2023, 'Manual', 6000, 1700, '4600x1900x1700', 'RED001');
-
-	-- Thêm bản ghi cho xe 10
-	INSERT INTO VehicleDetails (VehicleId, EngineNumber, ChassisNumber, Color, Price, FuelType, ManufactureYear, TransmissionType, Mileage, Weight, Dimensions, ColorCode)
-	VALUES
-	(10, 'ENG123456788', 'CH123456788', 'Blue', 22000000.00, 'Hybrid', 2024, 'Automatic', 0, 1400, '4500x1800x1600', 'BLU001'),
-	(10, 'ENG987654318', 'CH987654318', 'Yellow', 23000000.00, 'Petrol', 2023, 'Manual', 5000, 1500, '4500x1800x1600', 'YEL001');
-	
-	-- Thêm bản ghi cho xe 11
-INSERT INTO VehicleDetails (VehicleId, EngineNumber, ChassisNumber, Color, Price, FuelType, ManufactureYear, TransmissionType, Mileage, Weight, Dimensions, ColorCode)
-VALUES
-(11, 'ENG1234567891', 'CH1234567891', 'Grey', 27000000.00, 'Electric', 2024, 'Automatic', 0, 1550, '4700x2000x1750', 'GRY001'),
-(11, 'ENG9876543191', 'CH9876543191', 'Beige', 28000000.00, 'Hybrid', 2023, 'Manual', 4000, 1600, '4700x2000x1750', 'BEI001');
-
--- Thêm bản ghi cho xe 12
-INSERT INTO VehicleDetails (VehicleId, EngineNumber, ChassisNumber, Color, Price, FuelType, ManufactureYear, TransmissionType, Mileage, Weight, Dimensions, ColorCode)
-VALUES
-(12, 'ENG1234567892', 'CH1234567892', 'Pink', 22000000.00, 'Diesel', 2024, 'Automatic', 0, 1500, '4700x2000x1750', 'PNK001'),
-(12, 'ENG9876543192', 'CH9876543192', 'Purple', 23000000.00, 'Petrol', 2023, 'Manual', 6000, 1550, '4700x2000x1750', 'PRP001');
-
--- Thêm bản ghi cho xe 13
-INSERT INTO VehicleDetails (VehicleId, EngineNumber, ChassisNumber, Color, Price, FuelType, ManufactureYear, TransmissionType, Mileage, Weight, Dimensions, ColorCode)
-VALUES
-(13, 'ENG1234567893', 'CH1234567893', 'White', 29000000.00, 'Hybrid', 2024, 'Automatic', 0, 1650, '4600x1900x1700', 'WHT001'),
-(13, 'ENG9876543193', 'CH9876543193', 'Black', 30000000.00, 'Electric', 2023, 'Manual', 7000, 1700, '4600x1900x1700', 'BLK001');
-
--- Thêm bản ghi cho xe 14
-INSERT INTO VehicleDetails (VehicleId, EngineNumber, ChassisNumber, Color, Price, FuelType, ManufactureYear, TransmissionType, Mileage, Weight, Dimensions, ColorCode)
-VALUES
-(14, 'ENG1234567894', 'CH1234567894', 'Red', 24000000.00, 'Diesel', 2024, 'Automatic', 0, 1450, '4700x2000x1750', 'RED001'),
-(14, 'ENG9876543194', 'CH9876543194', 'Blue', 25000000.00, 'Petrol', 2023, 'Manual', 5000, 1500, '4700x2000x1750', 'BLU001');
-
--- Thêm bản ghi cho xe 15
-INSERT INTO VehicleDetails (VehicleId, EngineNumber, ChassisNumber, Color, Price, FuelType, ManufactureYear, TransmissionType, Mileage, Weight, Dimensions, ColorCode)
-VALUES
-(15, 'ENG1234567895', 'CH1234567895', 'Yellow', 27000000.00, 'Electric', 2024, 'Automatic', 0, 1600, '4600x1900x1700', 'YEL001'),
-(15, 'ENG9876543195', 'CH9876543195', 'Silver', 28000000.00, 'Hybrid', 2023, 'Manual', 4000, 1650, '4600x1900x1700', 'SIL001');
-
--- Thêm bản ghi cho xe 16
-INSERT INTO VehicleDetails (VehicleId, EngineNumber, ChassisNumber, Color, Price, FuelType, ManufactureYear, TransmissionType, Mileage, Weight, Dimensions, ColorCode)
-VALUES
-(16, 'ENG1234567896', 'CH1234567896', 'Green', 30000000.00, 'Petrol', 2024, 'Automatic', 0, 1700, '4600x1900x1700', 'GRN001'),
-(16, 'ENG9876543196', 'CH9876543196', 'Orange', 31000000.00, 'Diesel', 2023, 'Manual', 6000, 1750, '4600x1900x1700', 'ORN001');
-
--- Thêm bản ghi cho xe 17
-INSERT INTO VehicleDetails (VehicleId, EngineNumber, ChassisNumber, Color, Price, FuelType, ManufactureYear, TransmissionType, Mileage, Weight, Dimensions, ColorCode)
-VALUES
-(17, 'ENG1234567897', 'CH1234567897', 'Black', 22000000.00, 'Petrol', 2024, 'Automatic', 0, 1450, '4700x2000x1750', 'BLK001'),
-(17, 'ENG9876543197', 'CH9876543197', 'Pink', 23000000.00, 'Electric', 2023, 'Manual', 3500, 1500, '4700x2000x1750', 'PNK001');
-
--- Thêm bản ghi cho xe 18
-INSERT INTO VehicleDetails (VehicleId, EngineNumber, ChassisNumber, Color, Price, FuelType, ManufactureYear, TransmissionType, Mileage, Weight, Dimensions, ColorCode)
-VALUES
-(18, 'ENG1234567898', 'CH1234567898', 'Silver', 24000000.00, 'Hybrid', 2024, 'Automatic', 0, 1600, '4600x1900x1700', 'SIL001'),
-(18, 'ENG9876543198', 'CH9876543198', 'Yellow', 25000000.00, 'Diesel', 2023, 'Manual', 4500, 1650, '4600x1900x1700', 'YEL001');
-
--- Thêm bản ghi cho xe 19
-INSERT INTO VehicleDetails (VehicleId, EngineNumber, ChassisNumber, Color, Price, FuelType, ManufactureYear, TransmissionType, Mileage, Weight, Dimensions, ColorCode)
-VALUES
-(19, 'ENG1234567899', 'CH1234567899', 'Green', 22000000.00, 'Electric', 2024, 'Automatic', 0, 1500, '4700x2000x1750', 'GRN001'),
-(19, 'ENG9876543199', 'CH9876543199', 'Blue', 23000000.00, 'Hybrid', 2023, 'Manual', 5000, 1550, '4700x2000x1750', 'BLU001');
-
--- Thêm bản ghi cho xe 20
-INSERT INTO VehicleDetails (VehicleId, EngineNumber, ChassisNumber, Color, Price, FuelType, ManufactureYear, TransmissionType, Mileage, Weight, Dimensions, ColorCode)
-VALUES
-(20, 'ENG1234567900', 'CH1234567900', 'Red', 25000000.00, 'Petrol', 2024, 'Automatic', 0, 1400, '4600x1900x1700', 'RED001'),
-(20, 'ENG9876543200', 'CH9876543200', 'Black', 26000000.00, 'Diesel', 2023, 'Manual', 6000, 1450, '4600x1900x1700', 'BLK001');
 
 
 # Data PurchaseOrders

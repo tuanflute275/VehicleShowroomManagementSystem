@@ -19,8 +19,4 @@
     <ProjectReference Include="..\VehicleShowroom.Mangement.Domain\VehicleShowroom.Mangement.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\DTOs\Supplier\" />
-  </ItemGroup>
-
 </Project>

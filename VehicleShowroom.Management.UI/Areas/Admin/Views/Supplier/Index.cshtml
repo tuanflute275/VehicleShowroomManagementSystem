@@ -2,7 +2,7 @@
 @using X.PagedList
 @using X.PagedList.Mvc.Core
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Supplier Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
     var keyword = ViewBag.keyword;
     int i = 1;
@@ -87,8 +87,8 @@
                                     <td class="text-center">@s.PhoneNumber</td>
                                     <td class="text-center">@s.Email</td>
                                     <td class="text-center">@s.Address</td>
-                                    <td class="text-center">@(s.Status)</td>
-                                    <td class="text-center">@s.ContractDate</td>
+                                    <td class="text-center">@s.Status</td>
+                                    <td class="text-center">@String.Format("{0:MM/dd/yyyy}", s.ContractDate)</td>
                                     <td class="text-center">
                                         <a asp-area="Admin" asp-controller="Supplier" asp-action="Detail" asp-route-id="@s.SupplierId"
                                            class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
