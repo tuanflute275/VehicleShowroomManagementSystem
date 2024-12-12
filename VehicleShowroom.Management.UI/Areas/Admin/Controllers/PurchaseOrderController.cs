@@ -1,14 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using VehicleShowroom.Management.Application.Abstracts;
 using VehicleShowroom.Management.Application.Models.DTOs;
 using VehicleShowroom.Management.Application.Models.ViewModels;
-using VehicleShowroom.Management.Application.Services;
 using VehicleShowroom.Management.Infrastructure.Abstracts;
 using VehicleShowroom.Management.UI.Utils;
-using VehicleShowroom.Management.Domain.Entities;
 using VehicleShowroomManagementSystem.Areas.Admin.Controllers;
 
 namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
