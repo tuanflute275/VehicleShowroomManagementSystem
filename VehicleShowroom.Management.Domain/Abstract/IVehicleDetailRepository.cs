@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Query;
 using System.Linq.Expressions;
-using VehicleShowroom.Mangement.Domain.Entities;
+using VehicleShowroom.Management.Domain.Entities;
 
-namespace VehicleShowroom.Mangement.Domain.Abstract
+namespace VehicleShowroom.Management.Domain.Abstract
 {
     public interface IVehicleDetailRepository
     {
