@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
-using NToastNotify.Helpers;
 using System.Security.Claims;
-using VehicleShowroom.Mangement.Application.Abstracts;
-using VehicleShowroom.Mangement.Application.Models.ViewModels;
-using VehicleShowroom.Mangement.Application.Models.DTOs;
+using VehicleShowroom.Management.Application.Abstracts;
+using VehicleShowroom.Management.Application.Models.ViewModels;
+using VehicleShowroom.Management.Application.Models.DTOs;
 
 namespace VehicleShowroomManagementSystem.Areas.Admin.Controllers
 {
