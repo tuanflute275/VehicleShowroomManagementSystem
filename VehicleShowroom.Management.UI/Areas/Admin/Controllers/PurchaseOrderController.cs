@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using VehicleShowroom.Mangement.Application.Abstracts;
-using VehicleShowroom.Mangement.Application.Models.ViewModels;
-using VehicleShowroom.Mangement.Application.Services;
+using VehicleShowroom.Management.Application.Abstracts;
+using VehicleShowroom.Management.Application.Models.ViewModels;
+using VehicleShowroom.Management.Application.Services;
 using VehicleShowroomManagementSystem.Areas.Admin.Controllers;
 
 namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers

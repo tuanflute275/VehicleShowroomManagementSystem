@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using VehicleShowroom.Mangement.Application.Abstracts;
-using VehicleShowroom.Mangement.Application.Models.DTOs;
-using VehicleShowroom.Mangement.Application.Models.ViewModels;
+using VehicleShowroom.Management.Application.Abstracts;
+using VehicleShowroom.Management.Application.Models.DTOs;
+using VehicleShowroom.Management.Application.Models.ViewModels;
 
 namespace VehicleShowroomManagementSystem.Areas.Admin.Controllers
 {

@@ -9,17 +9,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{03254F04-8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{9B001365-8C05-4BE2-8467-5FF32871749E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehicleShowroom.Mangement.Domain", "VehicleShowroom.Mangement.Domain\VehicleShowroom.Mangement.Domain.csproj", "{53801003-DF33-46D4-98C3-3DB986EC51C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehicleShowroom.Management.Domain", "VehicleShowroom.Management.Domain\VehicleShowroom.Management.Domain.csproj", "{53801003-DF33-46D4-98C3-3DB986EC51C9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{4F63EA40-E4C2-44AF-BA93-E529B6DAB999}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehicleShowroom.Mangement.Infrastructure", "VehicleShowroom.Mangement.Infrastructure\VehicleShowroom.Mangement.Infrastructure.csproj", "{499A3C10-185B-4FB3-AFDE-72C987FC4766}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehicleShowroom.Management.Infrastructure", "VehicleShowroom.Management.Infrastructure\VehicleShowroom.Management.Infrastructure.csproj", "{499A3C10-185B-4FB3-AFDE-72C987FC4766}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehicleShowroom.Mangement.DataAccess", "VehicleShowroom.Mangement.DataAccess\VehicleShowroom.Mangement.DataAccess.csproj", "{8497F0C5-CA43-4CF3-99BA-5F6FE353A783}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehicleShowroom.Management.DataAccess", "VehicleShowroom.Management.DataAccess\VehicleShowroom.Management.DataAccess.csproj", "{8497F0C5-CA43-4CF3-99BA-5F6FE353A783}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{0424AB70-0DCC-4917-8860-F42E3DFA0B4E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehicleShowroom.Mangement.Application", "VehicleShowroom.Mangement.Application\VehicleShowroom.Mangement.Application.csproj", "{AC5DA002-A5C0-4687-B793-0C34D70BC117}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehicleShowroom.Management.Application", "VehicleShowroom.Management.Application\VehicleShowroom.Management.Application.csproj", "{AC5DA002-A5C0-4687-B793-0C34D70BC117}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

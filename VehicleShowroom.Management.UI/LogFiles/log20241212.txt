@@ -1,0 +1,43 @@
+2024-12-12 11:41:10.676 +07:00 [INF] User profile is available. Using 'C:\Users\DELL\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-12 11:41:10.913 +07:00 [INF] Now listening on: http://localhost:5119
+2024-12-12 11:41:10.916 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-12 11:41:10.917 +07:00 [INF] Hosting environment: Development
+2024-12-12 11:41:10.918 +07:00 [INF] Content root path: C:\Users\DELL\Desktop\Eproject\Group2_C2208G_eProject_Sem3\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI
+2024-12-12 11:41:11.786 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/ - null null
+2024-12-12 11:41:11.966 +07:00 [WRN] Failed to determine the https port for redirect.
+2024-12-12 11:41:12.005 +07:00 [INF] Executing endpoint 'VehicleShowroomManagementSystem.Controllers.HomeController.Index (VehicleShowroom.Management.UI)'
+2024-12-12 11:41:12.039 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller VehicleShowroomManagementSystem.Controllers.HomeController (VehicleShowroom.Management.UI).
+2024-12-12 11:41:12.047 +07:00 [INF] Executing ViewResult, running view Index.
+2024-12-12 11:41:12.140 +07:00 [INF] Executed ViewResult - view Index executed in 93.945ms.
+2024-12-12 11:41:12.143 +07:00 [INF] Executed action VehicleShowroomManagementSystem.Controllers.HomeController.Index (VehicleShowroom.Management.UI) in 102.0866ms
+2024-12-12 11:41:12.145 +07:00 [INF] Executed endpoint 'VehicleShowroomManagementSystem.Controllers.HomeController.Index (VehicleShowroom.Management.UI)'
+2024-12-12 11:41:12.148 +07:00 [INF] HTTP GET / responded 200 in 182.3990 ms
+2024-12-12 11:41:12.154 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/ - 200 null text/html; charset=utf-8 375.5152ms
+2024-12-12 11:41:12.163 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2024-12-12 11:41:12.173 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - null null
+2024-12-12 11:41:12.175 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/lib/jquery/dist/jquery.min.js - null null
+2024-12-12 11:41:12.173 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-12 11:41:12.175 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/VehicleShowroomManagementSystem.styles.css - null null
+2024-12-12 11:41:12.184 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2024-12-12 11:41:12.191 +07:00 [INF] The file /lib/bootstrap/dist/css/bootstrap.min.css was not modified
+2024-12-12 11:41:12.191 +07:00 [INF] The file /css/site.css was not modified
+2024-12-12 11:41:12.193 +07:00 [INF] The file /lib/jquery/dist/jquery.min.js was not modified
+2024-12-12 11:41:12.197 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/_framework/aspnetcore-browser-refresh.js - 200 13794 application/javascript; charset=utf-8 23.737ms
+2024-12-12 11:41:12.209 +07:00 [INF] The file /lib/bootstrap/dist/js/bootstrap.bundle.min.js was not modified
+2024-12-12 11:41:12.210 +07:00 [INF] HTTP GET /VehicleShowroomManagementSystem.styles.css responded 404 in 13.7143 ms
+2024-12-12 11:41:12.211 +07:00 [INF] HTTP GET /lib/bootstrap/dist/css/bootstrap.min.css responded 304 in 28.1810 ms
+2024-12-12 11:41:12.211 +07:00 [INF] HTTP GET /css/site.css responded 304 in 21.4898 ms
+2024-12-12 11:41:12.213 +07:00 [INF] HTTP GET /lib/jquery/dist/jquery.min.js responded 304 in 20.6478 ms
+2024-12-12 11:41:12.217 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null
+2024-12-12 11:41:12.217 +07:00 [INF] HTTP GET /lib/bootstrap/dist/js/bootstrap.bundle.min.js responded 304 in 9.0688 ms
+2024-12-12 11:41:12.219 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/VehicleShowroomManagementSystem.styles.css - 404 0 null 44.2032ms
+2024-12-12 11:41:12.221 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/lib/bootstrap/dist/css/bootstrap.min.css - 304 null text/css 57.4903ms
+2024-12-12 11:41:12.223 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - 304 null text/css 50.1144ms
+2024-12-12 11:41:12.225 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/lib/jquery/dist/jquery.min.js - 304 null text/javascript 50.6484ms
+2024-12-12 11:41:12.229 +07:00 [INF] The file /js/site.js was not modified
+2024-12-12 11:41:12.235 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/VehicleShowroomManagementSystem.styles.css, Response status code: 404
+2024-12-12 11:41:12.231 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 304 null text/javascript 46.2976ms
+2024-12-12 11:41:12.246 +07:00 [INF] HTTP GET /js/site.js responded 304 in 17.7025 ms
+2024-12-12 11:41:12.248 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/_vs/browserLink - null null
+2024-12-12 11:41:12.252 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 304 null text/javascript 35.7637ms
+2024-12-12 11:41:12.328 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/_vs/browserLink - 200 null text/javascript; charset=UTF-8 79.8769ms

@@ -28,12 +28,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VehicleShowroom.Mangement.Infrastructure\VehicleShowroom.Mangement.Infrastructure.csproj" />
+    <None Include="wwwroot\assets\.DS_Store" />
+    <None Include="wwwroot\assets\images\.DS_Store" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\assets\.DS_Store" />
-    <None Include="wwwroot\assets\images\.DS_Store" />
+    <ProjectReference Include="..\VehicleShowroom.Management.Infrastructure\VehicleShowroom.Management.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
