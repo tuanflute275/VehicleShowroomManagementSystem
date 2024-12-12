@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace VehicleShowroom.Mangement.DataAccess.Migrations
+namespace VehicleShowroom.Management.DataAccess.Migrations
 {
     /// <inheritdoc />
     public partial class v1 : Migration
@@ -144,8 +144,8 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SupplierId = table.Column<int>(type: "int", nullable: false),
                     CompanyId = table.Column<int>(type: "int", nullable: false),
-                    EngineNumber = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    ChassisNumber = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    EngineNumber = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    ChassisNumber = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     FuelType = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     TransmissionType = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Color = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
@@ -248,6 +248,7 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     StockHistoryId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     VehicleId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
                     ChangeDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ChangeType = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false)
@@ -255,6 +256,12 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_StockHistory", x => x.StockHistoryId);
+                    table.ForeignKey(
+                        name: "FK_StockHistory_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_StockHistory_Vehicles_VehicleId",
                         column: x => x.VehicleId,
@@ -353,6 +360,11 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_SalesOrders_UserId",
                 table: "SalesOrders",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_StockHistory_UserId",
+                table: "StockHistory",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
+using System.Security.Principal;
 using VehicleShowroom.Management.Application.Abstracts;
 using VehicleShowroom.Management.Application.Models.DTOs;
 using VehicleShowroom.Management.Application.Models.ViewModels;
@@ -67,9 +68,12 @@ namespace VehicleShowroom.Management.Application.Services
             var userQuery = _unitOfWork.UserRepository.GetAllAsync(
                 expression: s => string.IsNullOrEmpty(keyword) || s.Username.Contains(keyword) || s.FullName.Contains(keyword)
             );
-
-            var users = await userQuery; 
-            var userList = users.ToList();
+            var users = await userQuery;
+            var specialUsernames = new[] { "admin", "employee", "invoice", "user" };
+            var sortedUsers = users
+           .OrderBy(s => Array.IndexOf(specialUsernames, s.Username) >= 0 ? Array.IndexOf(specialUsernames, s.Username) : int.MaxValue)
+           .ThenBy(s => s.Username);
+            var userList = sortedUsers.ToList();
             var data = _mapper.Map<List<UserDTO>>(userList);
             return data.ToPagedList(page, pageSize); 
         }

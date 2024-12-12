@@ -1,6 +1,161 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model VehicleShowroom.Management.Application.Models.DTOs.CountDTO
 @{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
-welcome admin page
+@section Styles {
+    <style>
+        .main_content.dashboard_part {
+            padding: 50px 0;
+        }
+
+        .col-lg-12 {
+            margin-bottom: 30px;
+        }
+
+        .quick_activity_wrap {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .single_quick_activity {
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            flex: 1 1 22%;
+            min-width: 200px;
+            transition: transform 0.3s ease;
+        }
+
+            .single_quick_activity:nth-child(1) {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+            .single_quick_activity:nth-child(2) {
+                 background-color: #FF6347;
+                color: white;
+            }
+
+            .single_quick_activity:nth-child(3) {
+                background-color: #1E90FF;
+                color: white;
+            }
+
+            .single_quick_activity:nth-child(4) {
+                background-color: #eac70a;
+                color: white;
+            }
+            .single_quick_activity:nth-child(5) {
+                background-color: #FF8C00; 
+                 color: white;
+            }
+
+            .single_quick_activity:nth-child(6) {
+                background-color: #8A2BE2;
+                 color: white;
+            }
+
+            .single_quick_activity:nth-child(7) {
+                background-color: #32CD32;
+                 color: white;
+            }
+
+            .single_quick_activity:nth-child(8) {
+                background-color: #00CED1;
+                 color: white;
+            }
+
+            .single_quick_activity h4 {
+                font-size: 18px;
+                margin-bottom: 10px;
+                font-weight: 600;
+            }
+
+            .single_quick_activity h3 {
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+            .single_quick_activity .counter {
+                font-size: 30px;
+                color: white;
+            }
+    </style>
+}
+
+<section class="main_content dashboard_part">
+    <div class="main_content_iner ">
+        <div class="container-fluid plr_30 body_white_bg pt_30">
+            <div class="col-lg-12">
+                <div class="single_element">
+                    <div class="quick_activity">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="quick_activity_wrap">
+                                    <div class="single_quick_activity">
+                                        <h4>User Online</h4>
+                                        <h3><span class="counter" id="userOnline"></span> </h3>
+                                    </div>
+                                    <div class="single_quick_activity">
+                                        <h4>Total User</h4>
+                                        <h3><span class="counter">@Model.TotalUserCount</span> </h3>
+                                    </div>
+                                   
+                                    <div class="single_quick_activity">
+                                        <h4>Total Supplier</h4>
+                                        <h3><span class="counter">@Model.TotalSupplierCount</span> </h3>
+                                    </div>
+                                    <div class="single_quick_activity">
+                                        <h4>Total Company</h4>
+                                        <h3><span class="counter">@Model.TotalCompanyCount</span> </h3>
+                                    </div>
+
+                                    <div class="single_quick_activity">
+                                        <h4>Total Vehicle</h4>
+                                        <h3><span class="counter" id="userOnline">@Model.TotalVehicleCount</span> </h3>
+                                    </div>
+                                    <div class="single_quick_activity">
+                                        <h4>Total Purchase Order</h4>
+                                        <h3><span class="counter">@Model.TotalPurchaseOrderCount</span> </h3>
+                                    </div>
+
+                                    <div class="single_quick_activity">
+                                        <h4>Total Sales Order</h4>
+                                        <h3><span class="counter">@Model.TotalSalesOrderCount</span> </h3>
+                                    </div>
+                                    <div class="single_quick_activity">
+                                        <h4>Total Stock History</h4>
+                                        <h3><span class="counter">@Model.TotalStockCount</span> </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="table-responsive bg-light">
+                <table class="align-middle mb-0 table table-borderless table-striped table-hover" id="userList">
+                    <thead>
+                        <tr>
+                            <th class="text-center">#No</th>
+                            <th>User Name</th>
+                            <th>IP Address</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Connected At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+

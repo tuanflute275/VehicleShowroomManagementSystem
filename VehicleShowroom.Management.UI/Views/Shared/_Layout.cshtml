@@ -45,5 +45,53 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        // Kết nối đến SignalR Hub
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/userHub")
+            .build();
+
+        // Khi có cập nhật số người dùng online
+        connection.on("UpdateUserCount", function (userCount) {
+            document.getElementById("userOnline").innerText = userCount;
+        });
+
+        // Cập nhật danh sách người dùng online
+        connection.on("UpdateOnlineUsers", function (users) {
+            const tbody = document.getElementById("userList").getElementsByTagName("tbody")[0];
+            tbody.innerHTML = "";  // Clear existing rows
+
+            // Iterate over users to create rows for each, including serial number
+            users.forEach(function (user, index) {
+                const tr = document.createElement("tr");
+
+                // Create and append columns, including serial number (index + 1)
+                tr.innerHTML = `
+                            <td class="text-center">${index + 1}</td> <!-- Serial number -->
+                            <td>${user.userName}</td>
+                            <td>${user.ipAddress}</td>
+                            <td>${user.email}</td>
+                            <td>${user.role}</td>
+                            <td>${new Date(user.connectionTime).toLocaleString()}</td>
+                        `;
+
+                tbody.appendChild(tr);
+            });
+        });
+
+        // Khởi tạo kết nối
+        connection.start().then(function () {
+            connection.invoke("Join");
+        }).catch(function (err) {
+            return console.error(err.toString());
+        });
+
+        // Khi người dùng rời trang
+        window.onbeforeunload = function () {
+            connection.invoke("Leave").catch(function (err) {
+                return console.error(err.toString());
+            });
+        };
+    </script>
 </body>
 </html>

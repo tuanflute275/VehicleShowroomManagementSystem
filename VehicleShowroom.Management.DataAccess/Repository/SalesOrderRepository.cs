@@ -56,5 +56,10 @@ namespace VehicleShowroom.Management.DataAccess.Repository
                 return false;
             }
         }
+
+        public async Task<int> CountAsync()
+        {
+            return await base.CountAsync();
+        }
     }
 }

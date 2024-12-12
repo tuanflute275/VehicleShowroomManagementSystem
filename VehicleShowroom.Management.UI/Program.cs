@@ -1,7 +1,9 @@
 using AspNetCoreHero.ToastNotification.Extensions;
 using Microsoft.AspNetCore.CookiePolicy;
 using Serilog;
-using VehicleShowroom.Mangement.Infrastructure.Configuration;
+using VehicleShowroom.Management.Application.Services;
+using VehicleShowroom.Management.DataAccess;
+using VehicleShowroom.Management.Infrastructure.Configuration;
 
 var builder         = WebApplication.CreateBuilder(args);
 var services        = builder.Services;
@@ -12,6 +14,7 @@ builder.AddSerilog();
 services.ConfigureIdentity(configuration);
 services.AddDependencyInjection();
 services.AddAutoMapper();
+services.AddSignalR();
 // Add services to the container.
 services.AddHttpClient();
 services.AddControllersWithViews().AddRazorOptions(opts =>
@@ -21,6 +24,8 @@ services.AddControllersWithViews().AddRazorOptions(opts =>
 
 
 var app = builder.Build();
+
+await app.AutoMigration();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -46,6 +51,8 @@ app.UseAuthorization();
 
 app.UseNToastNotify();
 app.UseNotyf();
+
+app.MapHub<UserHub>("/userHub");
 
 app.MapControllers();
 app.MapControllerRoute(

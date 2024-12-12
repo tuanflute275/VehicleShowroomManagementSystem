@@ -14,5 +14,6 @@ namespace VehicleShowroom.Management.Domain.Abstract
         Task<User?> GetByUsernameOrEmailAsync(string usernameOrEmail);
         Task<bool> SaveOrUpdateAsync(User user);
         Task<bool> DeleteAsync(User user);
+        Task<int> CountAsync();
     }
 }

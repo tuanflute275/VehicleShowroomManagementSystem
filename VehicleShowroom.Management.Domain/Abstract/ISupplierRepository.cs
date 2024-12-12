@@ -13,5 +13,6 @@ namespace VehicleShowroom.Management.Domain.Abstract
         Task<Supplier?> GetSupplierByNameAsync(string name);
         Task<bool> SaveOrUpdateAsync(Supplier supplier);
         Task<bool> DeleteAsync(Supplier supplier);
+        Task<int> CountAsync();
     }
 }

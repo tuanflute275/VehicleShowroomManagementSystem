@@ -11,5 +11,6 @@ namespace VehicleShowroom.Management.Domain.Abstract
         Task<StockHistory?> GetByIdAsync(int id);
         Task<bool> SaveOrUpdateAsync(StockHistory stockHistory);
         Task<bool> DeleteAsync(StockHistory stockHistory);
+        Task<int> CountAsync();
     }
 }

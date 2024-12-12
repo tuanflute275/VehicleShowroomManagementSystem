@@ -16,6 +16,10 @@ namespace VehicleShowroom.Management.Domain.Entities
         public int VehicleId { get; set; }
         public virtual Vehicle Vehicle { get; set; }
 
+        [ForeignKey("User")]
+        public int UserId { get; set; }
+        public virtual User User { get; set; }
+
         public DateTime? ChangeDate { get; set; }
 
         [StringLength(20)]

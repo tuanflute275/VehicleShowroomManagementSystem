@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Query;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using System.Linq.Expressions;
 using VehicleShowroom.Management.DataAccess.DataAccess;
 using VehicleShowroom.Management.Domain.Abstract;
@@ -60,6 +61,11 @@ namespace VehicleShowroom.Management.DataAccess.Repository
             {
                 return false;
             }
+        }
+
+        public async Task<int> CountAsync()
+        {
+            return await base.CountAsync();
         }
     }
 }

@@ -11,5 +11,6 @@ namespace VehicleShowroom.Management.Domain.Abstract
         Task<SalesOrder?> GetByIdAsync(int id);
         Task<bool> SaveOrUpdateAsync(SalesOrder salesOrder);
         Task<bool> DeleteAsync(SalesOrder salesOrder);
+        Task<int> CountAsync();
     }
 }

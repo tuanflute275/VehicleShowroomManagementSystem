@@ -1,5 +1,7 @@
 ﻿using AspNetCoreHero.ToastNotification;
 using AutoMapper;
+using DinkToPdf.Contracts;
+using DinkToPdf;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -14,8 +16,10 @@ using VehicleShowroom.Management.Application.Utils;
 using VehicleShowroom.Management.DataAccess.DataAccess;
 using VehicleShowroom.Management.DataAccess.Repository;
 using VehicleShowroom.Management.Domain.Abstract;
+using VehicleShowroom.Management.Infrastructure.Services;
+using VehicleShowroom.Management.Infrastructure.Abstracts;
 
-namespace VehicleShowroom.Mangement.Infrastructure.Configuration
+namespace VehicleShowroom.Management.Infrastructure.Configuration
 {
     public static class ConfigurationService
     {
@@ -72,6 +76,9 @@ namespace VehicleShowroom.Mangement.Infrastructure.Configuration
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IVehicleService, VehicleService>();
             services.AddTransient<IPurchaseOrderService, PurchaseOrderService>();
+            services.AddTransient<IHomeService, HomeService>();
+            services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
+            services.AddTransient<IPDFService, PDFService>();
         }
 
         public static void AddAutoMapper(this IServiceCollection services)

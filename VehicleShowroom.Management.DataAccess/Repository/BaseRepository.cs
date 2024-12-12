@@ -61,5 +61,11 @@ namespace VehicleShowroom.Management.DataAccess.Repository
         {
             await _context.SaveChangesAsync();
         }
+
+        // count
+        public async Task<int> CountAsync()
+        {
+            return await _context.Set<T>().CountAsync();
+        }
     }
 }

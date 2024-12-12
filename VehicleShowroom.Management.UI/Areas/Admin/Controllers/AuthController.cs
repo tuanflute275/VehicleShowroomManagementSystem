@@ -74,7 +74,7 @@ namespace VehicleShowroomManagementSystem.Areas.Admin.Controllers
             new Claim(ClaimTypes.Name, user.Username ?? string.Empty),
             new Claim("userFullName", user.FullName ?? string.Empty),
             new Claim(ClaimTypes.Email, user.Email ?? string.Empty),
-            new Claim("avatar", user.Avatar ?? "default.png"),
+            new Claim("avatar", user.Avatar ?? string.Empty),
             new Claim("Role", roleClaim ?? "User")
         };
 

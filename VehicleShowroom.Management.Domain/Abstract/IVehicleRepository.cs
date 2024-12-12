@@ -12,5 +12,6 @@ namespace VehicleShowroom.Management.Domain.Abstract
         Task<Vehicle?> GetByNameAsync(string name);
         Task<bool> SaveOrUpdateAsync(Vehicle vehicle);
         Task<bool> DeleteAsync(Vehicle vehicle);
+        Task<int> CountAsync();
     }
 }

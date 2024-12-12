@@ -8,7 +8,7 @@ using VehicleShowroom.Management.DataAccess.DataAccess;
 
 #nullable disable
 
-namespace VehicleShowroom.Mangement.DataAccess.Migrations
+namespace VehicleShowroom.Management.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -22,7 +22,7 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("VehicleShowroom.Mangement.Domain.Entities.Company", b =>
+            modelBuilder.Entity("VehicleShowroom.Management.Domain.Entities.Company", b =>
                 {
                     b.Property<int>("CompanyId")
                         .ValueGeneratedOnAdd()
@@ -77,7 +77,7 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.ToTable("Companies");
                 });
 
-            modelBuilder.Entity("VehicleShowroom.Mangement.Domain.Entities.PurchaseOrder", b =>
+            modelBuilder.Entity("VehicleShowroom.Management.Domain.Entities.PurchaseOrder", b =>
                 {
                     b.Property<int>("PurchaseOrderId")
                         .ValueGeneratedOnAdd()
@@ -125,7 +125,7 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.ToTable("PurchaseOrders");
                 });
 
-            modelBuilder.Entity("VehicleShowroom.Mangement.Domain.Entities.PurchaseOrderDetail", b =>
+            modelBuilder.Entity("VehicleShowroom.Management.Domain.Entities.PurchaseOrderDetail", b =>
                 {
                     b.Property<int>("PurchaseOrderDetailId")
                         .ValueGeneratedOnAdd()
@@ -178,7 +178,7 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.ToTable("PurchaseOrderDetails");
                 });
 
-            modelBuilder.Entity("VehicleShowroom.Mangement.Domain.Entities.SalesOrder", b =>
+            modelBuilder.Entity("VehicleShowroom.Management.Domain.Entities.SalesOrder", b =>
                 {
                     b.Property<int>("SalesOrderId")
                         .ValueGeneratedOnAdd()
@@ -231,7 +231,7 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.ToTable("SalesOrders");
                 });
 
-            modelBuilder.Entity("VehicleShowroom.Mangement.Domain.Entities.SalesOrderDetail", b =>
+            modelBuilder.Entity("VehicleShowroom.Management.Domain.Entities.SalesOrderDetail", b =>
                 {
                     b.Property<int>("SalesOrderDetailId")
                         .ValueGeneratedOnAdd()
@@ -284,7 +284,7 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.ToTable("SalesOrderDetails");
                 });
 
-            modelBuilder.Entity("VehicleShowroom.Mangement.Domain.Entities.StockHistory", b =>
+            modelBuilder.Entity("VehicleShowroom.Management.Domain.Entities.StockHistory", b =>
                 {
                     b.Property<int>("StockHistoryId")
                         .ValueGeneratedOnAdd()
@@ -303,17 +303,22 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.Property<int>("VehicleId")
                         .HasColumnType("int");
 
                     b.HasKey("StockHistoryId");
+
+                    b.HasIndex("UserId");
 
                     b.HasIndex("VehicleId");
 
                     b.ToTable("StockHistory");
                 });
 
-            modelBuilder.Entity("VehicleShowroom.Mangement.Domain.Entities.Supplier", b =>
+            modelBuilder.Entity("VehicleShowroom.Management.Domain.Entities.Supplier", b =>
                 {
                     b.Property<int>("SupplierId")
                         .ValueGeneratedOnAdd()
@@ -402,7 +407,7 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.ToTable("Suppliers");
                 });
 
-            modelBuilder.Entity("VehicleShowroom.Mangement.Domain.Entities.User", b =>
+            modelBuilder.Entity("VehicleShowroom.Management.Domain.Entities.User", b =>
                 {
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
@@ -505,7 +510,7 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("VehicleShowroom.Mangement.Domain.Entities.Vehicle", b =>
+            modelBuilder.Entity("VehicleShowroom.Management.Domain.Entities.Vehicle", b =>
                 {
                     b.Property<int>("VehicleId")
                         .ValueGeneratedOnAdd()
@@ -514,7 +519,6 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VehicleId"));
 
                     b.Property<string>("ChassisNumber")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -547,7 +551,6 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EngineNumber")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -612,7 +615,7 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.ToTable("Vehicles");
                 });
 
-            modelBuilder.Entity("VehicleShowroom.Mangement.Domain.Entities.VehicleImage", b =>
+            modelBuilder.Entity("VehicleShowroom.Management.Domain.Entities.VehicleImage", b =>
                 {
                     b.Property<int>("VehicleImageId")
                         .ValueGeneratedOnAdd()
@@ -659,9 +662,9 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.ToTable("VehicleImages");
                 });
 
-            modelBuilder.Entity("VehicleShowroom.Mangement.Domain.Entities.PurchaseOrder", b =>
+            modelBuilder.Entity("VehicleShowroom.Management.Domain.Entities.PurchaseOrder", b =>
                 {
-                    b.HasOne("VehicleShowroom.Mangement.Domain.Entities.Supplier", "Supplier")
+                    b.HasOne("VehicleShowroom.Management.Domain.Entities.Supplier", "Supplier")
                         .WithMany()
                         .HasForeignKey("SupplierId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -670,15 +673,15 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.Navigation("Supplier");
                 });
 
-            modelBuilder.Entity("VehicleShowroom.Mangement.Domain.Entities.PurchaseOrderDetail", b =>
+            modelBuilder.Entity("VehicleShowroom.Management.Domain.Entities.PurchaseOrderDetail", b =>
                 {
-                    b.HasOne("VehicleShowroom.Mangement.Domain.Entities.PurchaseOrder", "PurchaseOrder")
+                    b.HasOne("VehicleShowroom.Management.Domain.Entities.PurchaseOrder", "PurchaseOrder")
                         .WithMany()
                         .HasForeignKey("PurchaseOrderId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("VehicleShowroom.Mangement.Domain.Entities.Vehicle", "Vehicle")
+                    b.HasOne("VehicleShowroom.Management.Domain.Entities.Vehicle", "Vehicle")
                         .WithMany()
                         .HasForeignKey("VehicleId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -689,9 +692,9 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.Navigation("Vehicle");
                 });
 
-            modelBuilder.Entity("VehicleShowroom.Mangement.Domain.Entities.SalesOrder", b =>
+            modelBuilder.Entity("VehicleShowroom.Management.Domain.Entities.SalesOrder", b =>
                 {
-                    b.HasOne("VehicleShowroom.Mangement.Domain.Entities.User", "User")
+                    b.HasOne("VehicleShowroom.Management.Domain.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -700,15 +703,15 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("VehicleShowroom.Mangement.Domain.Entities.SalesOrderDetail", b =>
+            modelBuilder.Entity("VehicleShowroom.Management.Domain.Entities.SalesOrderDetail", b =>
                 {
-                    b.HasOne("VehicleShowroom.Mangement.Domain.Entities.SalesOrder", "SalesOrder")
+                    b.HasOne("VehicleShowroom.Management.Domain.Entities.SalesOrder", "SalesOrder")
                         .WithMany()
                         .HasForeignKey("SalesOrderId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("VehicleShowroom.Mangement.Domain.Entities.Vehicle", "Vehicle")
+                    b.HasOne("VehicleShowroom.Management.Domain.Entities.Vehicle", "Vehicle")
                         .WithMany()
                         .HasForeignKey("VehicleId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -719,26 +722,34 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.Navigation("Vehicle");
                 });
 
-            modelBuilder.Entity("VehicleShowroom.Mangement.Domain.Entities.StockHistory", b =>
+            modelBuilder.Entity("VehicleShowroom.Management.Domain.Entities.StockHistory", b =>
                 {
-                    b.HasOne("VehicleShowroom.Mangement.Domain.Entities.Vehicle", "Vehicle")
+                    b.HasOne("VehicleShowroom.Management.Domain.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("VehicleShowroom.Management.Domain.Entities.Vehicle", "Vehicle")
                         .WithMany()
                         .HasForeignKey("VehicleId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.Navigation("User");
+
                     b.Navigation("Vehicle");
                 });
 
-            modelBuilder.Entity("VehicleShowroom.Mangement.Domain.Entities.Vehicle", b =>
+            modelBuilder.Entity("VehicleShowroom.Management.Domain.Entities.Vehicle", b =>
                 {
-                    b.HasOne("VehicleShowroom.Mangement.Domain.Entities.Company", "Company")
+                    b.HasOne("VehicleShowroom.Management.Domain.Entities.Company", "Company")
                         .WithMany()
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("VehicleShowroom.Mangement.Domain.Entities.Supplier", "Supplier")
+                    b.HasOne("VehicleShowroom.Management.Domain.Entities.Supplier", "Supplier")
                         .WithMany()
                         .HasForeignKey("SupplierId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -749,9 +760,9 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.Navigation("Supplier");
                 });
 
-            modelBuilder.Entity("VehicleShowroom.Mangement.Domain.Entities.VehicleImage", b =>
+            modelBuilder.Entity("VehicleShowroom.Management.Domain.Entities.VehicleImage", b =>
                 {
-                    b.HasOne("VehicleShowroom.Mangement.Domain.Entities.Vehicle", "Vehicle")
+                    b.HasOne("VehicleShowroom.Management.Domain.Entities.Vehicle", "Vehicle")
                         .WithMany()
                         .HasForeignKey("VehiclelId")
                         .OnDelete(DeleteBehavior.Restrict)
