@@ -15,6 +15,7 @@ namespace VehicleShowroom.Mangement.DataAccess.Repository
         IUserRepository _userRepository;
         IVehicleRepository _vehicleRepository;
         ICompanyRepository _companyRepository;
+        IVehicleDetailRepository _vehicleDetailRepository;
 
         public UnitOfWork(ApplicationDbContext context)
         {
@@ -27,6 +28,7 @@ namespace VehicleShowroom.Mangement.DataAccess.Repository
         public IUserRepository UserRepository => _userRepository ??= new UserRepository(_context);
         public IVehicleRepository VehicleRepository => _vehicleRepository ??= new VehicleRepository(_context);
         public ICompanyRepository CompanyRepository => _companyRepository ??= new CompanyRepository(_context);
+        public IVehicleDetailRepository VehicleDetailRepository => _vehicleDetailRepository ??= new VehicleDetailRepository(_context);
 
         public async Task BeginTransaction()
         {

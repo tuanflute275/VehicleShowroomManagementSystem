@@ -8,6 +8,7 @@ namespace VehicleShowroom.Mangement.Domain.Abstract
         IUserRepository UserRepository { get; }
         IVehicleRepository VehicleRepository { get; }
         ICompanyRepository CompanyRepository { get; }
+        IVehicleDetailRepository VehicleDetailRepository { get; }
         // other repository
 
         Task BeginTransaction();

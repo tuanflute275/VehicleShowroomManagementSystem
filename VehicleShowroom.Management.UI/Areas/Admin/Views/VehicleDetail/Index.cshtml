@@ -1,10 +1,9 @@
-﻿@model IPagedList<VehicleShowroom.Mangement.Application.Models.DTOs.CompanyDTO>
+﻿@model IPagedList<VehicleShowroom.Mangement.Application.Models.DTOs.VehicleDetailDTO>
 @using X.PagedList
 @using X.PagedList.Mvc.Core
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
-    var keyword = ViewBag.keyword;
     int i = 1;
 }
 <!-- Main -->
@@ -13,10 +12,10 @@
         <div class="page-title-wrapper">
             <div class="page-title-heading">
                 <div class="page-title-icon">
-                    <i class="fa-solid fa-building"></i>
+                    <i class="fa-solid fa-car"></i>
                 </div>
                 <div>
-                    Company
+                    VehicleDetail
                     <div class="page-title-subheading">
                         View, create, update, delete and manage.
                     </div>
@@ -40,7 +39,7 @@
                 <div class="card-header d-flex justify-content-between">
                     <form>
                         <div class="input-group">
-                            <input type="search" value="@keyword" name="keyword" id="search"
+                            <input type="search" value="" name="keyword" id="search"
                                    placeholder="Search by name" class="form-control">
                             <span class="input-group-append">
                                 <button type="submit" class="btn btn-primary">
@@ -61,15 +60,19 @@
                         <thead>
                             <tr>
                                 <th class="text-center">#No</th>
-                                <th class="text-center">Company Name</th>
-                                <th class="text-center">Phone</th>
-                                <th class="text-center">Email</th>
-                                <th class="text-center">Status</th>
+                                <th class="text-center">EngineNumber</th>
+                                <th class="text-center">Vehicle</th>
+                                <th class="text-center">Color</th>
+                                <th class="text-center">Price</th>
+                                <th class="text-center">ManufactureYear</th>
+                                <th class="text-center">TransmissionType</th>
+                                <th class="text-center">Mileage</th>
+                                <th class="text-center">Weight</th>
                                 <th class="text-center">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var c in Model)
+                            @foreach (var v in Model)
                             {
                                 <tr>
                                     <td class="text-center text-muted">#@i</td>
@@ -77,26 +80,30 @@
                                         <div class="widget-content p-0">
                                             <div class="widget-content-wrapper">
                                                 <div class="widget-content-left flex2">
-                                                    <div class="widget-heading text-center">@c.CompanyName</div>
+                                                    <div class="widget-heading text-center">@v.EngineNumber</div>
                                                 </div>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="text-center">@c.PhoneNumber</td>
-                                    <td class="text-center">@c.Email</td>
-                                    <td class="text-center">@(c.Status)</td>
+                                    <td class="text-center">@v.VehicleId</td>
+                                    <td class="text-center">@v.Color</td>
+                                    <td class="text-center">@v.Price</td>
+                                    <td class="text-center">@v.ManufactureYear</td>
+                                    <td class="text-center">@v.TransmissionType</td>
+                                    <td class="text-center">@v.Mileage</td>
+                                    <td class="text-center">@v.Weight</td>
                                     <td class="text-center">
-                                        <a asp-area="Admin" asp-controller="Company" asp-action="Detail" asp-route-id="@c.CompanyId"
+                                        <a asp-area="Admin" asp-controller="Company" asp-action="Detail" asp-route-id="@v.VehicleDetailId"
                                            class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
                                             Details
                                         </a>
-                                        <a asp-controller="Company" asp-action="Edit" asp-route-id="@c.CompanyId" data-toggle="tooltip"
+                                        <a asp-controller="Company" asp-action="Edit" asp-route-id="@v.VehicleDetailId" data-toggle="tooltip"
                                            data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
                                             <span class="btn-icon-wrapper opacity-8">
                                                 <i class="fa fa-edit fa-w-20"></i>
                                             </span>
                                         </a>
-                                        <a asp-controller="Company" asp-action="Delete" asp-route-id="@c.CompanyId" asp-route-page="@ViewData["CurrentPage"]"
+                                        <a asp-controller="Company" asp-action="Delete" asp-route-id="@v.VehicleDetailId" asp-route-page="@ViewData["CurrentPage"]"
                                            onclick="return confirm('Do you really want to delete this item?')" data-toggle="tooltip"
                                            data-placement="bottom" class="btn btn-outline-danger border-0 btn-sm">
                                             <span class="btn-icon-wrapper opacity-8">

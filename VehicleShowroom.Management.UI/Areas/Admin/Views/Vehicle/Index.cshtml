@@ -98,6 +98,12 @@
                                            class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
                                             Details
                                         </a>
+                                        <a asp-controller="VehicleDetail" asp-action="Index" data-toggle="tooltip"
+                                           data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
+                                            <span class="btn-icon-wrapper opacity-8">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </span>
+                                        </a>
                                         <a asp-controller="Vehicle" asp-action="Edit" asp-route-id="@item.VehicleId" data-toggle="tooltip"
                                            data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
                                             <span class="btn-icon-wrapper opacity-8">

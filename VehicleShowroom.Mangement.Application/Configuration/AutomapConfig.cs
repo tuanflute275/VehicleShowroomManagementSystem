@@ -17,6 +17,9 @@ namespace VehicleShowroom.Mangement.Application.Configuration
             CreateMap<User, UserViewModel>().ReverseMap();
             CreateMap<UserDTO, UserViewModel>().ReverseMap();
             CreateMap<UserDTO, UserViewModel>().ReverseMap();
+            CreateMap<VehicleDetail, VehicleDetailViewModel>().ReverseMap();
+            CreateMap<VehicleDetail, VehicleDetailDTO>()
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Vehicle.Name));
             CreateMap<Vehicle, VehicleViewModel>().ReverseMap();
             CreateMap<Vehicle, VehicleDTO>()
             .ForMember(dest => dest.SupplierName, opt => opt.MapFrom(src => src.Supplier.SupplierName))
