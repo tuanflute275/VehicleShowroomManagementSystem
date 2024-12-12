@@ -8,6 +8,7 @@ using VehicleShowroom.Management.Application.Models.ViewModels;
 using VehicleShowroom.Management.Application.Services;
 using VehicleShowroom.Management.Infrastructure.Abstracts;
 using VehicleShowroom.Management.UI.Utils;
+using VehicleShowroom.Management.Domain.Entities;
 using VehicleShowroomManagementSystem.Areas.Admin.Controllers;
 
 namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
@@ -46,7 +47,7 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-               /* var (isSuccess, errorMessage) = await _vehicleService.SaveOrUpdateAsync(model, fileUpload);
+                var (isSuccess, errorMessage) = await _purchaseOrderService.SaveOrUpdateAsync(model);
                 if (isSuccess)
                 {
                     TempData["success"] = "Vehicle created successfully!";
@@ -57,7 +58,7 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
                     // Thêm thông báo lỗi vào ModelState để hiển thị trên giao diện
                     ModelState.AddModelError(string.Empty, errorMessage ?? "An error occurred while saving the user.");
                     return View("Create", model);
-                }*/
+                }
             }
 
             // If the model is invalid, show an error notification and re-render the form
