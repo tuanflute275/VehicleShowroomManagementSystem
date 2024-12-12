@@ -2,7 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using VehicleShowroom.Management.Application.Abstracts;
 using VehicleShowroom.Management.Application.Models.DTOs;
+using VehicleShowroom.Management.Application.Models.ViewModels;
+using VehicleShowroom.Management.Application.Utils;
 using VehicleShowroom.Management.Domain.Abstract;
+using VehicleShowroom.Management.Domain.Entities;
 using X.PagedList;
 
 namespace VehicleShowroom.Management.Application.Services
@@ -56,9 +59,34 @@ namespace VehicleShowroom.Management.Application.Services
             }
         }
 
-        public async Task<(bool Success, string ErrorMessage)> SaveOrUpdateAsync()
+        public async Task<(bool Success, string ErrorMessage)> SaveOrUpdateAsync(PurchaseOrderViewModel model )
         {
-            throw new NotImplementedException();
+            try
+            {
+                var purchaseOrder = new PurchaseOrder();
+                if (model.PurchaseOrderId == 0)
+                {
+                    purchaseOrder.SupplierId = model.SupplierId;
+                    purchaseOrder.OrderDate = DateTime.Now;
+                }
+                else
+                {
+                    purchaseOrder = await _unitOfWork.PurchaseOrderRepository.GetByIdAsync(model.PurchaseOrderId);
+                    if (purchaseOrder == null)
+                        return (false, "User not found");
+
+                    purchaseOrder.SupplierId = model.SupplierId;
+                    purchaseOrder.OrderDate = DateTime.Now;
+                   
+                }
+                bool result = await _unitOfWork.PurchaseOrderRepository.SaveOrUpdateAsync(purchaseOrder);
+                await _unitOfWork.SaveChangeAsync();
+                return (true, null);
+            }
+            catch (Exception e)
+            {
+                return (false, e.Message);
+            }
         }
 
         public async Task<List<SupplierDTO>> GetAllSupplierAsync()
@@ -78,5 +106,7 @@ namespace VehicleShowroom.Management.Application.Services
             var data = _mapper.Map<List<VehicleDTO>>(vehicleList);
             return data;
         }
+
+       
     }
 }

@@ -1,4 +1,6 @@
 ﻿using VehicleShowroom.Management.Application.Models.DTOs;
+using VehicleShowroom.Management.Application.Models.ViewModels;
+using VehicleShowroom.Management.Domain.Entities;
 using X.PagedList;
 
 namespace VehicleShowroom.Management.Application.Abstracts
@@ -10,7 +12,7 @@ namespace VehicleShowroom.Management.Application.Abstracts
         // PurchaseOrder
         Task<IPagedList<PurchaseOrderDTO>> GetAllPaginationAsync(string keyword, int page, int pageSize = 8);
         Task<PurchaseOrderDTO> GetByIdAsync(int id);
-        Task<(bool Success, string ErrorMessage)> SaveOrUpdateAsync();
+        Task<(bool Success, string ErrorMessage)> SaveOrUpdateAsync(PurchaseOrderViewModel model);
         Task<bool> DeleteAsync(int id);
 
         // PurchaseOrderDetail
