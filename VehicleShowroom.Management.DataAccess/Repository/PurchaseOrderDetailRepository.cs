@@ -57,5 +57,18 @@ namespace VehicleShowroom.Management.DataAccess.Repository
                 return false;
             }
         }
+
+        public async Task<bool> SaveRangeData(List<PurchaseOrderDetail> listDetail)
+        {
+            try
+            {
+                await base.AddRangeAsync(listDetail);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

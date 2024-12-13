@@ -1,14 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using VehicleShowroom.Management.Application.Abstracts;
-using VehicleShowroom.Management.Application.Models.DTOs;
 using VehicleShowroom.Management.Application.Models.ViewModels;
-using VehicleShowroom.Management.Application.Services;
-using VehicleShowroom.Management.Infrastructure.Abstracts;
-using VehicleShowroom.Management.UI.Utils;
-using VehicleShowroom.Management.Domain.Entities;
 using VehicleShowroomManagementSystem.Areas.Admin.Controllers;
 
 namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
@@ -16,12 +10,11 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
     public class PurchaseOrderController : BaseController
     {
         private readonly IMapper _mapper;
-        private readonly IPDFService _pdfService;
         private readonly IPurchaseOrderService _purchaseOrderService;
-        public PurchaseOrderController(IMapper mapper, IPDFService pdfService, IPurchaseOrderService purchaseOrderService)
+        public PurchaseOrderController(IMapper mapper, IPurchaseOrderService purchaseOrderService)
         {
             _mapper = mapper;
-            _pdfService = pdfService;
+           
             _purchaseOrderService = purchaseOrderService;
         }
 
@@ -82,15 +75,6 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
                 // Handle any errors that occur during the deletion
                 return RedirectToAction("Index", new { page = page ?? 1 });
             }
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> ExportPDF(int id)
-        {
-            var purchase = await _purchaseOrderService.GetByIdAsync(id);
-            string html = await this.RenderViewAsync<PurchaseOrderDTO>(RouteData, "_TemplateReportPurchase", purchase, true);
-            var result = _pdfService.GeneratePDF(html);
-            return File(result, "application/pdf", $"{DateTime.Now.Ticks}.pdf");
         }
     }
 }

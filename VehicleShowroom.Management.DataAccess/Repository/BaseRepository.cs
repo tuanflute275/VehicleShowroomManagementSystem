@@ -38,6 +38,12 @@ namespace VehicleShowroom.Management.DataAccess.Repository
             await _context.Set<T>().AddAsync(entity);
         }
 
+        //Add a new entity to the database
+        public async Task AddRangeAsync(List<T> entity)
+        {
+            await _context.Set<T>().AddRangeAsync(entity);
+        }
+
         //Update an existing entity
         public void UpdateAsync(T entity) 
         {

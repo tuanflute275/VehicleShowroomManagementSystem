@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Availability of Stock</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .stock-container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+            .header h1 {
+                margin: 0;
+                color: #333;
+            }
+
+            .header p {
+                margin: 5px 0;
+                font-size: 14px;
+                color: #666;
+            }
+
+        .stock-info {
+            margin-bottom: 20px;
+        }
+
+            .stock-info h2 {
+                margin-bottom: 10px;
+                font-size: 18px;
+            }
+
+        .stock-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+            .stock-table th, .stock-table td {
+                border: 1px solid #ddd;
+                padding: 10px;
+                text-align: left;
+            }
+
+            .stock-table th {
+                background-color: #ccc;
+                color: black;
+            }
+
+            .stock-table tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            .stock-table td.text-center {
+                text-align: center;
+            }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stock-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Stock Availability Report</h1>
+            <p>Address: 123 Main Street, City, Country</p>
+            <p>Phone: +123456789 | Email: info@showroom.com</p>
+            <p>Date: <span id="currentDate">12/2/2024</span></p>
+        </div>
+
+        <!-- Stock Information -->
+        <div class="stock-info">
+            <table class="stock-table">
+                <thead>
+                    <tr style="background: #ccc !important">
+                        <th>#</th>
+                        <th>Vehicle Name</th>
+                        <th>Brand</th>
+                        <th>Model Number</th>
+                        <th>Quantity Available</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center">1</td>
+                        <td>Toyota Corolla</td>
+                        <td>Toyota</td>
+                        <td>1234ABC</td>
+                        <td class="text-center">15</td>
+                        <td>$20,000</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">2</td>
+                        <td>Honda Civic</td>
+                        <td>Honda</td>
+                        <td>5678DEF</td>
+                        <td class="text-center">8</td>
+                        <td>$25,000</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">3</td>
+                        <td>Ford Mustang</td>
+                        <td>Ford</td>
+                        <td>9101GHI</td>
+                        <td class="text-center">5</td>
+                        <td>$50,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>For more details, contact the inventory team.</p>
+        </div>
+    </div>
+
+    <script>
+    // Display the current date dynamically
+    document.getElementById('currentDate').textContent = new Date().toLocaleDateString();
+    </script>
+
+</body>
+</html>

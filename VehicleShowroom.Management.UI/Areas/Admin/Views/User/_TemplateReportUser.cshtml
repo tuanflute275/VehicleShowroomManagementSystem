@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Invoice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .invoice-container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+            .header h1 {
+                margin: 0;
+                color: #333;
+            }
+
+            .header p {
+                margin: 5px 0;
+                font-size: 15px;
+                color: #666;
+            }
+
+        .customer-info, .invoice-details {
+            margin-bottom: 20px;
+        }
+
+            .customer-info h2, .invoice-details h2 {
+                margin-bottom: 10px;
+                font-size: 18px;
+                color: #007bff;
+            }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+            .info-table th, .info-table td {
+                border: 1px solid #ddd;
+                padding: 10px;
+                text-align: left;
+            }
+
+            .info-table th {
+            }
+
+            .info-table tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="invoice-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Vehicle Showroom Management System</h1>
+            <p>Address: 123 Main Street, City, Country</p>
+            <p>Phone: +123456789 | Email: info@showroom.com</p>
+            <p>Date: <span id="currentDate">12/2/2024</span></p>
+        </div>
+
+        <!-- Customer Information -->
+        <div class="customer-info">
+            <h2>Customer Information</h2>
+            <table class="info-table">
+                <tr>
+                    <th>Customer ID</th>
+                    <td>001</td>
+                </tr>
+                <tr>
+                    <th>Full Name</th>
+                    <td>John Doe</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>john.doe@example.com</td>
+                </tr>
+                <tr>
+                    <th>Phone</th>
+                    <td>+123456789</td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>123 Main Street, City</td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td>Male</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Invoice Details -->
+        <div class="invoice-details">
+            <h2>Invoice Details</h2>
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Vehicle Name</th>
+                        <th>Brand</th>
+                        <th>Model Number</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Toyota Corolla</td>
+                        <td>Toyota</td>
+                        <td>1234ABC</td>
+                        <td>$20,000</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Honda Civic</td>
+                        <td>Honda</td>
+                        <td>5678DEF</td>
+                        <td>$25,000</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="text-align: right;"><strong>Total:</strong></td>
+                        <td><strong>$45,000</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Thank you for choosing Vehicle Showroom Management System!</p>
+        </div>
+    </div>
+
+</body>
+</html>

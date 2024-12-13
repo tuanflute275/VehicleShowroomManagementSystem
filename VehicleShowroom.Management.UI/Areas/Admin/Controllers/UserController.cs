@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using VehicleShowroom.Management.Application.Abstracts;
+using VehicleShowroom.Management.Application.Models.DTOs;
 using VehicleShowroom.Management.Application.Models.ViewModels;
+using VehicleShowroom.Management.Infrastructure.Abstracts;
+using VehicleShowroom.Management.UI.Utils;
 using VehicleShowroomManagementSystem.Areas.Admin.Controllers;
 
 namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
@@ -9,10 +12,12 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
     public class UserController : BaseController
     {
         private readonly IUserService _userService;
+        private readonly IPDFService _pdfService;
         private readonly IMapper _mapper;
-        public UserController(IUserService userService, IMapper mapper)
+        public UserController(IUserService userService, IMapper mapper, IPDFService pdfService)
         {
             _userService = userService;
+            _pdfService = pdfService;
             _mapper = mapper;
         }
         public async Task<IActionResult> Index(string? keyword, int? page = 1)
@@ -110,6 +115,15 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
                 // Handle any errors that occur during the deletion
                 return RedirectToAction("Index", new { page = page ?? 1 });
             }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ExportPDF(int id)
+        {
+            var data = await _userService.GetUserByIdAsync(id);
+            string html = await this.RenderViewAsync<UserDTO>(RouteData, "_TemplateReportUser", data, true);
+            var result = _pdfService.GeneratePDF(html);
+            return File(result, "application/pdf", $"{DateTime.Now.Ticks}.pdf");
         }
     }
 }

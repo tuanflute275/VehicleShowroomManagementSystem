@@ -92,7 +92,9 @@
                                     <td class="text-center">
                                         <a asp-area="Admin" asp-controller="Supplier" asp-action="Detail" asp-route-id="@s.SupplierId"
                                            class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
-                                            Details
+                                            <span class="btn-icon-wrapper opacity-8">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </span>
                                         </a>
                                         <a asp-controller="Supplier" asp-action="Edit" asp-route-id="@s.SupplierId" data-toggle="tooltip"
                                            data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">

@@ -89,8 +89,10 @@
                                     <td class="text-center">@item.OrderDate</td>
                                     <td class="text-center">
                                         <a asp-area="Admin" asp-controller="PurchaseOrder" asp-action="Detail" asp-route-id="@item.PurchaseOrderId"
-                                           class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
-                                            Details
+                                           class="btn btn-hover-shine btn-outline-info border-0 btn-sm">
+                                            <span class="btn-icon-wrapper opacity-8">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </span>
                                         </a>
                                         <a asp-controller="PurchaseOrder" asp-action="Edit" asp-route-id="@item.PurchaseOrderId" data-toggle="tooltip"
                                            data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">

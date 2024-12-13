@@ -94,7 +94,9 @@
                                     <td class="text-center">
                                         <a asp-area="Admin" asp-controller="Vehicle" asp-action="Detail" asp-route-id="@item.VehicleId"
                                            class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
-                                            Details
+                                            <span class="btn-icon-wrapper opacity-8">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </span>
                                         </a>
                                         <a asp-controller="Vehicle" asp-action="ListImage" asp-route-id="@item.VehicleId" data-toggle="tooltip"
                                            data-placement="bottom" class="btn btn-outline-success border-0 btn-sm">
