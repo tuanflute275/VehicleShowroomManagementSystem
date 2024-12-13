@@ -73,9 +73,19 @@ namespace VehicleShowroom.Management.Application.Services
                 {
                     vehicle.ModelNumber = model.ModelNumber;
                     vehicle.Name = model.Name;
+                    vehicle.Slug = Util.GenerateSlug(model.Name);
+                    vehicle.EngineNumber = model.EngineNumber;
+                    vehicle.ChassisNumber = model.ChassisNumber;
+                    vehicle.FuelType = model.FuelType;
+                    vehicle.TransmissionType = model.TransmissionType;
+                    vehicle.Color = model.Color;
+                    vehicle.Price = model.Price;
+                    vehicle.Mileage = model.Mileage;
+                    vehicle.ManufactureYear = model.ManufactureYear;
+                    vehicle.Status = model.Status;
+                    vehicle.Description = model.Description;
                     vehicle.SupplierId = model.SupplierId;
                     vehicle.CompanyId = model.CompanyId;
-                    vehicle.Description = model.Description;
                     vehicle.CreateBy = "Admin";
                     vehicle.CreateDate = DateTime.Now;
                     if (fileUpload != null)
@@ -90,10 +100,19 @@ namespace VehicleShowroom.Management.Application.Services
                     if (vehicle == null)
                         return (false, "User not found");
                     vehicle.ModelNumber = model.ModelNumber;
-                    vehicle.Name = model.Name;  
+                    vehicle.Name = model.Name;
+                    vehicle.Slug = Util.GenerateSlug(model.Name);
+                    vehicle.EngineNumber = model.EngineNumber;
+                    vehicle.ChassisNumber = model.ChassisNumber;
+                    vehicle.FuelType = model.FuelType;
+                    vehicle.TransmissionType = model.TransmissionType;
+                    vehicle.Color = model.Color;
+                    vehicle.Price = model.Price;
+                    vehicle.Mileage = model.Mileage;
+                    vehicle.ManufactureYear = model.ManufactureYear;
                     vehicle.Status = model.Status;
                     vehicle.Description = model.Description;
-                    vehicle.SupplierId = model.SupplierId;  
+                    vehicle.SupplierId = model.SupplierId;
                     vehicle.CompanyId = model.CompanyId;
                     vehicle.UpdateBy = "Admin";
                     vehicle.UpdateDate = DateTime.Now;
