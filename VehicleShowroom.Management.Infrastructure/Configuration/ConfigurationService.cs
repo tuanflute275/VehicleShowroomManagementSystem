@@ -73,6 +73,7 @@ namespace VehicleShowroom.Management.Infrastructure.Configuration
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<FileUploadHelper>();
             services.AddTransient<ISupplierService, SupplierService>();
+            services.AddTransient<ICompanyServices, CompanyService>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IVehicleService, VehicleService>();
             services.AddTransient<IPurchaseOrderService, PurchaseOrderService>();

@@ -1,0 +1,108 @@
+﻿@model VehicleShowroom.Management.Application.Models.DTOs.CompanyDTO
+@{
+    ViewData["Title"] = "Company Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section Styles {
+    <style>
+        input {
+            box-shadow: none !important;
+        }
+    </style>
+}
+<div class="app-main__inner">
+
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="fa-solid fa-building"></i>
+                </div>
+                <div>
+                    Company
+                    <div class="page-title-subheading">
+                        View detail
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card" id="divInfomation">
+                <div class="card-body">
+                    <div class="position-relative row form-group">
+                        <label for="CompanyName" class="col-md-3 text-md-right col-form-label">Name</label>
+                        <div class="col-md-9 col-xl-8">
+                            <input required name="CompanyName" id="CompanyName" placeholder="CompanyName" type="text"
+                                   class="form-control" asp-for="CompanyName" readonly>
+                        </div>
+                    </div>
+                    <div class="position-relative row form-group">
+                        <label for="PhoneNumber" class="col-md-3 text-md-right col-form-label">Phone</label>
+                        <div class="col-md-9 col-xl-8">
+                            <input required name="PhoneNumber" id="PhoneNumber" placeholder="PhoneNumber" type="text"
+                                   class="form-control" asp-for="PhoneNumber" readonly>
+                        </div>
+                    </div>
+                    <div class="position-relative row form-group">
+                        <label for="Email" class="col-md-3 text-md-right col-form-label">Email</label>
+                        <div class="col-md-9 col-xl-8">
+                            <input required name="Email" id="Email" placeholder="Email" type="text"
+                                   class="form-control" asp-for="Email" readonly>
+                        </div>
+                    </div>
+                    <div class="position-relative row form-group">
+                        <label for="ContractDate" class="col-md-3 text-md-right col-form-label">Status</label>
+                        <div class="col-md-9 col-xl-8">
+                            <input name="Status" id="Status" placeholder="Status" type="text"
+                                   class="form-control" asp-for="Status" readonly>
+                        </div>
+                    </div>
+                    <div class="position-relative row form-group">
+                        <label class="col-md-3 text-md-right col-form-label">CreateBy</label>
+                        <div class="col-md-9 col-xl-8">
+                            <input type="text" class="form-control" asp-for="CreateBy" readonly>
+                        </div>
+                    </div>
+                    <div class="position-relative row form-group">
+                        <label class="col-md-3 text-md-right col-form-label">CreateDate</label>
+                        <div class="col-md-9 col-xl-8">
+                            <input type="text" class="form-control" asp-for="CreateDate" readonly>
+                        </div>
+                    </div>
+                    <div class="position-relative row form-group">
+                        <label class="col-md-3 text-md-right col-form-label">UpdateBy</label>
+                        <div class="col-md-9 col-xl-8">
+                            <input type="text" class="form-control" asp-for="UpdateBy" readonly>
+                        </div>
+                    </div>
+                    <div class="position-relative row form-group">
+                        <label class="col-md-3 text-md-right col-form-label">UpdateDate</label>
+                        <div class="col-md-9 col-xl-8">
+                            <input type="text" class="form-control" asp-for="UpdateDate" readonly>
+                        </div>
+                    </div>
+                    <div class="position-relative row form-group mb-1">
+                        <div class="col-md-9 col-xl-8 offset-md-2">
+                            <a asp-area="Admin" asp-controller="Company" asp-action="Index" class="border-0 btn btn-outline-danger mr-1">
+                                <span class="btn-icon-wrapper pr-1 opacity-8">
+                                    <i class="fa fa-times fa-w-20"></i>
+                                </span>
+                                <span>Cancel</span>
+                            </a>
+
+                            <button onclick="printElement('divInfomation')" class="btn-shadow btn-hover-shine btn btn-primary">
+                                <span class="btn-icon-wrapper pr-2 opacity-8">
+                                    <i class="fa fa-download fa-w-20"></i>
+                                </span>
+                                <span>Print document</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

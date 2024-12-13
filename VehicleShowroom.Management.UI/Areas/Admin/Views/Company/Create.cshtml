@@ -1,0 +1,90 @@
+﻿@model VehicleShowroom.Management.Application.Models.ViewModels.CompanyViewModel
+
+@{
+    ViewData["Title"] = "Company Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="app-main__inner">
+
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="fa-solid fa-building"></i>
+                </div>
+                <div>
+                    Company
+                    <div class="page-title-subheading">
+                        View, create, update, delete and manage.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <form method="post" asp-area="Admin" asp-controller="Company" asp-action="Save" asp-antiforgery="true" enctype="multipart/form-data">
+                        <div class="position-relative row form-group">
+                            <label for="CompanyName" class="col-md-3 text-md-right col-form-label">Name</label>
+                            <div class="col-md-9 col-xl-8">
+                                <input asp-for="CompanyName" placeholder="Enter your CompanyName" type="text"
+                                       class="form-control">
+                                <span asp-validation-for="CompanyName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group">
+                            <label for="PhoneNumber" class="col-md-3 text-md-right col-form-label">Phone</label>
+                            <div class="col-md-9 col-xl-8">
+                                <input asp-for="PhoneNumber" placeholder="Enter your PhoneNumber" type="text"
+                                       class="form-control">
+                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group">
+                            <label for="Email" class="col-md-3 text-md-right col-form-label">Email</label>
+                            <div class="col-md-9 col-xl-8">
+                                <input asp-for="Email" placeholder="Enter your Email" type="text"
+                                       class="form-control">
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group">
+                            <label for="ContractDate" class="col-md-3 text-md-right col-form-label">Status</label>
+                            <div class="form-check form-check-inline ml-3">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" asp-for="Status" value="Active" checked> Active
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" asp-for="Status" value="Inactive"> Inactive
+                                </label>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group mb-1">
+                            <div class="col-md-9 col-xl-8 offset-md-2">
+                                <a asp-area="Admin" asp-controller="Company" asp-action="Index" class="border-0 btn btn-outline-danger mr-1">
+                                    <span class="btn-icon-wrapper pr-1 opacity-8">
+                                        <i class="fa fa-times fa-w-20"></i>
+                                    </span>
+                                    <span>Cancel</span>
+                                </a>
+
+                                <button type="submit"
+                                        class="btn-shadow btn-hover-shine btn btn-primary">
+                                    <span class="btn-icon-wrapper pr-2 opacity-8">
+                                        <i class="fa fa-download fa-w-20"></i>
+                                    </span>
+                                    <span>Save</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
