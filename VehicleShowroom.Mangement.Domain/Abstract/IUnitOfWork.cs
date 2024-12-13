@@ -7,8 +7,13 @@ namespace VehicleShowroom.Mangement.Domain.Abstract
         ISupplierRepository SupplierRepository { get; }
         IUserRepository UserRepository { get; }
         IVehicleRepository VehicleRepository { get; }
+        IVehicleImageRepository VehicleImageRepository { get; }
         ICompanyRepository CompanyRepository { get; }
-        IVehicleDetailRepository VehicleDetailRepository { get; }
+        IPurchaseOrderRepository PurchaseOrderRepository { get; }
+        IPurchaseOrderDetailRepository PurchaseOrderDetailRepository { get; }
+        ISalesOrderRepository SalesOrderRepository { get; }
+        ISalesOrderDetailRepository SalesOrderDetailRepository { get; }
+        IStockHistoryRepository StockHistoryRepository { get; }
         // other repository
 
         Task BeginTransaction();

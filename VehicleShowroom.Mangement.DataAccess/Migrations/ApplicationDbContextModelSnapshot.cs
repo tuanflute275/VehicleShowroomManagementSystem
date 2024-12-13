@@ -513,6 +513,16 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VehicleId"));
 
+                    b.Property<string>("ChassisNumber")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
                     b.Property<int>("CompanyId")
                         .HasColumnType("int");
 
@@ -521,9 +531,6 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime?>("CreateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DateAdded")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeleteBy")
@@ -539,10 +546,26 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("EngineNumber")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("FuelType")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
                     b.Property<string>("Image")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<int?>("ManufactureYear")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("Mileage")
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<string>("ModelNumber")
                         .IsRequired()
@@ -554,12 +577,24 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<decimal?>("Price")
+                        .HasColumnType("decimal(15,2)");
+
+                    b.Property<string>("Slug")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<string>("Status")
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<int>("SupplierId")
                         .HasColumnType("int");
+
+                    b.Property<string>("TransmissionType")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("UpdateBy")
                         .HasMaxLength(100)
@@ -575,91 +610,6 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.HasIndex("SupplierId");
 
                     b.ToTable("Vehicles");
-                });
-
-            modelBuilder.Entity("VehicleShowroom.Mangement.Domain.Entities.VehicleDetail", b =>
-                {
-                    b.Property<int>("VehicleDetailId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VehicleDetailId"));
-
-                    b.Property<string>("ChassisNumber")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Color")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("ColorCode")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<string>("CreateBy")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<DateTime?>("CreateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DeleteBy")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<DateTime?>("DeleteDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool?>("DeleteFlag")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Dimensions")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("EngineNumber")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("FuelType")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<int?>("ManufactureYear")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Mileage")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(15, 2)");
-
-                    b.Property<string>("TransmissionType")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("UpdateBy")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<DateTime?>("UpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("VehicleId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal?>("Weight")
-                        .HasColumnType("decimal(10, 2)");
-
-                    b.HasKey("VehicleDetailId");
-
-                    b.HasIndex("VehicleId");
-
-                    b.ToTable("VehicleDetails");
                 });
 
             modelBuilder.Entity("VehicleShowroom.Mangement.Domain.Entities.VehicleImage", b =>
@@ -699,12 +649,12 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("VehicleDetailId")
+                    b.Property<int>("VehiclelId")
                         .HasColumnType("int");
 
                     b.HasKey("VehicleImageId");
 
-                    b.HasIndex("VehicleDetailId");
+                    b.HasIndex("VehiclelId");
 
                     b.ToTable("VehicleImages");
                 });
@@ -799,26 +749,15 @@ namespace VehicleShowroom.Mangement.DataAccess.Migrations
                     b.Navigation("Supplier");
                 });
 
-            modelBuilder.Entity("VehicleShowroom.Mangement.Domain.Entities.VehicleDetail", b =>
+            modelBuilder.Entity("VehicleShowroom.Mangement.Domain.Entities.VehicleImage", b =>
                 {
                     b.HasOne("VehicleShowroom.Mangement.Domain.Entities.Vehicle", "Vehicle")
                         .WithMany()
-                        .HasForeignKey("VehicleId")
+                        .HasForeignKey("VehiclelId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Vehicle");
-                });
-
-            modelBuilder.Entity("VehicleShowroom.Mangement.Domain.Entities.VehicleImage", b =>
-                {
-                    b.HasOne("VehicleShowroom.Mangement.Domain.Entities.VehicleDetail", "VehicleDetail")
-                        .WithMany()
-                        .HasForeignKey("VehicleDetailId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("VehicleDetail");
                 });
 #pragma warning restore 612, 618
         }

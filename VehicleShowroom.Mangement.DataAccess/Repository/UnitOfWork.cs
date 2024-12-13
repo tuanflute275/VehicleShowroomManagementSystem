@@ -14,21 +14,31 @@ namespace VehicleShowroom.Mangement.DataAccess.Repository
         ISupplierRepository _supplierRepository;
         IUserRepository _userRepository;
         IVehicleRepository _vehicleRepository;
+        IVehicleImageRepository _vehicleImageRepository;
         ICompanyRepository _companyRepository;
-        IVehicleDetailRepository _vehicleDetailRepository;
+        IPurchaseOrderRepository _purchaseOrderRepository;
+        IPurchaseOrderDetailRepository _purchaseOrderDetailRepository;
+        ISalesOrderRepository _salesOrderRepository;
+        ISalesOrderDetailRepository _salesOrderDetailRepository;
+        IStockHistoryRepository _stockHistoryRepository;
 
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
         }
         public DbSet<T> Table<T>() where T : class => _context.Set<T>();
-        
+
         // repository
         public ISupplierRepository SupplierRepository => _supplierRepository ??= new SupplierRepository(_context);
         public IUserRepository UserRepository => _userRepository ??= new UserRepository(_context);
         public IVehicleRepository VehicleRepository => _vehicleRepository ??= new VehicleRepository(_context);
+        public IVehicleImageRepository VehicleImageRepository => _vehicleImageRepository ??= new VehicleImageRepository(_context);
         public ICompanyRepository CompanyRepository => _companyRepository ??= new CompanyRepository(_context);
-        public IVehicleDetailRepository VehicleDetailRepository => _vehicleDetailRepository ??= new VehicleDetailRepository(_context);
+        public IPurchaseOrderRepository PurchaseOrderRepository => _purchaseOrderRepository ??= new PurchaseOrderRepository(_context);
+        public IPurchaseOrderDetailRepository PurchaseOrderDetailRepository => _purchaseOrderDetailRepository ??= new PurchaseOrderDetailRepository(_context);
+        public ISalesOrderRepository SalesOrderRepository => _salesOrderRepository ??= new SalesOrderRepository(_context);
+        public ISalesOrderDetailRepository SalesOrderDetailRepository => _salesOrderDetailRepository ??= new SalesOrderDetailRepository(_context);
+        public IStockHistoryRepository StockHistoryRepository => _stockHistoryRepository ??= new StockHistoryRepository(_context);
 
         public async Task BeginTransaction()
         {

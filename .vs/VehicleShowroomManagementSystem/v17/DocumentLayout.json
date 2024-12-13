@@ -3,44 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{565732F9-6B76-4DF2-A05A-B556F2A79C53}|VehicleShowroom.Management.UI\\VehicleShowroom.Management.UI.csproj|c:\\users\\cao toan\\onedrive\\m\u00E1y t\u00EDnh\\vehicleshowroommanagementsystem\\vehicleshowroom.management.ui\\areas\\admin\\controllers\\vehiclecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{565732F9-6B76-4DF2-A05A-B556F2A79C53}|VehicleShowroom.Management.UI\\VehicleShowroom.Management.UI.csproj|solutionrelative:vehicleshowroom.management.ui\\areas\\admin\\controllers\\vehiclecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5DA002-A5C0-4687-B793-0C34D70BC117}|VehicleShowroom.Mangement.Application\\VehicleShowroom.Mangement.Application.csproj|c:\\users\\cao toan\\onedrive\\m\u00E1y t\u00EDnh\\vehicleshowroommanagementsystem\\vehicleshowroom.mangement.application\\models\\viewmodels\\vehicleviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC5DA002-A5C0-4687-B793-0C34D70BC117}|VehicleShowroom.Mangement.Application\\VehicleShowroom.Mangement.Application.csproj|solutionrelative:vehicleshowroom.mangement.application\\models\\viewmodels\\vehicleviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AC5DA002-A5C0-4687-B793-0C34D70BC117}|VehicleShowroom.Mangement.Application\\VehicleShowroom.Mangement.Application.csproj|c:\\users\\cao toan\\onedrive\\m\u00E1y t\u00EDnh\\vehicleshowroommanagementsystem\\vehicleshowroom.mangement.application\\services\\vehicleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AC5DA002-A5C0-4687-B793-0C34D70BC117}|VehicleShowroom.Mangement.Application\\VehicleShowroom.Mangement.Application.csproj|solutionrelative:vehicleshowroom.mangement.application\\services\\vehicleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{565732F9-6B76-4DF2-A05A-B556F2A79C53}|VehicleShowroom.Management.UI\\VehicleShowroom.Management.UI.csproj|c:\\users\\cao toan\\onedrive\\m\u00E1y t\u00EDnh\\vehicleshowroommanagementsystem\\vehicleshowroom.management.ui\\areas\\admin\\views\\vehicledetail\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{565732F9-6B76-4DF2-A05A-B556F2A79C53}|VehicleShowroom.Management.UI\\VehicleShowroom.Management.UI.csproj|solutionrelative:vehicleshowroom.management.ui\\areas\\admin\\views\\vehicledetail\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{565732F9-6B76-4DF2-A05A-B556F2A79C53}|VehicleShowroom.Management.UI\\VehicleShowroom.Management.UI.csproj|c:\\users\\cao toan\\onedrive\\m\u00E1y t\u00EDnh\\vehicleshowroommanagementsystem\\vehicleshowroom.management.ui\\areas\\admin\\views\\vehicle\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{565732F9-6B76-4DF2-A05A-B556F2A79C53}|VehicleShowroom.Management.UI\\VehicleShowroom.Management.UI.csproj|solutionrelative:vehicleshowroom.management.ui\\areas\\admin\\views\\vehicle\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8497F0C5-CA43-4CF3-99BA-5F6FE353A783}|VehicleShowroom.Mangement.DataAccess\\VehicleShowroom.Mangement.DataAccess.csproj|c:\\users\\cao toan\\onedrive\\m\u00E1y t\u00EDnh\\vehicleshowroommanagementsystem\\vehicleshowroom.mangement.dataaccess\\repository\\vehicledetailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8497F0C5-CA43-4CF3-99BA-5F6FE353A783}|VehicleShowroom.Mangement.DataAccess\\VehicleShowroom.Mangement.DataAccess.csproj|solutionrelative:vehicleshowroom.mangement.dataaccess\\repository\\vehicledetailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8497F0C5-CA43-4CF3-99BA-5F6FE353A783}|VehicleShowroom.Mangement.DataAccess\\VehicleShowroom.Mangement.DataAccess.csproj|c:\\users\\cao toan\\onedrive\\m\u00E1y t\u00EDnh\\vehicleshowroommanagementsystem\\vehicleshowroom.mangement.dataaccess\\repository\\vehiclerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8497F0C5-CA43-4CF3-99BA-5F6FE353A783}|VehicleShowroom.Mangement.DataAccess\\VehicleShowroom.Mangement.DataAccess.csproj|solutionrelative:vehicleshowroom.mangement.dataaccess\\repository\\vehiclerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{53801003-DF33-46D4-98C3-3DB986EC51C9}|VehicleShowroom.Mangement.Domain\\VehicleShowroom.Mangement.Domain.csproj|c:\\users\\cao toan\\onedrive\\m\u00E1y t\u00EDnh\\vehicleshowroommanagementsystem\\vehicleshowroom.mangement.domain\\entities\\vehicledetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53801003-DF33-46D4-98C3-3DB986EC51C9}|VehicleShowroom.Mangement.Domain\\VehicleShowroom.Mangement.Domain.csproj|solutionrelative:vehicleshowroom.mangement.domain\\entities\\vehicledetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53801003-DF33-46D4-98C3-3DB986EC51C9}|VehicleShowroom.Mangement.Domain\\VehicleShowroom.Mangement.Domain.csproj|c:\\users\\cao toan\\onedrive\\m\u00E1y t\u00EDnh\\vehicleshowroommanagementsystem\\vehicleshowroom.mangement.domain\\entities\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{53801003-DF33-46D4-98C3-3DB986EC51C9}|VehicleShowroom.Mangement.Domain\\VehicleShowroom.Mangement.Domain.csproj|solutionrelative:vehicleshowroom.mangement.domain\\entities\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{53801003-DF33-46D4-98C3-3DB986EC51C9}|VehicleShowroom.Mangement.Domain\\VehicleShowroom.Mangement.Domain.csproj|c:\\users\\cao toan\\onedrive\\m\u00E1y t\u00EDnh\\vehicleshowroommanagementsystem\\vehicleshowroom.mangement.domain\\abstract\\ivehiclerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53801003-DF33-46D4-98C3-3DB986EC51C9}|VehicleShowroom.Mangement.Domain\\VehicleShowroom.Mangement.Domain.csproj|solutionrelative:vehicleshowroom.mangement.domain\\abstract\\ivehiclerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{565732F9-6B76-4DF2-A05A-B556F2A79C53}|VehicleShowroom.Management.UI\\VehicleShowroom.Management.UI.csproj|c:\\users\\cao toan\\onedrive\\m\u00E1y t\u00EDnh\\vehicleshowroommanagementsystem\\vehicleshowroom.management.ui\\areas\\admin\\views\\vehicle\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{565732F9-6B76-4DF2-A05A-B556F2A79C53}|VehicleShowroom.Management.UI\\VehicleShowroom.Management.UI.csproj|solutionrelative:vehicleshowroom.management.ui\\areas\\admin\\views\\vehicle\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{53801003-DF33-46D4-98C3-3DB986EC51C9}|VehicleShowroom.Mangement.Domain\\VehicleShowroom.Mangement.Domain.csproj|c:\\users\\cao toan\\onedrive\\m\u00E1y t\u00EDnh\\vehicleshowroommanagementsystem\\vehicleshowroom.mangement.domain\\abstract\\ivehicledetailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53801003-DF33-46D4-98C3-3DB986EC51C9}|VehicleShowroom.Mangement.Domain\\VehicleShowroom.Mangement.Domain.csproj|solutionrelative:vehicleshowroom.mangement.domain\\abstract\\ivehicledetailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{565732F9-6B76-4DF2-A05A-B556F2A79C53}|VehicleShowroom.Management.UI\\VehicleShowroom.Management.UI.csproj|c:\\users\\cao toan\\onedrive\\m\u00E1y t\u00EDnh\\vehicleshowroommanagementsystem\\vehicleshowroom.management.ui\\areas\\admin\\views\\vehicle\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{565732F9-6B76-4DF2-A05A-B556F2A79C53}|VehicleShowroom.Management.UI\\VehicleShowroom.Management.UI.csproj|solutionrelative:vehicleshowroom.management.ui\\areas\\admin\\views\\vehicle\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{565732F9-6B76-4DF2-A05A-B556F2A79C53}|VehicleShowroom.Management.UI\\VehicleShowroom.Management.UI.csproj|c:\\users\\cao toan\\onedrive\\m\u00E1y t\u00EDnh\\vehicleshowroommanagementsystem\\vehicleshowroom.management.ui\\areas\\admin\\controllers\\vehicledetailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{565732F9-6B76-4DF2-A05A-B556F2A79C53}|VehicleShowroom.Management.UI\\VehicleShowroom.Management.UI.csproj|solutionrelative:vehicleshowroom.management.ui\\areas\\admin\\controllers\\vehicledetailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AC5DA002-A5C0-4687-B793-0C34D70BC117}|VehicleShowroom.Mangement.Application\\VehicleShowroom.Mangement.Application.csproj|c:\\users\\cao toan\\onedrive\\m\u00E1y t\u00EDnh\\vehicleshowroommanagementsystem\\vehicleshowroom.mangement.application\\models\\dtos\\vehicledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC5DA002-A5C0-4687-B793-0C34D70BC117}|VehicleShowroom.Mangement.Application\\VehicleShowroom.Mangement.Application.csproj|solutionrelative:vehicleshowroom.mangement.application\\models\\dtos\\vehicledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{565732F9-6B76-4DF2-A05A-B556F2A79C53}|VehicleShowroom.Management.UI\\VehicleShowroom.Management.UI.csproj|c:\\users\\cao toan\\onedrive\\m\u00E1y t\u00EDnh\\vehicleshowroommanagementsystem\\vehicleshowroom.management.ui\\areas\\admin\\views\\vehicle\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{565732F9-6B76-4DF2-A05A-B556F2A79C53}|VehicleShowroom.Management.UI\\VehicleShowroom.Management.UI.csproj|solutionrelative:vehicleshowroom.management.ui\\areas\\admin\\views\\vehicle\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -55,123 +47,104 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "VehicleDetailRepository.cs",
-              "DocumentMoniker": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.DataAccess\\Repository\\VehicleDetailRepository.cs",
-              "RelativeDocumentMoniker": "VehicleShowroom.Mangement.DataAccess\\Repository\\VehicleDetailRepository.cs",
-              "ToolTip": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.DataAccess\\Repository\\VehicleDetailRepository.cs",
-              "RelativeToolTip": "VehicleShowroom.Mangement.DataAccess\\Repository\\VehicleDetailRepository.cs",
-              "ViewState": "AQIAABkAAAAAAAAAAAAkwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T13:47:40.167Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "VehicleRepository.cs",
-              "DocumentMoniker": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.DataAccess\\Repository\\VehicleRepository.cs",
-              "RelativeDocumentMoniker": "VehicleShowroom.Mangement.DataAccess\\Repository\\VehicleRepository.cs",
-              "ToolTip": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.DataAccess\\Repository\\VehicleRepository.cs",
-              "RelativeToolTip": "VehicleShowroom.Mangement.DataAccess\\Repository\\VehicleRepository.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAxwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T13:47:06.122Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "Vehicle.cs",
               "DocumentMoniker": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Domain\\Entities\\Vehicle.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Domain\\Entities\\Vehicle.cs",
               "ToolTip": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Domain\\Entities\\Vehicle.cs",
               "RelativeToolTip": "VehicleShowroom.Mangement.Domain\\Entities\\Vehicle.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAkwAAAAAAAAAAA",
+              "ViewState": "AQIAACwAAAAAAAAAAAA6wDEAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T13:46:42.212Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "IVehicleDetailRepository.cs",
-              "DocumentMoniker": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Domain\\Abstract\\IVehicleDetailRepository.cs",
-              "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Domain\\Abstract\\IVehicleDetailRepository.cs",
-              "ToolTip": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Domain\\Abstract\\IVehicleDetailRepository.cs",
-              "RelativeToolTip": "VehicleShowroom.Mangement.Domain\\Abstract\\IVehicleDetailRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T13:46:22.992Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IVehicleRepository.cs",
-              "DocumentMoniker": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Domain\\Abstract\\IVehicleRepository.cs",
-              "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Domain\\Abstract\\IVehicleRepository.cs",
-              "ToolTip": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Domain\\Abstract\\IVehicleRepository.cs",
-              "RelativeToolTip": "VehicleShowroom.Mangement.Domain\\Abstract\\IVehicleRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T13:46:17.071Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Management.UI\\Areas\\Admin\\Views\\VehicleDetail\\Index.cshtml",
-              "RelativeDocumentMoniker": "VehicleShowroom.Management.UI\\Areas\\Admin\\Views\\VehicleDetail\\Index.cshtml",
-              "ToolTip": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Management.UI\\Areas\\Admin\\Views\\VehicleDetail\\Index.cshtml",
-              "RelativeToolTip": "VehicleShowroom.Management.UI\\Areas\\Admin\\Views\\VehicleDetail\\Index.cshtml",
-              "ViewState": "AQIAAEsAAAAAAAAAAAAAAFcAAABIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-11T13:44:04.429Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "VehicleService.cs",
-              "DocumentMoniker": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Application\\Services\\VehicleService.cs",
-              "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Application\\Services\\VehicleService.cs",
-              "ToolTip": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Application\\Services\\VehicleService.cs",
-              "RelativeToolTip": "VehicleShowroom.Mangement.Application\\Services\\VehicleService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T13:42:36.908Z",
+              "WhenOpened": "2024-12-13T01:51:18.065Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "VehicleService.cs",
+              "DocumentMoniker": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Application\\Services\\VehicleService.cs",
+              "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Application\\Services\\VehicleService.cs",
+              "ToolTip": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Application\\Services\\VehicleService.cs",
+              "RelativeToolTip": "VehicleShowroom.Mangement.Application\\Services\\VehicleService.cs",
+              "ViewState": "AQIAAG8AAAAAAAAAAAAWwIEAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T01:46:31.432Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VehicleViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Application\\Models\\ViewModels\\VehicleViewModel.cs",
+              "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Application\\Models\\ViewModels\\VehicleViewModel.cs",
+              "ToolTip": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Application\\Models\\ViewModels\\VehicleViewModel.cs*",
+              "RelativeToolTip": "VehicleShowroom.Mangement.Application\\Models\\ViewModels\\VehicleViewModel.cs*",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAwBUAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T14:23:40.526Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "VehicleDTO.cs",
+              "DocumentMoniker": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Application\\Models\\DTOs\\VehicleDTO.cs",
+              "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Application\\Models\\DTOs\\VehicleDTO.cs",
+              "ToolTip": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Application\\Models\\DTOs\\VehicleDTO.cs",
+              "RelativeToolTip": "VehicleShowroom.Mangement.Application\\Models\\DTOs\\VehicleDTO.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAYwAwAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T14:23:16.008Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Management.UI\\Areas\\Admin\\Views\\Vehicle\\Detail.cshtml",
+              "RelativeDocumentMoniker": "VehicleShowroom.Management.UI\\Areas\\Admin\\Views\\Vehicle\\Detail.cshtml",
+              "ToolTip": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Management.UI\\Areas\\Admin\\Views\\Vehicle\\Detail.cshtml",
+              "RelativeToolTip": "VehicleShowroom.Management.UI\\Areas\\Admin\\Views\\Vehicle\\Detail.cshtml",
+              "ViewState": "AQIAAGMAAAAAAAAAAAAUwHAAAABfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-12T14:21:26.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Management.UI\\Areas\\Admin\\Views\\Vehicle\\Edit.cshtml",
+              "RelativeDocumentMoniker": "VehicleShowroom.Management.UI\\Areas\\Admin\\Views\\Vehicle\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Management.UI\\Areas\\Admin\\Views\\Vehicle\\Edit.cshtml",
+              "RelativeToolTip": "VehicleShowroom.Management.UI\\Areas\\Admin\\Views\\Vehicle\\Edit.cshtml",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAADwAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-12T14:01:34.557Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VehicleController.cs",
+              "DocumentMoniker": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Management.UI\\Areas\\Admin\\Controllers\\VehicleController.cs",
+              "RelativeDocumentMoniker": "VehicleShowroom.Management.UI\\Areas\\Admin\\Controllers\\VehicleController.cs",
+              "ToolTip": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Management.UI\\Areas\\Admin\\Controllers\\VehicleController.cs",
+              "RelativeToolTip": "VehicleShowroom.Management.UI\\Areas\\Admin\\Controllers\\VehicleController.cs",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAMwDUAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T13:24:47.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Management.UI\\Areas\\Admin\\Views\\Vehicle\\Index.cshtml",
               "RelativeDocumentMoniker": "VehicleShowroom.Management.UI\\Areas\\Admin\\Views\\Vehicle\\Index.cshtml",
               "ToolTip": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Management.UI\\Areas\\Admin\\Views\\Vehicle\\Index.cshtml",
               "RelativeToolTip": "VehicleShowroom.Management.UI\\Areas\\Admin\\Views\\Vehicle\\Index.cshtml",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAAAFwAAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-11T13:47:51.012Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "VehicleDetail.cs",
-              "DocumentMoniker": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Domain\\Entities\\VehicleDetail.cs",
-              "RelativeDocumentMoniker": "VehicleShowroom.Mangement.Domain\\Entities\\VehicleDetail.cs",
-              "ToolTip": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Mangement.Domain\\Entities\\VehicleDetail.cs",
-              "RelativeToolTip": "VehicleShowroom.Mangement.Domain\\Entities\\VehicleDetail.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T13:34:53.898Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "VehicleDetailController.cs",
-              "DocumentMoniker": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Management.UI\\Areas\\Admin\\Controllers\\VehicleDetailController.cs",
-              "RelativeDocumentMoniker": "VehicleShowroom.Management.UI\\Areas\\Admin\\Controllers\\VehicleDetailController.cs",
-              "ToolTip": "C:\\Users\\CAO TOAN\\OneDrive\\M\u00E1y t\u00EDnh\\VehicleShowroomManagementSystem\\VehicleShowroom.Management.UI\\Areas\\Admin\\Controllers\\VehicleDetailController.cs",
-              "RelativeToolTip": "VehicleShowroom.Management.UI\\Areas\\Admin\\Controllers\\VehicleDetailController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T12:55:12.204Z"
+              "WhenOpened": "2024-12-12T13:21:41.939Z"
             }
           ]
         }

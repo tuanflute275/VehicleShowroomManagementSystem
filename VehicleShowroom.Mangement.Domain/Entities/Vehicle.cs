@@ -18,12 +18,13 @@ namespace VehicleShowroom.Mangement.Domain.Entities
         public string Name { get; set; }
 
         [StringLength(100)]
+        public string? Slug { get; set; }
+
+        [StringLength(255)]
         public string Image { get; set; }
 
         [StringLength(20)]
-        public string? Status { get; set; } = "Active";
-
-        public DateTime? DateAdded { get; set; } = DateTime.Now;
+        public string? Status { get; set; } = "Available";
 
         public string? Description { get; set; }
 
@@ -36,5 +37,28 @@ namespace VehicleShowroom.Mangement.Domain.Entities
         [ForeignKey("Company")]
         public int CompanyId { get; set; }
         public virtual Company Company { get; set; }
+
+        [StringLength(50)]
+        public string? EngineNumber { get; set; } //Số máy
+
+        [StringLength(50)]
+        public string? ChassisNumber { get; set; } //Số khung
+
+        [StringLength(50)]
+        public string FuelType { get; set; } // Loại nhiên liệu
+
+        [StringLength(50)]
+        public string TransmissionType { get; set; } // Loại hộp số
+
+        [StringLength(50)]
+        public string Color { get; set; } // Màu sắc xe
+
+        [Column(TypeName = "decimal(15,2)")]
+        public decimal? Price { get; set; } // Giá xe
+
+        [Column(TypeName = "decimal(10,2)")]
+        public decimal? Mileage { get; set; } // Số km đã đi
+
+        public int? ManufactureYear { get; set; } // Năm sản xuất
     }
 }

@@ -1,6 +1,6 @@
 ﻿@model VehicleShowroom.Mangement.Application.Models.DTOs.VehicleDTO
 @{
-    ViewData["Title"] = "Detail";
+    ViewData["Title"] = "Vehicle Detail";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 @section Styles {
@@ -78,11 +78,48 @@
                         </div>
                     </div>
                     <div class="position-relative row form-group">
-                        <label for="Address" class="col-md-3 text-md-right col-form-label">DateAdded</label>
+                        <label for="Address" class="col-md-3 text-md-right col-form-label">Slug</label>
                         <div class="col-md-9 col-xl-8">
-                            <input type="text" class="form-control" asp-for="DateAdded" readonly>
+                            <input type="text" class="form-control" asp-for="Slug" readonly>
                         </div>
                     </div>
+                    <div class="position-relative row form-group">
+                        <label for="Address" class="col-md-3 text-md-right col-form-label">ChassisNumber</label>
+                        <div class="col-md-9 col-xl-8">
+                            <input type="text" class="form-control" asp-for="ChassisNumber" readonly>
+                        </div>
+                    </div>
+                     <div class="position-relative row form-group">
+                        <label for="Address" class="col-md-3 text-md-right col-form-label">FuelType</label>
+                        <div class="col-md-9 col-xl-8">
+                            <input type="text" class="form-control" asp-for="FuelType" readonly>
+                        </div>
+                    </div>
+                     <div class="position-relative row form-group">
+                        <label for="Address" class="col-md-3 text-md-right col-form-label">TransmissionType</label>
+                        <div class="col-md-9 col-xl-8">
+                            <input type="text" class="form-control" asp-for="TransmissionType" readonly>
+                        </div>
+                    </div>
+                     <div class="position-relative row form-group">
+                        <label for="Address" class="col-md-3 text-md-right col-form-label">Color</label>
+                        <div class="col-md-9 col-xl-8">
+                            <input type="text" class="form-control" asp-for="Color" readonly>
+                        </div>
+                    </div>
+                    <div class="position-relative row form-group">
+                        <label for="Address" class="col-md-3 text-md-right col-form-label">Mileage</label>
+                        <div class="col-md-9 col-xl-8">
+                            <input type="text" class="form-control" asp-for="Mileage" readonly>
+                        </div>
+                    </div>
+                    <div class="position-relative row form-group">
+                        <label for="Address" class="col-md-3 text-md-right col-form-label">ManufactureYear</label>
+                        <div class="col-md-9 col-xl-8">
+                            <input type="text" class="form-control" asp-for="ManufactureYear" readonly>
+                        </div>
+                    </div>
+
                     <div class="position-relative row form-group">
                         <label for="Address" class="col-md-3 text-md-right col-form-label">Description</label>
                         <div class="col-md-9 col-xl-8">

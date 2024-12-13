@@ -51,27 +51,27 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Save(IFormFile fileUpload, VehicleViewModel model)
         {
-            if (ModelState.IsValid)
-            {
-                var (isSuccess, errorMessage) = await _vehicleService.SaveOrUpdateAsync(model, fileUpload);
-                if (isSuccess)
-                {
-                    TempData["success"] = "Vehicle created successfully!";
-                    return RedirectToAction(nameof(Index));
-                }
-                else
-                {
-                    // Thêm thông báo lỗi vào ModelState để hiển thị trên giao diện
-                    ModelState.AddModelError(string.Empty, errorMessage ?? "An error occurred while saving the user.");
-                    return View("Create", model);
-                }
-            }
+            if (!ModelState.IsValid)
+                return View("Create", model);
+            
             var suppliers = await _vehicleService.GetAllSupplierAsync();
             var companies = await _vehicleService.GetAllCompanyAsync();
-            ViewBag.Supplier = suppliers;
-            ViewBag.Companies = companies;
-            // If the model is invalid, show an error notification and re-render the form
-            return View("Create", model); // You can return the same view to show validation messages
+            
+            var (isSuccess, errorMessage) = await _vehicleService.SaveOrUpdateAsync(model, fileUpload);
+            if (isSuccess)
+            {
+                TempData["success"] = "Vehicle created successfully!";
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                // Thêm thông báo lỗi vào ModelState để hiển thị trên giao diện
+      
+                ViewBag.Supplier = suppliers;
+                ViewBag.Companies = companies;
+                ModelState.AddModelError(string.Empty, errorMessage ?? "An error occurred while saving the user.");
+                return View("Create", model);
+            }
         }
 
 
@@ -125,6 +125,19 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
                 // Handle any errors that occur during the deletion
                 return RedirectToAction("Index", new { page = page ?? 1 });
             }
+        }
+
+        //VehicleImage
+        public async Task<IActionResult> ListImage(int id, int? page = 1)
+        {
+            var data = await _vehicleService.GetAllImagePaginationAsync(id, page ?? 1, 8);
+            return View(data);
+        }
+
+        public async Task<IActionResult> CreateImage (int id)
+        {
+            
+            return View();
         }
     }
 }

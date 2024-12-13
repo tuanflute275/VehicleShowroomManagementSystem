@@ -17,13 +17,18 @@ namespace VehicleShowroom.Mangement.Application.Configuration
             CreateMap<User, UserViewModel>().ReverseMap();
             CreateMap<UserDTO, UserViewModel>().ReverseMap();
             CreateMap<UserDTO, UserViewModel>().ReverseMap();
-            CreateMap<VehicleDetail, VehicleDetailViewModel>().ReverseMap();
-            CreateMap<VehicleDetail, VehicleDetailDTO>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Vehicle.Name));
             CreateMap<Vehicle, VehicleViewModel>().ReverseMap();
+            CreateMap<VehicleImage, VehicleImageDTO>()
+                .ForMember(dest => dest.VehicleId, opt => opt.MapFrom(src => src.Vehicle.VehicleId))
+                .ForMember(dest => dest.VehicleName, opt => opt.MapFrom(src => src.Vehicle.Name));
             CreateMap<Vehicle, VehicleDTO>()
             .ForMember(dest => dest.SupplierName, opt => opt.MapFrom(src => src.Supplier.SupplierName))
             .ForMember(dest => dest.CompanyName, opt => opt.MapFrom(src => src.Company.CompanyName));
+
+            CreateMap<PurchaseOrder, PurchaseOrderDTO>()
+                .ForMember(dest => dest.SupplierName, opt => opt.MapFrom(src => src.Supplier.SupplierName))
+                .ForMember(dest => dest.SupplierPhone, opt => opt.MapFrom(src => src.Supplier.PhoneNumber))
+           .ForMember(dest => dest.SupplierEmail, opt => opt.MapFrom(src => src.Supplier.Email));
         }
     }
 }

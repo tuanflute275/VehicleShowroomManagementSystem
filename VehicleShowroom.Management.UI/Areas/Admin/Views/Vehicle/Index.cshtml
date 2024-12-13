@@ -2,7 +2,7 @@
 @using X.PagedList
 @using X.PagedList.Mvc.Core
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Vehicle Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
     var keyword = ViewBag.keyword;
     int i = 1;
@@ -67,7 +67,6 @@
                                 <th class="text-center">Supplier Name</th>
                                 <th class="text-center">Company Name</th>
                                 <th class="text-center">Status</th>
-                                <th class="text-center">DateAdded</th> 
                                 <th class="text-center">Actions</th>
                             </tr>
                         </thead>
@@ -92,16 +91,15 @@
                                     <td class="text-center">@item.SupplierName</td>
                                     <td class="text-center">@item.CompanyName</td>
                                     <td class="text-center">@item.Status</td>
-                                    <td class="text-center">@item.DateAdded</td>
                                     <td class="text-center">
                                         <a asp-area="Admin" asp-controller="Vehicle" asp-action="Detail" asp-route-id="@item.VehicleId"
                                            class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
                                             Details
                                         </a>
-                                        <a asp-controller="VehicleDetail" asp-action="Index" data-toggle="tooltip"
-                                           data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
+                                        <a asp-controller="Vehicle" asp-action="ListImage" asp-route-id="@item.VehicleId" data-toggle="tooltip"
+                                           data-placement="bottom" class="btn btn-outline-success border-0 btn-sm">
                                             <span class="btn-icon-wrapper opacity-8">
-                                                <i class="fa-solid fa-eye"></i>
+                                                <i class="fa-solid fa-image"></i>
                                             </span>
                                         </a>
                                         <a asp-controller="Vehicle" asp-action="Edit" asp-route-id="@item.VehicleId" data-toggle="tooltip"
