@@ -118,10 +118,19 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> ExportAll()
+        {
+            var data = await _userService.GetAllAsync();
+            string html = await this.RenderViewAsync<List<UserDTO>>(RouteData, "_TemplateReportUserAll", data, true);
+            var result = _pdfService.GeneratePDF(html);
+            return File(result, "application/pdf", $"{DateTime.Now.Ticks}.pdf");
+        }
+
+        [HttpGet]
         public async Task<IActionResult> ExportPDF(int id)
         {
-            var data = await _userService.GetUserByIdAsync(id);
-            string html = await this.RenderViewAsync<UserDTO>(RouteData, "_TemplateReportUser", data, true);
+            var data = await _userService.GetDataExportByIdAsync(id);
+            string html = await this.RenderViewAsync<UserVehicleInfoDTO>(RouteData, "_TemplateReportUser", data, true);
             var result = _pdfService.GeneratePDF(html);
             return File(result, "application/pdf", $"{DateTime.Now.Ticks}.pdf");
         }

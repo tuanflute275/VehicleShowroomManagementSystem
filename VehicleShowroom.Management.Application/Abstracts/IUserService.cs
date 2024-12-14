@@ -9,6 +9,8 @@ namespace VehicleShowroom.Management.Application.Abstracts
     {
         Task<(bool Success, string ErrorMessage, UserDTO user)> Login(LoginViewModel model);
         Task<(bool Success, string ErrorMessage)> RegisterAsync(RegisterViewModel model);
+        Task<List<UserDTO>> GetAllAsync();
+        Task<UserVehicleInfoDTO> GetDataExportByIdAsync(int userId);
         Task<IPagedList<UserDTO>> GetAllPaginationAsync(string keyword, int page, int pageSize = 8);
         Task<bool> DeleteAsync(int id);
         Task<UserDTO> GetUserByIdAsync(int id);

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
-using System.Security.Principal;
+using Microsoft.EntityFrameworkCore;
 using VehicleShowroom.Management.Application.Abstracts;
 using VehicleShowroom.Management.Application.Models.DTOs;
 using VehicleShowroom.Management.Application.Models.ViewModels;
@@ -159,6 +159,53 @@ namespace VehicleShowroom.Management.Application.Services
             {
                 return (false, e.Message);
             }
+        }
+
+        public async Task<List<UserDTO>> GetAllAsync()
+        {
+            var userQuery = _unitOfWork.UserRepository.GetAllAsync();
+            var users = await userQuery;
+            var userList = users.ToList();
+            var data = _mapper.Map<List<UserDTO>>(userList);
+            return data;
+        }
+
+        public async Task<UserVehicleInfoDTO> GetDataExportByIdAsync(int userId)
+        {
+            var salesOrderDetails = await _unitOfWork.SalesOrderDetailRepository.GetAllAsync(
+                expression: x => x.SalesOrder.UserId == userId,
+                include: query => query
+                    .Include(x => x.SalesOrder)
+                        .ThenInclude(so => so.User)
+                   .Include(x => x.Vehicle)
+                    .ThenInclude(v => v.Supplier)
+                    .Include(x => x.Vehicle.Company)
+            );
+
+            var salesOrderDetailsList = salesOrderDetails.ToList();
+            var user = salesOrderDetailsList.FirstOrDefault()?.SalesOrder?.User;
+            if (user == null) return null;
+
+            // Ánh xạ dữ liệu thành DTO
+            var userVehicleInfo = new UserVehicleInfoDTO
+            {
+                UserId = user.UserId,
+                FullName = user.FullName,
+                Email = user.Email,
+                PhoneNumber = user.PhoneNumber,
+                Address = user.Address,
+                Gender = user.Gender == 1 ? "Male" : "Female",
+                Vehicles = salesOrderDetailsList.Select(detail => new VehicleUserDTO
+                {
+                    ModelNumber = detail.Vehicle.ModelNumber,
+                    VehicleName = detail.Vehicle.Name,
+                    SupplierName = detail.Vehicle.Supplier?.SupplierName,
+                    CompanyName = detail.Vehicle.Company?.CompanyName,
+                    Price = (decimal)detail.Vehicle.Price
+                }).ToList()
+            };
+
+            return userVehicleInfo;
         }
     }
 }

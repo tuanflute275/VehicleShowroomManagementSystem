@@ -14,7 +14,7 @@
         <div class="page-title-wrapper">
             <div class="page-title-heading">
                 <div class="page-title-icon">
-                    <i class="fa-solid fa-building"></i>
+                    <i class="fa-solid fa-warehouse"></i>
                 </div>
                 <div>
                     Stock History
@@ -33,7 +33,7 @@
                     <form>
                         <div class="input-group">
                             <input type="search" value="@keyword" name="keyword" id="search"
-                                   placeholder="Search by vehicle name" class="form-control">
+                                   placeholder="Search everything" class="form-control">
                             <span class="input-group-append">
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-search"></i>&nbsp;
@@ -91,7 +91,7 @@
                                     <td class="text-center">@item.CompanyName</td>
                                     <td class="text-center">@String.Format("{0:MM/dd/yyyy}", item.ChangeDate)</td>
                                     <td class="text-center">
-                                        <a asp-area="Admin" asp-controller="StockHistory" asp-action="ExportPDF" asp-route-id="@item.StockHistoryId"
+                                       @*  <a asp-area="Admin" asp-controller="StockHistory" asp-action="ExportPDF" asp-route-id="@item.StockHistoryId"
                                            class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
                                             <span class="btn-icon-wrapper opacity-8">
                                                 <i class="fa-solid fa-file-pdf"></i>
@@ -102,7 +102,7 @@
                                             <span class="btn-icon-wrapper opacity-8">
                                                 <i class="fa-solid fa-eye"></i>
                                             </span>
-                                        </a>
+                                        </a> *@
                                         <a href="javascript:void(0)" onclick="showDeleteConfirmation('StockHistory', '@item.StockHistoryId', '@ViewData["CurrentPage"]')"
                                            data-toggle="tooltip" data-placement="bottom"
                                            class="btn btn-outline-danger border-0 btn-sm">

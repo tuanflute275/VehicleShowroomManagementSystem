@@ -80,6 +80,7 @@ namespace VehicleShowroom.Management.Infrastructure.Configuration
             services.AddTransient<ICompanyServices, CompanyService>();
             services.AddTransient<IVehicleService, VehicleService>();
             services.AddTransient<IPurchaseOrderService, PurchaseOrderService>();
+            services.AddTransient<ISalesOrderService, SalesOrderService>();
             services.AddTransient<IStockHistoryService, StockHistoryService>();
         }
 
