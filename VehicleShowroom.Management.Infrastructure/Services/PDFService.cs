@@ -29,8 +29,20 @@ namespace VehicleShowroom.Management.Infrastructure.Services
                 PagesCount = true,
                 HtmlContent = contentHTML,
                 WebSettings = { DefaultEncoding = "utf-8" },
-                //HeaderSettings = { FontSize = 9, Right = "Page [page] of [toPage]", Line = true, Spacing = 2.812 },
-                //FooterSettings  = { }
+                HeaderSettings = new HeaderSettings
+                {
+                   /* FontSize = 12,
+                    Right = "Page [page] of [toPage]",
+                    Line = true,
+                    Spacing = 5.812*/
+                },
+                FooterSettings = new FooterSettings
+                {
+                   /* FontSize = 10,
+                    Center = "Footer content here",
+                    Line = true,
+                    Spacing = 2.812*/
+                }
             };
 
             var pdf = new HtmlToPdfDocument()

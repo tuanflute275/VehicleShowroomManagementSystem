@@ -44,6 +44,12 @@
                             <i class="metismenu-icon"></i>PurchaseOrder
                         </a>
                     </li>
+                    <li>
+                        <a asp-area="Admin" asp-controller="StockHistory" asp-action="Index"
+                           class="@((ViewContext.RouteData.Values["controller"].ToString() == "StockHistory") ? "mm-active" : "")">
+                            <i class="metismenu-icon"></i>StockHistory
+                        </a>
+                    </li>
                 </ul>
             </li>
         </ul>

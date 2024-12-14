@@ -143,6 +143,41 @@
                 return console.error(err.toString());
             });
         };
+
+
+
+        // confirm delete
+        function showDeleteConfirmation(element, id, page) {
+            if (!element || !id) {
+                console.error("Element or ID is missing!");
+                return;
+            }
+
+            // Nội dung động cho thông báo
+            let message = `Do you really want to delete this ${element}?`;
+
+            bootbox.confirm(message, function (result) {
+                if (result) {
+                    window.location.href = `/Admin/${element}/Delete?id=${id}&page=${page}`;
+                }
+            });
+        }
+
+        function showExportConfirmation(element) {
+            if (!element) {
+                console.error("Element is missing!");
+                return;
+            }
+
+            // Nội dung động cho thông báo
+            let message = `Do you really want to download this ${element}?`;
+
+            bootbox.confirm(message, function (result) {
+                if (result) {
+                    window.location.href = `/Admin/${element}/ExportAll`;
+                }
+            });
+        }
     </script>
 </body>
 

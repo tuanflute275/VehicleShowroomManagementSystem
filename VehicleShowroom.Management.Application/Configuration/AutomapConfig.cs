@@ -26,6 +26,16 @@ namespace VehicleShowroom.Management.Application.Configuration
                 .ForMember(dest => dest.SupplierName, opt => opt.MapFrom(src => src.Supplier.SupplierName))
                 .ForMember(dest => dest.SupplierPhone, opt => opt.MapFrom(src => src.Supplier.PhoneNumber))
            .ForMember(dest => dest.SupplierEmail, opt => opt.MapFrom(src => src.Supplier.Email));
+
+            CreateMap<StockHistory, StockHistoryDTO>()
+     .ForMember(dest => dest.ChangedBy, opt => opt.MapFrom(src => src.User.FullName))
+     .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.User.PhoneNumber))
+     .ForMember(dest => dest.ModelNumber, opt => opt.MapFrom(src => src.Vehicle.ModelNumber))
+     .ForMember(dest => dest.VehicleName, opt => opt.MapFrom(src => src.Vehicle.Name))
+     .ForMember(dest => dest.VehiclePrice, opt => opt.MapFrom(src => src.Vehicle.Price != null ? Convert.ToDecimal(src.Vehicle.Price) : 0))  // Cải tiến chuyển đổi an toàn
+     .ForMember(dest => dest.SupplierName, opt => opt.MapFrom(src => src.Vehicle.Supplier.SupplierName))
+     .ForMember(dest => dest.CompanyName, opt => opt.MapFrom(src => src.Vehicle.Company != null ? src.Vehicle.Company.CompanyName : string.Empty))
+     ;
         }
     }
 }

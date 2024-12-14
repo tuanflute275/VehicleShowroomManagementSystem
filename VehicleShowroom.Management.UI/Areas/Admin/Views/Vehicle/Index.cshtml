@@ -110,9 +110,9 @@
                                                 <i class="fa fa-edit fa-w-20"></i>
                                             </span>
                                         </a>
-                                        <a asp-controller="Vehicle" asp-action="Delete" asp-route-id="@item.VehicleId" asp-route-page="@ViewData["CurrentPage"]"
-                                           onclick="return confirm('Do you really want to delete this item?')" data-toggle="tooltip"
-                                           data-placement="bottom" class="btn btn-outline-danger border-0 btn-sm">
+                                        <a href="javascript:void(0)" onclick="showDeleteConfirmation('Vehicle', '@item.VehicleId', '@ViewData["CurrentPage"]')"
+                                           data-toggle="tooltip" data-placement="bottom"
+                                           class="btn btn-outline-danger border-0 btn-sm">
                                             <span class="btn-icon-wrapper opacity-8">
                                                 <i class="fa fa-trash fa-w-20"></i>
                                             </span>

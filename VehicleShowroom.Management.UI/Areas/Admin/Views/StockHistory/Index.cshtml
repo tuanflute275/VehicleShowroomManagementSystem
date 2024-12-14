@@ -1,35 +1,27 @@
-﻿@model IPagedList<VehicleShowroom.Management.Application.Models.DTOs.PurchaseOrderDTO>
+﻿@model IPagedList<VehicleShowroom.Management.Application.Models.DTOs.StockHistoryDTO>
 @using X.PagedList
 @using X.PagedList.Mvc.Core
 @{
-    ViewData["Title"] = "Purchase Index";
+    ViewData["Title"] = "Stock History Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
     var keyword = ViewBag.keyword;
     int i = 1;
 }
+
 <!-- Main -->
 <div class="app-main__inner">
     <div class="app-page-title">
         <div class="page-title-wrapper">
             <div class="page-title-heading">
                 <div class="page-title-icon">
-                    <i class="fa-solid fa-shop"></i>
+                    <i class="fa-solid fa-building"></i>
                 </div>
                 <div>
-                    PurchaseOrder
+                    Stock History
                     <div class="page-title-subheading">
-                        View, create, update, delete and manage.
+                        View, delete and manage.
                     </div>
                 </div>
-            </div>
-
-            <div class="page-title-actions">
-                <a asp-area="Admin" asp-controller="PurchaseOrder" asp-action="Create" class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
-                    <span class="btn-icon-wrapper pr-2 opacity-7">
-                        <i class="fa fa-plus fa-w-20"></i>
-                    </span>
-                    Create
-                </a>
             </div>
         </div>
     </div>
@@ -41,7 +33,7 @@
                     <form>
                         <div class="input-group">
                             <input type="search" value="@keyword" name="keyword" id="search"
-                                   placeholder="Search supplier name" class="form-control">
+                                   placeholder="Search by vehicle name" class="form-control">
                             <span class="input-group-append">
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-search"></i>&nbsp;
@@ -50,10 +42,17 @@
                             </span>
                         </div>
                     </form>
-                    <a asp-area="Admin" asp-controller="PurchaseOrder" asp-action="Index" type="button" class="btn btn-warning text-white">
-                        <i class="fa-solid fa-arrows-rotate"></i>&nbsp;
-                        Reset
-                    </a>
+                   <div>
+                        <a href="javascript:void(0)" onclick="showExportConfirmation('StockHistory')"
+                            type="button" class="btn btn-success text-white">
+                            <i class="fa-solid fa-file-pdf"></i>&nbsp;
+                            Export
+                        </a>
+                        <a asp-area="Admin" asp-controller="StockHistory" asp-action="Index" type="button" class="btn btn-warning text-white">
+                            <i class="fa-solid fa-arrows-rotate"></i>&nbsp;
+                            Reset
+                        </a>
+                   </div>
                 </div>
 
                 <div class="table-responsive" id="divTesst">
@@ -61,11 +60,13 @@
                         <thead>
                             <tr>
                                 <th class="text-center">#No</th>
+                                <th class="text-center">Change Type</th>
+                                <th class="text-center">Quantity</th>
+                                <th class="text-center">Model Number</th>
+                                <th class="text-center">Vehicle Number</th>
                                 <th class="text-center">Supplier Name</th>
-                                <th class="text-center">Supplier Phone</th>
-                                <th class="text-center">Supplier Email</th>
-                                <th class="text-center">Total Amount</th>
-                                <th class="text-center">Order Date</th>
+                                <th class="text-center">Company Name</th>
+                                <th class="text-center">Change Date</th>
                                 <th class="text-center">Actions</th>
                             </tr>
                         </thead>
@@ -78,29 +79,31 @@
                                         <div class="widget-content p-0">
                                             <div class="widget-content-wrapper">
                                                 <div class="widget-content-left flex2">
-                                                    <div class="widget-heading text-center">@item.SupplierName</div>
+                                                    <div class="widget-heading text-center">@item.ChangeType</div>
                                                 </div>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="text-center">@item.SupplierPhone</td>
-                                    <td class="text-center">@item.SupplierEmail</td>
-                                    <td class="text-center">@string.Format("{0:C}", item.TotalAmount)</td>
-                                    <td class="text-center">@item.OrderDate</td>
+                                    <td class="text-center">@item.Quantity</td>
+                                    <td class="text-center">@item.ModelNumber</td>
+                                    <td class="text-center">@item.VehicleName</td>
+                                    <td class="text-center">@item.SupplierName</td>
+                                    <td class="text-center">@item.CompanyName</td>
+                                    <td class="text-center">@String.Format("{0:MM/dd/yyyy}", item.ChangeDate)</td>
                                     <td class="text-center">
-                                        <a asp-area="Admin" asp-controller="PurchaseOrder" asp-action="Detail" asp-route-id="@item.PurchaseOrderId"
+                                        <a asp-area="Admin" asp-controller="StockHistory" asp-action="ExportPDF" asp-route-id="@item.StockHistoryId"
+                                           class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
+                                            <span class="btn-icon-wrapper opacity-8">
+                                                <i class="fa-solid fa-file-pdf"></i>
+                                            </span>
+                                        </a>
+                                        <a asp-area="Admin" asp-controller="StockHistory" asp-action="Detail" asp-route-id="@item.StockHistoryId"
                                            class="btn btn-hover-shine btn-outline-info border-0 btn-sm">
                                             <span class="btn-icon-wrapper opacity-8">
                                                 <i class="fa-solid fa-eye"></i>
                                             </span>
                                         </a>
-                                        <a asp-controller="PurchaseOrder" asp-action="Edit" asp-route-id="@item.PurchaseOrderId" data-toggle="tooltip"
-                                           data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
-                                            <span class="btn-icon-wrapper opacity-8">
-                                                <i class="fa fa-edit fa-w-20"></i>
-                                            </span>
-                                        </a>
-                                        <a href="javascript:void(0)" onclick="showDeleteConfirmation('PurchaseOrder', '@item.PurchaseOrderId', '@ViewData["CurrentPage"]')"
+                                        <a href="javascript:void(0)" onclick="showDeleteConfirmation('StockHistory', '@item.StockHistoryId', '@ViewData["CurrentPage"]')"
                                            data-toggle="tooltip" data-placement="bottom"
                                            class="btn btn-outline-danger border-0 btn-sm">
                                             <span class="btn-icon-wrapper opacity-8">
