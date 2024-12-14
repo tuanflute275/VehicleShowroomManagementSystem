@@ -10,6 +10,7 @@ namespace VehicleShowroom.Management.Domain.Abstract
          Func<IQueryable<PurchaseOrderDetail>, IIncludableQueryable<PurchaseOrderDetail, object>>? include = null);
         Task<PurchaseOrderDetail?> GetByIdAsync(int id);
         Task<bool> SaveOrUpdateAsync(PurchaseOrderDetail purchaseOrderDetail);
+        Task<bool> SaveRangeData(List<PurchaseOrderDetail> listDetail);
         Task<bool> DeleteAsync(PurchaseOrderDetail purchaseOrderDetail);
     }
 }

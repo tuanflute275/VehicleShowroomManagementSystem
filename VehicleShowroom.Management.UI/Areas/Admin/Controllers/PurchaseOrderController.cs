@@ -4,8 +4,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using VehicleShowroom.Management.Application.Abstracts;
 using VehicleShowroom.Management.Application.Models.DTOs;
 using VehicleShowroom.Management.Application.Models.ViewModels;
-using VehicleShowroom.Management.Infrastructure.Abstracts;
-using VehicleShowroom.Management.UI.Utils;
+using VehicleShowroom.Management.Application.Services;
 using VehicleShowroomManagementSystem.Areas.Admin.Controllers;
 
 namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
@@ -13,12 +12,13 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
     public class PurchaseOrderController : BaseController
     {
         private readonly IMapper _mapper;
-        private readonly IPDFService _pdfService;
         private readonly IPurchaseOrderService _purchaseOrderService;
-        public PurchaseOrderController(IMapper mapper, IPDFService pdfService, IPurchaseOrderService purchaseOrderService)
+        private readonly IVehicleService _vehicleService;
+        public PurchaseOrderController(IMapper mapper, IPurchaseOrderService purchaseOrderService,IVehicleService vehicleService)
         {
             _mapper = mapper;
-            _pdfService = pdfService;
+           _vehicleService = vehicleService;
+
             _purchaseOrderService = purchaseOrderService;
         }
 
@@ -80,14 +80,10 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
                 return RedirectToAction("Index", new { page = page ?? 1 });
             }
         }
-
-        [HttpGet]
-        public async Task<IActionResult> ExportPDF(int id)
+        public async Task<IActionResult> Detail(int id)
         {
-            var purchase = await _purchaseOrderService.GetByIdAsync(id);
-            string html = await this.RenderViewAsync<PurchaseOrderDTO>(RouteData, "_TemplateReportPurchase", purchase, true);
-            var result = _pdfService.GeneratePDF(html);
-            return File(result, "application/pdf", $"{DateTime.Now.Ticks}.pdf");
+            var data = await _purchaseOrderService.GetByIdAsync(id);
+            return View(data);
         }
     }
 }

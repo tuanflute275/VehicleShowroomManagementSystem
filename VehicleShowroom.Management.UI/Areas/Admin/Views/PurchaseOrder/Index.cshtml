@@ -41,7 +41,7 @@
                     <form>
                         <div class="input-group">
                             <input type="search" value="@keyword" name="keyword" id="search"
-                                   placeholder="Search by name" class="form-control">
+                                   placeholder="Search supplier name" class="form-control">
                             <span class="input-group-append">
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-search"></i>&nbsp;
@@ -89,8 +89,10 @@
                                     <td class="text-center">@item.OrderDate</td>
                                     <td class="text-center">
                                         <a asp-area="Admin" asp-controller="PurchaseOrder" asp-action="Detail" asp-route-id="@item.PurchaseOrderId"
-                                           class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
-                                            Details
+                                           class="btn btn-hover-shine btn-outline-info border-0 btn-sm">
+                                            <span class="btn-icon-wrapper opacity-8">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </span>
                                         </a>
                                         <a asp-controller="PurchaseOrder" asp-action="Edit" asp-route-id="@item.PurchaseOrderId" data-toggle="tooltip"
                                            data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
@@ -98,9 +100,9 @@
                                                 <i class="fa fa-edit fa-w-20"></i>
                                             </span>
                                         </a>
-                                        <a asp-controller="PurchaseOrder" asp-action="Delete" asp-route-id="@item.PurchaseOrderId" asp-route-page="@ViewData["CurrentPage"]"
-                                           onclick="return confirm('Do you really want to delete this item?')" data-toggle="tooltip"
-                                           data-placement="bottom" class="btn btn-outline-danger border-0 btn-sm">
+                                        <a href="javascript:void(0)" onclick="showDeleteConfirmation('PurchaseOrder', '@item.PurchaseOrderId', '@ViewData["CurrentPage"]')"
+                                           data-toggle="tooltip" data-placement="bottom"
+                                           class="btn btn-outline-danger border-0 btn-sm">
                                             <span class="btn-icon-wrapper opacity-8">
                                                 <i class="fa fa-trash fa-w-20"></i>
                                             </span>

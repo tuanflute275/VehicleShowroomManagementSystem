@@ -14,6 +14,7 @@ namespace VehicleShowroom.Management.DataAccess.Repository
         ISupplierRepository _supplierRepository;
         IUserRepository _userRepository;
         IVehicleRepository _vehicleRepository;
+        IVehicleImageRepository _vehicleImageRepository;
         ICompanyRepository _companyRepository;
         IPurchaseOrderRepository _purchaseOrderRepository;
         IPurchaseOrderDetailRepository _purchaseOrderDetailRepository;
@@ -31,6 +32,7 @@ namespace VehicleShowroom.Management.DataAccess.Repository
         public ISupplierRepository SupplierRepository => _supplierRepository ??= new SupplierRepository(_context);
         public IUserRepository UserRepository => _userRepository ??= new UserRepository(_context);
         public IVehicleRepository VehicleRepository => _vehicleRepository ??= new VehicleRepository(_context);
+        public IVehicleImageRepository VehicleImageRepository => _vehicleImageRepository ??= new VehicleImageRepository(_context);
         public ICompanyRepository CompanyRepository => _companyRepository ??= new CompanyRepository(_context);
         public IPurchaseOrderRepository PurchaseOrderRepository => _purchaseOrderRepository ??= new PurchaseOrderRepository(_context);
         public IPurchaseOrderDetailRepository PurchaseOrderDetailRepository => _purchaseOrderDetailRepository ??= new PurchaseOrderDetailRepository(_context);

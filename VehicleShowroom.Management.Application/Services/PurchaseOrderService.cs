@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using VehicleShowroom.Management.Application.Abstracts;
 using VehicleShowroom.Management.Application.Models.DTOs;
@@ -8,6 +9,7 @@ using VehicleShowroom.Management.Application.Utils;
 using VehicleShowroom.Management.Domain.Abstract;
 using VehicleShowroom.Management.Domain.Entities;
 using X.PagedList;
+using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
 
 namespace VehicleShowroom.Management.Application.Services
 {
@@ -35,11 +37,21 @@ namespace VehicleShowroom.Management.Application.Services
             return data.ToPagedList(page, pageSize); 
         }
 
-        public async Task<PurchaseOrderDTO> GetByIdAsync(int id)
+        public async Task<PurchaseOrderDetailDTO> GetByIdAsync(int id)
         {
-            var dataQuery = await _unitOfWork.PurchaseOrderRepository.GetByIdAsync(id);
-            var data = _mapper.Map<PurchaseOrderDTO>(dataQuery);
-            return data;
+            var query = _unitOfWork.PurchaseOrderDetailRepository.GetAllAsync(
+               expression: s => s.PurchaseOrderId == id,
+               include: query => query.Include(x => x.Vehicle).Include(x => x.PurchaseOrder).ThenInclude(p => p.Supplier)
+            );
+            var dataQuery = await query;
+            var dataList = dataQuery.ToList();
+            if (dataList.Any())
+            {
+                var data = _mapper.Map<List<PurchaseOrderDetailDTO>>(dataList).FirstOrDefault();  // Lấy phần tử đầu tiên
+                return data;
+            }
+
+            return null;
         }
 
         public async Task<bool> DeleteAsync(int id)
@@ -66,10 +78,8 @@ namespace VehicleShowroom.Management.Application.Services
         {
             try
             {
-                var vehicle = await _unitOfWork.VehicleRepository.GetByIdAsync(model.VehicleId);
-                if (vehicle == null)return (false, "vehicle do not exit");
-                
-                var purchaseOrder = new PurchaseOrder(); 
+                var purchaseOrder = new PurchaseOrder();
+                decimal totalAmount = 0;
                 if (model.PurchaseOrderId == 0)
                 {
                     purchaseOrder.SupplierId = model.SupplierId;
@@ -77,33 +87,49 @@ namespace VehicleShowroom.Management.Application.Services
                     purchaseOrder.TotalAmount = 0;
                     bool result = await _unitOfWork.PurchaseOrderRepository.SaveOrUpdateAsync(purchaseOrder);
                     await _unitOfWork.SaveChangeAsync();
-                    // PurchaseOrderDetail
-                    var purchaseOrderDetail = new PurchaseOrderDetail();
-                    purchaseOrderDetail.PurchaseOrderId = purchaseOrder.PurchaseOrderId;
-                    purchaseOrderDetail.VehicleId = model.VehicleId;
-                    purchaseOrderDetail.Quantity = model.Quantity;
-                    purchaseOrderDetail.UnitPrice = (model.Quantity * vehicle.Price);
-                    bool result1 = await _unitOfWork.PurchaseOrderDetailRepository.SaveOrUpdateAsync(purchaseOrderDetail);
-                    //
-                    purchaseOrder = await _unitOfWork.PurchaseOrderRepository.GetByIdAsync(purchaseOrder.PurchaseOrderId);
-                    purchaseOrder.TotalAmount = purchaseOrderDetail.UnitPrice;
-                    await _unitOfWork.PurchaseOrderRepository.SaveOrUpdateAsync(purchaseOrder);
 
-                    //Stock
-                    var stock = new StockHistory();
-                    var userIdClaim = _httpContextAccessor.HttpContext.User.Claims.FirstOrDefault(c => c.Type == "userId");
-                    stock.VehicleId = model.VehicleId;
-                    stock.ChangeDate = DateTime.Now;
 
-                    if (userIdClaim != null)
+                    foreach (var detail in model.Details)
                     {
-                        // Chuyển đổi sang kiểu int (hoặc kiểu dữ liệu phù hợp)
-                        int userId = int.Parse(userIdClaim.Value);
-                        stock.UserId = userId;
+                        var vehicle = await _unitOfWork.VehicleRepository.GetByIdAsync(detail.VehicleId);
+                        if (vehicle == null) return (false, $"Vehicle with ID {detail.VehicleId} does not exist.");
+
+                        // Tạo PurchaseOrderDetail
+                        var purchaseOrderDetail = new PurchaseOrderDetail
+                        {
+                            PurchaseOrderId = purchaseOrder.PurchaseOrderId,
+                            VehicleId = detail.VehicleId,
+                            Quantity = detail.Quantity,
+                            UnitPrice = vehicle.Price * detail.Quantity
+                        };
+
+                        // Lưu chi tiết vào database
+                        bool resultDetail = await _unitOfWork.PurchaseOrderDetailRepository.SaveOrUpdateAsync(purchaseOrderDetail);
+                        if (!resultDetail) return (false, "Failed to save purchase order detail.");
+
+                        // Tính tổng tiền cho PurchaseOrder
+                        totalAmount += (decimal)purchaseOrderDetail.UnitPrice;
+
+                        // Tạo StockHistory cho xe
+                        var stock = new StockHistory
+                        {
+                            VehicleId = detail.VehicleId,
+                            ChangeDate = DateTime.Now,
+                            Quantity = detail.Quantity,
+                            ChangeType = Constant.STOCKIN
+                        };
+
+                        // Lấy UserId từ Claims
+                        var userIdClaim = _httpContextAccessor.HttpContext.User.Claims.FirstOrDefault(c => c.Type == "userId");
+                        if (userIdClaim != null)
+                        {
+                            stock.UserId = int.Parse(userIdClaim.Value);
+                        }
+
+                        // Lưu StockHistory vào database
+                        bool resultStock = await _unitOfWork.StockHistoryRepository.SaveOrUpdateAsync(stock);
+                        if (!resultStock) return (false, "Failed to save stock history.");
                     }
-                    stock.Quantity = model.Quantity;
-                    stock.ChangeType = Constant.STOCKIN;
-                    bool result2 = await _unitOfWork.StockHistoryRepository.SaveOrUpdateAsync(stock);
                 }
                 else
                 {
@@ -114,10 +140,15 @@ namespace VehicleShowroom.Management.Application.Services
                     purchaseOrder.UpdateBy = "Admin";
                     purchaseOrder.UpdateDate = DateTime.Now;
                     bool result = await _unitOfWork.PurchaseOrderRepository.SaveOrUpdateAsync(purchaseOrder);
+                    if (!result) return (false, "Failed to update purchase order.");
                 }
-                
+
+                purchaseOrder.TotalAmount = totalAmount;
+                bool resultUpdate = await _unitOfWork.PurchaseOrderRepository.SaveOrUpdateAsync(purchaseOrder);
+                if (!resultUpdate) return (false, "Failed to update purchase order total amount.");
+
                 await _unitOfWork.SaveChangeAsync();
-                return (true, null);
+                return (true, "Purchase order created successfully.");
             }
             catch (Exception e)
             {

@@ -73,9 +73,19 @@ namespace VehicleShowroom.Management.Application.Services
                 {
                     vehicle.ModelNumber = model.ModelNumber;
                     vehicle.Name = model.Name;
+                    vehicle.Slug = Util.GenerateSlug(model.Name);
+                    vehicle.EngineNumber = model.EngineNumber;
+                    vehicle.ChassisNumber = model.ChassisNumber;
+                    vehicle.FuelType = model.FuelType;
+                    vehicle.TransmissionType = model.TransmissionType;
+                    vehicle.Color = model.Color;
+                    vehicle.Price = model.Price;
+                    vehicle.Mileage = model.Mileage;
+                    vehicle.ManufactureYear = model.ManufactureYear;
+                    vehicle.Status = model.Status;
+                    vehicle.Description = model.Description;
                     vehicle.SupplierId = model.SupplierId;
                     vehicle.CompanyId = model.CompanyId;
-                    vehicle.Description = model.Description;
                     vehicle.CreateBy = "Admin";
                     vehicle.CreateDate = DateTime.Now;
                     if (fileUpload != null)
@@ -90,10 +100,19 @@ namespace VehicleShowroom.Management.Application.Services
                     if (vehicle == null)
                         return (false, "User not found");
                     vehicle.ModelNumber = model.ModelNumber;
-                    vehicle.Name = model.Name;  
+                    vehicle.Name = model.Name;
+                    vehicle.Slug = Util.GenerateSlug(model.Name);
+                    vehicle.EngineNumber = model.EngineNumber;
+                    vehicle.ChassisNumber = model.ChassisNumber;
+                    vehicle.FuelType = model.FuelType;
+                    vehicle.TransmissionType = model.TransmissionType;
+                    vehicle.Color = model.Color;
+                    vehicle.Price = model.Price;
+                    vehicle.Mileage = model.Mileage;
+                    vehicle.ManufactureYear = model.ManufactureYear;
                     vehicle.Status = model.Status;
                     vehicle.Description = model.Description;
-                    vehicle.SupplierId = model.SupplierId;  
+                    vehicle.SupplierId = model.SupplierId;
                     vehicle.CompanyId = model.CompanyId;
                     vehicle.UpdateBy = "Admin";
                     vehicle.UpdateDate = DateTime.Now;
@@ -131,6 +150,18 @@ namespace VehicleShowroom.Management.Application.Services
             {
                 return false;
             }
+        }
+
+        public async Task<IPagedList<VehicleImageDTO>> GetAllImagePaginationAsync(int vehicleId, int page, int pageSize = 8)
+        {
+            var vehicleImageQuery = _unitOfWork.VehicleImageRepository.GetAllAsync(
+               expression: s => vehicleId != null || s.VehiclelId == vehicleId,
+                include: query => query.Include(x => x.Vehicle)
+             );
+            var vehicleImage = await vehicleImageQuery;
+            var vehicleImageList = vehicleImage.ToList();
+            var data = _mapper.Map<List<VehicleImageDTO>>(vehicleImageList);
+            return data.ToPagedList(page, pageSize);
         }
     }
 }

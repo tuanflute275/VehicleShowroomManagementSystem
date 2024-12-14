@@ -70,15 +70,17 @@ namespace VehicleShowroom.Management.Infrastructure.Configuration
 
         public static void AddDependencyInjection(this IServiceCollection services)
         {
-            services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<FileUploadHelper>();
-            services.AddTransient<ISupplierService, SupplierService>();
+            services.AddTransient<IPDFService, PDFService>();
+            services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IHomeService, HomeService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<ISupplierService, SupplierService>();
+            services.AddTransient<ICompanyServices, CompanyService>();
             services.AddTransient<IVehicleService, VehicleService>();
             services.AddTransient<IPurchaseOrderService, PurchaseOrderService>();
-            services.AddTransient<IHomeService, HomeService>();
-            services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
-            services.AddTransient<IPDFService, PDFService>();
+            services.AddTransient<IStockHistoryService, StockHistoryService>();
         }
 
         public static void AddAutoMapper(this IServiceCollection services)

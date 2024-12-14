@@ -1,0 +1,125 @@
+﻿@model IPagedList<VehicleShowroom.Management.Application.Models.DTOs.VehicleImageDTO>
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+@{
+    ViewData["Title"] = "Vehicle Image Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    var keyword = ViewBag.keyword;
+    int i = 1;
+}
+<!-- Main -->
+<div class="app-main__inner">
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="fa-solid fa-car"></i>
+                </div>
+                <div>
+                    Vehicle Image
+                    <div class="page-title-subheading">
+                        View, create, update, delete and manage.
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-title-actions">
+                <a asp-area="Admin" asp-controller="Vehicle" asp-action="CreateImage" asp-route-id="1" class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
+                    <span class="btn-icon-wrapper pr-2 opacity-7">
+                        <i class="fa fa-plus fa-w-20"></i>
+                    </span>
+                    Create
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 p-0">
+            <div class="main-card mb-3 card">
+
+                <div class="table-responsive" id="divTesst">
+                    <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th class="text-center">#No</th>
+                                <th class="text-center">Image</th>
+                                <th class="text-center">VehicleId</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="text-center text-muted">#@i</td>
+                                    <td>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left flex2">
+                                                    <img src="@(Url.Content("~/Uploads/vehicleImages/" + item.Path))"
+                                                         alt="Avatar" class="card-img"
+                                                         style="width: 100px;height:100px;object-fit: cover;" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">@item.VehicleName</td>
+                                    <td class="text-center">
+
+                                        <a asp-controller="Vehicle" asp-action="Edit" asp-route-id="@item.VehicleImageId" data-toggle="tooltip"
+                                           data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
+                                            <span class="btn-icon-wrapper opacity-8">
+                                                <i class="fa fa-edit fa-w-20"></i>
+                                            </span>
+                                        </a>
+                                        <a asp-controller="Vehicle" asp-action="Delete" asp-route-id="@item.VehicleImageId" asp-route-page="@ViewData["CurrentPage"]"
+                                           onclick="return confirm('Do you really want to delete this item?')" data-toggle="tooltip"
+                                           data-placement="bottom" class="btn btn-outline-danger border-0 btn-sm">
+                                            <span class="btn-icon-wrapper opacity-8">
+                                                <i class="fa fa-trash fa-w-20"></i>
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                i++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="d-block card-footer">
+                    <nav role="navigation" aria-label="Pagination Navigation" class="flex items-center justify-between">
+                        <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                            <div>
+                                <p class="text-sm text-gray-700 leading-5">
+                                    Showing
+                                    <span class="font-medium">@((Model.PageNumber - 1) * Model.PageSize + 1)</span>
+                                    to
+                                    <span class="font-medium">@Math.Min(Model.PageNumber * Model.PageSize, Model.TotalItemCount)</span>
+                                    of
+                                    <span class="font-medium">@Model.TotalItemCount</span>
+                                    results
+                                </p>
+                            </div>
+
+                            <div>
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination">
+                                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }),
+                                                 new PagedListRenderOptions
+                                        {
+                                            LiElementClasses = new[] { "page-item" },
+                                            PageClasses = new[] { "page-link" },
+                                            UlElementClasses = new[] { "pagination" }
+                                        })
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

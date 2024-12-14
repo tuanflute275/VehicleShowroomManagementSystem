@@ -7,6 +7,7 @@ namespace VehicleShowroom.Management.Domain.Abstract
         ISupplierRepository SupplierRepository { get; }
         IUserRepository UserRepository { get; }
         IVehicleRepository VehicleRepository { get; }
+        IVehicleImageRepository VehicleImageRepository { get; }
         ICompanyRepository CompanyRepository { get; }
         IPurchaseOrderRepository PurchaseOrderRepository { get; }
         IPurchaseOrderDetailRepository PurchaseOrderDetailRepository { get; }

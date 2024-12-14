@@ -18,7 +18,16 @@ namespace VehicleShowroom.Management.Application.Models.ViewModels
         [RegularExpression("^(Available|In Service|Sold)$", ErrorMessage = "Status must be either 'Available' or 'In Service' or 'Sold'.")]
         public string? Status { get; set; } = "Active";
 
-        public DateTime? DateAdded { get; set; } = DateTime.Now;
+        public string? EngineNumber { get; set; } = "NULL";
+        public string? ChassisNumber { get; set; } = "NULL";
+        public string? FuelType { get; set; } = "NULL";
+        public string? TransmissionType { get; set; } = "NULL";
+        public string? Color { get; set; } = "NULL";
+
+        [Range(1, int.MaxValue, ErrorMessage = "Price is required.")]
+        public decimal? Price { get; set; }
+        public decimal? Mileage { get; set; }
+        public int? ManufactureYear { get; set; }
 
         [StringLength(500, ErrorMessage = "Description cannot exceed 500 characters.")]
         public string? Description { get; set; }

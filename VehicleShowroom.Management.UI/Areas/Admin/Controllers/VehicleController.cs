@@ -126,5 +126,18 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
                 return RedirectToAction("Index", new { page = page ?? 1 });
             }
         }
+
+        //VehicleImage
+        public async Task<IActionResult> ListImage(int id, int? page = 1)
+        {
+            var data = await _vehicleService.GetAllImagePaginationAsync(id, page ?? 1, 8);
+            return View(data);
+        }
+
+        public async Task<IActionResult> CreateImage(int id)
+        {
+
+            return View();
+        }
     }
 }

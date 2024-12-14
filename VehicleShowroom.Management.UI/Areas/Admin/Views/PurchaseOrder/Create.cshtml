@@ -4,6 +4,31 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
+@section Scripts {
+    <script>
+        let index = 1;
+        document.getElementById('add-vehicle-button').addEventListener('click', () => {
+            const container = document.getElementById('vehicle-details-container');
+            const newRow = document.createElement('div');
+            newRow.className = 'position-relative row form-group';
+            newRow.innerHTML = `
+                <label class="col-md-3 text-md-right col-form-label">Vehicle</label>
+                <div class="col-md-4">
+                    <select name="Details[${index}].VehicleId" class="form-control">
+                        ${document.querySelector('select[name="Details[0].VehicleId"]').innerHTML}
+                    </select>
+                </div>
+                <label class="ml-5 text-md-right col-form-label">Quantity</label>
+                <div class="col-md-3">
+                    <input type="number" name="Details[${index}].Quantity" class="form-control" min="1" value="1" />
+                </div>
+            `;
+            container.appendChild(newRow);
+            index++;
+        });
+    </script>
+}
+
 <div class="app-main__inner">
     <div class="app-page-title">
         <div class="page-title-wrapper">
@@ -37,23 +62,28 @@
                             </div>
                         </div>
                         @* detail order *@
-                        <div class="position-relative row form-group">
-                            <label for="SupplierId" class="col-md-3 text-md-right col-form-label">Vehicle</label>
-                            <div class="col-md-9 col-xl-8">
-                                <select id="VehicleId" name="VehicleId" class="form-control" asp-items="ViewBag.Vehicles">
-                                    <option value="0">-- Select Vehicle --</option>
-                                </select>
-                                <span asp-validation-for="VehicleId" class="text-danger"></span>
+                        <div id="vehicle-details-container">
+                            <div class="position-relative row form-group">
+                                <label class="col-md-3 text-md-right col-form-label">Vehicle</label>
+                                <div class="col-md-4">
+                                    <select name="Details[0].VehicleId" class="form-control" asp-items="ViewBag.Vehicles">
+                                        <option value="">-- Select Vehicle --</option>
+                                    </select>
+                                </div>
+                                <label class="ml-5 text-md-right col-form-label">Quantity</label>
+                                <div class="col-md-3">
+                                    <input type="number" name="Details[0].Quantity" class="form-control" min="1" value="1" />
+                                </div>
                             </div>
                         </div>
-                        <div class="position-relative row form-group">
-                            <label for="Quantity" class="col-md-3 text-md-right col-form-label">Quantity</label>
-                            <div class="col-md-9 col-xl-8">
-                                <input asp-for="Quantity" min="1" value="1" max="99" type="number"
-                                       class="form-control">
-                                <span asp-validation-for="Quantity" class="text-danger"></span>
+
+                        <div class="position-relative row form-group mb-3">
+                            <div class="col-md-9 col-xl-9 offset-md-2 text-right">
+                                <button type="button" class="btn btn-primary" id="add-vehicle-button">Cancel Vehicle</button>
+                                <button type="button" class="btn btn-primary" id="add-vehicle-button">Add Vehicle</button>
                             </div>
                         </div>
+
                         <div class="position-relative row form-group mb-1">
                             <div class="col-md-9 col-xl-8 offset-md-2">
                                 <a asp-area="Admin" asp-controller="PurchaseOrder" asp-action="Index" class="border-0 btn btn-outline-danger mr-1">

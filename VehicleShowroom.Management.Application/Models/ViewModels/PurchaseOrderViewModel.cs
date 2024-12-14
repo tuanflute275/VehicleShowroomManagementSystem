@@ -7,9 +7,13 @@ namespace VehicleShowroom.Management.Application.Models.ViewModels
         public int PurchaseOrderId { get; set; }
         [Range(1, int.MaxValue, ErrorMessage = "Please select a valid Supplier.")]
         public int SupplierId { get; set; }
-        [Range(1, int.MaxValue, ErrorMessage = "Please select a valid Vehicle.")]
+
+        [Required]
+        public List<PurchaseOrderDetailViewModel> Details { get; set; } = new List<PurchaseOrderDetailViewModel>();
+    }
+    public class PurchaseOrderDetailViewModel
+    {
         public int VehicleId { get; set; }
-        [Range(1, int.MaxValue, ErrorMessage = "Quantity must be greater than 0.")]
         public int Quantity { get; set; }
     }
 }
