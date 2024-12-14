@@ -63,3 +63,19 @@ nav[aria-label="Pagination Navigation"] a:hover {
 .ui-theme-settings .btn-open-options {
     bottom: 48px;
 }
+
+@media print {
+    thead {
+        display: table-header-group; /* Hi?n th? tiêu ?? b?ng ? trang ??u tiên */
+    }
+
+    /* ?n tiêu ?? ? các trang ti?p theo */
+    tbody {
+        display: table-row-group;
+    }
+
+    /* ??m b?o b?ng không b? ?? tràn */
+    .stock-table {
+        page-break-inside: auto;
+    }
+}

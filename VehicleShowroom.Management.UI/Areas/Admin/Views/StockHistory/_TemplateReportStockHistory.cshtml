@@ -37,11 +37,6 @@
             color: #666;
         }
 
-        .stock-table thead {
-            display: table-header-group;
-            page-break-before: always; /* Đảm bảo tiêu đề luôn xuất hiện trên mỗi trang mới */
-        }
-
         .stock-info {
             margin-bottom: 20px;
         }
@@ -81,6 +76,7 @@
             font-size: 20px;
             color: #666;
         }
+  
     </style>
 </head>
 <body>
@@ -123,6 +119,22 @@
                             <td class="text-center">@String.Format("{0:MM/dd/yyyy}", item.ChangeDate)</td>
                         </tr>
                         i++;
+                        if (i % 19 == 0) 
+                        {
+                            // Add a new thead for the next page
+                        <thead>
+                            <tr style="background: #fff !important; color: #fff !important;">
+                                <th class="text-center">#No</th>
+                                <th class="text-center">Change Type</th>
+                                <th class="text-center">Quantity</th>
+                                <th class="text-center">Model Number</th>
+                                <th class="text-center">Vehicle Number</th>
+                                <th class="text-center">Supplier Name</th>
+                                <th class="text-center">Company Name</th>
+                                <th class="text-center">Change Date</th>
+                            </tr>
+                        </thead>
+                        }
                     }
                 </tbody>
             </table>

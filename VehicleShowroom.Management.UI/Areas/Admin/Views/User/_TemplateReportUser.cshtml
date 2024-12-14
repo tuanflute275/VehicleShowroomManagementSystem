@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@model VehicleShowroom.Management.Application.Models.DTOs.UserVehicleInfoDTO
+@{
+    var i = 1;
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,48 +25,48 @@
             margin-bottom: 30px;
         }
 
-            .header h1 {
-                margin: 0;
-                color: #333;
-            }
+        .header h1 {
+            margin: 0;
+            color: #333;
+        }
 
-            .header p {
-                margin: 5px 0;
-                font-size: 15px;
-                color: #666;
-            }
+        .header p {
+            margin: 5px 0;
+            font-size: 15px;
+            color: #666;
+        }
 
         .customer-info, .invoice-details {
             margin-bottom: 20px;
         }
 
-            .customer-info h2, .invoice-details h2 {
-                margin-bottom: 10px;
-                font-size: 18px;
-                color: #007bff;
-            }
+        .customer-info h2, .invoice-details h2 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #007bff;
+        }
 
         .info-table {
             width: 100%;
             border-collapse: collapse;
         }
 
-            .info-table th, .info-table td {
-                border: 1px solid #ddd;
-                padding: 10px;
-                text-align: left;
-            }
+        .info-table th, .info-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
 
-            .info-table th {
-            }
+        .info-table th {
+        }
 
-            .info-table tr:nth-child(even) {
-                background-color: #f2f2f2;
-            }
+        .info-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
 
         .footer {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 50px;
             font-size: 18px;
             color: #666;
         }
@@ -85,27 +89,27 @@
             <table class="info-table">
                 <tr>
                     <th>Customer ID</th>
-                    <td>001</td>
+                    <td>#@Model.UserId</td>
                 </tr>
                 <tr>
                     <th>Full Name</th>
-                    <td>John Doe</td>
+                    <td>@Model.FullName</td>
                 </tr>
                 <tr>
                     <th>Email</th>
-                    <td>john.doe@example.com</td>
+                    <td>@Model.Email</td>
                 </tr>
                 <tr>
                     <th>Phone</th>
-                    <td>+123456789</td>
+                    <td>@Model.PhoneNumber</td>
                 </tr>
                 <tr>
                     <th>Address</th>
-                    <td>123 Main Street, City</td>
+                    <td>@Model.Address</td>
                 </tr>
                 <tr>
                     <th>Gender</th>
-                    <td>Male</td>
+                    <td>@Model.Gender</td>
                 </tr>
             </table>
         </div>
@@ -118,30 +122,25 @@
                     <tr>
                         <th>#</th>
                         <th>Vehicle Name</th>
-                        <th>Brand</th>
                         <th>Model Number</th>
+                        <th>Supplier</th>
+                        <th>Company</th>
                         <th>Price</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Toyota Corolla</td>
-                        <td>Toyota</td>
-                        <td>1234ABC</td>
-                        <td>$20,000</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Honda Civic</td>
-                        <td>Honda</td>
-                        <td>5678DEF</td>
-                        <td>$25,000</td>
-                    </tr>
-                    <tr>
-                        <td colspan="4" style="text-align: right;"><strong>Total:</strong></td>
-                        <td><strong>$45,000</strong></td>
-                    </tr>
+                    @foreach(var item in Model.Vehicles)
+                    {
+                        <tr>
+                            <td>@i</td>
+                            <td>@item.VehicleName</td>
+                            <td>@item.ModelNumber</td>
+                            <td>@item.SupplierName</td>
+                            <td>@item.CompanyName</td>
+                            <td>@string.Format("{0:C}", item.Price)</td>
+                        </tr>
+                        i++;
+                    }
                 </tbody>
             </table>
         </div>
