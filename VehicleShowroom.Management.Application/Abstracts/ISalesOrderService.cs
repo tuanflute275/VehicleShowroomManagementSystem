@@ -10,7 +10,7 @@ namespace VehicleShowroom.Management.Application.Abstracts
         Task<List<SalesOrderDetailDTO>> GetByIdAsync(int id);
         Task<SaleOrderViewModel> GetDataByIdAsync(int id);
         Task<(bool Success, string ErrorMessage)> SaveOrUpdateAsync(SaleOrderViewModel model);
-        Task<bool> DeleteAsync(int id);
+        Task<(bool Success, string ErrorMessage)> DeleteAsync(int id);
         Task<List<UserDTO>> GetAllUserAsync();
         Task<List<VehicleDTO>> GetAllVehicleAsync();
     }

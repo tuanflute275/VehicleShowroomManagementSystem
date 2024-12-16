@@ -34,7 +34,7 @@ namespace VehicleShowroom.Management.Application.Services
             return await _unitOfWork.CompanyRepository.GetByIdAsync(id);
         }
 
-        public async Task<bool> SaveOrUpdateAsync(CompanyViewModel model)
+        public async Task<(bool Success, string ErrorMessage)> SaveOrUpdateAsync(CompanyViewModel model)
         {
             try
             {
@@ -51,6 +51,7 @@ namespace VehicleShowroom.Management.Application.Services
                 else
                 {
                     company = await _unitOfWork.CompanyRepository.GetByIdAsync(model.CompanyId);
+                    if (company == null) return (false, "Company not found.");
                     company.CompanyName = model.CompanyName;
                     company.PhoneNumber = model.PhoneNumber;
                     company.Email = model.Email;
@@ -59,32 +60,29 @@ namespace VehicleShowroom.Management.Application.Services
                     company.UpdateDate = DateTime.Now;
                 }
                 bool result = await _unitOfWork.CompanyRepository.SaveOrUpdateAsync(company);
+                if (!result) return (false, "An error occurred while saving the company.");
                 await _unitOfWork.SaveChangeAsync();
-                return true;
+                return (true, null);
             }
             catch (Exception e)
             {
-                return false;
+                return (false, $"An error occurred: {e.Message}");
             }
         }
 
-        public async Task<bool> DeleteAsync(int id)
+        public async Task<(bool Success, string ErrorMessage)> DeleteAsync(int id)
         {
             try
             {
                 var company = await _unitOfWork.CompanyRepository.GetByIdAsync(id);
-                if (company == null)
-                {
-                    return false;
-                }
-
+                if (company == null) return (false, "Company not found.");
                 await _unitOfWork.CompanyRepository.DeleteAsync(company);
                 await _unitOfWork.SaveChangeAsync();
-                return true;
+                return (true, null);
             }
             catch (Exception ex)
             {
-                return false;
+                return (false, $"An error occurred: {ex.Message}");
             }
         }
     }

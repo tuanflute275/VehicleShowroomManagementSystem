@@ -12,7 +12,7 @@ namespace VehicleShowroom.Management.Application.Abstracts
         Task<List<UserDTO>> GetAllAsync();
         Task<UserVehicleInfoDTO> GetDataExportByIdAsync(int userId);
         Task<IPagedList<UserDTO>> GetAllPaginationAsync(string keyword, int page, int pageSize = 8);
-        Task<bool> DeleteAsync(int id);
+        Task<(bool Success, string ErrorMessage)> DeleteAsync(int id);
         Task<UserDTO> GetUserByIdAsync(int id);
         Task<(bool Success, string ErrorMessage)> SaveOrUpdateAsync(UserViewModel model, IFormFile? fileUpload, string? oldImage = null);
     }

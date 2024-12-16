@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Mvc;
 using VehicleShowroom.Management.Application.Abstracts;
-using VehicleShowroom.Management.Application.Services;
+using VehicleShowroom.Management.Application.Utils;
 using VehicleShowroomManagementSystem.Areas.Admin.Controllers;
 
 namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
@@ -8,9 +9,11 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
     public class BillingController : BaseController
     {
         private readonly IBillingService _billingService;
-        public BillingController(IBillingService billingService)
+        private readonly INotyfService _toastNotification;
+        public BillingController(IBillingService billingService, INotyfService notyfService)
         {
             _billingService = billingService;   
+            _toastNotification = notyfService;
         }
 
         public async Task<IActionResult> Index(string? keyword, int? page = 1)
@@ -26,22 +29,14 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
             try
             {
                 var (isSuccess, errorMessage) = await _billingService.DeleteAsync(id);
-                if (isSuccess)
-                {
-                    TempData["success"] = "Vehicle created successfully!";
-                    return RedirectToAction("Index", new { page = page ?? 1 });
-                }
-                else
-                {
-                    // Thêm thông báo lỗi vào ModelState để hiển thị trên giao diện
-                    ModelState.AddModelError(string.Empty, errorMessage ?? "An error occurred while saving the user.");
-                    return RedirectToAction("Index", new { page = page ?? 1 });
-                }
+                if (isSuccess) _toastNotification.Success(Constant.DeleteSuccess, 3);
+                else _toastNotification.Warning(errorMessage ?? Constant.OperationFailed, 3);
             }
             catch (Exception ex)
             {
-                return RedirectToAction("Index", new { page = page ?? 1 });
+                _toastNotification.Error($"{Constant.OperationFailed} Error: {ex.Message}", 3);
             }
+            return RedirectToAction("Index", new { page = page ?? 1 });
         }
     }
 }

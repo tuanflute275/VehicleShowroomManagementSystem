@@ -41,8 +41,12 @@ namespace VehicleShowroom.Management.Application.Services
             return await _unitOfWork.SupplierRepository.GetSupplierByIdAsync(id);
         }
 
-        public async Task<bool> SaveOrUpdateAsync(SupplierViewModel supplierModel)
+        public async Task<(bool Success, string ErrorMessage)> SaveOrUpdateAsync(SupplierViewModel supplierModel)
         {
+            if (supplierModel == null)
+            {
+                return (false, "Supplier data is null.");
+            }
             try
             {
                 var supplier = new Supplier();
@@ -56,6 +60,7 @@ namespace VehicleShowroom.Management.Application.Services
                 else
                 {
                     supplier = await _unitOfWork.SupplierRepository.GetSupplierByIdAsync(supplierModel.SupplierId);
+                    if (supplier == null) return (false, "Supplier not found.");
                     supplier.SupplierName = supplierModel.SupplierName;
                     supplier.ContactPerson = supplierModel.ContactPerson;
                     supplier.PhoneNumber = supplierModel.PhoneNumber;
@@ -73,31 +78,31 @@ namespace VehicleShowroom.Management.Application.Services
                 }
                 bool result = await _unitOfWork.SupplierRepository.SaveOrUpdateAsync(supplier);
                 await _unitOfWork.SaveChangeAsync();
-                return true;
+                return (true, null);
             }
             catch(Exception e)
             {
-                return false;
+                return (false, $"An error occurred: {e.Message}");
             }
         }
 
-        public async Task<bool> DeleteAsync(int id)
+        public async Task<(bool Success, string ErrorMessage)> DeleteAsync(int id)
         {
+            if (id <= 0)
+            {
+                return (false, "Invalid supplier ID.");
+            }
             try
             {
                 var supplier = await _unitOfWork.SupplierRepository.GetSupplierByIdAsync(id);
-                if (supplier == null)
-                {
-                    return false;
-                }
-
+                if (supplier == null) return (false, "Supplier not found.");
                 await _unitOfWork.SupplierRepository.DeleteAsync(supplier);
                 await _unitOfWork.SaveChangeAsync();
-                return true;
+                return (true, null);
             }
             catch (Exception ex)
             {
-                return false;
+                return (false, $"An error occurred: {ex.Message}");
             }
         }
     }

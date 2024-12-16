@@ -26,7 +26,6 @@ namespace VehicleShowroom.Management.Application.Services
             {
                 var billing = await _unitOfWork.BillingRepository.GetByIdAsync(id);
                 if (billing == null) return (false, "Billing record not found.");
-
                 await _unitOfWork.BillingRepository.DeleteAsync(billing);
                 await _unitOfWork.SaveChangeAsync();
                 return (true, null);

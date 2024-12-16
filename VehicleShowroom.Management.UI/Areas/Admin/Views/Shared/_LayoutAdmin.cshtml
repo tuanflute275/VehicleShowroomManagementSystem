@@ -94,8 +94,8 @@
     <script type="text/javascript" src="~/assets/scripts/html2canvas.min.js"></script>
     <script type="text/javascript" src="~/assets/scripts/bootbox.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
-  @*   @await Component.InvokeAsync("NToastNotify")
-    @await Component.InvokeAsync("Notyf") *@
+    @await Component.InvokeAsync("NToastNotify")
+    @await Component.InvokeAsync("Notyf")
     <script>
         // Kết nối đến SignalR Hub
         const connection = new signalR.HubConnectionBuilder()

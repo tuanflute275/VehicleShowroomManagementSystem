@@ -8,8 +8,8 @@ namespace VehicleShowroom.Management.Application.Abstracts
     public interface ICompanyServices
     {
         Task<IPagedList<CompanyDTO>> GetAllPaginationAsync(string keyword, int page, int pageSize = 8);
-        Task<bool> DeleteAsync(int id);
+        Task<(bool Success, string ErrorMessage)> DeleteAsync(int id);
         Task<Company> GetByIdAsync(int id);
-        Task<bool> SaveOrUpdateAsync(CompanyViewModel model);
+        Task<(bool Success, string ErrorMessage)> SaveOrUpdateAsync(CompanyViewModel model);
     }
 }

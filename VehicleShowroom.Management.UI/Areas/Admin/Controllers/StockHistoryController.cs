@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using VehicleShowroom.Management.Application.Abstracts;
 using VehicleShowroom.Management.Application.Models.DTOs;
@@ -12,10 +13,12 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
     public class StockHistoryController : BaseController
     {
         private readonly IPDFService _pdfService;
+        private readonly INotyfService _toastNotification;
         private readonly IStockHistoryService _stockHistoryService;
-        public StockHistoryController(IStockHistoryService stockHistoryService, IPDFService pdfService)
+        public StockHistoryController(IStockHistoryService stockHistoryService, IPDFService pdfService, INotyfService notyfService)
         {
             _pdfService = pdfService;
+            _toastNotification = notyfService;
             _stockHistoryService = stockHistoryService;
         }
 
@@ -40,17 +43,15 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
         {
             try
             {
-                var result = await _stockHistoryService.DeleteAsync(id);
-                if (result)// Redirect to the Index page with the same page number
-                    return RedirectToAction("Index", new { page = page ?? 1 });
-                else
-                    return RedirectToAction("Index", new { page = page ?? 1 });
+                var (isSuccess, errorMessage) = await _stockHistoryService.DeleteAsync(id);
+                if (isSuccess) _toastNotification.Success(Constant.DeleteSuccess, 3);
+                else _toastNotification.Warning(errorMessage ?? Constant.OperationFailed, 3);
             }
             catch (Exception ex)
             {
-                // Handle any errors that occur during the deletion
-                return RedirectToAction("Index", new { page = page ?? 1 });
+                _toastNotification.Error($"{Constant.OperationFailed} Error: {ex.Message}", 3);
             }
+            return RedirectToAction("Index", new { page = page ?? 1 });
         }
     }
 }

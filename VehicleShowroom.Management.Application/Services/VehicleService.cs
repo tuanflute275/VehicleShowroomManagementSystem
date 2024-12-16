@@ -97,8 +97,7 @@ namespace VehicleShowroom.Management.Application.Services
                 else
                 {
                     vehicle = await _unitOfWork.VehicleRepository.GetByIdAsync(model.VehicleId);
-                    if (vehicle == null)
-                        return (false, "User not found");
+                    if (vehicle == null) return (false, "Vehicle not found");
                     vehicle.ModelNumber = model.ModelNumber;
                     vehicle.Name = model.Name;
                     vehicle.Slug = Util.GenerateSlug(model.Name);
@@ -126,29 +125,25 @@ namespace VehicleShowroom.Management.Application.Services
                 await _unitOfWork.SaveChangeAsync();
                 return (true, null);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                return (false, e.Message);
+                return (false, $"An error occurred: {ex.Message}");
             }
         }
 
-        public async Task<bool> DeleteAsync(int id)
+        public async Task<(bool Success, string ErrorMessage)> DeleteAsync(int id)
         {
             try
             {
                 var vehicle = await _unitOfWork.VehicleRepository.GetByIdAsync(id);
-                if (vehicle == null)
-                {
-                    return false;
-                }
-
+                if (vehicle == null) return (false, "Vehicle not found.");
                 await _unitOfWork.VehicleRepository.DeleteAsync(vehicle);
                 await _unitOfWork.SaveChangeAsync();
-                return true;
+                return (true, null);
             }
             catch (Exception ex)
             {
-                return false;
+                return (false, $"An error occurred: {ex.Message}");
             }
         }
 

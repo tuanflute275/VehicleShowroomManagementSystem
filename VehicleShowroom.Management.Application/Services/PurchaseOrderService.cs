@@ -42,23 +42,19 @@ namespace VehicleShowroom.Management.Application.Services
             return data;
         }
 
-        public async Task<bool> DeleteAsync(int id)
+        public async Task<(bool Success, string ErrorMessage)> DeleteAsync(int id)
         {
             try
             {
                 var purchase = await _unitOfWork.PurchaseOrderRepository.GetByIdAsync(id);
-                if (purchase == null)
-                {
-                    return false;
-                }
-
+                if (purchase == null) return (false, "Purchase order not found.");
                 await _unitOfWork.PurchaseOrderRepository.DeleteAsync(purchase);
                 await _unitOfWork.SaveChangeAsync();
-                return true;
+                return (true, null);
             }
             catch (Exception ex)
             {
-                return false;
+                return (false, $"An error occurred: {ex.Message}");
             }
         }
 
@@ -122,8 +118,7 @@ namespace VehicleShowroom.Management.Application.Services
                 else
                 {
                     purchaseOrder = await _unitOfWork.PurchaseOrderRepository.GetByIdAsync(model.PurchaseOrderId);
-                    if (purchaseOrder == null)
-                        return (false, "User not found");
+                    if (purchaseOrder == null) return (false, "purchaseOrder not found");
                     purchaseOrder.SupplierId = model.SupplierId;
                     purchaseOrder.UpdateBy = "Admin";
                     purchaseOrder.UpdateDate = DateTime.Now;
@@ -138,9 +133,9 @@ namespace VehicleShowroom.Management.Application.Services
                 await _unitOfWork.SaveChangeAsync();
                 return (true, "Purchase order created successfully.");
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                return (false, e.Message);
+                return (false, $"An error occurred: {ex.Message}");
             }
         }
 

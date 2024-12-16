@@ -13,7 +13,7 @@ namespace VehicleShowroom.Management.Application.Abstracts
         Task<List<Company>> GetAllCompanyAsync();
         Task<Vehicle> GetByIdAsync(int id);
         Task<(bool Success, string ErrorMessage)> SaveOrUpdateAsync(VehicleViewModel model, IFormFile? fileUpload, string? oldImage = null);
-        Task<bool> DeleteAsync(int id);
+        Task<(bool Success, string ErrorMessage)> DeleteAsync(int id);
         //VehicleImage
         Task<IPagedList<VehicleImageDTO>> GetAllImagePaginationAsync(int vehicleId, int page, int pageSize = 8);
     }

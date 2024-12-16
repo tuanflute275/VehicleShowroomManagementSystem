@@ -61,23 +61,19 @@ namespace VehicleShowroom.Management.Application.Services
             return result;
         }
 
-        public async Task<bool> DeleteAsync(int id)
+        public async Task<(bool Success, string ErrorMessage)> DeleteAsync(int id)
         {
             try
             {
                 var sale = await _unitOfWork.SalesOrderRepository.GetByIdAsync(id);
-                if (sale == null)
-                {
-                    return false;
-                }
-
+                if (sale == null) return (false, "Sales order not found.");
                 await _unitOfWork.SalesOrderRepository.DeleteAsync(sale);
                 await _unitOfWork.SaveChangeAsync();
-                return true;
+                return (true, null);
             }
             catch (Exception ex)
             {
-                return false;
+                return (false, $"An error occurred: {ex.Message}");
             }
         }
 

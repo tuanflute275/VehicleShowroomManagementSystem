@@ -1,8 +1,10 @@
-﻿using AutoMapper;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using VehicleShowroom.Management.Application.Abstracts;
 using VehicleShowroom.Management.Application.Models.ViewModels;
+using VehicleShowroom.Management.Application.Utils;
 using VehicleShowroomManagementSystem.Areas.Admin.Controllers;
 
 namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
@@ -10,11 +12,12 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
     public class PurchaseOrderController : BaseController
     {
         private readonly IMapper _mapper;
+        private readonly INotyfService _toastNotification;
         private readonly IPurchaseOrderService _purchaseOrderService;
-        public PurchaseOrderController(IMapper mapper, IPurchaseOrderService purchaseOrderService)
+        public PurchaseOrderController(IMapper mapper, IPurchaseOrderService purchaseOrderService, INotyfService notyfService)
         {
             _mapper = mapper;
-           
+           _toastNotification = notyfService;
             _purchaseOrderService = purchaseOrderService;
         }
 
@@ -43,13 +46,12 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
                 var (isSuccess, errorMessage) = await _purchaseOrderService.SaveOrUpdateAsync(model);
                 if (isSuccess)
                 {
-                    TempData["success"] = "Purchase created successfully!";
+                    _toastNotification.Success(Constant.CreateSuccess, 3);
                     return RedirectToAction(nameof(Index));
                 }
                 else
                 {
-                    // Thêm thông báo lỗi vào ModelState để hiển thị trên giao diện
-                    ModelState.AddModelError(string.Empty, errorMessage ?? "An error occurred while saving the user.");
+                    _toastNotification.Error(errorMessage ?? Constant.OperationFailed, 3);
                     return View("Create", model);
                 }
             }
@@ -57,6 +59,7 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
             // If the model is invalid, show an error notification and re-render the form
             ViewBag.Suppliers = new SelectList(await _purchaseOrderService.GetAllSupplierAsync(), "SupplierId", "SupplierName");
             ViewBag.Vehicles = new SelectList(await _purchaseOrderService.GetAllVehicleAsync(), "VehicleId", "Name");
+            _toastNotification.Error(Constant.InvalidForm, 3);
             return View("Create", model);
         }
 
@@ -64,17 +67,15 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
         {
             try
             {
-                var result = await _purchaseOrderService.DeleteAsync(id);
-                if (result)// Redirect to the Index page with the same page number
-                    return RedirectToAction("Index", new { page = page ?? 1 });
-                else
-                    return RedirectToAction("Index", new { page = page ?? 1 });
+                var (isSuccess, errorMessage) = await _purchaseOrderService.DeleteAsync(id);
+                if (isSuccess) _toastNotification.Success(Constant.DeleteSuccess, 3);
+                else _toastNotification.Warning(errorMessage ?? Constant.OperationFailed, 3);
             }
             catch (Exception ex)
             {
-                // Handle any errors that occur during the deletion
-                return RedirectToAction("Index", new { page = page ?? 1 });
+                _toastNotification.Error($"{Constant.OperationFailed} Error: {ex.Message}", 3);
             }
+            return RedirectToAction("Index", new { page = page ?? 1 });
         }
     }
 }
