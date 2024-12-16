@@ -21,7 +21,7 @@ namespace VehicleShowroom.Management.DataAccess.Repository
         ISalesOrderRepository _salesOrderRepository;
         ISalesOrderDetailRepository _salesOrderDetailRepository;
         IStockHistoryRepository _stockHistoryRepository;
-
+        IBillingRepository _billingRepository;
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
@@ -39,7 +39,8 @@ namespace VehicleShowroom.Management.DataAccess.Repository
         public ISalesOrderRepository SalesOrderRepository => _salesOrderRepository ??= new SalesOrderRepository(_context);
         public ISalesOrderDetailRepository SalesOrderDetailRepository => _salesOrderDetailRepository ??=new SalesOrderDetailRepository(_context);
         public IStockHistoryRepository StockHistoryRepository => _stockHistoryRepository ??= new StockHistoryRepository(_context);
-
+        public IBillingRepository BillingRepository => _billingRepository ??= new BillingRepository(_context);
+        
         public async Task BeginTransaction()
         {
             _dbContextTransaction = await _context.Database.BeginTransactionAsync();

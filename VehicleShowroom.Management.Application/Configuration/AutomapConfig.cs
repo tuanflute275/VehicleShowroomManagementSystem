@@ -34,8 +34,7 @@ namespace VehicleShowroom.Management.Application.Configuration
              .ForMember(dest => dest.VehicleName, opt => opt.MapFrom(src => src.Vehicle.Name))
              .ForMember(dest => dest.VehiclePrice, opt => opt.MapFrom(src => src.Vehicle.Price != null ? Convert.ToDecimal(src.Vehicle.Price) : 0))  // Cải tiến chuyển đổi an toàn
              .ForMember(dest => dest.SupplierName, opt => opt.MapFrom(src => src.Vehicle.Supplier.SupplierName))
-             .ForMember(dest => dest.CompanyName, opt => opt.MapFrom(src => src.Vehicle.Company != null ? src.Vehicle.Company.CompanyName : string.Empty))
-             ;
+             .ForMember(dest => dest.CompanyName, opt => opt.MapFrom(src => src.Vehicle.Company != null ? src.Vehicle.Company.CompanyName : string.Empty));
 
             CreateMap<SalesOrder, SaleOrderDTO>()
                 .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.User.FullName))
@@ -50,6 +49,11 @@ namespace VehicleShowroom.Management.Application.Configuration
                .ForMember(dest => dest.VehicleName, opt => opt.MapFrom(src => src.Vehicle.Name))
                .ForMember(dest => dest.SupplierName, opt => opt.MapFrom(src => src.Vehicle.Supplier.SupplierName))
                .ForMember(dest => dest.CompanyName, opt => opt.MapFrom(src => src.Vehicle.Company.CompanyName));
+
+            CreateMap<Billing, BillingDTO>()
+               .ForMember(dest => dest.CustomerName, opt => opt.MapFrom(src => src.User.FullName))
+               .ForMember(dest => dest.CustomerPhone, opt => opt.MapFrom(src => src.User.PhoneNumber))
+               .ForMember(dest => dest.Note, opt => opt.MapFrom(src => src.Notes));
         }
     }
 }

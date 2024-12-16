@@ -22,6 +22,51 @@ namespace VehicleShowroom.Management.DataAccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("VehicleShowroom.Management.Domain.Entities.Billing", b =>
+                {
+                    b.Property<int>("BillingId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BillingId"));
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("BillingDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Notes")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("PaidDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PaymentMethod")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<int>("SaleOrderId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BillingId");
+
+                    b.HasIndex("SaleOrderId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Billing");
+                });
+
             modelBuilder.Entity("VehicleShowroom.Management.Domain.Entities.Company", b =>
                 {
                     b.Property<int>("CompanyId")
@@ -660,6 +705,25 @@ namespace VehicleShowroom.Management.DataAccess.Migrations
                     b.HasIndex("VehiclelId");
 
                     b.ToTable("VehicleImages");
+                });
+
+            modelBuilder.Entity("VehicleShowroom.Management.Domain.Entities.Billing", b =>
+                {
+                    b.HasOne("VehicleShowroom.Management.Domain.Entities.SalesOrder", "SalesOrder")
+                        .WithMany()
+                        .HasForeignKey("SaleOrderId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("VehicleShowroom.Management.Domain.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("SalesOrder");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("VehicleShowroom.Management.Domain.Entities.PurchaseOrder", b =>

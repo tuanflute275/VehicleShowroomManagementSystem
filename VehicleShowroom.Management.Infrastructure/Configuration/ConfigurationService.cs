@@ -82,6 +82,7 @@ namespace VehicleShowroom.Management.Infrastructure.Configuration
             services.AddTransient<IPurchaseOrderService, PurchaseOrderService>();
             services.AddTransient<ISalesOrderService, SalesOrderService>();
             services.AddTransient<IStockHistoryService, StockHistoryService>();
+            services.AddTransient<IBillingService, BillingService>();
         }
 
         public static void AddAutoMapper(this IServiceCollection services)

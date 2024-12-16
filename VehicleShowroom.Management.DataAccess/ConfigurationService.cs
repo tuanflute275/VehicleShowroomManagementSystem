@@ -1210,29 +1210,58 @@ namespace VehicleShowroom.Management.DataAccess
                 {
                     // Insert the seed data for StockHistory table
                     appContext.StockHistories.AddRange(
-                        new StockHistory { VehicleId = 1, UserId = 1, ChangeDate = new DateTime(2024, 12, 1), ChangeType = "Stock In", Quantity = 10 },
-                        new StockHistory { VehicleId = 2, UserId = 1, ChangeDate = new DateTime(2024, 12, 2), ChangeType = "Stock Out", Quantity = 5 },
-                        new StockHistory { VehicleId = 3, UserId = 1, ChangeDate = new DateTime(2024, 12, 3), ChangeType = "Stock In", Quantity = 7 },
-                        new StockHistory { VehicleId = 4, UserId = 2, ChangeDate = new DateTime(2024, 12, 4), ChangeType = "Stock Out", Quantity = 8 },
-                        new StockHistory { VehicleId = 5, UserId = 2, ChangeDate = new DateTime(2024, 12, 5), ChangeType = "Stock In", Quantity = 5 },
-                        new StockHistory { VehicleId = 6, UserId = 3, ChangeDate = new DateTime(2024, 12, 6), ChangeType = "Stock Out", Quantity = 6 },
-                        new StockHistory { VehicleId = 7, UserId = 3, ChangeDate = new DateTime(2024, 12, 7), ChangeType = "Stock In", Quantity = 12 },
-                        new StockHistory { VehicleId = 8, UserId = 3, ChangeDate = new DateTime(2024, 12, 8), ChangeType = "Stock Out", Quantity = 14 },
-                        new StockHistory { VehicleId = 9, UserId = 4, ChangeDate = new DateTime(2024, 12, 9), ChangeType = "Stock In", Quantity = 13 },
-                        new StockHistory { VehicleId = 10, UserId = 5, ChangeDate = new DateTime(2024, 12, 10), ChangeType = "Stock Out", Quantity = 11 },
-                        new StockHistory { VehicleId = 11, UserId = 6, ChangeDate = new DateTime(2024, 12, 11), ChangeType = "Stock In", Quantity = 9 },
-                        new StockHistory { VehicleId = 12, UserId = 6, ChangeDate = new DateTime(2024, 12, 12), ChangeType = "Stock Out", Quantity = 10 },
-                        new StockHistory { VehicleId = 13, UserId = 7, ChangeDate = new DateTime(2024, 12, 13), ChangeType = "Stock In", Quantity = 8 },
-                        new StockHistory { VehicleId = 14, UserId = 8, ChangeDate = new DateTime(2024, 12, 14), ChangeType = "Stock Out", Quantity = 6 },
-                        new StockHistory { VehicleId = 15, UserId = 8, ChangeDate = new DateTime(2024, 12, 15), ChangeType = "Stock In", Quantity = 5 },
-                        new StockHistory { VehicleId = 16, UserId = 9, ChangeDate = new DateTime(2024, 12, 16), ChangeType = "Stock Out", Quantity = 7 },
-                        new StockHistory { VehicleId = 17, UserId = 9, ChangeDate = new DateTime(2024, 12, 17), ChangeType = "Stock In", Quantity = 10 },
-                        new StockHistory { VehicleId = 18, UserId = 9, ChangeDate = new DateTime(2024, 12, 18), ChangeType = "Stock Out", Quantity = 8 },
-                        new StockHistory { VehicleId = 19, UserId = 10, ChangeDate = new DateTime(2024, 12, 19), ChangeType = "Stock In", Quantity = 9 },
-                        new StockHistory { VehicleId = 20, UserId = 10, ChangeDate = new DateTime(2024, 12, 20), ChangeType = "Stock Out", Quantity = 7 }
+                        new StockHistory { VehicleId = 1, UserId = 1, ChangeDate = new DateTime(2024, 12, 1), ChangeType = "Stock_In", Quantity = 10 },
+                        new StockHistory { VehicleId = 2, UserId = 1, ChangeDate = new DateTime(2024, 12, 2), ChangeType = "Stock_Out", Quantity = 5 },
+                        new StockHistory { VehicleId = 3, UserId = 1, ChangeDate = new DateTime(2024, 12, 3), ChangeType = "Stock_In", Quantity = 7 },
+                        new StockHistory { VehicleId = 4, UserId = 2, ChangeDate = new DateTime(2024, 12, 4), ChangeType = "Stock_Out", Quantity = 8 },
+                        new StockHistory { VehicleId = 5, UserId = 2, ChangeDate = new DateTime(2024, 12, 5), ChangeType = "Stock_In", Quantity = 5 },
+                        new StockHistory { VehicleId = 6, UserId = 3, ChangeDate = new DateTime(2024, 12, 6), ChangeType = "Stock_Out", Quantity = 6 },
+                        new StockHistory { VehicleId = 7, UserId = 3, ChangeDate = new DateTime(2024, 12, 7), ChangeType = "Stock_In", Quantity = 12 },
+                        new StockHistory { VehicleId = 8, UserId = 3, ChangeDate = new DateTime(2024, 12, 8), ChangeType = "Stock_Out", Quantity = 14 },
+                        new StockHistory { VehicleId = 9, UserId = 4, ChangeDate = new DateTime(2024, 12, 9), ChangeType = "Stock_In", Quantity = 13 },
+                        new StockHistory { VehicleId = 10, UserId = 5, ChangeDate = new DateTime(2024, 12, 10), ChangeType = "Stock_Out", Quantity = 11 },
+                        new StockHistory { VehicleId = 11, UserId = 6, ChangeDate = new DateTime(2024, 12, 11), ChangeType = "Stock_In", Quantity = 9 },
+                        new StockHistory { VehicleId = 12, UserId = 6, ChangeDate = new DateTime(2024, 12, 12), ChangeType = "Stock_Out", Quantity = 10 },
+                        new StockHistory { VehicleId = 13, UserId = 7, ChangeDate = new DateTime(2024, 12, 13), ChangeType = "Stock_In", Quantity = 8 },
+                        new StockHistory { VehicleId = 14, UserId = 8, ChangeDate = new DateTime(2024, 12, 14), ChangeType = "Stock_Out", Quantity = 6 },
+                        new StockHistory { VehicleId = 15, UserId = 8, ChangeDate = new DateTime(2024, 12, 15), ChangeType = "Stock_In", Quantity = 5 },
+                        new StockHistory { VehicleId = 16, UserId = 9, ChangeDate = new DateTime(2024, 12, 16), ChangeType = "Stock_Out", Quantity = 7 },
+                        new StockHistory { VehicleId = 17, UserId = 9, ChangeDate = new DateTime(2024, 12, 17), ChangeType = "Stock_In", Quantity = 10 },
+                        new StockHistory { VehicleId = 18, UserId = 9, ChangeDate = new DateTime(2024, 12, 18), ChangeType = "Stock_Out", Quantity = 8 },
+                        new StockHistory { VehicleId = 19, UserId = 10, ChangeDate = new DateTime(2024, 12, 19), ChangeType = "Stock_In", Quantity = 9 },
+                        new StockHistory { VehicleId = 20, UserId = 10, ChangeDate = new DateTime(2024, 12, 20), ChangeType = "Stock_Out", Quantity = 7 }
                     );
                     await appContext.SaveChangesAsync();
                 }
+
+                if (!appContext.Billings.Any())
+                {
+                    // Insert seed data for Billing table
+                    appContext.Billings.AddRange(
+                        new Billing { SaleOrderId = 1, UserId = 1, BillingDate = new DateTime(2024, 12, 1), Amount = 250000, PaymentMethod = "Credit Card", Status = "Paid", Notes = "Payment successful", PaidDate = new DateTime(2024, 12, 1) },
+                        new Billing { SaleOrderId = 2, UserId = 2, BillingDate = new DateTime(2024, 12, 2), Amount = 150000, PaymentMethod = "Cash", Status = "Paid", Notes = "Cash payment" },
+                        new Billing { SaleOrderId = 3, UserId = 3, BillingDate = new DateTime(2024, 12, 3), Amount = 300000, PaymentMethod = "Credit Card", Status = "Pending", Notes = "Pending payment" },
+                        new Billing { SaleOrderId = 4, UserId = 4, BillingDate = new DateTime(2024, 12, 4), Amount = 500000, PaymentMethod = "Bank Transfer", Status = "Failed", Notes = "Transfer failed" },
+                        new Billing { SaleOrderId = 5, UserId = 5, BillingDate = new DateTime(2024, 12, 5), Amount = 750000, PaymentMethod = "Cash", Status = "Paid", Notes = "Paid in full" },
+                        new Billing { SaleOrderId = 6, UserId = 6, BillingDate = new DateTime(2024, 12, 6), Amount = 200000, PaymentMethod = "Credit Card", Status = "Paid", Notes = "Payment processed successfully", PaidDate = new DateTime(2024, 12, 6) },
+                        new Billing { SaleOrderId = 7, UserId = 7, BillingDate = new DateTime(2024, 12, 7), Amount = 125000, PaymentMethod = "Cash", Status = "Pending", Notes = "Awaiting payment" },
+                        new Billing { SaleOrderId = 8, UserId = 8, BillingDate = new DateTime(2024, 12, 8), Amount = 400000, PaymentMethod = "Bank Transfer", Status = "Paid", Notes = "Transfer completed", PaidDate = new DateTime(2024, 12, 8) },
+                        new Billing { SaleOrderId = 9, UserId = 9, BillingDate = new DateTime(2024, 12, 9), Amount = 550000, PaymentMethod = "Credit Card", Status = "Paid", Notes = "Payment successful", PaidDate = new DateTime(2024, 12, 9) },
+                        new Billing { SaleOrderId = 10, UserId = 10, BillingDate = new DateTime(2024, 12, 10), Amount = 320000, PaymentMethod = "Bank Transfer", Status = "Pending", Notes = "Pending bank transfer" },
+                        new Billing { SaleOrderId = 1, UserId = 1, BillingDate = new DateTime(2024, 12, 11), Amount = 420000, PaymentMethod = "Cash", Status = "Paid", Notes = "Payment completed" },
+                        new Billing { SaleOrderId = 2, UserId = 2, BillingDate = new DateTime(2024, 12, 12), Amount = 320000, PaymentMethod = "Credit Card", Status = "Paid", Notes = "Paid by credit card", PaidDate = new DateTime(2024, 12, 12) },
+                        new Billing { SaleOrderId = 3, UserId = 3, BillingDate = new DateTime(2024, 12, 13), Amount = 700000, PaymentMethod = "Bank Transfer", Status = "Failed", Notes = "Transfer failed" },
+                        new Billing { SaleOrderId = 4, UserId = 4, BillingDate = new DateTime(2024, 12, 14), Amount = 250000, PaymentMethod = "Credit Card", Status = "Paid", Notes = "Payment processed", PaidDate = new DateTime(2024, 12, 14) },
+                        new Billing { SaleOrderId = 5, UserId = 5, BillingDate = new DateTime(2024, 12, 15), Amount = 950000, PaymentMethod = "Cash", Status = "Pending", Notes = "Awaiting payment" },
+                        new Billing { SaleOrderId = 6, UserId = 6, BillingDate = new DateTime(2024, 12, 16), Amount = 220000, PaymentMethod = "Credit Card", Status = "Paid", Notes = "Payment successful", PaidDate = new DateTime(2024, 12, 16) },
+                        new Billing { SaleOrderId = 7, UserId = 7, BillingDate = new DateTime(2024, 12, 17), Amount = 180000, PaymentMethod = "Cash", Status = "Paid", Notes = "Payment received" },
+                        new Billing { SaleOrderId = 8, UserId = 8, BillingDate = new DateTime(2024, 12, 18), Amount = 550000, PaymentMethod = "Bank Transfer", Status = "Paid", Notes = "Bank transfer completed", PaidDate = new DateTime(2024, 12, 18) },
+                        new Billing { SaleOrderId = 9, UserId = 9, BillingDate = new DateTime(2024, 12, 19), Amount = 640000, PaymentMethod = "Credit Card", Status = "Pending", Notes = "Pending payment" },
+                        new Billing { SaleOrderId = 10, UserId = 10, BillingDate = new DateTime(2024, 12, 20), Amount = 300000, PaymentMethod = "Cash", Status = "Paid", Notes = "Payment received", PaidDate = new DateTime(2024, 12, 20) }
+                    );
+                    await appContext.SaveChangesAsync();
+                }
+
             }
         }
 

@@ -43,7 +43,7 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
                 var (isSuccess, errorMessage) = await _purchaseOrderService.SaveOrUpdateAsync(model);
                 if (isSuccess)
                 {
-                    TempData["success"] = "Vehicle created successfully!";
+                    TempData["success"] = "Purchase created successfully!";
                     return RedirectToAction(nameof(Index));
                 }
                 else
