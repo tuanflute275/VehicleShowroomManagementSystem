@@ -42,8 +42,8 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
         {
             var suppliers = await _vehicleService.GetAllSupplierAsync();
             var companies = await _vehicleService.GetAllCompanyAsync();
-            ViewBag.Supplier = suppliers;   
-            ViewBag.Companies = companies;   
+            ViewBag.Supplier = suppliers;
+            ViewBag.Companies = companies;
             return View();
         }
 
@@ -128,16 +128,44 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
         }
 
         //VehicleImage
+        //public async Task<Vehicle> GetByIdAsync(int id)
+        //{
+        //    var vehicle = await _unitOfWork.VehicleRepository.GetAllAsync(
+        //     expression: v => v.VehicleId == id,
+        //     include: query => query
+        //         .Include(x => x.Supplier)
+        //         .Include(x => x.Company)
+        //    );
+
+        //    return vehicle.FirstOrDefault();
+        //}
         public async Task<IActionResult> ListImage(int id, int? page = 1)
         {
             var data = await _vehicleService.GetAllImagePaginationAsync(id, page ?? 1, 8);
+            ViewBag.VehicleId = id;
             return View(data);
         }
 
-        public async Task<IActionResult> CreateImage(int id)
+        [HttpGet]
+        public IActionResult CreateImage(int id)
         {
+            var model = new VehicleImageViewModel
+            {
+                VehicleId = id
+            };
+            return View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateImage(VehicleImageViewModel model)
+        {
+            var (success, errorMessage) = await _vehicleService.SaveImageAsync(model);
+            if (!success)
+            {
+                ModelState.AddModelError("", errorMessage);
+                return View(model);
+            }
 
-            return View();
+            return RedirectToAction("ListImage", new { id = model.VehicleId });
         }
     }
 }

@@ -28,8 +28,8 @@ namespace VehicleShowroom.Management.Application.Services
             var vehicleQuery = _unitOfWork.VehicleRepository.GetAllAsync(
                expression: s => string.IsNullOrEmpty(keyword) || s.Name.Contains(keyword),
                include: query => query
-               .Include(x => x.Supplier)   
-               .Include(x => x.Company)       
+               .Include(x => x.Supplier)
+               .Include(x => x.Company)
              );
             var vehicle = await vehicleQuery;
             var vehicleList = vehicle.ToList();
@@ -152,16 +152,42 @@ namespace VehicleShowroom.Management.Application.Services
             }
         }
 
+        //vehicleImage
         public async Task<IPagedList<VehicleImageDTO>> GetAllImagePaginationAsync(int vehicleId, int page, int pageSize = 8)
         {
             var vehicleImageQuery = _unitOfWork.VehicleImageRepository.GetAllAsync(
-               expression: s => vehicleId != null || s.VehiclelId == vehicleId,
+                expression: s => s.VehiclelId == vehicleId,
                 include: query => query.Include(x => x.Vehicle)
-             );
+            );
             var vehicleImage = await vehicleImageQuery;
             var vehicleImageList = vehicleImage.ToList();
             var data = _mapper.Map<List<VehicleImageDTO>>(vehicleImageList);
             return data.ToPagedList(page, pageSize);
         }
+
+        public async Task<(bool Success, string ErrorMessage)> SaveImageAsync(VehicleImageViewModel model)
+        {
+            try
+            {
+                var vehicleImage = new VehicleImage();
+                vehicleImage.VehiclelId = model.VehicleId;
+                if (model.fileUploads != null)
+                {
+                    foreach (var item in model.fileUploads)
+                    {
+                        var image = await _fileUploadHelper.UploadFileAsync(item, "vehicleImages");
+                        vehicleImage.Path = image;
+                        await _unitOfWork.VehicleImageRepository.SaveImageAsync(vehicleImage);
+                        await _unitOfWork.SaveChangeAsync();
+                    }
+                }
+                return (true, null);
+            }
+            catch (Exception ex)
+            {
+                return (false, ex.Message);
+            }
+        }
+
     }
 }

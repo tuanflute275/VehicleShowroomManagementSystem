@@ -1,5 +1,7 @@
-﻿﻿@{
-    ViewData["Title"] = "Vehicle Create";
+﻿@model VehicleShowroom.Management.Application.Models.ViewModels.VehicleImageViewModel
+
+@{
+    ViewData["Title"] = "Create Vehicle Images";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 <div class="app-main__inner">
@@ -10,7 +12,7 @@
                     <i class="fa-solid fa-car"></i>
                 </div>
                 <div>
-                    Vehicle
+                    Vehicle Detail
                     <div class="page-title-subheading">
                         View, create, update, delete and manage.
                     </div>
@@ -23,15 +25,13 @@
         <div class="col-md-12">
             <div class="main-card mb-3 card">
                 <div class="card-body">
-                    <form method="post" asp-area="Admin" asp-controller="Vehicle" asp-action="Save"
-                          asp-antiforgery="true" enctype="multipart/form-data">
-
+                    <form asp-area="Admin" asp-controller="Vehicle" asp-action="CreateImage" method="post" enctype="multipart/form-data">
+                        <input type="hidden" asp-for="VehicleId" />
                         <div class="position-relative row form-group">
                             <label for="image" class="col-md-3 text-md-right col-form-label">Image</label>
-                            <div class="col-md-9 col-xl-8">
-
-                                <input name="fileUpload" type="file" multiple
-                                       class="image form-control-file">
+                            <div class="form-group">
+                                <label for="fileUploads">Upload Images</label>
+                                <input type="file" name="fileUploads" multiple class="form-control" />
                             </div>
                         </div>
 

@@ -9,7 +9,7 @@ namespace VehicleShowroom.Management.Domain.Abstract
         Task<IEnumerable<VehicleImage>> GetAllAsync(Expression<Func<VehicleImage, bool>> expression = null,
            Func<IQueryable<VehicleImage>, IIncludableQueryable<VehicleImage, object>>? include = null);
         Task<VehicleImage?> GetByIdAsync(int id);
-        Task<bool> SaveOrUpdateAsync(VehicleImage vehicleImage);
+        Task<bool> SaveImageAsync(VehicleImage vehicleImage);
         Task<bool> DeleteAsync(VehicleImage vehicleImage);
     }
 }
