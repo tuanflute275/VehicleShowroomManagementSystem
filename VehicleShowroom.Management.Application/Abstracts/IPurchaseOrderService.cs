@@ -1,6 +1,5 @@
 ﻿using VehicleShowroom.Management.Application.Models.DTOs;
 using VehicleShowroom.Management.Application.Models.ViewModels;
-using VehicleShowroom.Management.Domain.Entities;
 using X.PagedList;
 
 namespace VehicleShowroom.Management.Application.Abstracts

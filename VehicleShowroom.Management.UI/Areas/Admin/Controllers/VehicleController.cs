@@ -127,17 +127,82 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
             return RedirectToAction("Index", new { page = page ?? 1 });
         }
 
-        //VehicleImage
+        //Vehicle Image
         public async Task<IActionResult> ListImage(int id, int? page = 1)
         {
+            ViewData["CurrentPage"] = page;
             var data = await _vehicleService.GetAllImagePaginationAsync(id, page ?? 1, 8);
+            ViewBag.VehicleId = id;
             return View(data);
         }
 
-        public async Task<IActionResult> CreateImage(int id)
+        [HttpGet]
+        public IActionResult CreateImage(int id)
         {
+            var model = new VehicleImageViewModel
+            {
+                VehicleId = id
+            };
+            return View(model);
+        }
 
-            return View();
+        [HttpPost]
+        public async Task<IActionResult> CreateImage(VehicleImageViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var (isSuccess, errorMessage) = await _vehicleService.SaveImageAsync(model);
+                if (isSuccess)
+                {
+                    _toastNotification.Success(Constant.CreateSuccess, 3);
+                    return RedirectToAction("ListImage", new { id = model.VehicleId });
+                }
+                else
+                {
+                    _toastNotification.Error(errorMessage ?? Constant.OperationFailed, 3);
+                    return RedirectToAction("CreateImage", new { id = model.VehicleId });
+                }
+            }
+            _toastNotification.Error(Constant.InvalidForm, 3);
+            return RedirectToAction("ListImage", new { id = model.VehicleId });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> EditImage(int id)
+        {
+            var data = await _vehicleService.GetImageByIdAsync(id);
+            return View(data);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateImage(VehicleImageEditViewModel model)
+        {
+            var (isSuccess, errorMessage) = await _vehicleService.UpdateImageAsync(model);
+            if (isSuccess)
+            {
+                _toastNotification.Success(Constant.UpdateSuccess, 3);
+                return RedirectToAction(nameof(ListImage));
+            }
+            else
+            {
+                _toastNotification.Error(errorMessage ?? Constant.OperationFailed, 3);
+                return RedirectToAction("EditImage", new { id = model.VehicleImageId });
+            }
+        }
+
+        public async Task<IActionResult> DeleteImage(int id, int? page)
+        {
+            try
+            {
+                var (isSuccess, errorMessage) = await _vehicleService.DeleteImageAsync(id);
+                if (isSuccess) _toastNotification.Success(Constant.DeleteSuccess, 3);
+                else _toastNotification.Warning(errorMessage ?? Constant.OperationFailed, 3);
+            }
+            catch (Exception ex)
+            {
+                _toastNotification.Error($"{Constant.OperationFailed} Error: {ex.Message}", 3);
+            }
+            return RedirectToAction("ListImage", new { page = page ?? 1 });
         }
     }
 }

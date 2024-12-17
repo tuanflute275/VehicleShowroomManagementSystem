@@ -22,6 +22,12 @@ namespace VehicleShowroom.Management.Application.Configuration
             .ForMember(dest => dest.SupplierName, opt => opt.MapFrom(src => src.Supplier.SupplierName))
             .ForMember(dest => dest.CompanyName, opt => opt.MapFrom(src => src.Company.CompanyName));
 
+            CreateMap<VehicleImage, VehicleImageViewModel>().ReverseMap();
+            CreateMap<VehicleImage, VehicleImageEditViewModel>().ReverseMap();
+            CreateMap<VehicleImage, VehicleImageDTO>()
+                .ForMember(dest => dest.VehicleId, opt => opt.MapFrom(src => src.Vehicle.VehicleId))
+                .ForMember(dest => dest.VehicleName, opt => opt.MapFrom(src => src.Vehicle.Name));
+
             CreateMap<PurchaseOrder, PurchaseOrderDTO>()
                 .ForMember(dest => dest.SupplierName, opt => opt.MapFrom(src => src.Supplier.SupplierName))
                 .ForMember(dest => dest.SupplierPhone, opt => opt.MapFrom(src => src.Supplier.PhoneNumber))

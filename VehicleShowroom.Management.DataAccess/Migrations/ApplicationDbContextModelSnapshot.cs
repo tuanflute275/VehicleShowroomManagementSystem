@@ -697,12 +697,12 @@ namespace VehicleShowroom.Management.DataAccess.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("VehiclelId")
+                    b.Property<int>("VehicleId")
                         .HasColumnType("int");
 
                     b.HasKey("VehicleImageId");
 
-                    b.HasIndex("VehiclelId");
+                    b.HasIndex("VehicleId");
 
                     b.ToTable("VehicleImages");
                 });
@@ -828,7 +828,7 @@ namespace VehicleShowroom.Management.DataAccess.Migrations
                 {
                     b.HasOne("VehicleShowroom.Management.Domain.Entities.Vehicle", "Vehicle")
                         .WithMany()
-                        .HasForeignKey("VehiclelId")
+                        .HasForeignKey("VehicleId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 

@@ -16,7 +16,7 @@ namespace VehicleShowroom.Management.Domain.Entities
 
         // Foreign Key to Vehicles
         [ForeignKey("Vehicle")]
-        public int VehiclelId { get; set; }
+        public int VehicleId { get; set; }
         public virtual Vehicle Vehicle { get; set; }
     }
 }
