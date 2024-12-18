@@ -1,0 +1,134 @@
+﻿@model VehicleShowroom.Management.Application.Models.ViewModels.VehicleImageEditViewModel
+
+@{
+    ViewData["Title"] = "Edit Vehicle Image";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="app-main__inner">
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="fa-solid fa-car"></i>
+                </div>
+                <div>
+                    Vehicle Image Edit
+                    <div class="page-title-subheading">
+                        Update the vehicle image details.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <form asp-area="Admin" asp-controller="Vehicle" asp-action="UpdateImage" asp-route-id="@Model.VehicleImageId" method="post" enctype="multipart/form-data">
+                        <input type="hidden" asp-for="VehicleId" />
+                        <input type="hidden" asp-for="VehicleImageId" />
+                        <div class="position-relative row form-group justify-content-center">
+                            <div class="col-md-9">
+                                <!-- Image Upload Section -->
+                                <div id="dropzone" class="border border-primary rounded d-flex flex-column align-items-center justify-content-center p-4" style="min-height: 150px; cursor: pointer; background-color: #f9f9f9;">
+                                    <i class="fa fa-cloud-upload fa-3x text-primary mb-2"></i>
+                                    <p class="mb-0 text-muted">Drag & Drop the image here or <span class="text-primary font-weight-bold">Click to Browse</span></p>
+                                    <input asp-for="ImageFile" type="file" class="d-none" id="fileUploads" accept="image/*" />
+                                </div>
+                                <span asp-validation-for="ImageFile" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <!-- Image Preview Section -->
+                        <div class="position-relative row form-group justify-content-center">
+                            <div class="col-md-9">
+                                <h5 id="label-current">Current Image:</h5>
+                                @if (!string.IsNullOrEmpty(Model.Path))
+                                {
+                                    <img id="imagePreviewOld" src="@(Url.Content("~/Uploads/vehicleImages/" + Model.Path))" alt="Current Image" class="img-fluid mb-3" style="max-height: 300px; object-fit: cover;" />
+                                }
+                                else
+                                {
+                                    <p>No image uploaded yet.</p>
+                                }
+                                <img id="imagePreviewNew" src="#" alt="New Image Preview" class="img-fluid mb-3" style="max-height: 300px; object-fit: cover; display: none;" />
+                            </div>
+                        </div>
+
+                        <!-- Form Actions -->
+                        <div class="position-relative row form-group mb-1">
+                            <div class="col-md-9 col-xl-8 offset-md-2">
+                                <a asp-area="Admin" asp-controller="Vehicle" asp-action="ListImage" asp-route-id="@Model.VehicleId" class="border-0 btn btn-outline-danger mr-1">
+                                    <span class="btn-icon-wrapper pr-1 opacity-8">
+                                        <i class="fa fa-times fa-w-20"></i>
+                                    </span>
+                                    <span>Cancel</span>
+                                </a>
+
+                                <button type="submit" class="btn-shadow btn-hover-shine btn btn-primary">
+                                    <span class="btn-icon-wrapper pr-2 opacity-8">
+                                        <i class="fa fa-save fa-w-20"></i>
+                                    </span>
+                                    <span>Save</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        const dropzone = document.getElementById('dropzone');
+        const fileInput = document.getElementById('fileUploads');
+        const imagePreviewOld = document.getElementById('imagePreviewOld');
+        const imagePreviewNew = document.getElementById('imagePreviewNew');
+
+        // Click to open file input
+        dropzone.addEventListener('click', () => fileInput.click());
+
+        // Handle Drag & Drop
+        dropzone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropzone.classList.add('border-success');
+        });
+
+        dropzone.addEventListener('dragleave', () => {
+            dropzone.classList.remove('border-success');
+        });
+
+        dropzone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropzone.classList.remove('border-success');
+
+            const files = e.dataTransfer.files;
+            handleFiles(files);
+        });
+
+        // Handle File Input Change
+        fileInput.addEventListener('change', (e) => {
+            const files = e.target.files;
+            handleFiles(files);
+        });
+
+        // Function to handle and preview files
+        function handleFiles(files) {
+            // Show the first file as the new image preview
+            const file = files[0];
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                imagePreviewNew.src = e.target.result;
+                imagePreviewNew.style.display = 'block'; // Display the new preview
+                imagePreviewOld.style.display = 'none'; // Hide the old image preview
+            };
+
+            reader.readAsDataURL(file); // Read file as Data URL
+        }
+    </script>
+}

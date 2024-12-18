@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using VehicleShowroom.Management.Application.Abstracts;
 using VehicleShowroom.Management.Application.Models.DTOs;
@@ -17,23 +16,19 @@ namespace VehicleShowroom.Management.Application.Services
             _mapper = mapper;
             _unitOfWork = unitOfWork;
         }
-        public async Task<bool> DeleteAsync(int id)
+        public async Task<(bool Success, string ErrorMessage)> DeleteAsync(int id)
         {
             try
             {
                 var stock = await _unitOfWork.StockHistoryRepository.GetByIdAsync(id);
-                if (stock == null)
-                {
-                    return false;
-                }
-
+                if (stock == null) return (false, "Stock history not found.");
                 await _unitOfWork.StockHistoryRepository.DeleteAsync(stock);
                 await _unitOfWork.SaveChangeAsync();
-                return true;
+                return (true, null);
             }
             catch (Exception ex)
             {
-                return false;
+                return (false, $"An error occurred: {ex.Message}");
             }
         }
 

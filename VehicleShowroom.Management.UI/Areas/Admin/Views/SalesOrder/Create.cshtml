@@ -4,4 +4,78 @@
     ViewData["Title"] = "Sales Orrder Create";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
-create
+<div class="app-main__inner">
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="fa-solid fa-shop"></i>
+                </div>
+                <div>
+                    SalesOrder
+                    <div class="page-title-subheading">
+                        View, create, update, delete and manage.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <form method="post" asp-area="Admin" asp-controller="SalesOrder" asp-action="Save"
+                          asp-antiforgery="true" enctype="multipart/form-data">
+                        <div class="position-relative row form-group">
+                            <label for="UserId" class="col-md-3 text-md-right col-form-label">User</label>
+                            <div class="col-md-9 col-xl-8">
+                                <select id="UserId" name="UserId" class="form-control" asp-items="ViewBag.Users">
+                                    <option value="0">-- Select User --</option>
+                                </select>
+                                <span asp-validation-for="UserId" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group">
+                            <label for="VehicleId" class="col-md-3 text-md-right col-form-label">Vehicle</label>
+                            <div class="col-md-9 col-xl-8">
+                                <select id="VehicleId" name="VehicleId" class="form-control" asp-items="ViewBag.Vehicles">
+                                    <option value="0">-- Select Vehicle --</option>
+                                </select>
+                                <span asp-validation-for="VehicleId" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group">
+                            <label for="PaymentMethod" class="col-md-3 text-md-right col-form-label">PaymentMethod</label>
+                            <div class="col-md-9 col-xl-8">
+                                <select id="PaymentMethod" name="PaymentMethod" class="form-control">
+                                    <option value="Cash">Cash</option>
+                                    <option value="Credit Card">Credit Card</option>
+                                    <option value="Bank Transfer">Bank Transfer</option>
+                                </select>
+                                <span asp-validation-for="PaymentMethod" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group mb-1">
+                            <div class="col-md-9 col-xl-8 offset-md-2">
+                                <a asp-area="Admin" asp-controller="SalesOrder" asp-action="Index" class="border-0 btn btn-outline-danger mr-1">
+                                    <span class="btn-icon-wrapper pr-1 opacity-8">
+                                        <i class="fa fa-times fa-w-20"></i>
+                                    </span>
+                                    <span>Cancel</span>
+                                </a>
+                                <button type="submit"
+                                        class="btn-shadow btn-hover-shine btn btn-primary">
+                                    <span class="btn-icon-wrapper pr-2 opacity-8">
+                                        <i class="fa fa-download fa-w-20"></i>
+                                    </span>
+                                    <span>Save</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

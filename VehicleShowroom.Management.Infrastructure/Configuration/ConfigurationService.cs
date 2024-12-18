@@ -63,7 +63,7 @@ namespace VehicleShowroom.Management.Infrastructure.Configuration
             {
                 config.DurationInSeconds = 5; // Thời gian hiển thị thông báo
                 config.IsDismissable = true; // Cho phép đóng thông báo
-                config.Position = NotyfPosition.BottomRight; // Vị trí thông báo
+                config.Position = NotyfPosition.TopRight; // Vị trí thông báo
                 config.HasRippleEffect = true; // Hiệu ứng ripple khi click vào thông báo
             });
         }
@@ -82,6 +82,7 @@ namespace VehicleShowroom.Management.Infrastructure.Configuration
             services.AddTransient<IPurchaseOrderService, PurchaseOrderService>();
             services.AddTransient<ISalesOrderService, SalesOrderService>();
             services.AddTransient<IStockHistoryService, StockHistoryService>();
+            services.AddTransient<IBillingService, BillingService>();
         }
 
         public static void AddAutoMapper(this IServiceCollection services)

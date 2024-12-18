@@ -1,8 +1,10 @@
-﻿using AutoMapper;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using VehicleShowroom.Management.Application.Abstracts;
 using VehicleShowroom.Management.Application.Models.DTOs;
 using VehicleShowroom.Management.Application.Models.ViewModels;
+using VehicleShowroom.Management.Application.Utils;
 using VehicleShowroom.Management.Infrastructure.Abstracts;
 using VehicleShowroom.Management.UI.Utils;
 using VehicleShowroomManagementSystem.Areas.Admin.Controllers;
@@ -11,14 +13,16 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
 {
     public class UserController : BaseController
     {
-        private readonly IUserService _userService;
-        private readonly IPDFService _pdfService;
         private readonly IMapper _mapper;
-        public UserController(IUserService userService, IMapper mapper, IPDFService pdfService)
+        private readonly IPDFService _pdfService;
+        private readonly IUserService _userService;
+        private readonly INotyfService _toastNotification;
+        public UserController(IUserService userService, IMapper mapper, IPDFService pdfService, INotyfService notyfService)
         {
-            _userService = userService;
-            _pdfService = pdfService;
             _mapper = mapper;
+            _pdfService = pdfService;
+            _userService = userService;
+            _toastNotification = notyfService;
         }
         public async Task<IActionResult> Index(string? keyword, int? page = 1)
         {
@@ -31,10 +35,7 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
         public async Task<IActionResult> Detail(int id)
         {
             var user = await _userService.GetUserByIdAsync(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
+            if (user == null) return NotFound();
             return View(user);
         }
 
@@ -53,18 +54,19 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
                 var (isSuccess, errorMessage) = await _userService.SaveOrUpdateAsync(model, fileUpload);
                 if (isSuccess)
                 {
-                    TempData["success"] = "User created successfully!";
+                    _toastNotification.Success(Constant.CreateSuccess, 3);
                     return RedirectToAction(nameof(Index));
                 }
                 else
                 {
                     // Thêm thông báo lỗi vào ModelState để hiển thị trên giao diện
-                    ModelState.AddModelError(string.Empty, errorMessage ?? "An error occurred while saving the user.");
+                    _toastNotification.Error(errorMessage ?? Constant.OperationFailed, 3);
                     return View("Create", model);
                 }
             }
 
             // If the model is invalid, show an error notification and re-render the form
+            _toastNotification.Error(Constant.InvalidForm, 3);
             return View("Create", model); // You can return the same view to show validation messages
         }
 
@@ -87,16 +89,17 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
                 var (isSuccess, errorMessage) = await _userService.SaveOrUpdateAsync(model, fileUpload, oldImage);
                 if (isSuccess)
                 {
-                    TempData["success"] = "User created successfully!";
+                    _toastNotification.Success(Constant.UpdateSuccess, 3);
                     return RedirectToAction(nameof(Index));
                 }
                 else
                 {
                     // Thêm thông báo lỗi vào ModelState để hiển thị trên giao diện
-                    ModelState.AddModelError(string.Empty, errorMessage ?? "An error occurred while saving the user.");
+                    _toastNotification.Error(errorMessage ?? Constant.OperationFailed, 3);  // Show error message
                     return RedirectToAction("Edit", new { id = model.UserId });
                 }
             }
+            _toastNotification.Error(Constant.InvalidForm, 3);
             return RedirectToAction("Edit", new { id = model.UserId });
         }
 
@@ -104,17 +107,15 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
         {
             try
             {
-                var result = await _userService.DeleteAsync(id);
-                if (result)// Redirect to the Index page with the same page number
-                    return RedirectToAction("Index", new { page = page ?? 1 });
-                else
-                    return RedirectToAction("Index", new { page = page ?? 1 });
+                var (isSuccess, errorMessage) = await _userService.DeleteAsync(id);
+                if (isSuccess) _toastNotification.Success(Constant.DeleteSuccess, 3);
+                else _toastNotification.Warning(errorMessage ?? Constant.OperationFailed, 3);
             }
             catch (Exception ex)
             {
-                // Handle any errors that occur during the deletion
-                return RedirectToAction("Index", new { page = page ?? 1 });
+                _toastNotification.Error($"{Constant.OperationFailed} Error: {ex.Message}", 3);
             }
+            return RedirectToAction("Index", new { page = page ?? 1 });
         }
 
         [HttpGet]

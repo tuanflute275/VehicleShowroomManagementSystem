@@ -7,6 +7,6 @@ namespace VehicleShowroom.Management.Application.Abstracts
     {
         Task<List<StockHistoryDTO>> GetAllAsync(string type);
         Task<IPagedList<StockHistoryDTO>> GetAllPaginationAsync(string? keyword, int page, int pageSize = 8);
-        Task<bool> DeleteAsync(int id);
+        Task<(bool Success, string ErrorMessage)> DeleteAsync(int id);
     }
 }

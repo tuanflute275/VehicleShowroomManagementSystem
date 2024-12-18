@@ -14,6 +14,7 @@ namespace VehicleShowroom.Management.Domain.Abstract
         ISalesOrderRepository SalesOrderRepository { get; }
         ISalesOrderDetailRepository SalesOrderDetailRepository { get; }
         IStockHistoryRepository StockHistoryRepository { get; }
+        IBillingRepository BillingRepository { get; }
         // other repository
 
         Task BeginTransaction();

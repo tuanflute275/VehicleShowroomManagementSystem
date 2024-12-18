@@ -1,21 +1,24 @@
-﻿using AutoMapper;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using VehicleShowroom.Management.Application.Abstracts;
 using VehicleShowroom.Management.Application.Models.DTOs;
 using VehicleShowroom.Management.Application.Models.ViewModels;
-using VehicleShowroom.Management.Application.Services;
+using VehicleShowroom.Management.Application.Utils;
 using VehicleShowroomManagementSystem.Areas.Admin.Controllers;
 
 namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
 {
     public class VehicleController : BaseController
     {
-        private readonly IVehicleService _vehicleService;
         private readonly IMapper _mapper;
-        public VehicleController(IVehicleService vehicleService, IMapper mapper)
+        private readonly INotyfService _toastNotification;
+        private readonly IVehicleService _vehicleService;
+        public VehicleController(IVehicleService vehicleService, IMapper mapper, INotyfService notyfService)
         {
-            _vehicleService = vehicleService;
             _mapper = mapper;
+            _vehicleService = vehicleService;
+            _toastNotification = notyfService;
         }
 
         public async Task<IActionResult> Index(string? keyword, int? page = 1)
@@ -29,10 +32,7 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
         public async Task<IActionResult> Detail(int id)
         {
             var vehicle = await _vehicleService.GetByIdAsync(id);
-            if (vehicle == null)
-            {
-                return NotFound();
-            }
+            if (vehicle == null) return NotFound();
             var data = _mapper.Map<VehicleDTO>(vehicle);
             return View(data);
         }
@@ -56,13 +56,13 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
                 var (isSuccess, errorMessage) = await _vehicleService.SaveOrUpdateAsync(model, fileUpload);
                 if (isSuccess)
                 {
-                    TempData["success"] = "Vehicle created successfully!";
+                    _toastNotification.Success(Constant.CreateSuccess, 3);
                     return RedirectToAction(nameof(Index));
                 }
                 else
                 {
                     // Thêm thông báo lỗi vào ModelState để hiển thị trên giao diện
-                    ModelState.AddModelError(string.Empty, errorMessage ?? "An error occurred while saving the user.");
+                    _toastNotification.Error(errorMessage ?? Constant.OperationFailed, 3);
                     return View("Create", model);
                 }
             }
@@ -71,6 +71,7 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
             ViewBag.Supplier = suppliers;
             ViewBag.Companies = companies;
             // If the model is invalid, show an error notification and re-render the form
+            _toastNotification.Error(Constant.InvalidForm, 3);
             return View("Create", model); // You can return the same view to show validation messages
         }
 
@@ -97,16 +98,16 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
                 var (isSuccess, errorMessage) = await _vehicleService.SaveOrUpdateAsync(model, fileUpload, oldImage);
                 if (isSuccess)
                 {
-                    TempData["success"] = "User created successfully!";
+                    _toastNotification.Success(Constant.UpdateSuccess, 3);
                     return RedirectToAction(nameof(Index));
                 }
                 else
                 {
-                    // Thêm thông báo lỗi vào ModelState để hiển thị trên giao diện
-                    ModelState.AddModelError(string.Empty, errorMessage ?? "An error occurred while saving the user.");
+                    _toastNotification.Error(errorMessage ?? Constant.OperationFailed, 3);
                     return RedirectToAction("Edit", new { id = model.VehicleId });
                 }
             }
+            _toastNotification.Error(Constant.InvalidForm, 3);
             return RedirectToAction("Edit", new { id = model.VehicleId });
         }
 
@@ -114,30 +115,94 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
         {
             try
             {
-                var result = await _vehicleService.DeleteAsync(id);
-                if (result)// Redirect to the Index page with the same page number
-                    return RedirectToAction("Index", new { page = page ?? 1 });
-                else
-                    return RedirectToAction("Index", new { page = page ?? 1 });
+                var (isSuccess, errorMessage) = await _vehicleService.DeleteAsync(id);
+                if (isSuccess) _toastNotification.Success(Constant.DeleteSuccess, 3);
+                else _toastNotification.Warning(errorMessage ?? Constant.OperationFailed, 3);
             }
             catch (Exception ex)
             {
                 // Handle any errors that occur during the deletion
-                return RedirectToAction("Index", new { page = page ?? 1 });
+                _toastNotification.Error($"{Constant.OperationFailed} Error: {ex.Message}", 3);
             }
+            return RedirectToAction("Index", new { page = page ?? 1 });
         }
 
-        //VehicleImage
+        //Vehicle Image
         public async Task<IActionResult> ListImage(int id, int? page = 1)
         {
+            ViewData["CurrentPage"] = page;
             var data = await _vehicleService.GetAllImagePaginationAsync(id, page ?? 1, 8);
+            ViewBag.VehicleId = id;
             return View(data);
         }
 
-        public async Task<IActionResult> CreateImage(int id)
+        [HttpGet]
+        public IActionResult CreateImage(int id)
         {
+            var model = new VehicleImageViewModel
+            {
+                VehicleId = id
+            };
+            return View(model);
+        }
 
-            return View();
+        [HttpPost]
+        public async Task<IActionResult> CreateImage(VehicleImageViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var (isSuccess, errorMessage) = await _vehicleService.SaveImageAsync(model);
+                if (isSuccess)
+                {
+                    _toastNotification.Success(Constant.CreateSuccess, 3);
+                    return RedirectToAction("ListImage", new { id = model.VehicleId });
+                }
+                else
+                {
+                    _toastNotification.Error(errorMessage ?? Constant.OperationFailed, 3);
+                    return RedirectToAction("CreateImage", new { id = model.VehicleId });
+                }
+            }
+            _toastNotification.Error(Constant.InvalidForm, 3);
+            return RedirectToAction("ListImage", new { id = model.VehicleId });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> EditImage(int id)
+        {
+            var data = await _vehicleService.GetImageByIdAsync(id);
+            return View(data);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateImage(VehicleImageEditViewModel model)
+        {
+            var (isSuccess, errorMessage) = await _vehicleService.UpdateImageAsync(model);
+            if (isSuccess)
+            {
+                _toastNotification.Success(Constant.UpdateSuccess, 3);
+                return RedirectToAction(nameof(ListImage));
+            }
+            else
+            {
+                _toastNotification.Error(errorMessage ?? Constant.OperationFailed, 3);
+                return RedirectToAction("EditImage", new { id = model.VehicleImageId });
+            }
+        }
+
+        public async Task<IActionResult> DeleteImage(int id, int? page)
+        {
+            try
+            {
+                var (isSuccess, errorMessage) = await _vehicleService.DeleteImageAsync(id);
+                if (isSuccess) _toastNotification.Success(Constant.DeleteSuccess, 3);
+                else _toastNotification.Warning(errorMessage ?? Constant.OperationFailed, 3);
+            }
+            catch (Exception ex)
+            {
+                _toastNotification.Error($"{Constant.OperationFailed} Error: {ex.Message}", 3);
+            }
+            return RedirectToAction("ListImage", new { page = page ?? 1 });
         }
     }
 }

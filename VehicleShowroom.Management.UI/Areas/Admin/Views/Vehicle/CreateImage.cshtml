@@ -1,5 +1,7 @@
-﻿﻿@{
-    ViewData["Title"] = "Vehicle Create";
+﻿@model VehicleShowroom.Management.Application.Models.ViewModels.VehicleImageViewModel
+
+@{
+    ViewData["Title"] = "Create Vehicle Images";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 <div class="app-main__inner">
@@ -10,7 +12,7 @@
                     <i class="fa-solid fa-car"></i>
                 </div>
                 <div>
-                    Vehicle
+                    Vehicle Image Create
                     <div class="page-title-subheading">
                         View, create, update, delete and manage.
                     </div>
@@ -23,22 +25,31 @@
         <div class="col-md-12">
             <div class="main-card mb-3 card">
                 <div class="card-body">
-                    <form method="post" asp-area="Admin" asp-controller="Vehicle" asp-action="Save"
-                          asp-antiforgery="true" enctype="multipart/form-data">
-
-                        <div class="position-relative row form-group">
-                            <label for="image" class="col-md-3 text-md-right col-form-label">Image</label>
-                            <div class="col-md-9 col-xl-8">
-
-                                <input name="fileUpload" type="file" multiple
-                                       class="image form-control-file">
+                    <form asp-area="Admin" asp-controller="Vehicle" asp-action="CreateImage" method="post" enctype="multipart/form-data">
+                        <input type="hidden" asp-for="VehicleId" />
+                        <div class="position-relative row form-group justify-content-center">
+                            <div class="col-md-9">
+                                <!-- Upload Area -->
+                                <div id="dropzone" class="border border-primary rounded d-flex flex-column align-items-center justify-content-center p-3" style="min-height: 150px; cursor: pointer; background-color: #f9f9f9;">
+                                    <i class="fa fa-cloud-upload fa-3x text-primary mb-2"></i>
+                                    <p class="mb-0 text-muted">Drag & Drop files here or <span class="text-primary font-weight-bold">Click to Browse</span></p>
+                                    <input asp-for="fileUploads" type="file" multiple class="d-none" id="fileUploads" accept="image/*" />
+                                </div>
+                                <span asp-validation-for="fileUploads" class="text-danger"></span>
                             </div>
                         </div>
 
+                        <!-- Image Preview Section -->
+                        <div class="position-relative row form-group justify-content-center">
+                            <div class="col-md-9">
+                                <h5>Image Details:</h5>
+                                <div id="imagePreviewContainer" class="d-flex flex-wrap gap-3"></div>
+                            </div>
+                        </div>
 
                         <div class="position-relative row form-group mb-1">
                             <div class="col-md-9 col-xl-8 offset-md-2">
-                                <a asp-area="Admin" asp-controller="Vehicle" asp-action="Index" class="border-0 btn btn-outline-danger mr-1">
+                                <a asp-area="Admin" asp-controller="Vehicle" asp-action="ListImage" asp-route-id="@Model.VehicleId" class="border-0 btn btn-outline-danger mr-1">
                                     <span class="btn-icon-wrapper pr-1 opacity-8">
                                         <i class="fa fa-times fa-w-20"></i>
                                     </span>
@@ -60,3 +71,65 @@
         </div>
     </div>
 </div>
+@section Scripts {
+    <script>
+        const dropzone = document.getElementById('dropzone');
+        const fileInput = document.getElementById('fileUploads');
+        const imagePreviewContainer = document.getElementById('imagePreviewContainer');
+
+        // Click to open file input
+        dropzone.addEventListener('click', () => fileInput.click());
+
+        // Handle Drag & Drop
+        dropzone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropzone.classList.add('border-success');
+        });
+
+        dropzone.addEventListener('dragleave', () => {
+            dropzone.classList.remove('border-success');
+        });
+
+        dropzone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropzone.classList.remove('border-success');
+
+            const files = e.dataTransfer.files;
+            handleFiles(files);
+        });
+
+        // Handle File Input Change
+        fileInput.addEventListener('change', (e) => {
+            const files = e.target.files;
+            handleFiles(files);
+        });
+
+        // Function to handle and preview files
+        function handleFiles(files) {
+            imagePreviewContainer.innerHTML = ''; // Clear old previews
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    // Create preview card
+                    const card = document.createElement('div');
+                    card.className = 'card shadow-sm';
+                    card.style.width = '200px';
+
+                    card.innerHTML = `
+                                <img src="${e.target.result}" class="card-img-top" alt="Image Preview" style="height: 150px; object-fit: cover;">
+                                <div class="card-body p-2 text-center">
+                                    <p class="card-title m-0 text-truncate" title="${file.name}"><strong>${file.name}</strong></p>
+                                    <p class="card-text text-muted small">${(file.size / 1024).toFixed(2)} KB</p>
+                                </div>
+                            `;
+                    imagePreviewContainer.appendChild(card);
+                };
+
+                reader.readAsDataURL(file); // Read file as Data URL
+            }
+        }
+    </script>
+}

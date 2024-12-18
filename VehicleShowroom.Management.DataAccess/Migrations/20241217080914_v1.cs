@@ -277,7 +277,7 @@ namespace VehicleShowroom.Management.DataAccess.Migrations
                     VehicleImageId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Path = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    VehiclelId = table.Column<int>(type: "int", nullable: false),
+                    VehicleId = table.Column<int>(type: "int", nullable: false),
                     CreateBy = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdateBy = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
@@ -290,10 +290,42 @@ namespace VehicleShowroom.Management.DataAccess.Migrations
                 {
                     table.PrimaryKey("PK_VehicleImages", x => x.VehicleImageId);
                     table.ForeignKey(
-                        name: "FK_VehicleImages_Vehicles_VehiclelId",
-                        column: x => x.VehiclelId,
+                        name: "FK_VehicleImages_Vehicles_VehicleId",
+                        column: x => x.VehicleId,
                         principalTable: "Vehicles",
                         principalColumn: "VehicleId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Billing",
+                columns: table => new
+                {
+                    BillingId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SaleOrderId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    BillingDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    PaymentMethod = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Notes = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PaidDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Billing", x => x.BillingId);
+                    table.ForeignKey(
+                        name: "FK_Billing_SalesOrders_SaleOrderId",
+                        column: x => x.SaleOrderId,
+                        principalTable: "SalesOrders",
+                        principalColumn: "SalesOrderId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Billing_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "UserId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -331,6 +363,16 @@ namespace VehicleShowroom.Management.DataAccess.Migrations
                         principalColumn: "VehicleId",
                         onDelete: ReferentialAction.Restrict);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Billing_SaleOrderId",
+                table: "Billing",
+                column: "SaleOrderId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Billing_UserId",
+                table: "Billing",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PurchaseOrderDetails_PurchaseOrderId",
@@ -373,9 +415,9 @@ namespace VehicleShowroom.Management.DataAccess.Migrations
                 column: "VehicleId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_VehicleImages_VehiclelId",
+                name: "IX_VehicleImages_VehicleId",
                 table: "VehicleImages",
-                column: "VehiclelId");
+                column: "VehicleId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Vehicles_CompanyId",
@@ -391,6 +433,9 @@ namespace VehicleShowroom.Management.DataAccess.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Billing");
+
             migrationBuilder.DropTable(
                 name: "PurchaseOrderDetails");
 

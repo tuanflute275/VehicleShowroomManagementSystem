@@ -78,23 +78,23 @@ namespace VehicleShowroom.Management.Application.Services
             return data.ToPagedList(page, pageSize); 
         }
 
-        public async Task<bool> DeleteAsync(int id)
+        public async Task<(bool Success, string ErrorMessage)> DeleteAsync(int id)
         {
+            if (id <= 0)
+            {
+                return (false, "Invalid User ID.");
+            }
             try
             {
                 var user = await _unitOfWork.UserRepository.GetByIdAsync(id);
-                if (user == null)
-                {
-                    return false;
-                }
-
+                if (user == null) return (false, "User not found.");
                 await _unitOfWork.UserRepository.DeleteAsync(user);
                 await _unitOfWork.SaveChangeAsync();
-                return true;
+                return (true, null);
             }
             catch (Exception ex)
             {
-                return false;
+                return (false, $"An error occurred: {ex.Message}");
             }
         }
 
@@ -157,7 +157,7 @@ namespace VehicleShowroom.Management.Application.Services
             }
             catch (Exception e)
             {
-                return (false, e.Message);
+                return (false, $"An error occurred: {e.Message}");
             }
         }
 

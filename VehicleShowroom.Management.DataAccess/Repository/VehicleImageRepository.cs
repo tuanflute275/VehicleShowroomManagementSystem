@@ -20,7 +20,11 @@ namespace VehicleShowroom.Management.DataAccess.Repository
 
         public async Task<VehicleImage?> GetByIdAsync(int id)
         {
-            return await base.GetSingleAsync(x => x.VehiclelId == id);
+            return await base.GetSingleAsync(x => x.VehicleId == id);
+        }
+        public async Task<VehicleImage?> GetDataByIdAsync(int id)
+        {
+            return await base.GetSingleAsync(x => x.VehicleImageId == id);
         }
 
         public async Task<bool> SaveOrUpdateAsync(VehicleImage vehicleImage)
