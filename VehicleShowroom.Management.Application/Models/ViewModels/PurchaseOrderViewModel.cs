@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using VehicleShowroom.Management.Application.Models.DTOs;
 
 namespace VehicleShowroom.Management.Application.Models.ViewModels
 {

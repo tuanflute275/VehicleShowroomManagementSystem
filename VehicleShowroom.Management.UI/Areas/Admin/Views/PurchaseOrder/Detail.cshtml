@@ -3,12 +3,19 @@
 @{
     ViewData["Title"] = "Purchase Order Detail";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    var i = 1;
 }
 
 @section Styles {
     <style>
-        input {
-            box-shadow: none !important;
+        .table th, .table td {
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        .form-value {
+            font-weight: bold;
+            color: #333;
         }
     </style>
 }
@@ -23,7 +30,7 @@
                 <div>
                     Purchase Order Detail
                     <div class="page-title-subheading">
-                        View and edit purchase order details
+                        View purchase order details
                     </div>
                 </div>
             </div>
@@ -34,102 +41,74 @@
         <div class="col-md-12">
             <div class="main-card mb-3 card" id="divInfomation">
                 <div class="card-body">
-                    <form asp-action="SavePurchaseOrder" method="post">
-                        <div class="position-relative row form-group">
-                            <label for="PurchaseOrderId" class="col-md-3 text-md-right col-form-label">Purchase Order ID</label>
-                            <div class="col-md-9 col-xl-8">
-                                <input type="text" class="form-control"  readonly>
-                            </div>
+                    <table class="table table-bordered">
+                        <tbody>
+                           <tr>
+                                <th scope="row">Supplier Name</th>
+                                <td>@Model.SupplierName</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Supplier Phone</th>
+                                <td>@Model.SupplierPhone</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Supplier Email</th>
+                                <td>@Model.SupplierEmail</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Order Date</th>
+                                <td>@Model.OrderDate</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Total Amount</th>
+                                <td>@string.Format("{0:C}", Model.TotalAmount)</td>
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                    <h3> Vehicle</h3>
+                    <div class="table-responsive" id="divTesst">
+                        <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">#No</th>
+                                    <th class="text-center">Vehicle Name</th>
+                                    <th class="text-center">Image</th>
+                                    <th class="text-center">Model Number</th>
+                                    <th class="text-center">Quantity</th>
+                                    <th class="text-center">Unit Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.ListVehicle)
+                                {
+                                    <tr>
+                                        <td class="text-center text-muted">#@i</td>
+                                        <td class="text-center">
+                                            <img src="@(Url.Content("~/Uploads/vehicles/" + item.Image))"
+                                                 alt="Avatar" class="card-img"
+                                                 style="width: 100px;height:100px;object-fit: cover;" />
+                                        </td>
+                                        <td class="text-center">@item.ModelNumber</td>
+                                        <td class="text-center">@item.VehicleName</td>
+                                        <td class="text-center">@item.Quantity</td>
+                                        <td class="text-center">@string.Format("{0:C}", item.UnitPrice)</td>
+                                    </tr>
+                                    i++;
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="position-relative row form-group mb-1">
+                        <div class="col-md-9 col-xl-8 offset-md-2">
+                            <a asp-area="Admin" asp-controller="PurchaseOrder" asp-action="Index" class="border-0 btn btn-outline-primary">
+                                <span class="btn-icon-wrapper pr-1 opacity-8">
+                                    <i class="fa fa-arrow-left fa-w-20"></i>
+                                </span>
+                                <span>Back</span>
+                            </a>
                         </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="SupplierName" class="col-md-3 text-md-right col-form-label">Supplier Name</label>
-                            <div class="col-md-9 col-xl-8">
-                                <input type="text" class="form-control" asp-for="SupplierName">
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="SupplierPhone" class="col-md-3 text-md-right col-form-label">Supplier Phone</label>
-                            <div class="col-md-9 col-xl-8">
-                                <input type="text" class="form-control" asp-for="SupplierPhone">
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="SupplierEmail" class="col-md-3 text-md-right col-form-label">Supplier Email</label>
-                            <div class="col-md-9 col-xl-8">
-                                <input type="email" class="form-control" asp-for="SupplierEmail">
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="OrderDate" class="col-md-3 text-md-right col-form-label">Order Date</label>
-                            <div class="col-md-9 col-xl-8">
-                                <input type="date" class="form-control" asp-for="OrderDate">
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="TotalAmount" class="col-md-3 text-md-right col-form-label">Total Amount</label>
-                            <div class="col-md-9 col-xl-8">
-                                <input type="number" step="0.01" class="form-control" asp-for="TotalAmount">
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="VehicleId" class="col-md-3 text-md-right col-form-label">Vehicle</label>
-                            <div class="col-md-9 col-xl-8">
-                                <input type="text" class="form-control" asp-for="VehicleName" readonly>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="CreateBy" class="col-md-3 text-md-right col-form-label">Created By</label>
-                            <div class="col-md-9 col-xl-8">
-                                <input type="text" class="form-control" asp-for="CreateBy" readonly>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="CreateDate" class="col-md-3 text-md-right col-form-label">Created Date</label>
-                            <div class="col-md-9 col-xl-8">
-                                <input type="text" class="form-control" asp-for="CreateDate" readonly>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="UpdateBy" class="col-md-3 text-md-right col-form-label">Updated By</label>
-                            <div class="col-md-9 col-xl-8">
-                                <input type="text" class="form-control" asp-for="UpdateBy">
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="UpdateDate" class="col-md-3 text-md-right col-form-label">Updated Date</label>
-                            <div class="col-md-9 col-xl-8">
-                                <input type="date" class="form-control" asp-for="UpdateDate">
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group mb-1">
-                            <div class="col-md-9 col-xl-8 offset-md-2">
-                                <a asp-area="Admin" asp-controller="PurchaseOrder" asp-action="Index" class="border-0 btn btn-outline-danger mr-1">
-                                    <span class="btn-icon-wrapper pr-1 opacity-8">
-                                        <i class="fa fa-times fa-w-20"></i>
-                                    </span>
-                                    <span>Cancel</span>
-                                </a>
-
-                                <button type="submit" class="btn-shadow btn-hover-shine btn btn-success">
-                                    <span class="btn-icon-wrapper pr-2 opacity-8">
-                                        <i class="fa fa-save fa-w-20"></i>
-                                    </span>
-                                    <span>Save</span>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

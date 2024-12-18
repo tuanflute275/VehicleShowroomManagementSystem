@@ -42,15 +42,6 @@ namespace VehicleShowroom.Management.Application.Configuration
              .ForMember(dest => dest.SupplierName, opt => opt.MapFrom(src => src.Vehicle.Supplier.SupplierName))
              .ForMember(dest => dest.CompanyName, opt => opt.MapFrom(src => src.Vehicle.Company != null ? src.Vehicle.Company.CompanyName : string.Empty));
 
-            CreateMap<PurchaseOrderDetail, PurchaseOrderDetailDTO>()
-            .ForMember(dest => dest.SupplierName, opt => opt.MapFrom(src => src.PurchaseOrder.Supplier.SupplierName))
-            .ForMember(dest => dest.SupplierPhone, opt => opt.MapFrom(src => src.PurchaseOrder.Supplier.PhoneNumber))
-            .ForMember(dest => dest.SupplierEmail, opt => opt.MapFrom(src => src.PurchaseOrder.Supplier.Email))
-            .ForMember(dest => dest.OrderDate, opt => opt.MapFrom(src => src.PurchaseOrder.OrderDate))
-            .ForMember(dest => dest.TotalAmount, opt => opt.MapFrom(src => src.PurchaseOrder.TotalAmount))
-            .ForMember(dest => dest.VehicleName, opt => opt.MapFrom(src => src.Vehicle.Name))
-            .ForMember(dest => dest.VehicleId, opt => opt.MapFrom(src => src.Vehicle.VehicleId));
-
 
             CreateMap<SalesOrder, SaleOrderDTO>()
             .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.User.FullName))

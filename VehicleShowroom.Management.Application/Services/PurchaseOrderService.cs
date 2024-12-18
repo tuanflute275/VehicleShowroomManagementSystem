@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using VehicleShowroom.Management.Application.Abstracts;
 using VehicleShowroom.Management.Application.Models.DTOs;
@@ -9,7 +8,6 @@ using VehicleShowroom.Management.Application.Utils;
 using VehicleShowroom.Management.Domain.Abstract;
 using VehicleShowroom.Management.Domain.Entities;
 using X.PagedList;
-using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
 
 namespace VehicleShowroom.Management.Application.Services
 {
@@ -37,21 +35,36 @@ namespace VehicleShowroom.Management.Application.Services
             return data.ToPagedList(page, pageSize); 
         }
 
-        public async Task<PurchaseOrderDetailDTO> GetByIdAsync(int id)
+        public async Task<PurchaseOrderDetailDTO> GetDataByIdAsync(int id)
         {
             var query = _unitOfWork.PurchaseOrderDetailRepository.GetAllAsync(
                expression: s => s.PurchaseOrderId == id,
-               include: query => query.Include(x => x.Vehicle).Include(x => x.PurchaseOrder).ThenInclude(p => p.Supplier)
+               include: query => query.Include(x => x.Vehicle).ThenInclude(p => p.Supplier).Include(x => x.PurchaseOrder)
             );
             var dataQuery = await query;
             var dataList = dataQuery.ToList();
-            if (dataList.Any())
+            PurchaseOrderDetailDTO data = new PurchaseOrderDetailDTO();
+            var listVehicle = new List<VehiclePurchase>();
+            foreach (var item in dataList)
             {
-                var data = _mapper.Map<List<PurchaseOrderDetailDTO>>(dataList).FirstOrDefault();  // Lấy phần tử đầu tiên
-                return data;
+                var vehicle = new VehiclePurchase();
+                vehicle.VehicleName = item.Vehicle.Name;
+                vehicle.Image = item.Vehicle.Image;
+                vehicle.ModelNumber = item.Vehicle.ModelNumber;
+                vehicle.Quantity = (int)item.Quantity;
+                vehicle.UnitPrice = (decimal)item.UnitPrice;
+                listVehicle.Add(vehicle);
             }
 
-            return null;
+            data.ListVehicle = listVehicle;
+            data.SupplierName = dataList.FirstOrDefault().Vehicle.Supplier.SupplierName;
+            data.SupplierPhone = dataList.FirstOrDefault().Vehicle.Supplier.PhoneNumber;
+            data.SupplierEmail = dataList.FirstOrDefault().Vehicle.Supplier.Email;
+            data.OrderDate = dataList.FirstOrDefault().PurchaseOrder.OrderDate;
+            data.TotalAmount = dataList.FirstOrDefault().PurchaseOrder.TotalAmount;
+
+
+            return data;
         }
 
         public async Task<(bool Success, string ErrorMessage)> DeleteAsync(int id)

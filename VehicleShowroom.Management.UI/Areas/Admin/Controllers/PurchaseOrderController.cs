@@ -83,7 +83,12 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
         }
         public async Task<IActionResult> Detail(int id)
         {
-            var data = await _purchaseOrderService.GetByIdAsync(id);
+            var data = await _purchaseOrderService.GetDataByIdAsync(id);
+            if (data == null)
+            {
+                _toastNotification.Warning("Purchase Order not found.", 3);
+                return RedirectToAction(nameof(Index));
+            }
             return View(data);
         }
     }
