@@ -7,6 +7,7 @@ using VehicleShowroom.Management.Application.Models.DTOs;
 using VehicleShowroom.Management.Application.Models.ViewModels;
 using VehicleShowroom.Management.Application.Services;
 using VehicleShowroom.Management.Application.Utils;
+using VehicleShowroom.Management.Domain.Entities;
 using VehicleShowroomManagementSystem.Areas.Admin.Controllers;
 
 namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
@@ -66,7 +67,39 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
             _toastNotification.Error(Constant.InvalidForm, 3);
             return View("Create", model);
         }
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            
+            var puschaseOrder = await _purchaseOrderService.GetByIdAsync(id);
+            if (puschaseOrder == null) return NotFound();
+            ViewBag.Suppliers = await _purchaseOrderService.GetAllSupplierAsync();
+            return View(puschaseOrder);
+        }
 
+        [HttpPost]
+        public async Task<IActionResult> Update(PurchaseOrderViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var (isSuccess, errorMessage) = await _purchaseOrderService.SaveOrUpdateAsync(model);
+                if (isSuccess)
+                {
+                    _toastNotification.Success(Constant.UpdateSuccess, 3);
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    _toastNotification.Error(errorMessage ?? Constant.OperationFailed, 3);
+                    return View("Index", model);
+                }
+            }
+
+            // If the model is invalid, show an error notification and re-render the form
+            ViewBag.Suppliers = new SelectList(await _purchaseOrderService.GetAllSupplierAsync(), "SupplierId", "SupplierName");
+            _toastNotification.Error(Constant.InvalidForm, 3);
+            return View("Index", model);
+        }
         public async Task<IActionResult> Delete(int id, int? page)
         {
             try

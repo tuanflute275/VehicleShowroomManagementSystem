@@ -3,6 +3,7 @@
     public class PurchaseOrderDetailDTO
     {
         public int PurchaseOrderDetailId { get; set; }
+        public int SupplierId { get; set; }
         public string SupplierName { get; set; }    
         public string SupplierPhone { get; set; }
         public string SupplierEmail { get; set; }

@@ -57,6 +57,7 @@ namespace VehicleShowroom.Management.Application.Services
             }
 
             data.ListVehicle = listVehicle;
+            data.SupplierId = dataList.FirstOrDefault().Vehicle.Supplier.SupplierId;
             data.SupplierName = dataList.FirstOrDefault().Vehicle.Supplier.SupplierName;
             data.SupplierPhone = dataList.FirstOrDefault().Vehicle.Supplier.PhoneNumber;
             data.SupplierEmail = dataList.FirstOrDefault().Vehicle.Supplier.Email;
@@ -139,7 +140,11 @@ namespace VehicleShowroom.Management.Application.Services
                         bool resultStock = await _unitOfWork.StockHistoryRepository.SaveOrUpdateAsync(stock);
                         if (!resultStock) return (false, "Failed to save stock history.");
                     }
+                    purchaseOrder.TotalAmount = totalAmount;
+                    bool resultUpdate = await _unitOfWork.PurchaseOrderRepository.SaveOrUpdateAsync(purchaseOrder);
+                    if (!resultUpdate) return (false, "Failed to update purchase order total amount.");
                 }
+
                 else
                 {
                     purchaseOrder = await _unitOfWork.PurchaseOrderRepository.GetByIdAsync(model.PurchaseOrderId);
@@ -150,10 +155,6 @@ namespace VehicleShowroom.Management.Application.Services
                     bool result = await _unitOfWork.PurchaseOrderRepository.SaveOrUpdateAsync(purchaseOrder);
                     if (!result) return (false, "Failed to update purchase order.");
                 }
-
-                purchaseOrder.TotalAmount = totalAmount;
-                bool resultUpdate = await _unitOfWork.PurchaseOrderRepository.SaveOrUpdateAsync(purchaseOrder);
-                if (!resultUpdate) return (false, "Failed to update purchase order total amount.");
 
                 await _unitOfWork.SaveChangeAsync();
                 return (true, "Purchase order created successfully.");
@@ -182,6 +183,13 @@ namespace VehicleShowroom.Management.Application.Services
             return data;
         }
 
-       
+        public async Task<PurchaseOrderViewModel> GetByIdAsync(int id)
+        {
+            var query = await _unitOfWork.PurchaseOrderRepository.GetByIdAsync(id);
+
+            var data = _mapper.Map<PurchaseOrderViewModel>(query);
+
+            return data;
+        }
     }
 }

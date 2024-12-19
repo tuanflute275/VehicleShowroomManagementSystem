@@ -61,6 +61,7 @@ namespace VehicleShowroom.Management.Application.Configuration
                .ForMember(dest => dest.CustomerName, opt => opt.MapFrom(src => src.User.FullName))
                .ForMember(dest => dest.CustomerPhone, opt => opt.MapFrom(src => src.User.PhoneNumber))
                .ForMember(dest => dest.Note, opt => opt.MapFrom(src => src.Notes));
+            CreateMap<PurchaseOrder, PurchaseOrderViewModel>().ReverseMap();
         }
     }
 }
