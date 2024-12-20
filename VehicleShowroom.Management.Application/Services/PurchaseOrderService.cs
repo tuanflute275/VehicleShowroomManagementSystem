@@ -35,10 +35,36 @@ namespace VehicleShowroom.Management.Application.Services
             return data.ToPagedList(page, pageSize); 
         }
 
-        public async Task<PurchaseOrderDTO> GetByIdAsync(int id)
+        public async Task<PurchaseOrderDetailDTO> GetDataByIdAsync(int id)
         {
-            var dataQuery = await _unitOfWork.PurchaseOrderRepository.GetByIdAsync(id);
-            var data = _mapper.Map<PurchaseOrderDTO>(dataQuery);
+            var query = _unitOfWork.PurchaseOrderDetailRepository.GetAllAsync(
+               expression: s => s.PurchaseOrderId == id,
+               include: query => query.Include(x => x.Vehicle).ThenInclude(p => p.Supplier).Include(x => x.PurchaseOrder)
+            );
+            var dataQuery = await query;
+            var dataList = dataQuery.ToList();
+            PurchaseOrderDetailDTO data = new PurchaseOrderDetailDTO();
+            var listVehicle = new List<VehiclePurchase>();
+            foreach (var item in dataList)
+            {
+                var vehicle = new VehiclePurchase();
+                vehicle.VehicleName = item.Vehicle.Name;
+                vehicle.Image = item.Vehicle.Image;
+                vehicle.ModelNumber = item.Vehicle.ModelNumber;
+                vehicle.Quantity = (int)item.Quantity;
+                vehicle.UnitPrice = (decimal)item.UnitPrice;
+                listVehicle.Add(vehicle);
+            }
+
+            data.ListVehicle = listVehicle;
+            data.SupplierId = dataList.FirstOrDefault().Vehicle.Supplier.SupplierId;
+            data.SupplierName = dataList.FirstOrDefault().Vehicle.Supplier.SupplierName;
+            data.SupplierPhone = dataList.FirstOrDefault().Vehicle.Supplier.PhoneNumber;
+            data.SupplierEmail = dataList.FirstOrDefault().Vehicle.Supplier.Email;
+            data.OrderDate = dataList.FirstOrDefault().PurchaseOrder.OrderDate;
+            data.TotalAmount = dataList.FirstOrDefault().PurchaseOrder.TotalAmount;
+
+
             return data;
         }
 
@@ -114,7 +140,11 @@ namespace VehicleShowroom.Management.Application.Services
                         bool resultStock = await _unitOfWork.StockHistoryRepository.SaveOrUpdateAsync(stock);
                         if (!resultStock) return (false, "Failed to save stock history.");
                     }
+                    purchaseOrder.TotalAmount = totalAmount;
+                    bool resultUpdate = await _unitOfWork.PurchaseOrderRepository.SaveOrUpdateAsync(purchaseOrder);
+                    if (!resultUpdate) return (false, "Failed to update purchase order total amount.");
                 }
+
                 else
                 {
                     purchaseOrder = await _unitOfWork.PurchaseOrderRepository.GetByIdAsync(model.PurchaseOrderId);
@@ -125,10 +155,6 @@ namespace VehicleShowroom.Management.Application.Services
                     bool result = await _unitOfWork.PurchaseOrderRepository.SaveOrUpdateAsync(purchaseOrder);
                     if (!result) return (false, "Failed to update purchase order.");
                 }
-
-                purchaseOrder.TotalAmount = totalAmount;
-                bool resultUpdate = await _unitOfWork.PurchaseOrderRepository.SaveOrUpdateAsync(purchaseOrder);
-                if (!resultUpdate) return (false, "Failed to update purchase order total amount.");
 
                 await _unitOfWork.SaveChangeAsync();
                 return (true, "Purchase order created successfully.");
@@ -157,6 +183,13 @@ namespace VehicleShowroom.Management.Application.Services
             return data;
         }
 
-       
+        public async Task<PurchaseOrderViewModel> GetByIdAsync(int id)
+        {
+            var query = await _unitOfWork.PurchaseOrderRepository.GetByIdAsync(id);
+
+            var data = _mapper.Map<PurchaseOrderViewModel>(query);
+
+            return data;
+        }
     }
 }

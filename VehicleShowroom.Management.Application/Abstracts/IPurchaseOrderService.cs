@@ -10,7 +10,8 @@ namespace VehicleShowroom.Management.Application.Abstracts
         Task<List<VehicleDTO>> GetAllVehicleAsync();
         // PurchaseOrder
         Task<IPagedList<PurchaseOrderDTO>> GetAllPaginationAsync(string keyword, int page, int pageSize = 8);
-        Task<PurchaseOrderDTO> GetByIdAsync(int id);
+        Task<PurchaseOrderDetailDTO> GetDataByIdAsync(int id);
+        Task<PurchaseOrderViewModel> GetByIdAsync(int id);
         Task<(bool Success, string ErrorMessage)> SaveOrUpdateAsync(PurchaseOrderViewModel model);
         Task<(bool Success, string ErrorMessage)> DeleteAsync(int id);
 

@@ -14,8 +14,8 @@ namespace VehicleShowroom.Management.DataAccess
             {
                 var appContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
-               await appContext.Database.MigrateAsync();
-                await webApplication.SeedData(webApplication.Configuration);
+               /* await appContext.Database.MigrateAsync();
+                await webApplication.SeedData(webApplication.Configuration);*/
             }
         }
 

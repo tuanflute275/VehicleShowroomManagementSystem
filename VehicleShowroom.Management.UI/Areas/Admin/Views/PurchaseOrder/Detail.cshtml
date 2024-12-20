@@ -1,0 +1,116 @@
+﻿@model VehicleShowroom.Management.Application.Models.DTOs.PurchaseOrderDetailDTO
+
+@{
+    ViewData["Title"] = "Purchase Order Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    var i = 1;
+}
+
+@section Styles {
+    <style>
+        .table th, .table td {
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        .form-value {
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+}
+
+<div class="app-main__inner">
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="fa-solid fa-car"></i>
+                </div>
+                <div>
+                    Purchase Order Detail
+                    <div class="page-title-subheading">
+                        View purchase order details
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card" id="divInfomation">
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <tbody>
+                           <tr>
+                                <th scope="row">Supplier Name</th>
+                                <td>@Model.SupplierName</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Supplier Phone</th>
+                                <td>@Model.SupplierPhone</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Supplier Email</th>
+                                <td>@Model.SupplierEmail</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Order Date</th>
+                                <td>@Model.OrderDate</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Total Amount</th>
+                                <td>@string.Format("{0:C}", Model.TotalAmount)</td>
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                    <h3> Vehicle</h3>
+                    <div class="table-responsive" id="divTesst">
+                        <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">#No</th>
+                                    <th class="text-center">Vehicle Name</th>
+                                    <th class="text-center">Image</th>
+                                    <th class="text-center">Model Number</th>
+                                    <th class="text-center">Quantity</th>
+                                    <th class="text-center">Unit Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.ListVehicle)
+                                {
+                                    <tr>
+                                        <td class="text-center text-muted">#@i</td>
+                                        <td class="text-center">
+                                            <img src="@(Url.Content("~/Uploads/vehicles/" + item.Image))"
+                                                 alt="Avatar" class="card-img"
+                                                 style="width: 100px;height:100px;object-fit: cover;" />
+                                        </td>
+                                        <td class="text-center">@item.ModelNumber</td>
+                                        <td class="text-center">@item.VehicleName</td>
+                                        <td class="text-center">@item.Quantity</td>
+                                        <td class="text-center">@string.Format("{0:C}", item.UnitPrice)</td>
+                                    </tr>
+                                    i++;
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="position-relative row form-group mb-1">
+                        <div class="col-md-9 col-xl-8 offset-md-2">
+                            <a asp-area="Admin" asp-controller="PurchaseOrder" asp-action="Index" class="border-0 btn btn-outline-primary">
+                                <span class="btn-icon-wrapper pr-1 opacity-8">
+                                    <i class="fa fa-arrow-left fa-w-20"></i>
+                                </span>
+                                <span>Back</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

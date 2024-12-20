@@ -1,0 +1,72 @@
+﻿@model VehicleShowroom.Management.Application.Models.ViewModels.PurchaseOrderViewModel
+@{
+    ViewData["Title"] = "Purchase Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="app-main__inner">
+
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="fa-solid fa-car"></i>
+                </div>
+                <div>
+                    PurchaseOrder
+                    <div class="page-title-subheading">
+                        View, create, update, delete and manage.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <form method="post" asp-area="Admin" asp-controller="PurchaseOrder" asp-action="Update" asp-antiforgery="true"
+                          enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="PurchaseOrderId" />
+                        <div class="position-relative row form-group">
+                            <label for="SupplierId" class="col-md-3 text-md-right col-form-label">Supplier</label>
+                            <div class="col-md-9 col-xl-8">
+                                <select id="SupplierId" name="SupplierId" class="form-control">
+                                    
+                                    @foreach (var item in ViewBag.Suppliers)
+                                    {
+                                        @if (Model.SupplierId == item.SupplierId)
+                                        {
+                                            <option value="@item.SupplierId" selected>@item.SupplierName</option>
+                                        }
+                                        <option value="@item.SupplierId">@item.SupplierName</option>
+                                    }
+                                </select>
+                                <span asp-validation-for="SupplierId" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative row form-group mb-1">
+                            <div class="col-md-9 col-xl-8 offset-md-2">
+                                <a asp-area="Admin" asp-controller="PurchaseOrder" asp-action="Index" class="border-0 btn btn-outline-danger mr-1">
+                                    <span class="btn-icon-wrapper pr-1 opacity-8">
+                                        <i class="fa fa-times fa-w-20"></i>
+                                    </span>
+                                    <span>Cancel</span>
+                                </a>
+
+                                <button type="submit"
+                                        class="btn-shadow btn-hover-shine btn btn-primary">
+                                    <span class="btn-icon-wrapper pr-2 opacity-8">
+                                        <i class="fa fa-download fa-w-20"></i>
+                                    </span>
+                                    <span>Save</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
