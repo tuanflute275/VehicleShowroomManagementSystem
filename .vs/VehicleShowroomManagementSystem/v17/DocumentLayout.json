@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AC5DA002-A5C0-4687-B793-0C34D70BC117}|VehicleShowroom.Management.Application\\VehicleShowroom.Management.Application.csproj|c:\\users\\dell\\desktop\\eproject\\group2_c2208g_eproject_sem3\\vehicleshowroommanagementsystem\\vehicleshowroom.management.application\\services\\salesorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC5DA002-A5C0-4687-B793-0C34D70BC117}|VehicleShowroom.Management.Application\\VehicleShowroom.Management.Application.csproj|solutionrelative:vehicleshowroom.management.application\\services\\salesorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5DA002-A5C0-4687-B793-0C34D70BC117}|VehicleShowroom.Management.Application\\VehicleShowroom.Management.Application.csproj|c:\\users\\dell\\desktop\\eproject\\group2_c2208g_eproject_sem3\\vehicleshowroommanagementsystem\\vehicleshowroom.management.application\\models\\dtos\\saleorderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC5DA002-A5C0-4687-B793-0C34D70BC117}|VehicleShowroom.Management.Application\\VehicleShowroom.Management.Application.csproj|solutionrelative:vehicleshowroom.management.application\\models\\dtos\\saleorderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AC5DA002-A5C0-4687-B793-0C34D70BC117}|VehicleShowroom.Management.Application\\VehicleShowroom.Management.Application.csproj|c:\\users\\dell\\desktop\\eproject\\group2_c2208g_eproject_sem3\\vehicleshowroommanagementsystem\\vehicleshowroom.management.application\\abstracts\\ipurchaseorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AC5DA002-A5C0-4687-B793-0C34D70BC117}|VehicleShowroom.Management.Application\\VehicleShowroom.Management.Application.csproj|solutionrelative:vehicleshowroom.management.application\\abstracts\\ipurchaseorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -27,6 +35,31 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "SalesOrderService.cs",
+              "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Management.Application\\Services\\SalesOrderService.cs",
+              "RelativeDocumentMoniker": "VehicleShowroom.Management.Application\\Services\\SalesOrderService.cs",
+              "ToolTip": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Management.Application\\Services\\SalesOrderService.cs",
+              "RelativeToolTip": "VehicleShowroom.Management.Application\\Services\\SalesOrderService.cs",
+              "ViewState": "AQIAAJkAAAAAAAAAAAAQwE8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T16:32:38.402Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SaleOrderDTO.cs",
+              "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Management.Application\\Models\\DTOs\\SaleOrderDTO.cs",
+              "RelativeDocumentMoniker": "VehicleShowroom.Management.Application\\Models\\DTOs\\SaleOrderDTO.cs",
+              "ToolTip": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Management.Application\\Models\\DTOs\\SaleOrderDTO.cs",
+              "RelativeToolTip": "VehicleShowroom.Management.Application\\Models\\DTOs\\SaleOrderDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T16:32:31.494Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "IPurchaseOrderService.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Management.Application\\Abstracts\\IPurchaseOrderService.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Management.Application\\Abstracts\\IPurchaseOrderService.cs",
@@ -34,12 +67,11 @@
               "RelativeToolTip": "VehicleShowroom.Management.Application\\Abstracts\\IPurchaseOrderService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T09:48:16.961Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-17T09:48:16.961Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "PurchaseOrderRepository.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\Eproject\\Group2_C2208G_eProject_Sem3\\VehicleShowroomManagementSystem\\VehicleShowroom.Management.DataAccess\\Repository\\PurchaseOrderRepository.cs",
               "RelativeDocumentMoniker": "VehicleShowroom.Management.DataAccess\\Repository\\PurchaseOrderRepository.cs",
@@ -47,8 +79,7 @@
               "RelativeToolTip": "VehicleShowroom.Management.DataAccess\\Repository\\PurchaseOrderRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T09:48:00.452Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-17T09:48:00.452Z"
             }
           ]
         }
