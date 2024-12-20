@@ -1,4 +1,7 @@
-﻿namespace VehicleShowroom.Management.Application.Models.DTOs
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace VehicleShowroom.Management.Application.Models.DTOs
 {
     public class VehicleDTO
     {
@@ -13,6 +16,22 @@
         public string SupplierName { get; set; }
         public int CompanyId { get; set; }
         public string CompanyName { get; set; }
+
+        public string? EngineNumber { get; set; } //Số máy
+
+        public string? ChassisNumber { get; set; } //Số khung
+
+        public string FuelType { get; set; } // Loại nhiên liệu
+
+        public string TransmissionType { get; set; } // Loại hộp số
+
+        public string Color { get; set; } // Màu sắc xe
+
+        public decimal? Price { get; set; } // Giá xe
+
+        public decimal? Mileage { get; set; } // Số km đã đi
+
+        public int? ManufactureYear { get; set; } // Năm sản xuất
         public string? CreateBy { get; set; }
         public DateTime? CreateDate { get; set; }
         public string? UpdateBy { get; set; }

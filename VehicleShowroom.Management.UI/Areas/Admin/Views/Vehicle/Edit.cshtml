@@ -140,15 +140,6 @@
                         </div>
 
                         <div class="position-relative row form-group">
-                            <label for="Description" class="col-md-3 text-md-right col-form-label">Description</label>
-                            <div class="col-md-9 col-xl-8">
-                                <textarea asp-for="Description" placeholder="Enter your description"
-                                          class="form-control" rows="5"></textarea>
-                                <span asp-validation-for="Description" class="text-danger"></span>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
                             <label for="ContractDate" class="col-md-3 text-md-right col-form-label">Status</label>
                             <div class="form-check form-check-inline ml-3">
                                 <label class="form-check-label">
@@ -166,6 +157,15 @@
                                 </label>
                             </div>
                         </div>
+
+                        <div class="position-relative row form-group">
+                            <label for="Description" class="col-md-3 text-md-right col-form-label">Description</label>
+                            <div class="col-md-9 col-xl-8">
+                                <textarea asp-for="Description" id="description" name="Description" class="form-control" placeholder="Enter your Description..." rows="4"></textarea>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                        </div>
+
                         <div class="position-relative row form-group mb-1">
                             <div class="col-md-9 col-xl-8 offset-md-2">
                                 <a asp-area="Admin" asp-controller="Vehicle" asp-action="Index" class="border-0 btn btn-outline-danger mr-1">
@@ -190,3 +190,8 @@
         </div>
     </div>
 </div>
+@section Scripts {
+    <script>
+        CKEDITOR.replace('@Html.IdFor(m => m.Description)');
+    </script>
+}
