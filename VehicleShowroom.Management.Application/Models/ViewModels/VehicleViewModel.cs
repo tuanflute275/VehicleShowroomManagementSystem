@@ -29,7 +29,6 @@ namespace VehicleShowroom.Management.Application.Models.ViewModels
         public decimal? Mileage { get; set; }
         public int? ManufactureYear { get; set; }
 
-        [StringLength(500, ErrorMessage = "Description cannot exceed 500 characters.")]
         public string? Description { get; set; }
 
         [Range(1, int.MaxValue, ErrorMessage = "Please select a valid Supplier.")]
