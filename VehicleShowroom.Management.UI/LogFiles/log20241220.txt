@@ -14720,3 +14720,255 @@ INNER JOIN [Vehicles] AS [v0] ON [v].[VehicleId] = [v0].[VehicleId]
 2024-12-20 14:46:57.487 +07:00 [INF] HTTP GET /fonts/fontawesome-webfont.ttf responded 404 in 0.4398 ms
 2024-12-20 14:46:57.488 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/fonts/fontawesome-webfont.ttf?v=4.7.0 - 404 0 null 4.1034ms
 2024-12-20 14:46:57.491 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/fonts/fontawesome-webfont.ttf, Response status code: 404
+2024-12-20 14:50:30.439 +07:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Billing'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-12-20 14:50:30.474 +07:00 [WRN] No store type was specified for the decimal property 'Salary' on entity type 'User'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-12-20 14:50:30.877 +07:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-12-20 14:50:30.917 +07:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-12-20 14:50:30.922 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-12-20 14:50:30.925 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-12-20 14:50:30.946 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-12-20 14:50:30.961 +07:00 [INF] No migrations were applied. The database is already up to date.
+2024-12-20 14:50:31.146 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-12-20 14:50:31.155 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Suppliers] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-12-20 14:50:31.160 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Companies] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-12-20 14:50:31.166 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Vehicles] AS [v]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-12-20 14:50:31.172 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [PurchaseOrders] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-12-20 14:50:31.178 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [PurchaseOrderDetails] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-12-20 14:50:31.183 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [SalesOrders] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-12-20 14:50:31.189 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [SalesOrderDetails] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-12-20 14:50:31.194 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [StockHistory] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-12-20 14:50:31.200 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Billing] AS [b]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-12-20 14:50:31.278 +07:00 [INF] User profile is available. Using 'C:\Users\DELL\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-20 14:50:31.419 +07:00 [INF] Now listening on: http://localhost:5119
+2024-12-20 14:50:31.422 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-20 14:50:31.423 +07:00 [INF] Hosting environment: Development
+2024-12-20 14:50:31.424 +07:00 [INF] Content root path: C:\Users\DELL\Desktop\Eproject\Group2_C2208G_eProject_Sem3\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI
+2024-12-20 14:50:31.873 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/ - null null
+2024-12-20 14:50:32.031 +07:00 [WRN] Failed to determine the https port for redirect.
+2024-12-20 14:50:32.079 +07:00 [INF] Executing endpoint 'VehicleShowroomManagementSystem.Controllers.HomeController.Index (VehicleShowroom.Management.UI)'
+2024-12-20 14:50:32.095 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, System.Nullable`1[System.Int32]) on controller VehicleShowroomManagementSystem.Controllers.HomeController (VehicleShowroom.Management.UI).
+2024-12-20 14:50:32.495 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [v].[VehicleId], [v].[ChassisNumber], [v].[Color], [v].[CompanyId], [v].[CreateBy], [v].[CreateDate], [v].[DeleteBy], [v].[DeleteDate], [v].[DeleteFlag], [v].[Description], [v].[EngineNumber], [v].[FuelType], [v].[Image], [v].[ManufactureYear], [v].[Mileage], [v].[ModelNumber], [v].[Name], [v].[Price], [v].[Slug], [v].[Status], [v].[SupplierId], [v].[TransmissionType], [v].[UpdateBy], [v].[UpdateDate], [s].[SupplierId], [s].[Address], [s].[BankAccount], [s].[BankName], [s].[ContactPerson], [s].[ContractDate], [s].[ContractNumber], [s].[CreateBy], [s].[CreateDate], [s].[DeleteBy], [s].[DeleteDate], [s].[DeleteFlag], [s].[Email], [s].[Notes], [s].[PhoneNumber], [s].[Status], [s].[SupplierName], [s].[TaxCode], [s].[UpdateBy], [s].[UpdateDate], [s].[Website], [c].[CompanyId], [c].[CompanyName], [c].[CreateBy], [c].[CreateDate], [c].[DeleteBy], [c].[DeleteDate], [c].[DeleteFlag], [c].[Email], [c].[PhoneNumber], [c].[Status], [c].[UpdateBy], [c].[UpdateDate]
+FROM [Vehicles] AS [v]
+INNER JOIN [Suppliers] AS [s] ON [v].[SupplierId] = [s].[SupplierId]
+INNER JOIN [Companies] AS [c] ON [v].[CompanyId] = [c].[CompanyId]
+2024-12-20 14:50:32.539 +07:00 [INF] Executing ViewResult, running view Index.
+2024-12-20 14:50:32.665 +07:00 [INF] Executed ViewResult - view Index executed in 125.4768ms.
+2024-12-20 14:50:32.672 +07:00 [INF] Executed action VehicleShowroomManagementSystem.Controllers.HomeController.Index (VehicleShowroom.Management.UI) in 574.8513ms
+2024-12-20 14:50:32.677 +07:00 [INF] Executed endpoint 'VehicleShowroomManagementSystem.Controllers.HomeController.Index (VehicleShowroom.Management.UI)'
+2024-12-20 14:50:32.688 +07:00 [INF] HTTP GET / responded 200 in 655.8633 ms
+2024-12-20 14:50:32.707 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/ - 200 null text/html; charset=utf-8 840.0398ms
+2024-12-20 14:50:32.711 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/css/lightbox.min.css - null null
+2024-12-20 14:50:32.712 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/js/jquery-3.6.0.min.js - null null
+2024-12-20 14:50:32.713 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/css/font-awesome.css - null null
+2024-12-20 14:50:32.721 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/VehicleShowroomManagementSystem.styles.css - null null
+2024-12-20 14:50:32.716 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/js/lightbox.min.js - null null
+2024-12-20 14:50:32.763 +07:00 [INF] HTTP GET /VehicleShowroomManagementSystem.styles.css responded 404 in 10.3904 ms
+2024-12-20 14:50:32.766 +07:00 [INF] Sending file. Request path: '/css/lightbox.min.css'. Physical path: 'C:\Users\DELL\Desktop\Eproject\Group2_C2208G_eProject_Sem3\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\css\lightbox.min.css'
+2024-12-20 14:50:32.791 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-20 14:50:32.795 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/VehicleShowroomManagementSystem.styles.css - 404 0 null 73.9722ms
+2024-12-20 14:50:32.766 +07:00 [INF] Sending file. Request path: '/css/font-awesome.css'. Physical path: 'C:\Users\DELL\Desktop\Eproject\Group2_C2208G_eProject_Sem3\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\css\font-awesome.css'
+2024-12-20 14:50:32.811 +07:00 [INF] HTTP GET /css/lightbox.min.css responded 200 in 79.6120 ms
+2024-12-20 14:50:32.819 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/_framework/aspnetcore-browser-refresh.js - 200 13794 application/javascript; charset=utf-8 30.5937ms
+2024-12-20 14:50:32.830 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/css/lightbox.min.css - 200 2532 text/css 119.3632ms
+2024-12-20 14:50:32.826 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/VehicleShowroomManagementSystem.styles.css, Response status code: 404
+2024-12-20 14:50:32.827 +07:00 [INF] HTTP GET /css/font-awesome.css responded 200 in 79.0252 ms
+2024-12-20 14:50:32.831 +07:00 [INF] Sending file. Request path: '/js/lightbox.min.js'. Physical path: 'C:\Users\DELL\Desktop\Eproject\Group2_C2208G_eProject_Sem3\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\js\lightbox.min.js'
+2024-12-20 14:50:32.848 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/css/font-awesome.css - 200 39751 text/css 134.4119ms
+2024-12-20 14:50:32.850 +07:00 [INF] HTTP GET /js/lightbox.min.js responded 200 in 81.7703 ms
+2024-12-20 14:50:32.856 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/js/lightbox.min.js - 200 9497 text/javascript 141.5991ms
+2024-12-20 14:50:32.866 +07:00 [INF] Sending file. Request path: '/js/jquery-3.6.0.min.js'. Physical path: 'C:\Users\DELL\Desktop\Eproject\Group2_C2208G_eProject_Sem3\VehicleShowroomManagementSystem\VehicleShowroom.Management.UI\wwwroot\js\jquery-3.6.0.min.js'
+2024-12-20 14:50:32.869 +07:00 [INF] HTTP GET /js/jquery-3.6.0.min.js responded 200 in 133.3489 ms
+2024-12-20 14:50:32.871 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/js/jquery-3.6.0.min.js - 200 89503 text/javascript 158.6651ms
+2024-12-20 14:50:32.902 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/Uploads/vehicles/honda-civic.jpg - null null
+2024-12-20 14:50:32.902 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/Uploads/vehicles/ford-mustang.jpg - null null
+2024-12-20 14:50:32.902 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/Uploads/vehicles/chevrolet-bolt.jpg - null null
+2024-12-20 14:50:32.922 +07:00 [INF] HTTP GET /Uploads/vehicles/chevrolet-bolt.jpg responded 404 in 0.5684 ms
+2024-12-20 14:50:32.903 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/Uploads/vehicles/bmw-x5.jpg - null null
+2024-12-20 14:50:32.903 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/Uploads/vehicles/mercedes-c-class.jpg - null null
+2024-12-20 14:50:32.920 +07:00 [INF] HTTP GET /Uploads/vehicles/ford-mustang.jpg responded 404 in 4.0801 ms
+2024-12-20 14:50:32.920 +07:00 [INF] HTTP GET /Uploads/vehicles/honda-civic.jpg responded 404 in 10.1238 ms
+2024-12-20 14:50:32.903 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/Uploads/vehicles/tesla-model-3.jpg - null null
+2024-12-20 14:50:32.924 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/Uploads/vehicles/chevrolet-bolt.jpg - 404 0 null 21.8925ms
+2024-12-20 14:50:32.932 +07:00 [INF] HTTP GET /Uploads/vehicles/bmw-x5.jpg responded 404 in 0.6073 ms
+2024-12-20 14:50:32.935 +07:00 [INF] HTTP GET /Uploads/vehicles/mercedes-c-class.jpg responded 404 in 0.5823 ms
+2024-12-20 14:50:32.937 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/Uploads/vehicles/ford-mustang.jpg - 404 0 null 34.3658ms
+2024-12-20 14:50:32.940 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/Uploads/vehicles/honda-civic.jpg - 404 0 null 37.6127ms
+2024-12-20 14:50:32.945 +07:00 [INF] HTTP GET /Uploads/vehicles/tesla-model-3.jpg responded 404 in 0.6482 ms
+2024-12-20 14:50:32.949 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/Uploads/vehicles/chevrolet-bolt.jpg, Response status code: 404
+2024-12-20 14:50:32.952 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/Uploads/vehicles/bmw-x5.jpg - 404 0 null 48.6746ms
+2024-12-20 14:50:32.954 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/Uploads/vehicles/mercedes-c-class.jpg - 404 0 null 50.6976ms
+2024-12-20 14:50:32.957 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/Uploads/vehicles/ford-mustang.jpg, Response status code: 404
+2024-12-20 14:50:32.962 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/Uploads/vehicles/honda-civic.jpg, Response status code: 404
+2024-12-20 14:50:32.964 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/Uploads/vehicles/tesla-model-3.jpg - 404 0 null 61.0323ms
+2024-12-20 14:50:32.966 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/Uploads/vehicles/audi-a4.jpg - null null
+2024-12-20 14:50:32.970 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/Uploads/vehicles/bmw-x5.jpg, Response status code: 404
+2024-12-20 14:50:32.974 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/Uploads/vehicles/mercedes-c-class.jpg, Response status code: 404
+2024-12-20 14:50:32.978 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/_vs/browserLink - null null
+2024-12-20 14:50:32.981 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/Uploads/vehicles/tesla-model-3.jpg, Response status code: 404
+2024-12-20 14:50:32.985 +07:00 [INF] HTTP GET /Uploads/vehicles/audi-a4.jpg responded 404 in 0.5448 ms
+2024-12-20 14:50:33.007 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/fonts/fontawesome-webfont.woff2?v=4.7.0 - null null
+2024-12-20 14:50:33.008 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/Uploads/vehicles/audi-a4.jpg - 404 0 null 41.4353ms
+2024-12-20 14:50:33.016 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/Uploads/vehicles/audi-a4.jpg, Response status code: 404
+2024-12-20 14:50:33.012 +07:00 [INF] HTTP GET /fonts/fontawesome-webfont.woff2 responded 404 in 0.6066 ms
+2024-12-20 14:50:33.039 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/fonts/fontawesome-webfont.woff2?v=4.7.0 - 404 0 null 32.0846ms
+2024-12-20 14:50:33.048 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/fonts/fontawesome-webfont.woff2, Response status code: 404
+2024-12-20 14:50:33.056 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/undefined - null null
+2024-12-20 14:50:33.056 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/~/img/footer-bg.jpg - null null
+2024-12-20 14:50:33.058 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/fonts/fontawesome-webfont.woff?v=4.7.0 - null null
+2024-12-20 14:50:33.060 +07:00 [INF] HTTP GET /undefined responded 404 in 0.3656 ms
+2024-12-20 14:50:33.066 +07:00 [INF] HTTP GET /~/img/footer-bg.jpg responded 404 in 2.5016 ms
+2024-12-20 14:50:33.068 +07:00 [INF] HTTP GET /fonts/fontawesome-webfont.woff responded 404 in 0.8642 ms
+2024-12-20 14:50:33.070 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/undefined - 404 0 null 13.6776ms
+2024-12-20 14:50:33.072 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/_vs/browserLink - 200 null text/javascript; charset=UTF-8 93.8401ms
+2024-12-20 14:50:33.072 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/~/img/footer-bg.jpg - 404 0 null 15.6455ms
+2024-12-20 14:50:33.075 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/fonts/fontawesome-webfont.woff?v=4.7.0 - 404 0 null 17.3102ms
+2024-12-20 14:50:33.079 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/undefined, Response status code: 404
+2024-12-20 14:50:33.089 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/~/img/footer-bg.jpg, Response status code: 404
+2024-12-20 14:50:33.093 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/fonts/fontawesome-webfont.woff, Response status code: 404
+2024-12-20 14:50:33.102 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/fonts/fontawesome-webfont.ttf?v=4.7.0 - null null
+2024-12-20 14:50:33.105 +07:00 [INF] HTTP GET /fonts/fontawesome-webfont.ttf responded 404 in 0.6056 ms
+2024-12-20 14:50:33.107 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/fonts/fontawesome-webfont.ttf?v=4.7.0 - 404 0 null 5.5955ms
+2024-12-20 14:50:33.111 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/fonts/fontawesome-webfont.ttf, Response status code: 404
+2024-12-20 14:50:33.322 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/images/prev.png - null null
+2024-12-20 14:50:33.322 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/images/next.png - null null
+2024-12-20 14:50:33.322 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/images/loading.gif - null null
+2024-12-20 14:50:33.322 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/images/close.png - null null
+2024-12-20 14:50:33.330 +07:00 [INF] HTTP GET /images/loading.gif responded 404 in 0.4962 ms
+2024-12-20 14:50:33.330 +07:00 [INF] HTTP GET /images/prev.png responded 404 in 5.4744 ms
+2024-12-20 14:50:33.330 +07:00 [INF] HTTP GET /images/next.png responded 404 in 0.4965 ms
+2024-12-20 14:50:33.332 +07:00 [INF] HTTP GET /images/close.png responded 404 in 0.4391 ms
+2024-12-20 14:50:33.335 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/images/loading.gif - 404 0 null 12.9221ms
+2024-12-20 14:50:33.340 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/images/next.png - 404 0 null 17.7017ms
+2024-12-20 14:50:33.341 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/images/prev.png - 404 0 null 16.0193ms
+2024-12-20 14:50:33.342 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/images/close.png - 404 0 null 19.5778ms
+2024-12-20 14:50:33.345 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/images/loading.gif, Response status code: 404
+2024-12-20 14:50:33.347 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/images/next.png, Response status code: 404
+2024-12-20 14:50:33.350 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/images/prev.png, Response status code: 404
+2024-12-20 14:50:33.353 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/images/close.png, Response status code: 404
+2024-12-20 14:50:36.736 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/Home/Detail/1 - null null
+2024-12-20 14:50:36.742 +07:00 [INF] Executing endpoint 'VehicleShowroomManagementSystem.Controllers.HomeController.Detail (VehicleShowroom.Management.UI)'
+2024-12-20 14:50:36.746 +07:00 [INF] Route matched with {action = "Detail", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(Int32) on controller VehicleShowroomManagementSystem.Controllers.HomeController (VehicleShowroom.Management.UI).
+2024-12-20 14:50:36.788 +07:00 [INF] Executed DbCommand (17ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [v].[VehicleId], [v].[ChassisNumber], [v].[Color], [v].[CompanyId], [v].[CreateBy], [v].[CreateDate], [v].[DeleteBy], [v].[DeleteDate], [v].[DeleteFlag], [v].[Description], [v].[EngineNumber], [v].[FuelType], [v].[Image], [v].[ManufactureYear], [v].[Mileage], [v].[ModelNumber], [v].[Name], [v].[Price], [v].[Slug], [v].[Status], [v].[SupplierId], [v].[TransmissionType], [v].[UpdateBy], [v].[UpdateDate], [s].[SupplierId], [s].[Address], [s].[BankAccount], [s].[BankName], [s].[ContactPerson], [s].[ContractDate], [s].[ContractNumber], [s].[CreateBy], [s].[CreateDate], [s].[DeleteBy], [s].[DeleteDate], [s].[DeleteFlag], [s].[Email], [s].[Notes], [s].[PhoneNumber], [s].[Status], [s].[SupplierName], [s].[TaxCode], [s].[UpdateBy], [s].[UpdateDate], [s].[Website], [c].[CompanyId], [c].[CompanyName], [c].[CreateBy], [c].[CreateDate], [c].[DeleteBy], [c].[DeleteDate], [c].[DeleteFlag], [c].[Email], [c].[PhoneNumber], [c].[Status], [c].[UpdateBy], [c].[UpdateDate]
+FROM [Vehicles] AS [v]
+INNER JOIN [Suppliers] AS [s] ON [v].[SupplierId] = [s].[SupplierId]
+INNER JOIN [Companies] AS [c] ON [v].[CompanyId] = [c].[CompanyId]
+WHERE [v].[VehicleId] = @__id_0
+2024-12-20 14:50:36.809 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [v].[VehicleImageId], [v].[CreateBy], [v].[CreateDate], [v].[DeleteBy], [v].[DeleteDate], [v].[DeleteFlag], [v].[Path], [v].[UpdateBy], [v].[UpdateDate], [v].[VehicleId], [v0].[VehicleId], [v0].[ChassisNumber], [v0].[Color], [v0].[CompanyId], [v0].[CreateBy], [v0].[CreateDate], [v0].[DeleteBy], [v0].[DeleteDate], [v0].[DeleteFlag], [v0].[Description], [v0].[EngineNumber], [v0].[FuelType], [v0].[Image], [v0].[ManufactureYear], [v0].[Mileage], [v0].[ModelNumber], [v0].[Name], [v0].[Price], [v0].[Slug], [v0].[Status], [v0].[SupplierId], [v0].[TransmissionType], [v0].[UpdateBy], [v0].[UpdateDate]
+FROM [VehicleImages] AS [v]
+INNER JOIN [Vehicles] AS [v0] ON [v].[VehicleId] = [v0].[VehicleId]
+2024-12-20 14:50:36.827 +07:00 [INF] Executing ViewResult, running view Detail.
+2024-12-20 14:50:36.868 +07:00 [INF] Executed ViewResult - view Detail executed in 41.8646ms.
+2024-12-20 14:50:36.869 +07:00 [INF] Executed action VehicleShowroomManagementSystem.Controllers.HomeController.Detail (VehicleShowroom.Management.UI) in 122.2045ms
+2024-12-20 14:50:36.871 +07:00 [INF] Executed endpoint 'VehicleShowroomManagementSystem.Controllers.HomeController.Detail (VehicleShowroom.Management.UI)'
+2024-12-20 14:50:36.873 +07:00 [INF] HTTP GET /Home/Detail/1 responded 200 in 132.0164 ms
+2024-12-20 14:50:36.876 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/Home/Detail/1 - 200 null text/html; charset=utf-8 140.2814ms
+2024-12-20 14:50:36.900 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/VehicleShowroomManagementSystem.styles.css - null null
+2024-12-20 14:50:36.907 +07:00 [INF] HTTP GET /VehicleShowroomManagementSystem.styles.css responded 404 in 2.1276 ms
+2024-12-20 14:50:36.911 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/VehicleShowroomManagementSystem.styles.css - 404 0 null 10.8275ms
+2024-12-20 14:50:36.915 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/VehicleShowroomManagementSystem.styles.css, Response status code: 404
+2024-12-20 14:50:36.953 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-20 14:50:36.953 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/_vs/browserLink - null null
+2024-12-20 14:50:36.954 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/fonts/fontawesome-webfont.woff2?v=4.7.0 - null null
+2024-12-20 14:50:36.958 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/_framework/aspnetcore-browser-refresh.js - 200 13794 application/javascript; charset=utf-8 5.1166ms
+2024-12-20 14:50:36.975 +07:00 [INF] HTTP GET /fonts/fontawesome-webfont.woff2 responded 404 in 1.0957 ms
+2024-12-20 14:50:36.977 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/_vs/browserLink - 200 null text/javascript; charset=UTF-8 23.9492ms
+2024-12-20 14:50:36.982 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/fonts/fontawesome-webfont.woff2?v=4.7.0 - 404 0 null 28.2911ms
+2024-12-20 14:50:36.989 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/fonts/fontawesome-webfont.woff2, Response status code: 404
+2024-12-20 14:50:36.990 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/Home/Detail/~/img/footer-bg.jpg - null null
+2024-12-20 14:50:36.995 +07:00 [INF] HTTP GET /Home/Detail/~/img/footer-bg.jpg responded 404 in 2.3783 ms
+2024-12-20 14:50:36.997 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/Home/Detail/~/img/footer-bg.jpg - 404 0 null 6.3379ms
+2024-12-20 14:50:36.999 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/Home/Detail/~/img/footer-bg.jpg, Response status code: 404
+2024-12-20 14:50:37.002 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/fonts/fontawesome-webfont.woff?v=4.7.0 - null null
+2024-12-20 14:50:37.005 +07:00 [INF] HTTP GET /fonts/fontawesome-webfont.woff responded 404 in 0.4880 ms
+2024-12-20 14:50:37.007 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/fonts/fontawesome-webfont.woff?v=4.7.0 - 404 0 null 4.6528ms
+2024-12-20 14:50:37.010 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/fonts/fontawesome-webfont.woff, Response status code: 404
+2024-12-20 14:50:37.012 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/fonts/fontawesome-webfont.ttf?v=4.7.0 - null null
+2024-12-20 14:50:37.014 +07:00 [INF] HTTP GET /fonts/fontawesome-webfont.ttf responded 404 in 0.3930 ms
+2024-12-20 14:50:37.015 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/fonts/fontawesome-webfont.ttf?v=4.7.0 - 404 0 null 3.5519ms
+2024-12-20 14:50:37.018 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/fonts/fontawesome-webfont.ttf, Response status code: 404
+2024-12-20 14:50:37.375 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/images/prev.png - null null
+2024-12-20 14:50:37.375 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/images/loading.gif - null null
+2024-12-20 14:50:37.375 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/images/next.png - null null
+2024-12-20 14:50:37.375 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5119/images/close.png - null null
+2024-12-20 14:50:37.378 +07:00 [INF] HTTP GET /images/prev.png responded 404 in 0.3656 ms
+2024-12-20 14:50:37.380 +07:00 [INF] HTTP GET /images/loading.gif responded 404 in 0.2167 ms
+2024-12-20 14:50:37.381 +07:00 [INF] HTTP GET /images/next.png responded 404 in 0.2010 ms
+2024-12-20 14:50:37.383 +07:00 [INF] HTTP GET /images/close.png responded 404 in 0.1944 ms
+2024-12-20 14:50:37.384 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/images/prev.png - 404 0 null 8.6939ms
+2024-12-20 14:50:37.386 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/images/loading.gif - 404 0 null 11.1302ms
+2024-12-20 14:50:37.389 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/images/next.png - 404 0 null 13.4375ms
+2024-12-20 14:50:37.390 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5119/images/close.png - 404 0 null 15.1132ms
+2024-12-20 14:50:37.393 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/images/prev.png, Response status code: 404
+2024-12-20 14:50:37.395 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/images/loading.gif, Response status code: 404
+2024-12-20 14:50:37.397 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/images/next.png, Response status code: 404
+2024-12-20 14:50:37.399 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5119/images/close.png, Response status code: 404
