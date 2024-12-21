@@ -291,5 +291,20 @@ namespace VehicleShowroom.Management.Application.Services
 
             return result;
         }
+
+        public async Task<SaleOrderExportDTO> GetDataExportByIdAsync(int SalesOrderId)
+        {
+           /* // Lấy thông tin đơn hàng từ SalesOrderRepository
+            var salesOrder = await _unitOfWork.SalesOrderRepository.GetAllAsync(
+                expression: x => x.SalesOrderId == SalesOrderId, // Kiểm tra đúng SalesOrderId
+                include: query => query.Include(x => x.User)    // Nạp thông tin User liên quan
+            );
+            // Ném ngoại lệ nếu không tìm thấy đơn hàng
+            if (salesOrder == null || !salesOrder.Any())
+            {
+                throw new KeyNotFoundException($"SalesOrder with ID {SalesOrderId} not found.");
+            }*/
+           return null;
+        }
     }
 }
