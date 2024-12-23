@@ -79,15 +79,6 @@
                                 <span asp-validation-for="CompanyId" class="text-danger"></span>
                             </div>
                         </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="Description" class="col-md-3 text-md-right col-form-label">Description</label>
-                            <div class="col-md-9 col-xl-8">
-                                <textarea asp-for="Description" placeholder="Enter your description"
-                                          class="form-control" rows="5"></textarea>
-                                <span asp-validation-for="Description" class="text-danger"></span>
-                            </div>
-                        </div>
                         
                         <div class="position-relative row form-group">
                             <label for="ContractDate" class="col-md-3 text-md-right col-form-label">Status</label>
@@ -105,6 +96,14 @@
                                 <label class="form-check-label">
                                     <input class="form-check-input" type="radio" asp-for="Status" value="Sold"> Sold
                                 </label>
+                            </div>
+                        </div>
+
+                        <div class="position-relative row form-group">
+                            <label for="Description" class="col-md-3 text-md-right col-form-label">Description</label>
+                            <div class="col-md-9 col-xl-8">
+                                <textarea asp-for="Description" id="description" class="form-control" placeholder="Enter your Description..." rows="4"></textarea>
+                                <span asp-validation-for="Description" class="text-danger"></span>
                             </div>
                         </div>
 
@@ -132,3 +131,9 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        CKEDITOR.replace('@Html.IdFor(m => m.Description)');
+    </script>
+}

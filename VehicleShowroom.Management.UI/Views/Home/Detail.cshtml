@@ -1,0 +1,80 @@
+﻿@model VehicleShowroom.Management.Application.Models.DTOs.VehicleDTO
+@{
+    ViewData["Title"] = "Detail Home Page";
+}
+
+<section class="car-details spad p-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="car__details__pic">
+                    <div class="car__details__pic__large">
+                        <img src="@(Url.Content("~/Uploads/vehicles/" + Model.Image))"
+                             alt="Image" class="card-img"
+                             style="width: 100px;" />
+                    </div>
+                    <div class="car-thumbs">
+                        <div class="car-thumbs-track car__thumb__slider owl-carousel">
+                            @foreach (var item in ViewBag.ListImage)
+                            {
+                                <div class="ct">
+                                    <!-- Sử dụng Lightbox -->
+                                    <a href="@(Url.Content("~/Uploads/vehicleImages/" + item.Path))" data-lightbox="vehicle-images" data-title="Image detail">
+                                        <img src="@(Url.Content("~/Uploads/vehicleImages/" + item.Path))" alt="">
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="car__details__sidebar">
+                    <div class="car__details__sidebar__model">
+                        <ul>
+                            <li>Name <span>@Model.Name</span></li>
+                            <li>Price <span>@string.Format("{0:C}", Model.Price)</span></li>
+                            <li>Color <span>@Model.Color</span></li>
+                            <li>EngineNumber <span>@Model.EngineNumber</span></li>
+                            <li>ChassisNumber <span>@Model.ChassisNumber</span></li>
+                            <li>FuelType <span>@Model.FuelType</span></li>
+                            <li>TransmissionType <span>@Model.TransmissionType</span></li>
+                            <li>Mileage <span>@Model.Mileage</span></li>
+                            <li>ManufactureYear <span>@Model.ManufactureYear</span></li>
+                        </ul>
+                        <p>Enter Date: @Model.CreateDate</p>
+                    </div>
+                    <div class="car__details__sidebar__payment">
+                        <ul>
+                            <li>Company <span>@Model.CompanyName</span></li>
+                            <li>Supplier <span style="font-size:16px;">@Model.SupplierName</span></li>
+                        </ul>
+                        <a href="tel:84982467073" class="primary-btn"><i class="fa fa-credit-phone"></i>Contact Us: 0982 467 073</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="car__details__tab mt-4">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">
+                        Description
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                    <div class="car__details__tab__info">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="car__details__tab__info__item">
+                                    @Html.Raw(Model.Description);
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
