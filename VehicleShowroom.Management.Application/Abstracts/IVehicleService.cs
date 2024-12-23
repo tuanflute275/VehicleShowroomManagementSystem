@@ -9,6 +9,7 @@ namespace VehicleShowroom.Management.Application.Abstracts
     public interface IVehicleService
     {
         Task<IPagedList<VehicleDTO>> GetAllPaginationAsync(string keyword, int page, int pageSize = 8);
+        Task<List<VehicleDTO>> GetAllExportAsync();
         Task<List<Supplier>> GetAllSupplierAsync();
         Task<List<Company>> GetAllCompanyAsync();
         Task<Vehicle> GetByIdAsync(int id);
