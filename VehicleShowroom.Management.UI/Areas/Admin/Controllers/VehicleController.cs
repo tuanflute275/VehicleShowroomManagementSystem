@@ -4,7 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using VehicleShowroom.Management.Application.Abstracts;
 using VehicleShowroom.Management.Application.Models.DTOs;
 using VehicleShowroom.Management.Application.Models.ViewModels;
+using VehicleShowroom.Management.Application.Services;
 using VehicleShowroom.Management.Application.Utils;
+using VehicleShowroom.Management.Domain.Entities;
+using VehicleShowroom.Management.Infrastructure.Abstracts;
+using VehicleShowroom.Management.UI.Utils;
 using VehicleShowroomManagementSystem.Areas.Admin.Controllers;
 
 namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
@@ -12,11 +16,13 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
     public class VehicleController : BaseController
     {
         private readonly IMapper _mapper;
+        private readonly IPDFService _pdfService;
         private readonly INotyfService _toastNotification;
         private readonly IVehicleService _vehicleService;
-        public VehicleController(IVehicleService vehicleService, IMapper mapper, INotyfService notyfService)
+        public VehicleController(IVehicleService vehicleService, IMapper mapper, IPDFService pdfService, INotyfService notyfService)
         {
             _mapper = mapper;
+            _pdfService = pdfService;
             _vehicleService = vehicleService;
             _toastNotification = notyfService;
         }
@@ -203,6 +209,25 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
                 _toastNotification.Error($"{Constant.OperationFailed} Error: {ex.Message}", 3);
             }
             return RedirectToAction("ListImage", new { page = page ?? 1 });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ExportAll()
+        {
+            var data = await _vehicleService.GetAllExportAsync();
+            string html = await this.RenderViewAsync<List<VehicleDTO>>(RouteData, "_TemplateReportVehicleAll", data, true);
+            var result = _pdfService.GeneratePDF(html);
+            return File(result, "application/pdf", $"{DateTime.Now.Ticks}.pdf");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ExportPDF(int id)
+        {
+            var r = await _vehicleService.GetByIdAsync(id);
+            var data = _mapper.Map<VehicleDTO>(r);
+            string html = await this.RenderViewAsync<VehicleDTO>(RouteData, "_TemplateReportVehicle", data, true);
+            var result = _pdfService.GeneratePDF(html);
+            return File(result, "application/pdf", $"{DateTime.Now.Ticks}.pdf");
         }
     }
 }

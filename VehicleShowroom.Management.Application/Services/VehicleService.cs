@@ -237,5 +237,24 @@ namespace VehicleShowroom.Management.Application.Services
             var data = _mapper.Map<VehicleImageEditViewModel>(query);
             return data;
         }
+
+        public async Task<List<VehicleDTO>> GetAllExportAsync()
+        {
+            try
+            {
+                var vehicleQuery = _unitOfWork.VehicleRepository.GetAllAsync(null,
+               include: query => query
+               .Include(x => x.Supplier)
+               .Include(x => x.Company)
+             );
+                var vehicle = await vehicleQuery;
+                var vehicleList = vehicle.ToList();
+                var data = _mapper.Map<List<VehicleDTO>>(vehicleList);
+                return data;
+            }
+            catch (Exception ex) {
+                return null;
+            }
+        }
     }
 }
