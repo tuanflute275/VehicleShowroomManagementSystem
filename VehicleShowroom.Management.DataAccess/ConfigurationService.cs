@@ -40,7 +40,8 @@ namespace VehicleShowroom.Management.DataAccess
                             PhoneNumber = "0123456789",
                             Address = "HN",
                             Gender = 1,
-                            Status = 0
+                            Status = 0,
+                            Avatar = "a057d016-c54f-4f05-88f4-cc9b3d26226b.webp"
                         },
                         new User
                         {
@@ -52,7 +53,8 @@ namespace VehicleShowroom.Management.DataAccess
                             PhoneNumber = "9876543210",
                             Address = "HN",
                             Gender = 2,
-                            Status = 0
+                            Status = 0,
+                            Avatar = "ac836a64-59ff-461a-9fa3-2ed2f4f1b0b2.webp"
                         },
                         new User
                         {
@@ -64,7 +66,8 @@ namespace VehicleShowroom.Management.DataAccess
                             PhoneNumber = "1234567890",
                             Address = "HN",
                             Gender = 2,
-                            Status = 0
+                            Status = 0,
+                            Avatar = "698bdb45-4e1a-44db-9958-ce8c23a6df9c.webp"
                         },
                         new User
                         {
@@ -76,7 +79,8 @@ namespace VehicleShowroom.Management.DataAccess
                             PhoneNumber = "345678123",
                             Address = "HN",
                             Gender = 1,
-                            Status = 0
+                            Status = 0,
+                            Avatar = "c421b074-53b4-49cb-b99e-ec083547bfad.webp"
                         }
                     );
                     appContext.Users.AddRange(
@@ -85,7 +89,7 @@ namespace VehicleShowroom.Management.DataAccess
                             Username = "johndoe",
                             Password = "$2a$12$eefyE/f6G0AKFLfVl3B66.T6QfgGNHPIZLlDp.v527EuwVruYlTye",
                             FullName = "John Doe",
-                            Avatar = "/images/johndoe.jpg",
+                            Avatar = "bc6c69c2-5606-4c25-b3b8-8dfaa005966f.webp",
                             Email = "john.doe@example.com",
                             PhoneNumber = "1234567890",
                             Address = "123 Main St",
@@ -98,14 +102,15 @@ namespace VehicleShowroom.Management.DataAccess
                             DateOfBirth = DateTime.Parse("1985-05-20"),
                             Nationality = "USA",
                             EmergencyContact = "Jane Doe, 987654321",
-                            Role = 0
+                            Role = 0,
+
                         },
                         new User
                         {
                             Username = "janesmith",
                             Password = "$2a$12$eefyE/f6G0AKFLfVl3B66.T6QfgGNHPIZLlDp.v527EuwVruYlTye",
                             FullName = "Jane Smith",
-                            Avatar = "/images/janesmith.jpg",
+                            Avatar = "ea26479a-227a-42a1-981d-61252f6b1ae5.webp",
                             Email = "jane.smith@example.com",
                             PhoneNumber = "9876543210",
                             Address = "456 Elm St",
@@ -125,7 +130,7 @@ namespace VehicleShowroom.Management.DataAccess
                              Username = "michaelbrown",
                              Password = "$2a$12$eefyE/f6G0AKFLfVl3B66.T6QfgGNHPIZLlDp.v527EuwVruYlTye",
                              FullName = "Michael Brown",
-                             Avatar = "/images/michaelbrown.jpg",
+                             Avatar = "0397fc5e-204e-45a4-944f-ccd95d767ba2.webp",
                              Email = "michael.brown@example.com",
                              PhoneNumber = "1122334455",
                              Address = "789 Oak St",
@@ -145,7 +150,7 @@ namespace VehicleShowroom.Management.DataAccess
                             Username = "emilydavis",
                             Password = "$2a$12$eefyE/f6G0AKFLfVl3B66.T6QfgGNHPIZLlDp.v527EuwVruYlTye",
                             FullName = "Emily Davis",
-                            Avatar = "/images/emilydavis.jpg",
+                            Avatar = "5b854534-9947-497d-a272-ec4c1c1f9a5e.webp",
                             Email = "emily.davis@example.com",
                             PhoneNumber = "3344556677",
                             Address = "321 Pine St",
@@ -165,7 +170,7 @@ namespace VehicleShowroom.Management.DataAccess
                             Username = "chrisjohnson",
                             Password = "$2a$12$eefyE/f6G0AKFLfVl3B66.T6QfgGNHPIZLlDp.v527EuwVruYlTye",
                             FullName = "Chris Johnson",
-                            Avatar = "/images/chrisjohnson.jpg",
+                            Avatar = "24bc1599-9e1b-43f5-b36f-3d8ad847e2db.webp",
                             Email = "chris.johnson@example.com",
                             PhoneNumber = "5566778899",
                             Address = "654 Birch St",
@@ -185,7 +190,7 @@ namespace VehicleShowroom.Management.DataAccess
                             Username = "laurawilson",
                             Password = "$2a$12$eefyE/f6G0AKFLfVl3B66.T6QfgGNHPIZLlDp.v527EuwVruYlTye",
                             FullName = "Laura Wilson",
-                            Avatar = "/images/laurawilson.jpg",
+                            Avatar = "9408a5b9-0661-472b-8bdc-bed4e0334b51.webp",
                             Email = "laura.wilson@example.com",
                             PhoneNumber = "7788990011",
                             Address = "987 Maple St",
