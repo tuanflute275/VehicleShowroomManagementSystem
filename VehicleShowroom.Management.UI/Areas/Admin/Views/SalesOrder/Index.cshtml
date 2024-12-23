@@ -50,10 +50,18 @@
                             </span>
                         </div>
                     </form>
-                    <a asp-area="Admin" asp-controller="SalesOrder" asp-action="Index" type="button" class="btn btn-warning text-white">
-                        <i class="fa-solid fa-arrows-rotate"></i>&nbsp;
-                        Reset
-                    </a>
+                    <div>
+                        <a href="javascript:void(0)" onclick="showExportConfirmation('SalesOrder')"
+                           type="button" class="btn btn-success text-white">
+                            <i class="fa-solid fa-file-pdf"></i>&nbsp;
+                            Export
+                        </a>
+                        <a asp-area="Admin" asp-controller="SalesOrder" asp-action="Index" type="button" class="btn btn-warning text-white">
+                            <i class="fa-solid fa-arrows-rotate"></i>&nbsp;
+                            Reset
+                        </a>
+                    </div>
+                    
                 </div>
 
                 <div class="table-responsive" id="divTesst">

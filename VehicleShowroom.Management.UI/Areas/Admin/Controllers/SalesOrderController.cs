@@ -2,8 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using VehicleShowroom.Management.Application.Abstracts;
+using VehicleShowroom.Management.Application.Models.DTOs;
 using VehicleShowroom.Management.Application.Models.ViewModels;
+using VehicleShowroom.Management.Application.Services;
 using VehicleShowroom.Management.Application.Utils;
+using VehicleShowroom.Management.Infrastructure.Abstracts;
+using VehicleShowroom.Management.UI.Utils;
 using VehicleShowroomManagementSystem.Areas.Admin.Controllers;
 
 namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
@@ -12,10 +16,12 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
     {
         private readonly INotyfService _toastNotification;
         private readonly ISalesOrderService _salesOrderService;
-        public SalesOrderController(ISalesOrderService salesOrderService, INotyfService notyfService)
+        private readonly IPDFService _pdfService;
+        public SalesOrderController(ISalesOrderService salesOrderService, INotyfService notyfService, IPDFService pDFService)
         {
             _toastNotification = notyfService;
             _salesOrderService = salesOrderService;
+            _pdfService = pDFService;
         }
 
         public async Task<IActionResult> Index(string? keyword, int? page = 1)
@@ -112,6 +118,14 @@ namespace VehicleShowroom.Management.UI.Areas.Admin.Controllers
                 _toastNotification.Error($"{Constant.OperationFailed} Error: {ex.Message}", 3);
             }
             return RedirectToAction("Index", new { page = page ?? 1 });
+        }
+        [HttpGet]
+        public async Task<IActionResult> ExportAll()
+        { 
+            var data = await _salesOrderService.GetAllExportSale();
+            string html = await this.RenderViewAsync<List<SaleOrderExportDTO>>(RouteData, "_TemplateReportUserPendingAll", data, true);
+            var result = _pdfService.GeneratePDF(html);
+            return File(result, "application/pdf", $"{DateTime.Now.Ticks}.pdf");
         }
     }
 }

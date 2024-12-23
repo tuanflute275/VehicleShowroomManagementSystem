@@ -1,0 +1,134 @@
+﻿@model List<VehicleShowroom.Management.Application.Models.DTOs.SaleOrderExportDTO>
+@{
+    int i = 1;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List UserPending</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .stock-container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+            .header h1 {
+                margin: 0;
+                color: #333;
+            }
+
+            .header p {
+                margin: 5px 0;
+                font-size: 14px;
+                color: #666;
+            }
+
+        .stock-info {
+            margin-bottom: 20px;
+        }
+
+            .stock-info h2 {
+                margin-bottom: 10px;
+                font-size: 18px;
+            }
+
+        .stock-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+            .stock-table th, .stock-table td {
+                border: 1px solid #ddd;
+                padding: 10px;
+                text-align: left;
+            }
+
+            .stock-table th {
+                background-color: #ccc;
+                color: black;
+            }
+
+            .stock-table tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            .stock-table td.text-center {
+                text-align: center;
+            }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stock-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>List UserPending</h1>
+            <p>Address: 123 Main Street, City, Country</p>
+            <p>Phone: +123456789 | Email: info@showroom.com</p>
+            <p>Date: <span id="currentDate">12/2/2024</span></p>
+        </div>
+
+        <!-- Stock Information -->
+        <div class="stock-info">
+            <table class="stock-table">
+                <thead>
+                    <tr style="background: #ccc !important">
+                        <th class="text-center">#No</th>
+                        <th class="text-center">SalesOrder</th>
+                        <th class="text-center">FullName</th>
+                        <th class="text-center">PhoneNumber</th>
+                        <th class="text-center">OrderDate</th>
+                        <th class="text-center">TotalAmount</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="text-center text-muted">#@i</td>
+                            <td class="text-center">#@item.SalesOrderId</td>
+                            <td class="text-center">@item.FullName</td>
+                            <td class="text-center">@item.PhoneNumber</td>
+                            <td class="text-center">@item.OrderDate</td>
+                            <td class="text-center">@string.Format("{0:C}", item.TotalAmount)</td>
+                        </tr>
+                        i++;
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Thank you for choosing Vehicle Showroom Management System!</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString();
+    </script>
+
+</body>
+</html>
