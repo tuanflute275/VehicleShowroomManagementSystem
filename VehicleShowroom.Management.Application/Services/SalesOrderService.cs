@@ -291,5 +291,40 @@ namespace VehicleShowroom.Management.Application.Services
 
             return result;
         }
+
+        public async Task<List<SaleOrderExportDTO>> GetAllExportSale()
+        {
+            try{
+                // Lấy thông tin đơn hàng từ SalesOrderRepository
+                var salesOrder = await _unitOfWork.SalesOrderRepository.GetAllAsync(
+                    expression: x => x.Status.Contains(Constant.PENDING), // Kiểm tra đúng SalesOrderId
+                    include: query => query.Include(x => x.User)    // Nạp thông tin User liên quan
+                );
+                var listSaleDTO = new List<SaleOrderExportDTO>();
+                foreach (var item in salesOrder)
+                {
+                    // Ánh xạ dữ liệu thành DTO
+                    var saleOrderdto = new SaleOrderExportDTO
+                    {
+                        SalesOrderId = item.SalesOrderId,
+                        UserId = item.UserId,
+                        FullName = item.User.FullName,
+                        PhoneNumber = item.User.PhoneNumber,
+                        OrderDate = item.OrderDate.ToString(),
+                        TotalAmount = item.TotalAmount,
+
+                    };
+                    listSaleDTO.Add(saleOrderdto);
+                }
+
+                return listSaleDTO;
+            }
+            catch (Exception ex)
+            {
+                // Xử lý các ngoại lệ khác
+                Console.WriteLine($"[Unhandled Error] {ex.Message}");
+                throw new ApplicationException("An error occurred while fetching the sales order details.", ex);
+            }
+        }
     }
 }

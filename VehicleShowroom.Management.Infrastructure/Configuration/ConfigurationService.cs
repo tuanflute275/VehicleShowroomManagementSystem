@@ -46,9 +46,16 @@ namespace VehicleShowroom.Management.Infrastructure.Configuration
                       };
 
                       options.LoginPath = "/login"; // Đường dẫn login
+                      options.AccessDeniedPath = "/accessDenied";
                       options.ReturnUrlParameter = "returnUrl"; // Tham số đường dẫn trả về
                       options.SlidingExpiration = true; // Bật tính năng hết hạn session động
                   });
+                services.AddAuthorization(options =>
+                {
+                    options.AddPolicy("Admin", policy => policy.RequireRole("Admin"));
+                    options.AddPolicy("Invoice", policy => policy.RequireRole("Admin"));
+                    options.AddPolicy("Employee", policy => policy.RequireRole("Admin"));
+                });
 
 
             services.AddRazorPages()

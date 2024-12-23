@@ -42,9 +42,9 @@
                             </span>
                         </div>
                     </form>
-                   <div>
+                    <div>
                         <a href="javascript:void(0)" onclick="showExportConfirmation('StockHistory')"
-                            type="button" class="btn btn-success text-white">
+                           type="button" class="btn btn-success text-white">
                             <i class="fa-solid fa-file-pdf"></i>&nbsp;
                             Export
                         </a>
@@ -52,7 +52,7 @@
                             <i class="fa-solid fa-arrows-rotate"></i>&nbsp;
                             Reset
                         </a>
-                   </div>
+                    </div>
                 </div>
 
                 <div class="table-responsive" id="divTesst">
@@ -68,7 +68,10 @@
                                 <th class="text-center">Supplier Name</th>
                                 <th class="text-center">Company Name</th>
                                 <th class="text-center">Change Date</th>
-                                <th class="text-center">Actions</th>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <th class="text-center">Actions</th>
+                                }
                             </tr>
                         </thead>
                         <tbody>
@@ -93,25 +96,28 @@
                                     <td class="text-center">@item.CompanyName</td>
                                     <td class="text-center">@String.Format("{0:MM/dd/yyyy}", item.ChangeDate)</td>
                                     <td class="text-center">
-                                       @*  <a asp-area="Admin" asp-controller="StockHistory" asp-action="ExportPDF" asp-route-id="@item.StockHistoryId"
-                                           class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
-                                            <span class="btn-icon-wrapper opacity-8">
-                                                <i class="fa-solid fa-file-pdf"></i>
-                                            </span>
-                                        </a>
-                                        <a asp-area="Admin" asp-controller="StockHistory" asp-action="Detail" asp-route-id="@item.StockHistoryId"
-                                           class="btn btn-hover-shine btn-outline-info border-0 btn-sm">
-                                            <span class="btn-icon-wrapper opacity-8">
-                                                <i class="fa-solid fa-eye"></i>
-                                            </span>
-                                        </a> *@
-                                        <a href="javascript:void(0)" onclick="showDeleteConfirmation('StockHistory', '@item.StockHistoryId', '@ViewData["CurrentPage"]')"
-                                           data-toggle="tooltip" data-placement="bottom"
-                                           class="btn btn-outline-danger border-0 btn-sm">
-                                            <span class="btn-icon-wrapper opacity-8">
-                                                <i class="fa fa-trash fa-w-20"></i>
-                                            </span>
-                                        </a>
+                                        @*  <a asp-area="Admin" asp-controller="StockHistory" asp-action="ExportPDF" asp-route-id="@item.StockHistoryId"
+                                    class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
+                                    <span class="btn-icon-wrapper opacity-8">
+                                    <i class="fa-solid fa-file-pdf"></i>
+                                    </span>
+                                    </a>
+                                    <a asp-area="Admin" asp-controller="StockHistory" asp-action="Detail" asp-route-id="@item.StockHistoryId"
+                                    class="btn btn-hover-shine btn-outline-info border-0 btn-sm">
+                                    <span class="btn-icon-wrapper opacity-8">
+                                    <i class="fa-solid fa-eye"></i>
+                                    </span>
+                                    </a> *@
+                                        @if (User.IsInRole("Admin"))
+                                        {
+                                            <a href="javascript:void(0)" onclick="showDeleteConfirmation('StockHistory', '@item.StockHistoryId', '@ViewData["CurrentPage"]')"
+                                               data-toggle="tooltip" data-placement="bottom"
+                                               class="btn btn-outline-danger border-0 btn-sm">
+                                                <span class="btn-icon-wrapper opacity-8">
+                                                    <i class="fa fa-trash fa-w-20"></i>
+                                                </span>
+                                            </a>
+                                        }
                                     </td>
                                 </tr>
                                 i++;

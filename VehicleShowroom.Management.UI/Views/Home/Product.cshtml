@@ -1,0 +1,70 @@
+﻿@model IPagedList<VehicleShowroom.Management.Application.Models.DTOs.VehicleDTO>
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+@{
+    ViewData["Title"] = "Product Page";
+}
+
+<!-- Car Section Begin -->
+<section class="car spad p-0">
+    <div class="container">
+        <!-- Tiêu đề danh sách -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title text-center">
+                    <h2>List of Vehicles</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Danh sách phương tiện -->
+        <div class="row car-filter">
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var v in Model)
+                {
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                        <div class="car__item shadow-sm rounded overflow-hidden">
+                            <a asp-controller="Home" asp-action="Detail" asp-route-id="@v.VehicleId">
+                                <img src="@(Url.Content("~/Uploads/vehicles/" + v.Image))"
+                                     alt="@v.Name" class="car__image img-fluid"
+                                     style="width: 100%; height: 150px; object-fit: cover;" />
+                            </a>
+                            <div class="car__item__text p-3">
+                                <div class="car__item__text__inner">
+                                    <div class="label-date text-primary">@v.ModelNumber</div>
+                                    <h5 class="mt-2 mb-1"><a href="javascript:void(0)" class="text-dark">@v.Name</a></h5>
+                                    <p class="mb-1 text-secondary"><strong>Company:</strong> @v.CompanyName</p>
+                                    <p class="mb-0 text-secondary"><strong>Supplier:</strong> @v.SupplierName</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="col-lg-12 text-center">
+                    <div class="alert alert-warning" role="alert">
+                        No vehicles found!
+                    </div>
+                </div>
+            }
+        </div>
+
+        <!-- Phân trang -->
+        <nav class="d-flex justify-content-center mt-4" aria-label="Pagination Navigation">
+            <ul class="pagination">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }),
+                         new PagedListRenderOptions
+                {
+                    LiElementClasses = new[] { "page-item" },
+                    PageClasses = new[] { "page-link" },
+                    UlElementClasses = new[] { "pagination" }
+                })
+            </ul>
+        </nav>
+    </div>
+</section>
+
+<!-- Car Section End -->

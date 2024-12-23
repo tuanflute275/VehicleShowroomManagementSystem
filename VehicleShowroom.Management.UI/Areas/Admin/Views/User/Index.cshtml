@@ -22,15 +22,18 @@
                     </div>
                 </div>
             </div>
-
-            <div class="page-title-actions">
-                <a asp-area="Admin" asp-controller="User" asp-action="Create" class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
-                    <span class="btn-icon-wrapper pr-2 opacity-7">
-                        <i class="fa fa-plus fa-w-20"></i>
-                    </span>
-                    Create
-                </a>
-            </div>
+           
+            @if (User.IsInRole("Admin"))
+            {
+                <div class="page-title-actions">
+                    <a asp-area="Admin" asp-controller="User" asp-action="Create" class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
+                        <span class="btn-icon-wrapper pr-2 opacity-7">
+                            <i class="fa fa-plus fa-w-20"></i>
+                        </span>
+                        Create
+                    </a>
+                </div>
+            }
         </div>
     </div>
 
@@ -120,31 +123,50 @@
                                             item.Status == 0 ? "Resigned" : "Not specified")
                                     </td>
                                     <td class="text-center">
-                                        <a asp-area="Admin" asp-controller="User" asp-action="ExportPDF" asp-route-id="@item.UserId"
-                                           class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
-                                            <span class="btn-icon-wrapper opacity-8">
-                                                <i class="fa-solid fa-file-pdf"></i>
-                                            </span>
-                                        </a>
-                                        <a asp-area="Admin" asp-controller="User" asp-action="Detail" asp-route-id="@item.UserId"
-                                           class="btn btn-hover-shine btn-outline-info border-0 btn-sm">
-                                            <span class="btn-icon-wrapper opacity-8">
-                                                <i class="fa-solid fa-eye"></i>
-                                            </span>
-                                        </a>
-                                        <a asp-controller="User" asp-action="Edit" asp-route-id="@item.UserId" data-toggle="tooltip"
-                                           data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
-                                            <span class="btn-icon-wrapper opacity-8">
-                                                <i class="fa fa-edit fa-w-20"></i>
-                                            </span>
-                                        </a>
-                                        <a href="javascript:void(0)" onclick="showDeleteConfirmation('User', '@item.UserId', '@ViewData["CurrentPage"]')"
-                                           data-toggle="tooltip" data-placement="bottom" 
-                                           class="btn btn-outline-danger border-0 btn-sm">
-                                            <span class="btn-icon-wrapper opacity-8">
-                                                <i class="fa fa-trash fa-w-20"></i>
-                                            </span>
-                                        </a>
+                                        @if (User.IsInRole("Admin"))
+                                        {
+                                            <a asp-area="Admin" asp-controller="User" asp-action="ExportPDF" asp-route-id="@item.UserId"
+                                               class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
+                                                <span class="btn-icon-wrapper opacity-8">
+                                                    <i class="fa-solid fa-file-pdf"></i>
+                                                </span>
+                                            </a>
+                                            <a asp-area="Admin" asp-controller="User" asp-action="Detail" asp-route-id="@item.UserId"
+                                               class="btn btn-hover-shine btn-outline-info border-0 btn-sm">
+                                                <span class="btn-icon-wrapper opacity-8">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </span>
+                                            </a>
+                                            <a asp-controller="User" asp-action="Edit" asp-route-id="@item.UserId" data-toggle="tooltip"
+                                               data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
+                                                <span class="btn-icon-wrapper opacity-8">
+                                                    <i class="fa fa-edit fa-w-20"></i>
+                                                </span>
+                                            </a>
+                                            <a href="javascript:void(0)" onclick="showDeleteConfirmation('User', '@item.UserId', '@ViewData["CurrentPage"]')"
+                                               data-toggle="tooltip" data-placement="bottom"
+                                               class="btn btn-outline-danger border-0 btn-sm">
+                                                <span class="btn-icon-wrapper opacity-8">
+                                                    <i class="fa fa-trash fa-w-20"></i>
+                                                </span>
+                                            </a>
+                                        }
+                                        @if (User.IsInRole("Invoice"))
+                                        {
+                                            <a asp-area="Admin" asp-controller="User" asp-action="ExportPDF" asp-route-id="@item.UserId"
+                                               class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
+                                                <span class="btn-icon-wrapper opacity-8">
+                                                    <i class="fa-solid fa-file-pdf"></i>
+                                                </span>
+                                            </a>
+                                            <a asp-area="Admin" asp-controller="User" asp-action="Detail" asp-route-id="@item.UserId"
+                                               class="btn btn-hover-shine btn-outline-info border-0 btn-sm">
+                                                <span class="btn-icon-wrapper opacity-8">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </span>
+                                            </a>
+                                        }
+                                       
                                     </td>
                                 </tr>
                                 i++;

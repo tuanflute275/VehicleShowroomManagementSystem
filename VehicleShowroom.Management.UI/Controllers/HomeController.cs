@@ -22,7 +22,15 @@ namespace VehicleShowroomManagementSystem.Controllers
             _toastNotification = notyfService;
         }
 
-        public async Task<IActionResult> Index(string? keyword, int? page = 1)
+        public async Task<IActionResult> Index()
+        {
+            var data = await _vehicleService.GetAllPaginationAsync(null, 1, 8);
+            return View(data);
+        }
+
+        [HttpPost]
+        [Route("search")]
+        public async Task<IActionResult> Product(string? keyword, int? page = 1)
         {
             ViewBag.keyword = keyword;
             ViewData["CurrentPage"] = page;

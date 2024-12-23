@@ -23,14 +23,17 @@
                 </div>
             </div>
 
-            <div class="page-title-actions">
-                <a asp-area="Admin" asp-controller="SalesOrder" asp-action="Create" class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
-                    <span class="btn-icon-wrapper pr-2 opacity-7">
-                        <i class="fa fa-plus fa-w-20"></i>
-                    </span>
-                    Create
-                </a>
-            </div>
+            @if (User.IsInRole("Admin"))
+            {
+                <div class="page-title-actions">
+                    <a asp-area="Admin" asp-controller="SalesOrder" asp-action="Create" class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
+                        <span class="btn-icon-wrapper pr-2 opacity-7">
+                            <i class="fa fa-plus fa-w-20"></i>
+                        </span>
+                        Create
+                    </a>
+                </div>
+            }
         </div>
     </div>
 
@@ -50,10 +53,18 @@
                             </span>
                         </div>
                     </form>
-                    <a asp-area="Admin" asp-controller="SalesOrder" asp-action="Index" type="button" class="btn btn-warning text-white">
-                        <i class="fa-solid fa-arrows-rotate"></i>&nbsp;
-                        Reset
-                    </a>
+                    <div>
+                        <a href="javascript:void(0)" onclick="showExportConfirmation('SalesOrder')"
+                           type="button" class="btn btn-success text-white">
+                            <i class="fa-solid fa-file-pdf"></i>&nbsp;
+                            Export
+                        </a>
+                        <a asp-area="Admin" asp-controller="SalesOrder" asp-action="Index" type="button" class="btn btn-warning text-white">
+                            <i class="fa-solid fa-arrows-rotate"></i>&nbsp;
+                            Reset
+                        </a>
+                    </div>
+
                 </div>
 
                 <div class="table-responsive" id="divTesst">
@@ -68,7 +79,11 @@
                                 <th class="text-center">Status</th>
                                 <th class="text-center">Total Amount</th>
                                 <th class="text-center">Order Date</th>
-                                <th class="text-center">Actions</th>
+                                @if (User.IsInRole("Admin") || User.IsInRole("Employee"))
+                                {
+                                    <th class="text-center">Actions</th>
+
+                                }
                             </tr>
                         </thead>
                         <tbody>
@@ -91,27 +106,47 @@
                                     <td class="text-center">@item.Status</td>
                                     <td class="text-center">@string.Format("{0:C}", item.TotalAmount)</td>
                                     <td class="text-center">@item.OrderDate</td>
-                                    <td class="text-center">
-                                        <a asp-area="Admin" asp-controller="SalesOrder" asp-action="Detail" asp-route-id="@item.SalesOrderId"
-                                           class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
-                                            <span class="btn-icon-wrapper opacity-8">
-                                                <i class="fa-solid fa-eye"></i>
-                                            </span>
-                                        </a>
-                                        <a asp-controller="SalesOrder" asp-action="Edit" asp-route-id="@item.SalesOrderId" data-toggle="tooltip"
-                                           data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
-                                            <span class="btn-icon-wrapper opacity-8">
-                                                <i class="fa fa-edit fa-w-20"></i>
-                                            </span>
-                                        </a>
-                                        <a href="javascript:void(0)" onclick="showDeleteConfirmation('SalesOrder', '@item.SalesOrderId', '@ViewData["CurrentPage"]')"
-                                           data-toggle="tooltip" data-placement="bottom"
-                                           class="btn btn-outline-danger border-0 btn-sm">
-                                            <span class="btn-icon-wrapper opacity-8">
-                                                <i class="fa fa-trash fa-w-20"></i>
-                                            </span>
-                                        </a>
-                                    </td>
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <td class="text-center">
+                                            <a asp-area="Admin" asp-controller="SalesOrder" asp-action="Detail" asp-route-id="@item.SalesOrderId"
+                                               class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
+                                                <span class="btn-icon-wrapper opacity-8">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </span>
+                                            </a>
+                                            <a asp-controller="SalesOrder" asp-action="Edit" asp-route-id="@item.SalesOrderId" data-toggle="tooltip"
+                                               data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
+                                                <span class="btn-icon-wrapper opacity-8">
+                                                    <i class="fa fa-edit fa-w-20"></i>
+                                                </span>
+                                            </a>
+                                            <a href="javascript:void(0)" onclick="showDeleteConfirmation('SalesOrder', '@item.SalesOrderId', '@ViewData["CurrentPage"]')"
+                                               data-toggle="tooltip" data-placement="bottom"
+                                               class="btn btn-outline-danger border-0 btn-sm">
+                                                <span class="btn-icon-wrapper opacity-8">
+                                                    <i class="fa fa-trash fa-w-20"></i>
+                                                </span>
+                                            </a>
+                                        </td>
+                                    }
+                                    @if (User.IsInRole("Employee"))
+                                    {
+                                        <td class="text-center">
+                                            <a asp-area="Admin" asp-controller="SalesOrder" asp-action="Detail" asp-route-id="@item.SalesOrderId"
+                                               class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
+                                                <span class="btn-icon-wrapper opacity-8">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </span>
+                                            </a>
+                                            <a asp-controller="SalesOrder" asp-action="Edit" asp-route-id="@item.SalesOrderId" data-toggle="tooltip"
+                                               data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
+                                                <span class="btn-icon-wrapper opacity-8">
+                                                    <i class="fa fa-edit fa-w-20"></i>
+                                                </span>
+                                            </a>
+                                        </td>
+                                    }
                                 </tr>
                                 i++;
                             }

@@ -215,22 +215,6 @@
                 </div>
             }
         </div>
-        <nav role="navigation" aria-label="Pagination Navigation" class="flex items-center justify-between">
-
-            <div>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }),
-                                 new PagedListRenderOptions
-                        {
-                            LiElementClasses = new[] { "page-item" },
-                            PageClasses = new[] { "page-link" },
-                            UlElementClasses = new[] { "pagination" }
-                        })
-                    </ul>
-                </nav>
-            </div>
-        </nav>
     </div>
 </section>
 <!-- Car Section End -->

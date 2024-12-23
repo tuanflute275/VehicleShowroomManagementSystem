@@ -5,6 +5,7 @@ using System.Security.Claims;
 using VehicleShowroom.Management.Application.Abstracts;
 using VehicleShowroom.Management.Application.Models.ViewModels;
 using VehicleShowroom.Management.Application.Models.DTOs;
+using AspNetCoreHero.ToastNotification.Abstractions;
 
 namespace VehicleShowroomManagementSystem.Areas.Admin.Controllers
 {
@@ -12,9 +13,18 @@ namespace VehicleShowroomManagementSystem.Areas.Admin.Controllers
     public class AuthController : Controller
     {
         private readonly IUserService _userService;
-        public AuthController(IUserService userService)
+        private readonly INotyfService _notyfService;
+        public AuthController(IUserService userService, INotyfService notyfService)
         {
             _userService = userService;
+            _notyfService = notyfService;   
+        }
+
+        [HttpGet]
+        [Route("accessDenied")]
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
 
         [HttpGet]
@@ -44,10 +54,13 @@ namespace VehicleShowroomManagementSystem.Areas.Admin.Controllers
                 // Lưu thông tin đăng nhập vào cookie và chuyển hướng người dùng
                 await SignInUser(user);
 
-                //_toastNotification.Success("Login successfully!");
+                _notyfService.Success("Login successfully!");
 
                 // Redirect về URL nếu có, hoặc về trang chủ
-                return Url.IsLocalUrl(returnUrl) ? Redirect(returnUrl) : RedirectToAction("Index", "Home");
+                if(user.Role != 0)
+                    return Url.IsLocalUrl(returnUrl) ? Redirect(returnUrl) : RedirectToAction("Index", "Home");
+                else
+                    return Redirect("/");
             }
             catch (Exception e)
             {
@@ -65,6 +78,7 @@ namespace VehicleShowroomManagementSystem.Areas.Admin.Controllers
                 0 => "User",
                 1 => "Admin",
                 2 => "Employee",
+                3 => "Invoice",
                 _ => "User"
             };
 
@@ -75,7 +89,7 @@ namespace VehicleShowroomManagementSystem.Areas.Admin.Controllers
             new Claim("userFullName", user.FullName ?? string.Empty),
             new Claim(ClaimTypes.Email, user.Email ?? string.Empty),
             new Claim("avatar", user.Avatar ?? string.Empty),
-            new Claim("Role", roleClaim ?? "User")
+            new Claim(ClaimTypes.Role, roleClaim ?? "User")
         };
 
             var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
