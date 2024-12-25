@@ -151,13 +151,25 @@ namespace VehicleShowroom.Management.Application.Services
         public async Task<IPagedList<VehicleImageDTO>> GetAllImagePaginationAsync(int vehicleId, int page, int pageSize = 8)
         {
             var vehicleImageQuery = _unitOfWork.VehicleImageRepository.GetAllAsync(
-               expression: s => vehicleId != null || s.VehicleId == vehicleId,
+               expression: s => s.VehicleId == vehicleId,
                 include: query => query.Include(x => x.Vehicle)
              );
             var vehicleImage = await vehicleImageQuery;
             var vehicleImageList = vehicleImage.ToList();
             var data = _mapper.Map<List<VehicleImageDTO>>(vehicleImageList);
             return data.ToPagedList(page, pageSize);
+        }
+
+        public async Task<List<VehicleImageDTO>> GetAllImageAsync(int vehicleId)
+        {
+            var vehicleImageQuery = _unitOfWork.VehicleImageRepository.GetAllAsync(
+               expression: s => s.VehicleId == vehicleId,
+                include: query => query.Include(x => x.Vehicle)
+             );
+            var vehicleImage = await vehicleImageQuery;
+            var vehicleImageList = vehicleImage.ToList();
+            var data = _mapper.Map<List<VehicleImageDTO>>(vehicleImageList);
+            return data;
         }
 
         public async Task<(bool Success, string ErrorMessage)> SaveImageAsync(VehicleImageViewModel model)

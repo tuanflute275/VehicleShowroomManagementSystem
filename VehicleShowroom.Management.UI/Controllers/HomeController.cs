@@ -43,7 +43,7 @@ namespace VehicleShowroomManagementSystem.Controllers
             var vehicle = await _vehicleService.GetByIdAsync(id);
             if (vehicle == null) return NotFound();
             var data = _mapper.Map<VehicleDTO>(vehicle);
-            var dataImage = await _vehicleService.GetAllImagePaginationAsync(id, 1, 99);
+            var dataImage = await _vehicleService.GetAllImageAsync(id);
             ViewBag.ListImage = dataImage;
             return View(data);
         }

@@ -1095,6 +1095,29 @@ namespace VehicleShowroom.Management.DataAccess
                 }
 
                 // Data PurchaseOrders
+                if (!appContext.VehicleImages.Any())
+                {
+                    // Insert the seed data for PurchaseOrders table
+                    appContext.VehicleImages.AddRange(
+                        new VehicleImage { VehicleId = 1, Path = "00a44253-f5b8-4a90-a050-5c3d46edd1d5.webp" },
+                        new VehicleImage { VehicleId = 1, Path = "44bc1f07-354f-46a4-8aa9-31af6e5f3658.webp" },
+                        new VehicleImage { VehicleId = 1, Path = "4d8271b1-8384-4b74-8acd-d2f6e435050c.webp" },
+                        new VehicleImage { VehicleId = 1, Path = "5172bea6-fc63-4e31-bed3-f986d5c109da.webp" },
+                        new VehicleImage { VehicleId = 1, Path = "519aebab-64c7-4d90-b118-0bdc787de754.webp" },
+                        new VehicleImage { VehicleId = 1, Path = "5357b971-b551-463c-8000-5293f594b5e2.webp" },
+                        new VehicleImage { VehicleId = 1, Path = "605a5f4e-df1a-4a6b-b828-e12688adbd52.webp" },
+                        new VehicleImage { VehicleId = 1, Path = "62d206aa-4f7b-488f-94a4-2639dd09d032.webp" },
+                        new VehicleImage { VehicleId = 1, Path = "7fb1a3cb-5417-473e-bd86-3970a3e798e8.webp" },
+                        new VehicleImage { VehicleId = 1, Path = "85d709a4-048b-4222-8936-12e0dab9d7b2.webp" },
+                        new VehicleImage { VehicleId = 1, Path = "cc5ea296-659d-48cf-a822-88bf59e8dda5.webp" },
+                        new VehicleImage { VehicleId = 1, Path = "df56468a-9043-4836-b891-dfc60e738788.webp" },
+                        new VehicleImage { VehicleId = 1, Path = "e5fcaf0b-d94b-445b-90d2-8f829ae709c5.webp" }
+                      
+                    );
+                    await appContext.SaveChangesAsync();
+                }
+
+                // Data PurchaseOrders
                 if (!appContext.PurchaseOrders.Any())
                 {
                     // Insert the seed data for PurchaseOrders table

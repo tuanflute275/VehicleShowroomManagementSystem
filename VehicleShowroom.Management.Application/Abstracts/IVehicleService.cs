@@ -18,6 +18,7 @@ namespace VehicleShowroom.Management.Application.Abstracts
 
         //VehicleImage
         Task<IPagedList<VehicleImageDTO>> GetAllImagePaginationAsync(int vehicleId, int page, int pageSize = 8);
+        Task<List<VehicleImageDTO>> GetAllImageAsync(int vehicleId);
         Task<(bool Success, string ErrorMessage)> SaveImageAsync(VehicleImageViewModel model);
         Task<(bool Success, string ErrorMessage)> UpdateImageAsync(VehicleImageEditViewModel model);
         Task<(bool Success, string ErrorMessage)> DeleteImageAsync(int id);

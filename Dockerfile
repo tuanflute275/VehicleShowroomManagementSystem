@@ -39,6 +39,9 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 
+# Debug: Liệt kê các file trong thư mục /app
+RUN ls -al /app
+
 ENTRYPOINT ["dotnet", "VehicleShowroomManagementSystem.dll"]
 
 # docker build -t showroom-webapp:1.0.0 -f ./Dockerfile .
