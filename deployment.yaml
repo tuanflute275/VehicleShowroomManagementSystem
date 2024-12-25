@@ -1,0 +1,49 @@
+version: "3.8"
+
+services:
+  sqlserver-container-showroom:
+    container_name: sqlserver-container-showroom
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Admin@1234
+    ports:
+      - "1433:1433"
+    networks:
+      - shopapp-asp-network
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+  asp-web-container-showroom:
+    container_name: asp-web-container-showroom
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - MSSQL_SA_PASSWORD=Admin@1234
+    ports:
+      - "5000:8080"
+    depends_on:
+      - sqlserver-container-showroom
+    networks:
+      - shopapp-asp-network
+
+volumes:
+  sqlserver-data:
+    driver: local
+
+networks:
+  shopapp-asp-network:
+    name: shopapp-asp-network
+    driver: bridge
+    external: true
+
+# Step 1: 
+# docker-compose -f ./deployment.yaml up -d sqlserver-container-showroom
+
+# Step 2:
+# docker-compose -f ./deployment.yaml up -d asp-web-container-showroom
+
+#
+# kiểm tra network
+# docker network ls
+# docker network inspect 07e49996e124
