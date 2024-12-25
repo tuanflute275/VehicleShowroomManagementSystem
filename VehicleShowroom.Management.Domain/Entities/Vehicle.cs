@@ -21,7 +21,7 @@ namespace VehicleShowroom.Management.Domain.Entities
         public string? Slug { get; set; }
 
         [StringLength(255)]
-        public string Image { get; set; }
+        public string? Image { get; set; }
 
         [StringLength(20)]
         public string? Status { get; set; } = "Available";
@@ -45,16 +45,16 @@ namespace VehicleShowroom.Management.Domain.Entities
         public string? ChassisNumber { get; set; } //Số khung
 
         [StringLength(50)]
-        public string FuelType { get; set; } // Loại nhiên liệu
+        public string? FuelType { get; set; } // Loại nhiên liệu
 
         [StringLength(50)]
-        public string TransmissionType { get; set; } // Loại hộp số
+        public string? TransmissionType { get; set; } // Loại hộp số
 
         [StringLength(50)]
-        public string Color { get; set; } // Màu sắc xe
+        public string? Color { get; set; } // Màu sắc xe
 
         [Column(TypeName = "decimal(15,2)")]
-        public decimal? Price { get; set; } // Giá xe
+        public decimal Price { get; set; } // Giá xe
 
         [Column(TypeName = "decimal(10,2)")]
         public decimal? Mileage { get; set; } // Số km đã đi

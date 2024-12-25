@@ -18,11 +18,11 @@ namespace VehicleShowroom.Management.Application.Models.ViewModels
         [RegularExpression("^(Available|In Service|Sold)$", ErrorMessage = "Status must be either 'Available' or 'In Service' or 'Sold'.")]
         public string? Status { get; set; } = "Active";
 
-        public string? EngineNumber { get; set; } = "NULL";
-        public string? ChassisNumber { get; set; } = "NULL";
-        public string? FuelType { get; set; } = "NULL";
-        public string? TransmissionType { get; set; } = "NULL";
-        public string? Color { get; set; } = "NULL";
+        public string? EngineNumber { get; set; } = "";
+        public string? ChassisNumber { get; set; } = "";
+        public string? FuelType { get; set; } = "";
+        public string? TransmissionType { get; set; } = "";
+        public string? Color { get; set; } = "";
 
         [Range(1, int.MaxValue, ErrorMessage = "Price is required.")]
         public decimal? Price { get; set; }

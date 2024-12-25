@@ -42,9 +42,9 @@
                             </div>
                         </div>
                         <div class="position-relative row form-group">
-                            <label for="ModelNumber" class="col-md-3 text-md-right col-form-label">Model Number</label>
+                            <label for="ModelNumber" class="col-md-3 text-md-right col-form-label">ModelNumber</label>
                             <div class="col-md-9 col-xl-8">
-                                <input asp-for="ModelNumber" placeholder="Enter your user name" type="text"
+                                <input asp-for="ModelNumber" placeholder="Enter your model number" type="text"
                                        class="form-control">
                                 <span asp-validation-for="ModelNumber" class="text-danger"></span>
                             </div>
@@ -57,12 +57,18 @@
                                 <span asp-validation-for="Name" class="text-danger"></span>
                             </div>
                         </div>
-
-
+                        <div class="position-relative row form-group">
+                            <label for="Price" class="col-md-3 text-md-right col-form-label">Price</label>
+                            <div class="col-md-9 col-xl-8">
+                                <input asp-for="Price" placeholder="Enter your Price" type="number"
+                                       class="form-control">
+                                <span asp-validation-for="Price" class="text-danger"></span>
+                            </div>
+                        </div>
                         <div class="position-relative row form-group">
                             <label for="EngineNumber" class="col-md-3 text-md-right col-form-label">EngineNumber</label>
                             <div class="col-md-9 col-xl-8">
-                                <input asp-for="EngineNumber" placeholder="Enter your EngineNumber" type="text"
+                                <input asp-for="EngineNumber" placeholder="Enter your engineNumber" type="text"
                                        class="form-control">
                                 <span asp-validation-for="EngineNumber" class="text-danger"></span>
                             </div>
@@ -100,25 +106,9 @@
                             </div>
                         </div>
                         <div class="position-relative row form-group">
-                            <label for="Price" class="col-md-3 text-md-right col-form-label">Price</label>
-                            <div class="col-md-9 col-xl-8">
-                                <input asp-for="Price" placeholder="Enter your Price" type="text"
-                                       class="form-control">
-                                <span asp-validation-for="Price" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="position-relative row form-group">
-                            <label for="Mileage" class="col-md-3 text-md-right col-form-label">Mileage</label>
-                            <div class="col-md-9 col-xl-8">
-                                <input asp-for="Mileage" placeholder="Enter your Mileage" type="text"
-                                       class="form-control">
-                                <span asp-validation-for="Mileage" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="position-relative row form-group">
                             <label for="ManufactureYear" class="col-md-3 text-md-right col-form-label">ManufactureYear</label>
                             <div class="col-md-9 col-xl-8">
-                                <input asp-for="ManufactureYear" placeholder="Enter your ManufactureYear" type="text"
+                                <input asp-for="ManufactureYear" placeholder="Enter your ManufactureYear" type="number"
                                        class="form-control">
                                 <span asp-validation-for="ManufactureYear" class="text-danger"></span>
                             </div>
